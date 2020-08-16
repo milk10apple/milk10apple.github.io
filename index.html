@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="The compiler in my hand will be a part of my soul.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fetasty">
+<meta property="og:url" content="http://fetasty.github.io/index.html">
+<meta property="og:site_name" content="fetasty">
+<meta property="og:description" content="The compiler in my hand will be a part of my soul.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="EricYe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://fetasty.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>fetasty</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fetasty</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">念念不忘, 必有回响</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/python/python-logging/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/python/python-logging/" class="post-title-link" itemprop="url">Python中的logging使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-15 17:14:36" itemprop="dateCreated datePublished" datetime="2020-08-15T17:14:36+08:00">2020-08-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-16 11:05:52" itemprop="dateModified" datetime="2020-08-16T11:05:52+08:00">2020-08-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/python/python-logging/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/python/python-logging/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>正式项目中, 我们不能一直使用print打印日志, 有时候需要将日志输出到文件, 或者控制日志等级, 在调试时打印所有等级日志, 在正式发布版本中不打印Debug和Info等级日志, 就需要用到日志模块, 这里介绍Python自带的logging模块</p>
+<p>logging模块线程安全</p>
+<h2 id="一般使用"><a href="#一般使用" class="headerlink" title="一般使用"></a>一般使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取logger对象, 不传入名字返回默认的root的logger, 使用相同名字返回相同的logger对象</span></span><br><span class="line">my_logger = logging.getLogger(<span class="string">&quot;mylog&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置等级</span></span><br><span class="line">my_logger.setLevel(logging.INFO)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义日志格式</span></span><br><span class="line">formatter = logging.Formatter(<span class="string">&#x27;[%(asctime)s][%(levelname)s] - &#x27;</span>\</span><br><span class="line">    <span class="string">&#x27;%(filename)s[line:%(lineno)d] - %(message)s&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义console日志处理器</span></span><br><span class="line">output_console = logging.StreamHandler() <span class="comment"># 控制台</span></span><br><span class="line">output_console.setFormatter(formatter) <span class="comment"># 设置处理器使用的日志格式</span></span><br><span class="line">output_console.setLevel(logging.INFO) <span class="comment"># 设置处理器处理的日志等级</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义文件日志处理器</span></span><br><span class="line">output_file = logging.FileHandler(filename=<span class="string">r&quot;E:\log\test.log&quot;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">output_file.setFormatter(formatter)</span><br><span class="line">output_file.setLevel(logging.WARNING)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将处理器添加到logger</span></span><br><span class="line">my_logger.addHandler(output_console)</span><br><span class="line">my_logger.addHandler(output_file)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用logger</span></span><br><span class="line">my_logger.debug(<span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line">my_logger.info(<span class="string">&#x27;info test&#x27;</span>)</span><br><span class="line">my_logger.warning(<span class="string">&#x27;warning test&#x27;</span>)</span><br><span class="line">my_logger.error(<span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">my_logger.critical(<span class="string">&#x27;critical&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现错误时打印调用栈</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># do something</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="comment"># 传入exc_info</span></span><br><span class="line">    logger.error(<span class="string">&quot;错误&quot;</span>, exc_info=e)</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>如果只是简单使用root的logger, 则使用<code>logging.basicConfig()</code>函数简单配置即可</p>
+<table>
+<thead>
+<tr>
+<th align="left">格式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><em>filename</em></td>
+<td align="left">使用指定的文件名而不是 StreamHandler 创建 FileHandler。</td>
+</tr>
+<tr>
+<td align="left"><em>filemode</em></td>
+<td align="left">如果指定了 <em>filename</em>，则用此 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/functions.html#filemodes">模式</a> 打开该文件。 默认模式为 <code>&#39;a&#39;</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>format</em></td>
+<td align="left">处理器使用的指定格式字符串。</td>
+</tr>
+<tr>
+<td align="left"><em>datefmt</em></td>
+<td align="left">使用指定的日期/时间格式，与 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/time.html#time.strftime"><code>time.strftime()</code></a> 所接受的格式相同。</td>
+</tr>
+<tr>
+<td align="left"><em>style</em></td>
+<td align="left">如果指定了 <em>format</em>，将为格式字符串使用此风格。 <code>&#39;%&#39;</code>, <code>&#39;&#123;&#39;</code> 或 <code>&#39;$&#39;</code> 分别对应于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/stdtypes.html#old-string-formatting">printf 风格</a>, <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format"><code>str.format()</code></a> 或 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/string.html#string.Template"><code>string.Template</code></a>。 默认为 <code>&#39;%&#39;</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>level</em></td>
+<td align="left">设置根记录器级别去指定 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.html#levels">level</a>.</td>
+</tr>
+<tr>
+<td align="left"><em>stream</em></td>
+<td align="left">使用指定的流初始化 StreamHandler。 请注意此参数与 <em>filename</em> 是不兼容的 - 如果两者同时存在，则会引发 <code>ValueError</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>handlers</em></td>
+<td align="left">如果指定，这应为一个包含要加入根日志记录器的已创建处理程序的可迭代对象。 任何尚未设置格式描述符的处理程序将被设置为在此函数中创建的默认格式描述符。 请注意此参数与 <em>filename</em> 或 <em>stream</em> 不兼容 —— 如果两者同时存在，则会引发 <code>ValueError</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>force</em></td>
+<td align="left">如果将此关键字参数指定为 true，则在执行其他参数指定的配置之前，将移除并关闭附加到根记录器的所有现有处理器。</td>
+</tr>
+</tbody></table>
+<h2 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h2><p>分为5个等级, 从低到高为 DEBUG, INFO, WARNING, ERROR, CRITICAL, 设定一个等级后, 只有等于或者高于该等级的日志才会输出</p>
+<h2 id="日志格式化"><a href="#日志格式化" class="headerlink" title="日志格式化"></a>日志格式化</h2><p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes">LogRecord官方文档</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">属性名称</th>
+<th align="left">格式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">args</td>
+<td align="left">不需要格式化。</td>
+<td align="left">合并到 <code>msg</code> 以产生 <code>message</code> 的包含参数的元组，或是其中的值将被用于合并的字典（当只有一个参数且其类型为字典时）。</td>
+</tr>
+<tr>
+<td align="left">asctime</td>
+<td align="left"><code>%(asctime)s</code></td>
+<td align="left">表示 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 何时被创建的供人查看时间值。 默认形式为 ‘2003-07-08 16:49:45,896’ (逗号之后的数字为时间的毫秒部分)。</td>
+</tr>
+<tr>
+<td align="left">created</td>
+<td align="left"><code>%(created)f</code></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 被创建的时间（即 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/time.html#time.time"><code>time.time()</code></a> 的返回值）。</td>
+</tr>
+<tr>
+<td align="left">exc_info</td>
+<td align="left">不需要格式化。</td>
+<td align="left">异常元组 (例如 <code>sys.exc_info</code>) 或者如未发生异常则为 <code>None</code>。</td>
+</tr>
+<tr>
+<td align="left">文件名</td>
+<td align="left"><code>%(filename)s</code></td>
+<td align="left"><code>pathname</code> 的文件名部分。</td>
+</tr>
+<tr>
+<td align="left">funcName</td>
+<td align="left"><code>%(funcName)s</code></td>
+<td align="left">函数名包括调用日志记录.</td>
+</tr>
+<tr>
+<td align="left">levelname</td>
+<td align="left"><code>%(levelname)s</code></td>
+<td align="left">消息文本记录级别 (<code>&#39;DEBUG&#39;</code>, <code>&#39;INFO&#39;</code>, <code>&#39;WARNING&#39;</code>, <code>&#39;ERROR&#39;</code>, <code>&#39;CRITICAL&#39;</code>).</td>
+</tr>
+<tr>
+<td align="left">levelno</td>
+<td align="left"><code>%(levelno)s</code></td>
+<td align="left">消息数字记录级别 (<code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code>).</td>
+</tr>
+<tr>
+<td align="left">lineno</td>
+<td align="left"><code>%(lineno)d</code></td>
+<td align="left">发出日志记录调用所在的源行号（如果可用）。</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left"><code>%(message)s</code></td>
+<td align="left">记入日志的消息，即 <code>msg % args</code> 的结果。 这是在发起调用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.html#logging.Formatter.format"><code>Formatter.format()</code></a> 时设置的。</td>
+</tr>
+<tr>
+<td align="left">module</td>
+<td align="left"><code>%(module)s</code></td>
+<td align="left">模块 (<code>filename</code> 的名称部分)。</td>
+</tr>
+<tr>
+<td align="left">msecs</td>
+<td align="left"><code>%(msecs)d</code></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 被创建的时间的毫秒部分。</td>
+</tr>
+<tr>
+<td align="left">msg</td>
+<td align="left">不需要格式化。</td>
+<td align="left">在原始日志记录调用中传入的格式字符串。 与 <code>args</code> 合并以产生 <code>message</code>，或是一个任意对象 (参见 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/howto/logging.html#arbitrary-object-messages">使用任意对象作为消息</a>)。</td>
+</tr>
+<tr>
+<td align="left">名称</td>
+<td align="left"><code>%(name)s</code></td>
+<td align="left">用于记录调用的日志记录器名称。</td>
+</tr>
+<tr>
+<td align="left">pathname</td>
+<td align="left"><code>%(pathname)s</code></td>
+<td align="left">发出日志记录调用的源文件的完整路径名（如果可用）。</td>
+</tr>
+<tr>
+<td align="left">process</td>
+<td align="left"><code>%(process)d</code></td>
+<td align="left">进程ID（如果可用）</td>
+</tr>
+<tr>
+<td align="left">processName</td>
+<td align="left"><code>%(processName)s</code></td>
+<td align="left">进程名（如果可用）</td>
+</tr>
+<tr>
+<td align="left">relativeCreated</td>
+<td align="left"><code>%(relativeCreated)d</code></td>
+<td align="left">以毫秒数表示的 LogRecord 被创建的时间，即相对于 logging 模块被加载时间的差值。</td>
+</tr>
+<tr>
+<td align="left">stack_info</td>
+<td align="left">不需要格式化。</td>
+<td align="left">当前线程中从堆栈底部起向上直到包括日志记录调用并导致创建此记录的堆栈帧的堆栈帧信息（如果可用）。</td>
+</tr>
+<tr>
+<td align="left">thread</td>
+<td align="left"><code>%(thread)d</code></td>
+<td align="left">线程ID（如果可用）</td>
+</tr>
+<tr>
+<td align="left">threadName</td>
+<td align="left"><code>%(threadName)s</code></td>
+<td align="left">线程名（如果可用）</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/Lua/lua-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Lua/lua-tutorial/" class="post-title-link" itemprop="url">Lua简明教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-25 19:31:40" itemprop="dateCreated datePublished" datetime="2020-05-25T19:31:40+08:00">2020-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lua/" itemprop="url" rel="index"><span itemprop="name">Lua</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Lua/lua-tutorial/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Lua/lua-tutorial/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Lua"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</h1><h2 id="编译Lua-5-3-5"><a href="#编译Lua-5-3-5" class="headerlink" title="编译Lua 5.3.5"></a>编译Lua 5.3.5</h2><ol>
+<li><p>下载lua5.3.5源码并解压 <a target="_blank" rel="noopener" href="http://www.lua.org/ftp/">www.lua.org/ftp/</a></p>
+</li>
+<li><p>下载配置好Mingw64</p>
+</li>
+<li><p>cd到src目录, 运行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mingw32-make.exe mingw</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将生成在src目录下的文件按结构拷贝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bin:</span><br><span class="line">    lua luac lua53[库文件 dll或其它格式]</span><br><span class="line">include:</span><br><span class="line">    lua.h luaconf.h lualib.h lauxlib.h lua.hpp</span><br><span class="line">lib:</span><br><span class="line">    liblua.a</span><br><span class="line">man&#x2F;man1:</span><br><span class="line">    lua.1 luac.1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="Hello-Word"><a href="#Hello-Word" class="headerlink" title="Hello Word"></a>Hello Word</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello word&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--[[</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">]]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="全局-局部变量"><a href="#全局-局部变量" class="headerlink" title="全局/局部变量"></a>全局/局部变量</h3><p>lua变量默认就是全局的, 注意尽量不要申请全局变量</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- test.lua</span></span><br><span class="line">a = <span class="number">5</span>                <span class="comment">-- 全局变量</span></span><br><span class="line"><span class="keyword">local</span> b = <span class="number">6</span>            <span class="comment">-- 局部变量 文件内有效</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a, b)            <span class="comment">-- 5 6</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">joke</span><span class="params">()</span></span>        <span class="comment">-- 全局函数</span></span><br><span class="line">    c = <span class="number">5</span>            <span class="comment">-- 全局变量</span></span><br><span class="line">    <span class="keyword">local</span> d = <span class="number">6</span>        <span class="comment">-- 局部变量 函数内有效</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>    <span class="comment">-- 局部函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>lua有8个基本类型</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nil</td>
+<td>这个最简单，只有值nil属于该类，表示一个无效值（在条件表达式中相当于false）。</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>包含两个值：false和true。</td>
+</tr>
+<tr>
+<td>number</td>
+<td>表示双精度类型的实浮点数</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串由一对双引号或单引号来表示</td>
+</tr>
+<tr>
+<td>function</td>
+<td>由 C 或 Lua 编写的函数</td>
+</tr>
+<tr>
+<td>userdata</td>
+<td>表示任意存储在变量中的C数据结构</td>
+</tr>
+<tr>
+<td>thread</td>
+<td>表示执行的独立线路，用于执行协同程序</td>
+</tr>
+<tr>
+<td>table</td>
+<td>Lua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字、字符串或表类型。在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。</td>
+</tr>
+</tbody></table>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="string">&quot;Hello world&quot;</span>))      <span class="comment">-- string</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="number">10.4</span>*<span class="number">3</span>))             <span class="comment">-- number</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">print</span>))              <span class="comment">-- function</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">type</span>))               <span class="comment">-- function</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="literal">true</span>))               <span class="comment">-- boolean</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="literal">nil</span>))                <span class="comment">-- nil</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(<span class="built_in">type</span>(X)))            <span class="comment">-- string</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h3><p>删除作用: 对于变量和table, 将变量或者table表里的变量赋值为nil, 等同于把它们删掉</p>
+<h3 id="变量作为判断条件"><a href="#变量作为判断条件" class="headerlink" title="变量作为判断条件"></a>变量作为判断条件</h3><p>作为循环/if的判断条件: <strong>有且仅有false和nil判断为false; 其它都为true, 包括0, 空字符串和空表</strong></p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>lua中没有switch分支, 只有if分支</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> cond1 <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- code1</span></span><br><span class="line"><span class="keyword">elseif</span> cond2 <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- code2</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition <span class="keyword">then</span></span><br><span class="line">    <span class="comment">-- code</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>lua中没有continue语句, 但是有break语句</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">10</span></span><br><span class="line"><span class="keyword">while</span> a &lt; <span class="number">20</span> <span class="keyword">do</span></span><br><span class="line">    <span class="comment">-- some code</span></span><br><span class="line">    a = a + <span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">3</span> <span class="keyword">do</span>            <span class="comment">-- i从1到5, 每次递增1</span></span><br><span class="line">    <span class="built_in">print</span>(i)            <span class="comment">-- 1 2 3</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i = <span class="number">3</span>, <span class="number">1</span>, <span class="number">-1</span> <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i)            <span class="comment">-- 3 2 1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repeat</span></span><br><span class="line">    <span class="comment">-- some code</span></span><br><span class="line"><span class="keyword">until</span> condition            <span class="comment">-- 条件为false时循环</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">(num)</span></span>            <span class="comment">-- 全局函数, 返回值为nil</span></span><br><span class="line">    <span class="built_in">print</span>(num)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">(num)</span></span>    <span class="comment">-- 局部函数</span></span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> test = <span class="function"><span class="keyword">function</span><span class="params">(num)</span></span>    <span class="comment">-- 与上面的代码相同</span></span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="返回多个值"><a href="#返回多个值" class="headerlink" title="返回多个值"></a>返回多个值</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> test = <span class="function"><span class="keyword">function</span><span class="params">(num)</span></span>    <span class="comment">-- 返回多值</span></span><br><span class="line">    <span class="keyword">return</span> num, num * <span class="number">2</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> a, b = test(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">local</span> _, t = test(<span class="number">3</span>)        <span class="comment">-- 丢弃部分返回值</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">local</span> t = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">unpack</span>(t)        <span class="comment">-- return t是返回一个表</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> _, a, b = test()</span><br><span class="line"><span class="built_in">print</span>(a, b)</span><br></pre></td></tr></table></figure>
+
+<h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">(...)</span></span></span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(<span class="built_in">arg</span>) <span class="keyword">do</span>            <span class="comment">-- 传入的参数以table存入, arg[&quot;n&quot;]为参数个数, 会取到n</span></span><br><span class="line">        <span class="built_in">print</span>(k, v)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">ipairs</span>(&#123;...&#125;) <span class="keyword">do</span>         <span class="comment">-- &#123;...&#125;是用传入参数组成的数组</span></span><br><span class="line">        <span class="built_in">print</span>(i, v)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;参数个数为&quot;</span>..#<span class="built_in">arg</span>)             <span class="comment">-- lua5.3.5测试这里总是正确, 即使中间有nil, 长度也正确; 如果不正确, 试试select(&quot;#&quot;, ...)</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h3><p><code>[[ ]]</code>包含的字符串原样输出, 包括换行, 空白, 引号, 转义字符</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">&quot;lua&quot;</span>                <span class="comment">-- lua</span></span><br><span class="line">string2 = <span class="string">&#x27;lua&#x27;</span>                <span class="comment">-- lua</span></span><br><span class="line">string3 = <span class="string">[[&quot;lua数据&quot;\nss]]</span>       <span class="comment">-- &quot;lua数据&quot;\nss</span></span><br><span class="line">string4 = string1..<span class="string">&quot;&amp;&amp;&quot;</span>        <span class="comment">-- lua&amp;&amp; (字符串拼接, 每次拼接需要重新申请空间)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>: 大量字符串拼接时不要使用<code>..</code>, 每次重新申请空间带来的开销很大, 可以用<code>table.insert()</code>先保存到数组, 再<code>table.concat()</code>合并</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>.<span class="built_in">upper</span>(<span class="string">&quot;Lua&quot;</span>)            <span class="comment">-- LUA</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">lower</span>(<span class="string">&quot;Lua&quot;</span>)            <span class="comment">-- lua</span></span><br><span class="line"><span class="comment">--[[ string.gsub(main, find, replace, num) 替换字符串</span></span><br><span class="line"><span class="comment">main为要操作的字符串, find为被替换字符串, replace用来替换的字符串, num替换次数(忽略则全替换)</span></span><br><span class="line"><span class="comment">]]</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">gsub</span>(<span class="string">&quot;aaaa&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;z&quot;</span>, <span class="number">3</span>) <span class="comment">-- zzza 3</span></span><br><span class="line"><span class="comment">--[[ string.find(str, substr, [init, [end]]</span>)</span><br><span class="line">init为索引</span><br><span class="line">]]</span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">find</span>(<span class="string">&quot;Hello lua user&quot;</span>, <span class="string">&quot;lua&quot;</span>) <span class="comment">-- 7 9</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">reverse</span>(<span class="string">&quot;lua&quot;</span>) <span class="comment">-- aul</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">char</span>(<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>) <span class="comment">-- abcd</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">byte</span>(<span class="string">&quot;ABCD&quot;</span>,<span class="number">4</span>) <span class="comment">-- 68 (D的ASCII)</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">byte</span>(<span class="string">&quot;ABC&quot;</span>) <span class="comment">-- 65 (A的ASCII)</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">len</span>(<span class="string">&quot;str&quot;</span>) <span class="comment">-- 3 计算字符串长度, 字节数</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">rep</span>(<span class="string">&quot;abc&quot;</span>, <span class="number">2</span>) <span class="comment">-- abcabc 字符串的n个拷贝</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">gmatch</span>(str, pattern) <span class="comment">-- 每次调用, 则查找下一个模式匹配</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">match</span>(str, pattern init) <span class="comment">-- 返回第一个匹配, init搜寻起始点</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">format</span>(formatstr, ...) <span class="comment">-- 字符串格式化</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h4><p>详细: <a target="_blank" rel="noopener" href="https://www.runoob.com/lua/lua-strings.html">lua字符串</a></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">&quot;Lua&quot;</span></span><br><span class="line">string2 = <span class="string">&quot;Tutorial&quot;</span></span><br><span class="line">number1 = <span class="number">10</span></span><br><span class="line">number2 = <span class="number">20</span></span><br><span class="line"><span class="comment">-- 基本字符串格式化</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;基本格式化 %s %s&quot;</span>,string1,string2))</span><br><span class="line"><span class="comment">-- 日期格式化</span></span><br><span class="line"><span class="built_in">date</span> = <span class="number">2</span>; month = <span class="number">1</span>; year = <span class="number">2014</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;日期格式化 %02d/%02d/%03d&quot;</span>, <span class="built_in">date</span>, month, year))</span><br><span class="line"><span class="comment">-- 十进制格式化</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;%.4f&quot;</span>,<span class="number">1</span>/<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 结果</span></span><br><span class="line">基本格式化 Lua Tutorial</span><br><span class="line">日期格式化 <span class="number">02</span>/<span class="number">01</span>/<span class="number">2014</span></span><br><span class="line"><span class="number">0.3333</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串模式匹配"><a href="#字符串模式匹配" class="headerlink" title="字符串模式匹配"></a>字符串模式匹配</h4><p>支持模式的方法</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>.<span class="built_in">find</span>(s, pattern[, init[, plain]])</span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">match</span>(s, pattern[, init])</span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">gmatch</span>(s, pattern)</span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">gsub</span>(s, pattern, repl[, n])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>.<span class="built_in">match</span>(<span class="string">&#x27;2015-5-12 13:53&#x27;</span>, <span class="string">&#x27;%d+-%d+-%d+&#x27;</span>)    <span class="comment">-- 2015-5-12</span></span><br><span class="line"><span class="built_in">string</span>.<span class="built_in">match</span>(<span class="string">&#x27;2015-5-12 13:53&#x27;</span>, <span class="string">&#x27;(%d+)-(%d+)-(%d+)&#x27;</span>) <span class="comment">-- 2015 5 12</span></span><br></pre></td></tr></table></figure>
+
+<p>详细: <a target="_blank" rel="noopener" href="http://note.youdao.com/noteshare?id=949d9f95814d47328f770da9aa2a2cbb&sub=D0E03ABA00CE49529B4CD226F73CE48E">Lua的字符串匹配与正则表达式</a></p>
+<h2 id="表与数组"><a href="#表与数组" class="headerlink" title="表与数组"></a>表与数组</h2><h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;&#125;     <span class="comment">-- 空表, 空数组</span></span><br><span class="line">t[<span class="number">1</span>] = <span class="string">&quot;lua&quot;</span>     <span class="comment">-- 指定值</span></span><br><span class="line">t = <span class="literal">nil</span>         <span class="comment">-- 删除表</span></span><br><span class="line"><span class="keyword">local</span> t1 = &#123;</span><br><span class="line">    [<span class="number">1</span>] = <span class="string">&quot;lua&quot;</span>,</span><br><span class="line">    <span class="string">&quot;wow&quot;</span> = <span class="string">&quot;ss&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;&#125;</span><br><span class="line">t[<span class="number">1</span>] = <span class="string">&quot;lua&quot;</span></span><br><span class="line">t[<span class="string">&quot;wow&quot;</span>] = <span class="string">&quot;ss&quot;</span></span><br><span class="line"><span class="built_in">print</span>(t[<span class="string">&quot;1&quot;</span>])    <span class="comment">-- nil</span></span><br><span class="line"><span class="built_in">print</span>(t[<span class="string">&quot;wow&quot;</span>]) <span class="comment">-- ss</span></span><br><span class="line"><span class="built_in">print</span>(t.wow)    <span class="comment">-- ss</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p><strong>lua中数组下标从1开始</strong></p>
+<p>数组是以数字为下标的表, 但是表不一定是数组!</p>
+<p>数组长度: <code>#t</code>, <code>table.getn(t)</code>, 如果<strong>中途有下标跳跃则长度统计中断, 有nil值, 如果nil不为最后一个元素, 则也不影响</strong></p>
+<p>这两个操作只能求数组长度, 不要用来求表长度!!</p>
+<p>只有以数字作为下标, 才能成为数组</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;<span class="string">&quot;lua&quot;</span>, <span class="number">333</span>, <span class="string">&quot;ss&quot;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(#t)                <span class="comment">-- 3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">getn</span>(t))    <span class="comment">-- 3</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;</span><br><span class="line">    [<span class="number">1</span>] = <span class="number">33</span>,</span><br><span class="line">    [<span class="string">&quot;ww&quot;</span>] = <span class="string">&quot;ss&quot;</span>,        <span class="comment">-- 表数据, 和数组无关, 最好不要混合使用!</span></span><br><span class="line">    [<span class="number">2</span>] = <span class="number">22</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(#t)                <span class="comment">-- 2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">table</span>.<span class="built_in">getn</span>(t))    <span class="comment">-- 2</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="literal">nil</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(#t)                <span class="comment">-- 2</span></span><br><span class="line">t[<span class="number">4</span>] = <span class="number">4</span>                <span class="comment">-- 相当于local t = &#123;1, 2, nil, 4&#125;</span></span><br><span class="line"><span class="built_in">print</span>(#t)                <span class="comment">-- 4</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;</span><br><span class="line">    [<span class="number">1</span>] = <span class="number">1</span>,</span><br><span class="line">    [<span class="number">2</span>] = <span class="number">1</span>,</span><br><span class="line">    [<span class="number">5</span>] = <span class="number">1</span>,            <span class="comment">-- 下标跳跃, 统计中断</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(#t)                <span class="comment">-- 2</span></span><br><span class="line"><span class="built_in">print</span>(t[<span class="number">3</span>])                <span class="comment">-- nil</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p>pairs 表遍历, 所有key和value都能遍历到, 无论key是数字还是字符串</p>
+<p>ipairs 数组遍历, 只能遍历从1开始的连续数字下标, 中断的数字下标和字符串下标都不会遍历到</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;</span><br><span class="line">    [<span class="string">&quot;aa&quot;</span>] = <span class="string">&quot;at&quot;</span>,</span><br><span class="line">    [<span class="string">&quot;bb&quot;</span>] = <span class="string">&quot;bt&quot;</span>,</span><br><span class="line">    [<span class="string">&quot;cc&quot;</span>] = <span class="string">&quot;ct&quot;</span>,</span><br><span class="line">    [<span class="number">3</span>] = <span class="string">&quot;3t&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(t) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(k), k, v)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 输出</span></span><br><span class="line">number    <span class="number">3</span>    <span class="number">3</span>t    </span><br><span class="line"><span class="built_in">string</span>    cc    ct    </span><br><span class="line"><span class="built_in">string</span>    aa    at    </span><br><span class="line"><span class="built_in">string</span>    bb    bt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;</span><br><span class="line">    [<span class="number">1</span>] = <span class="string">&quot;1t&quot;</span>,</span><br><span class="line">    [<span class="number">2</span>] = <span class="string">&quot;2t&quot;</span>,</span><br><span class="line">    [<span class="number">3</span>] = <span class="string">&quot;3t&quot;</span>,</span><br><span class="line">    [<span class="number">5</span>] = <span class="string">&quot;5t&quot;</span>,        <span class="comment">-- 中断的下标</span></span><br><span class="line">    [<span class="string">&quot;aa&quot;</span>] = at,    <span class="comment">-- 字符串下标</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">ipairs</span>(t) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i, v)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 输出</span></span><br><span class="line"><span class="number">1</span>    <span class="number">1</span>t    </span><br><span class="line"><span class="number">2</span>    <span class="number">2</span>t    </span><br><span class="line"><span class="number">3</span>    <span class="number">3</span>t</span><br></pre></td></tr></table></figure>
+
+<h3 id="table常用函数"><a href="#table常用函数" class="headerlink" title="table常用函数"></a>table常用函数</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">table</span>.<span class="built_in">concat</span> (<span class="built_in">table</span> [, sep [, start [, <span class="keyword">end</span>]]]) <span class="comment">-- 将table数组部分从start到end位置元素以sep分隔符连接起来</span></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">insert</span> (<span class="built_in">table</span>, [pos,] value) <span class="comment">-- 在数组的pos位置(默认尾部)插入一个元素</span></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">remove</span> (<span class="built_in">table</span> [, pos]) <span class="comment">-- 删除数组指定位置(默认尾部)一个元素, 后续元素前移 (连续删除, 要倒序遍历)</span></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">sort</span> (<span class="built_in">table</span> [, comp]) <span class="comment">-- 使用比较函数comp从小到大排序数组</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="元表"><a href="#元表" class="headerlink" title="元表"></a>元表</h2><h3 id="设置和获取元表"><a href="#设置和获取元表" class="headerlink" title="设置和获取元表"></a>设置和获取元表</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setmetatable</span>(<span class="built_in">table</span>, metatable)         <span class="comment">-- 设置table的元表为metatable</span></span><br><span class="line"><span class="built_in">getmetatable</span>(<span class="built_in">table</span>)                    <span class="comment">-- 获取元表</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mytable = <span class="built_in">setmetatable</span>(&#123;&#125;, &#123;&#125;)</span><br><span class="line"><span class="comment">-- 相当于如下操作</span></span><br><span class="line">mytable = &#123;&#125;</span><br><span class="line">mymetatable = &#123;&#125;</span><br><span class="line"><span class="built_in">setmetatable</span>(mytable, mymetatable)</span><br></pre></td></tr></table></figure>
+
+<h3 id="index"><a href="#index" class="headerlink" title="__index"></a>__index</h3><p>metatable最常用键</p>
+<p>通过key访问table时, 如果table中key没有对应value, 则寻找metatable的<code>__index</code>键(假如有metatable); 如果<code>__index</code>是一个表, 则在表中查找; 如果<code>__index</code>是一个函数, 则调用函数, 返回函数返回值</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = <span class="built_in">setmetatable</span>(&#123;&#125;, &#123;</span><br><span class="line">        <span class="built_in">__index</span> = &#123;[<span class="string">&quot;aa&quot;</span>] = <span class="string">&quot;ss&quot;</span>&#125;</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="built_in">print</span>(t[<span class="string">&quot;aa&quot;</span>])    <span class="comment">-- ss</span></span><br><span class="line"><span class="built_in">print</span>(t.aa)        <span class="comment">-- ss</span></span><br><span class="line"><span class="built_in">print</span>(t.bb)        <span class="comment">-- nil</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = <span class="built_in">setmetatable</span>(&#123;&#125;, &#123;</span><br><span class="line">        <span class="built_in">__index</span> = <span class="function"><span class="keyword">function</span><span class="params">(self, key)</span></span></span><br><span class="line">            <span class="keyword">return</span> key</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(t[<span class="string">&quot;aa&quot;</span>])    <span class="comment">-- aa</span></span><br><span class="line"><span class="built_in">print</span>(t.aa)        <span class="comment">-- aa</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="newindex"><a href="#newindex" class="headerlink" title="__newindex"></a>__newindex</h3><p><code>__newindex</code>用于更新表</p>
+<p>给表的一个<strong>缺少的索引</strong>赋值, 解释器先查找<code>__newindex</code>, 如果存在, 则更新<code>__newindex</code>表或者调用<code>__newindex</code>函数</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> st = &#123;&#125;</span><br><span class="line"><span class="keyword">local</span> t = <span class="built_in">setmetatable</span>(&#123;[<span class="string">&quot;aa&quot;</span>] = <span class="string">&quot;ss&quot;</span>&#125;, &#123;</span><br><span class="line">        <span class="built_in">__newindex</span> = st</span><br><span class="line">    &#125;)</span><br><span class="line">t.aa = <span class="string">&quot;ass&quot;</span></span><br><span class="line">t.bb = <span class="string">&quot;bss&quot;</span></span><br><span class="line"><span class="built_in">print</span>(t.aa)        <span class="comment">-- ass</span></span><br><span class="line"><span class="built_in">print</span>(t.bb)        <span class="comment">-- nil</span></span><br><span class="line"><span class="built_in">print</span>(st.aa)    <span class="comment">-- nil</span></span><br><span class="line"><span class="built_in">print</span>(st.bb)    <span class="comment">-- bss</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = <span class="built_in">setmetatable</span>(&#123;&#125;, &#123;</span><br><span class="line">        <span class="built_in">__newindex</span> = <span class="function"><span class="keyword">function</span><span class="params">(self, key, value)</span></span></span><br><span class="line">            <span class="built_in">print</span>(key, value)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    &#125;)</span><br><span class="line">t.aa = <span class="string">&quot;ss&quot;</span>        <span class="comment">-- aa ss</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="rawset-rawget"><a href="#rawset-rawget" class="headerlink" title="rawset rawget"></a>rawset rawget</h3><p>如果一个表有元表, 但是又想绕开元表中的<code>__index</code> <code>__newindex</code>, 则用rawset和rawget函数, 表示只对表进行操作, 不动用元表</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rawset</span>(<span class="built_in">table</span>, key, value)     <span class="comment">-- 设置table的key索引对应值, 绕过元表__index</span></span><br><span class="line"><span class="built_in">rawget</span>(<span class="built_in">table</span>, key)            <span class="comment">-- 获取table的key索引对应值, 绕过元表__newindex</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="为表添加操作符"><a href="#为表添加操作符" class="headerlink" title="为表添加操作符"></a>为表添加操作符</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>__add</code></td>
+<td>对应的运算符 <code>+</code></td>
+</tr>
+<tr>
+<td><code>__sub</code></td>
+<td>对应的运算符 <code>-</code></td>
+</tr>
+<tr>
+<td><code>__mul</code></td>
+<td>对应的运算符 <code>*</code></td>
+</tr>
+<tr>
+<td><code>__div</code></td>
+<td>对应的运算符 <code>/</code></td>
+</tr>
+<tr>
+<td><code>__mod</code></td>
+<td>对应的运算符 <code>%</code></td>
+</tr>
+<tr>
+<td><code>__unm</code></td>
+<td>对应的运算符 <code>-</code></td>
+</tr>
+<tr>
+<td><code> __concat</code></td>
+<td>对应的运算符 <code>..</code></td>
+</tr>
+<tr>
+<td><code> __eq</code></td>
+<td>对应的运算符 <code>==</code></td>
+</tr>
+<tr>
+<td><code> __lt</code></td>
+<td>对应的运算符 <code>&lt;</code></td>
+</tr>
+<tr>
+<td><code> __le</code></td>
+<td>对应的运算符 <code>&lt;=</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = <span class="built_in">setmetatable</span>(&#123;&#125;, &#123;</span><br><span class="line">        <span class="built_in">__add</span> = <span class="function"><span class="keyword">function</span><span class="params">(self, another)</span></span></span><br><span class="line">            <span class="comment">-- add operation</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">self</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="built_in">print</span>(t + t)</span><br></pre></td></tr></table></figure>
+
+<h3 id="call"><a href="#call" class="headerlink" title="__call"></a>__call</h3><p>可以让表对象直接像方法一样调用</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = <span class="built_in">setmetatable</span>(&#123;&#125;, &#123;</span><br><span class="line">        <span class="built_in">__call</span> = <span class="function"><span class="keyword">function</span><span class="params">(self, ...)</span></span></span><br><span class="line">            <span class="built_in">print</span>(...)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;__call&quot;</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="built_in">print</span>(t(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line"><span class="comment">-- 输出</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="built_in">__call</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="tostring"><a href="#tostring" class="headerlink" title="__tostring"></a>__tostring</h3><p>修改表的输出行为</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = <span class="built_in">setmetatable</span>(&#123;<span class="string">&quot;a&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;ss&quot;</span>&#125;, &#123;</span><br><span class="line">    <span class="built_in">__tostring</span> = <span class="function"><span class="keyword">function</span><span class="params">(self)</span></span></span><br><span class="line">        <span class="keyword">local</span> temp = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> _, v <span class="keyword">in</span> <span class="built_in">pairs</span>(<span class="built_in">self</span>) <span class="keyword">do</span></span><br><span class="line">            <span class="built_in">table</span>.<span class="built_in">insert</span>(temp, v)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;[&quot;</span>..<span class="built_in">table</span>.<span class="built_in">concat</span>(temp, <span class="string">&quot;,&quot;</span>)..<span class="string">&quot;]&quot;</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">print</span>(t)        <span class="comment">-- [a, aa, ss]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h2><p>单个Lua虚拟机只能工作在一个线程下, 如果真的想在lua中使用多线程, 可以看看lua多线程库<a target="_blank" rel="noopener" href="https://github.com/LuaLanes/lanes">Lanes</a>, <a target="_blank" rel="noopener" href="https://github.com/effil/effil">Effil</a>. 当然了, 多线程容易增加出错概率, 尽量不要用多线程</p>
+<p>任意时刻, 只有一个协同程序在运行, 并且运行的协程只有明确的被要求挂起时才会挂起 (同步的多线程)</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>coroutine.create()</td>
+<td>创建 coroutine，返回 coroutine， 参数是一个函数，当和 resume 配合使用的时候就唤醒函数调用</td>
+</tr>
+<tr>
+<td>coroutine.resume()</td>
+<td>重启 coroutine，和 create 配合使用</td>
+</tr>
+<tr>
+<td>coroutine.yield()</td>
+<td>挂起 coroutine，将 coroutine 设置为挂起状态，这个和 resume 配合使用能有很多有用的效果</td>
+</tr>
+<tr>
+<td>coroutine.status()</td>
+<td>查看 coroutine 的状态  注：coroutine 的状态有三种：dead，suspended，running，具体什么时候有这样的状态请参考下面的程序</td>
+</tr>
+<tr>
+<td>coroutine.wrap（）</td>
+<td>创建 coroutine，返回一个函数，一旦你调用这个函数，就进入 coroutine，和 create 功能重复</td>
+</tr>
+<tr>
+<td>coroutine.running()</td>
+<td>返回正在跑的 coroutine，一个 coroutine 就是一个线程，当使用running的时候，就是返回一个 corouting 的线程号</td>
+</tr>
+</tbody></table>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建协程</span></span><br><span class="line"><span class="keyword">local</span> co = <span class="built_in">coroutine</span>.<span class="built_in">create</span>(<span class="function"><span class="keyword">function</span><span class="params">(i)</span></span></span><br><span class="line">        <span class="built_in">print</span>(i * i)</span><br><span class="line">    <span class="keyword">end</span>)</span><br><span class="line"><span class="comment">-- 运行协程, 传入参数</span></span><br><span class="line"><span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co, <span class="number">1</span>)         <span class="comment">-- 1</span></span><br><span class="line"><span class="comment">-- 协程运行结束, 回到当前协程</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">status</span>(co))        <span class="comment">-- dead</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- wrap创建的协程运行时如同调用一个函数, 注意不要与正常函数混淆</span></span><br><span class="line"><span class="keyword">local</span> co = <span class="built_in">coroutine</span>.<span class="built_in">wrap</span>(<span class="function"><span class="keyword">function</span><span class="params">(i)</span></span></span><br><span class="line">        <span class="built_in">print</span>(i * i)</span><br><span class="line">    <span class="keyword">end</span>)</span><br><span class="line"><span class="comment">-- 像函数一样调用</span></span><br><span class="line">co(<span class="number">2</span>)                            <span class="comment">-- 4</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">status</span>(co))        <span class="comment">-- dead</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 用协程创建一个类似python中的生成器</span></span><br><span class="line"><span class="keyword">local</span> co = <span class="built_in">coroutine</span>.<span class="built_in">create</span>(<span class="function"><span class="keyword">function</span><span class="params">(count)</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">running</span>())</span><br><span class="line">    <span class="keyword">local</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">local</span> j = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;count: &quot;</span>..count)</span><br><span class="line">        count = <span class="built_in">coroutine</span>.<span class="built_in">yield</span>(j)    <span class="comment">-- yield也可以没有参数</span></span><br><span class="line">        i, j = j, i + j</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">status</span>(co))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">running</span>())</span><br><span class="line"><span class="comment">-- 头一次resume通过函数参数传入</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co, <span class="number">1</span>))</span><br><span class="line"><span class="comment">-- 之后resume的传入参数通过yield的返回值获取</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co, <span class="number">4</span>))</span><br><span class="line"><span class="comment">-- 输出</span></span><br><span class="line">suspended</span><br><span class="line">thread: <span class="number">0000000000</span>eb5e68        <span class="literal">true</span></span><br><span class="line">thread: <span class="number">0000000000</span>ebeee8        <span class="literal">false</span></span><br><span class="line">count: <span class="number">1</span></span><br><span class="line"><span class="literal">true</span>    <span class="number">1</span></span><br><span class="line">count: <span class="number">2</span></span><br><span class="line"><span class="literal">true</span>    <span class="number">1</span></span><br><span class="line">count: <span class="number">3</span></span><br><span class="line"><span class="literal">true</span>    <span class="number">2</span></span><br><span class="line">count: <span class="number">4</span></span><br><span class="line"><span class="literal">true</span>    <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/lua/lua-file-io.html">https://www.runoob.com/lua/lua-file-io.html</a></p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>检查第一个参数, 若不为true, 则将第二个参数作为错误信息抛出</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span></span><br><span class="line">   <span class="built_in">assert</span>(<span class="built_in">type</span>(a) == <span class="string">&quot;number&quot;</span>, <span class="string">&quot;a 不是一个数字&quot;</span>)</span><br><span class="line">   <span class="built_in">assert</span>(<span class="built_in">type</span>(b) == <span class="string">&quot;number&quot;</span>, <span class="string">&quot;b 不是一个数字&quot;</span>)</span><br><span class="line">   <span class="keyword">return</span> a+b</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">add(<span class="number">10</span>)</span><br><span class="line"><span class="comment">-- 输出</span></span><br><span class="line">lua: test.lua:<span class="number">3</span>: b 不是一个数字</span><br><span class="line">stack <span class="built_in">traceback</span>:</span><br><span class="line">    [C]: <span class="keyword">in</span> <span class="function"><span class="keyword">function</span> &#x27;<span class="title">assert</span>&#x27;</span></span><br><span class="line"><span class="function">    <span class="title">test.lua</span>:3: <span class="title">in</span> <span class="title">local</span> &#x27;<span class="title">add</span>&#x27;</span></span><br><span class="line"><span class="function">    <span class="title">test.lua</span>:6: <span class="title">in</span> <span class="title">main</span> <span class="title">chunk</span></span></span><br><span class="line"><span class="function">    [<span class="title">C</span>]: <span class="title">in</span> ?</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="error"><a href="#error" class="headerlink" title="error"></a>error</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">error</span> (message [, level])</span><br></pre></td></tr></table></figure>
+
+<p>终止正在执行的函数, 并将message内容作为错误信息 (error函数永不返回)</p>
+<p>level:</p>
+<ul>
+<li>1 默认, 调用error的位置(文件+行号)</li>
+<li>2 指出调用error的函数</li>
+<li>0 不添加错误位置信息</li>
+</ul>
+<h3 id="pcall-amp-xpcall-amp-debug"><a href="#pcall-amp-xpcall-amp-debug" class="headerlink" title="pcall &amp; xpcall &amp; debug"></a>pcall &amp; xpcall &amp; debug</h3><h4 id="pcall"><a href="#pcall" class="headerlink" title="pcall"></a>pcall</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 接收一个函数和要传给它的参数, 返回true或者false, errorinfo</span></span><br><span class="line"><span class="built_in">pcall</span>(func, ...)</span><br></pre></td></tr></table></figure>
+
+<p>pcall以保护模式运行函数, 但pcall返回时已经销毁了调用栈部分内容</p>
+<h4 id="xpcall"><a href="#xpcall" class="headerlink" title="xpcall"></a>xpcall</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">xpcall</span>(func, err_handler, ...)</span><br></pre></td></tr></table></figure>
+
+<p>额外接受一个错误处理函数, 发生错误时, 在调用栈展开之前调用错误处理函数, 于是可以在这个函数中使用debug库获取关于错误的额外信息</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">xpcall</span>(</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">(i)</span></span></span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">        <span class="built_in">error</span>(<span class="string">&quot;error...&quot;</span>)</span><br><span class="line">    <span class="keyword">end</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">debug</span>.<span class="built_in">traceback</span>())</span><br><span class="line">    <span class="keyword">end</span>,</span><br><span class="line">    <span class="number">333</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">-- 输出</span></span><br><span class="line"><span class="number">333</span></span><br><span class="line">stack <span class="built_in">traceback</span>:</span><br><span class="line">        test.lua:<span class="number">8</span>: <span class="keyword">in</span> <span class="function"><span class="keyword">function</span> &lt;<span class="title">test.lua</span>:6&gt;</span></span><br><span class="line"><span class="function">        [<span class="title">C</span>]: <span class="title">in</span> <span class="title">function</span> &#x27;<span class="title">error</span>&#x27;</span></span><br><span class="line"><span class="function">        <span class="title">test.lua</span>:4: <span class="title">in</span> <span class="title">function</span> &lt;<span class="title">test.lua</span>:2&gt;</span></span><br><span class="line"><span class="function">        [<span class="title">C</span>]: <span class="title">in</span> <span class="title">function</span> &#x27;<span class="title">xpcall</span>&#x27;</span></span><br><span class="line"><span class="function">        <span class="title">test.lua</span>:1: <span class="title">in</span> <span class="title">main</span> <span class="title">chunk</span></span></span><br><span class="line"><span class="function">        [<span class="title">C</span>]: <span class="title">in</span> ?</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/lua/lua-debug.html">https://www.runoob.com/lua/lua-debug.html</a></p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>lua自动垃圾回收采用古老的解决循环引用情况的标记清扫法(Mark-and-Sweep)</p>
+<ul>
+<li><p>Mark (标记阶段)</p>
+<p>默认情况下, 所有变量都标记为”可回收”, 回收时, 从根节点<code>_G</code>出发, 可达对象标记为”不可回收”</p>
+</li>
+<li><p>Sweep (清扫阶段)</p>
+<p>遍历所有现存对象, 将标志位是”可回收”的对象释放, 同时将标记为”不可回收”的对象重新标记为”可回收”为下次gc做准备</p>
+</li>
+</ul>
+<h3 id="G"><a href="#G" class="headerlink" title="_G"></a>_G</h3><p>lua中<code>_G</code>是一张表, 包含了所有的全局函数, 全局变量, 包括对自身的引用</p>
+<h3 id="collectgarbage函数"><a href="#collectgarbage函数" class="headerlink" title="collectgarbage函数"></a>collectgarbage函数</h3><p>collectgarbage函数提供了垃圾回收操作的相关功能</p>
+<p>停止垃圾回收；<br> 重启垃圾回收；<br> 强制执行一次回收循环；<br> 强制执行一步垃圾回收；<br> 获取Lua占用的内存；<br> 以及两个影响垃圾回收频率和步幅的参数。</p>
+<h2 id="模块与包"><a href="#模块与包" class="headerlink" title="模块与包"></a>模块与包</h2><h3 id="模块定义和加载"><a href="#模块定义和加载" class="headerlink" title="模块定义和加载"></a>模块定义和加载</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- test.lua</span></span><br><span class="line"><span class="keyword">local</span> mymodule = &#123;&#125;</span><br><span class="line">mymodule.MAX_NUM = <span class="number">10</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mymodule.func1</span><span class="params">()</span></span></span><br><span class="line">    <span class="comment">-- some code</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">return</span> mymodule</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- main.lua</span></span><br><span class="line"><span class="keyword">local</span> my = <span class="built_in">require</span>(<span class="string">&quot;test&quot;</span>)</span><br><span class="line">my.func1()</span><br></pre></td></tr></table></figure>
+
+<p>也可以在模块中直接定义为全局变量, 然后require之后直接使用, 不用接受require返回值</p>
+<h3 id="加载机制"><a href="#加载机制" class="headerlink" title="加载机制"></a>加载机制</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;模块名&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>首先查找package.loaded表, 检测是否被加载过, 如果加载过, 则require返回保存的值; 否则进行下面的步骤</p>
+</li>
+<li><p>在package的searchers表中, 有四个加载器, require按照顺序执行加载器, 找到了, 则成功返回, 没有就继续找</p>
+<ul>
+<li>预加载器 package.preload[modname], 一些特殊模块有预加载器</li>
+<li>lua加载器查找package.path</li>
+<li>c加载器查找package.cpath</li>
+<li>一体化加载器</li>
+</ul>
+</li>
+</ol>
+<p>加载成功后</p>
+<p>在package.loaded[‘mod’]中记录模块模块返回值, 如果模块没有返回值, 则设置为true;</p>
+<p>在同一lua虚拟机中, 多次require同一模块, 模块只被加载一次, 得到的是同一个table, 并且任何地方修改table值, 其它地方引用的table也会改变</p>
+<p>详细: <a target="_blank" rel="noopener" href="https://blog.csdn.net/zxm342698145/article/details/80607072">lua require加载机制</a></p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>lua中没有专门的类机制, 只有table可以用, 所以在lua中, 面向对象也是用table和元表来实现</p>
+<h3 id="冒号语法糖"><a href="#冒号语法糖" class="headerlink" title="冒号语法糖"></a>冒号语法糖</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> t = &#123;&#125;</span><br><span class="line">t.MAX_NUM = <span class="number">30</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t:show</span><span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">self</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 上面的定义相当于</span></span><br><span class="line">t.show = <span class="function"><span class="keyword">function</span><span class="params">(self)</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">self</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 调用</span></span><br><span class="line">t:show()</span><br><span class="line"><span class="comment">-- 相当于</span></span><br><span class="line">t.show(t)</span><br></pre></td></tr></table></figure>
+
+<h3 id="用元表实现继承"><a href="#用元表实现继承" class="headerlink" title="用元表实现继承"></a>用元表实现继承</h3><p>self参数的合理利用, 实现”动态绑定”, 然后元表和<code>__index</code>实现继承父类数据效果</p>
+<p>// todo</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/other/software-version-code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/other/software-version-code/" class="post-title-link" itemprop="url">软件版本号管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-19 10:00:42" itemprop="dateCreated datePublished" datetime="2020-04-19T10:00:42+08:00">2020-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/other/software-version-code/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/other/software-version-code/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="GNU-风格版本号"><a href="#GNU-风格版本号" class="headerlink" title="GNU 风格版本号"></a>GNU 风格版本号</h2><p><code>主版本号 . 子版本号 [. 修正版本号[ build- 编译版本号 ]]</code></p>
+<p>示例1：1.2</p>
+<p>示例2：1.2.0</p>
+<p>示例3：1.2.0 build-1234</p>
+<h2 id="版本号管理策略"><a href="#版本号管理策略" class="headerlink" title="版本号管理策略"></a>版本号管理策略</h2><ul>
+<li>初始版本号可以为0.1或0.1.0</li>
+<li>主版本号(major): 改动很大, 不兼容低版本, 或局部修正累积较多, 主版本号加1, 其余版本号归0</li>
+<li>次版本号(minor): 增加部分功能, 兼容同一大版本的API和用法, 次版本号加1, 修订号归0</li>
+<li>修订号(patch): 局部修改, 或者bug修正</li>
+</ul>
+<h2 id="先行版本号"><a href="#先行版本号" class="headerlink" title="先行版本号"></a>先行版本号</h2><p>修订版本号后面可能会有先行版本号 例如<code>1.0.0-alpha</code> <code>1.0.0-beta.4</code> <code>2.0.0-rc.2</code></p>
+<ul>
+<li><code>Alpha</code> 内部测试版, 很多bug, 一般只有内部测试人员使用</li>
+<li><code>Beta</code> 测试版本, bug相对较少, 还需要改进</li>
+<li><code>RC</code> Release Canditate 候选版本, 与beta版本不同的是, beta版本可能会一直加入新功能, 但rc版本几乎不会加入新功能, 主要着重于除错</li>
+<li><code>GA</code> General Availability 稳定版本, 官方推荐广泛使用了</li>
+<li><code>Release</code> 最终正式版本, 标准版, 软件封面一般是符号R </li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/other/ffmpeg-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/other/ffmpeg-basic/" class="post-title-link" itemprop="url">FFmpeg基础教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-19 09:42:52" itemprop="dateCreated datePublished" datetime="2020-04-19T09:42:52+08:00">2020-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/other/ffmpeg-basic/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/other/ffmpeg-basic/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>转载:   <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2020/01/ffmpeg.html">http://www.ruanyifeng.com/blog/2020/01/ffmpeg.html</a><br>作者： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/">阮一峰</a><br>日期： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2020/01/">2020年1月14日</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.ffmpeg.org/">FFmpeg</a> 是视频处理最常用的开源软件。</p>
+<p>它功能强大，用途广泛，大量用于视频网站和商业软件（比如 Youtube 和 iTunes），也是许多音频和视频格式的标准编码/解码实现。</p>
+<p>FFmpeg 本身是一个庞大的项目，包含许多组件和库文件，最常用的是它的命令行工具。本文介绍 FFmpeg 命令行如何处理视频，比桌面视频处理软件更简洁高效。</p>
+<p>如果你还没安装，可以根据<a target="_blank" rel="noopener" href="https://www.ffmpeg.org/download.html">官方文档</a> 先完成安装。</p>
+<h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><p>介绍 FFmpeg 用法之前，需要了解一些视频处理的基本概念。</p>
+<h3 id="1-1-容器"><a href="#1-1-容器" class="headerlink" title="1.1 容器"></a>1.1 容器</h3><p>视频文件本身其实是一个容器（container），里面包括了视频和音频，也可能有字幕等其他内容。</p>
+<p>常见的容器格式有以下几种。一般来说，视频文件的后缀名反映了它的容器格式。</p>
+<blockquote>
+<ul>
+<li>MP4</li>
+<li>MKV</li>
+<li>WebM</li>
+<li>AVI</li>
+</ul>
+</blockquote>
+<p>下面的命令查看 FFmpeg 支持的容器。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -formats</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="1-2-编码格式"><a href="#1-2-编码格式" class="headerlink" title="1.2 编码格式"></a>1.2 编码格式</h3><p>视频和音频都需要经过编码，才能保存成文件。不同的编码格式（CODEC），有不同的压缩率，会导致文件大小和清晰度的差异。</p>
+<p>常用的视频编码格式如下。</p>
+<blockquote>
+<ul>
+<li>H.262</li>
+<li>H.264</li>
+<li>H.265</li>
+</ul>
+</blockquote>
+<p>上面的编码格式都是有版权的，但是可以免费使用。此外，还有几种无版权的视频编码格式。</p>
+<blockquote>
+<ul>
+<li>VP8</li>
+<li>VP9</li>
+<li>AV1</li>
+</ul>
+</blockquote>
+<p>常用的音频编码格式如下。</p>
+<blockquote>
+<ul>
+<li>MP3</li>
+<li>AAC</li>
+</ul>
+</blockquote>
+<p>上面所有这些都是有损的编码格式，编码后会损失一些细节，以换取压缩后较小的文件体积。无损的编码格式压缩出来的文件体积较大，这里就不介绍了。</p>
+<p>下面的命令可以查看 FFmpeg 支持的编码格式，视频编码和音频编码都在内。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -codecs</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="1-3-编码器"><a href="#1-3-编码器" class="headerlink" title="1.3 编码器"></a>1.3 编码器</h3><p>编码器（encoders）是实现某种编码格式的库文件。只有安装了某种格式的编码器，才能实现该格式视频/音频的编码和解码。</p>
+<p>以下是一些 FFmpeg 内置的视频编码器。</p>
+<blockquote>
+<ul>
+<li>libx264：最流行的开源 H.264 编码器</li>
+<li>NVENC：基于 NVIDIA GPU 的 H.264 编码器</li>
+<li>libx265：开源的 HEVC 编码器</li>
+<li>libvpx：谷歌的 VP8 和 VP9 编码器</li>
+<li>libaom：AV1 编码器</li>
+</ul>
+</blockquote>
+<p>音频编码器如下。</p>
+<blockquote>
+<ul>
+<li>libfdk-aac</li>
+<li>aac</li>
+</ul>
+</blockquote>
+<p>下面的命令可以查看 FFmpeg 已安装的编码器。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -encoders</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="二、FFmpeg-的使用格式"><a href="#二、FFmpeg-的使用格式" class="headerlink" title="二、FFmpeg 的使用格式"></a>二、FFmpeg 的使用格式</h2><p>FFmpeg 的命令行参数非常多，可以分成五个部分。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg &#123;1&#125; &#123;2&#125; -i &#123;3&#125; &#123;4&#125; &#123;5&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令中，五个部分的参数依次如下。</p>
+<blockquote>
+<ol>
+<li>全局参数</li>
+<li>输入文件参数</li>
+<li>输入文件</li>
+<li>输出文件参数</li>
+<li>输出文件</li>
+</ol>
+</blockquote>
+<p>参数太多的时候，为了便于查看，ffmpeg 命令可以写成多行。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">[全局参数] \</span><br><span class="line">[输入文件参数] \</span><br><span class="line">-i [输入文件] \</span><br><span class="line">[输出文件参数] \</span><br><span class="line">[输出文件]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>下面是一个例子。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-y \ <span class="comment"># 全局参数</span></span><br><span class="line">-c:a libfdk_aac -c:v libx264 \ <span class="comment"># 输入文件参数</span></span><br><span class="line">-i input.mp4 \ <span class="comment"># 输入文件</span></span><br><span class="line">-c:v libvpx-vp9 -c:a libvorbis \ <span class="comment"># 输出文件参数</span></span><br><span class="line">output.webm <span class="comment"># 输出文件</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面的命令将 mp4 文件转成 webm 文件，这两个都是容器格式。输入的 mp4 文件的音频编码格式是 aac，视频编码格式是 H.264；输出的 webm 文件的视频编码格式是 VP9，音频格式是 Vorbis。</p>
+<p>如果不指明编码格式，FFmpeg 会自己判断输入文件的编码。因此，上面的命令可以简单写成下面的样子。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.avi output.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="三、常用命令行参数"><a href="#三、常用命令行参数" class="headerlink" title="三、常用命令行参数"></a>三、常用命令行参数</h2><p>FFmpeg 常用的命令行参数如下。</p>
+<blockquote>
+<ul>
+<li><code>-c</code>：指定编码器</li>
+<li><code>-c copy</code>：直接复制，不经过重新编码（这样比较快）</li>
+<li><code>-c:v</code>：指定视频编码器</li>
+<li><code>-c:a</code>：指定音频编码器</li>
+<li><code>-i</code>：指定输入文件</li>
+<li><code>-an</code>：去除音频流</li>
+<li><code>-vn</code>： 去除视频流</li>
+<li><code>-preset</code>：指定输出的视频质量，会影响文件的生成速度，有以下几个可用的值 ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow。</li>
+<li><code>-y</code>：不经过确认，输出时直接覆盖同名文件。</li>
+</ul>
+</blockquote>
+<h2 id="四、常见用法"><a href="#四、常见用法" class="headerlink" title="四、常见用法"></a>四、常见用法</h2><p>下面介绍 FFmpeg 几种常见用法。</p>
+<h3 id="4-1-查看文件信息"><a href="#4-1-查看文件信息" class="headerlink" title="4.1 查看文件信息"></a>4.1 查看文件信息</h3><p>查看视频文件的元信息，比如编码格式和比特率，可以只使用<code>-i</code>参数。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令会输出很多冗余信息，加上<code>-hide_banner</code>参数，可以只显示元信息。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mp4 -hide_banner</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4-2-转换编码格式"><a href="#4-2-转换编码格式" class="headerlink" title="4.2 转换编码格式"></a>4.2 转换编码格式</h3><p>转换编码格式（transcoding）指的是，  将视频文件从一种编码转成另一种编码。比如转成 H.264 编码，一般使用编码器<code>libx264</code>，所以只需指定输出文件的视频编码器即可。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i [input.file] -c:v libx264 output.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>下面是转成 H.265 编码的写法。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i [input.file] -c:v libx265 output.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4-3-转换容器格式"><a href="#4-3-转换容器格式" class="headerlink" title="4.3 转换容器格式"></a>4.3 转换容器格式</h3><p>转换容器格式（transmuxing）指的是，将视频文件从一种容器转到另一种容器。下面是 mp4  转 webm 的写法。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i input.mp4 -c copy output.webm</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面例子中，只是转一下容器，内部的编码格式不变，所以使用<code>-c copy</code>指定直接拷贝，不经过转码，这样比较快。</p>
+<h3 id="4-4-调整码率"><a href="#4-4-调整码率" class="headerlink" title="4.4 调整码率"></a>4.4 调整码率</h3><p>调整码率（transrating）指的是，改变编码的比特率，一般用来将视频文件的体积变小。下面的例子指定码率最小为964K，最大为3856K，缓冲区大小为 2000K。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-i input.mp4 \</span><br><span class="line">-minrate 964K -maxrate 3856K -bufsize 2000K \</span><br><span class="line">output.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4-5-改变分辨率（transsizing）"><a href="#4-5-改变分辨率（transsizing）" class="headerlink" title="4.5 改变分辨率（transsizing）"></a>4.5 改变分辨率（transsizing）</h3><p>下面是改变视频分辨率（transsizing）的例子，从 1080p 转为 480p 。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-i input.mp4 \</span><br><span class="line">-vf scale=480:-1 \</span><br><span class="line">output.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4-6-提取音频"><a href="#4-6-提取音频" class="headerlink" title="4.6 提取音频"></a>4.6 提取音频</h3><p>有时，需要从视频里面提取音频（demuxing），可以像下面这样写。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-i input.mp4 \</span><br><span class="line">-vn -c:a copy \</span><br><span class="line">output.aac</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面例子中，<code>-vn</code>表示去掉视频，<code>-c:a copy</code>表示不改变音频编码，直接拷贝。</p>
+<h3 id="4-7-添加音轨"><a href="#4-7-添加音轨" class="headerlink" title="4.7 添加音轨"></a>4.7 添加音轨</h3><p>添加音轨（muxing）指的是，将外部音频加入视频，比如添加背景音乐或旁白。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-i input.aac -i input.mp4 \</span><br><span class="line">output.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面例子中，有音频和视频两个输入文件，FFmpeg 会将它们合成为一个文件。</p>
+<h3 id="4-8-截图"><a href="#4-8-截图" class="headerlink" title="4.8 截图"></a>4.8 截图</h3><p>下面的例子是从指定时间开始，连续对1秒钟的视频进行截图。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-y \</span><br><span class="line">-i input.mp4 \</span><br><span class="line">-ss 00:01:24 -t 00:00:01 \</span><br><span class="line">output_%3d.jpg</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>如果只需要截一张图，可以指定只截取一帧。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-ss 01:23:45 \</span><br><span class="line">-i input \</span><br><span class="line">-vframes 1 -q:v 2 \</span><br><span class="line">output.jpg</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面例子中，<code>-vframes 1</code>指定只截取一帧，<code>-q:v 2</code>表示输出的图片质量，一般是1到5之间（1 为质量最高）。</p>
+<h3 id="4-9-裁剪"><a href="#4-9-裁剪" class="headerlink" title="4.9 裁剪"></a>4.9 裁剪</h3><p>裁剪（cutting）指的是，截取原始视频里面的一个片段，输出为一个新视频。可以指定开始时间（start）和持续时间（duration），也可以指定结束时间（end）。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -ss [start] -i [input] -t [duration] -c copy [output]</span><br><span class="line">$ ffmpeg -ss [start] -i [input] -to [end] -c copy [output]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>下面是实际的例子。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -ss 00:01:50 -i [input] -t 10.5 -c copy [output]</span><br><span class="line">$ ffmpeg -ss 2.5 -i [input] -to 10 -c copy [output]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面例子中，<code>-c copy</code>表示不改变音频和视频的编码格式，直接拷贝，这样会快很多。</p>
+<h3 id="4-10-为音频添加封面"><a href="#4-10-为音频添加封面" class="headerlink" title="4.10 为音频添加封面"></a>4.10 为音频添加封面</h3><p>有些视频网站只允许上传视频文件。如果要上传音频文件，必须为音频添加封面，将其转为视频，然后上传。</p>
+<p>下面命令可以将音频文件，转为带封面的视频文件。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg \</span><br><span class="line">-loop 1 \</span><br><span class="line">-i cover.jpg -i input.mp3 \</span><br><span class="line">-c:v libx264 -c:a aac -b:a 192k -shortest \</span><br><span class="line">output.mp4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>上面命令中，有两个输入文件，一个是封面图片<code>cover.jpg</code>，另一个是音频文件<code>input.mp3</code>。<code>-loop 1</code>参数表示图片无限循环，<code>-shortest</code>参数表示音频文件结束，输出视频就结束。</p>
+<h2 id="五、参考链接"><a href="#五、参考链接" class="headerlink" title="五、参考链接"></a>五、参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/leandromoreira/ffmpeg-libav-tutorial#chapter-3---transcoding">FFmpeg libav tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/leandromoreira/digital_video_introduction/blob/master/encoding_pratical_examples.md#split-and-merge-smoothly">Digital video introduction</a></li>
+<li><a target="_blank" rel="noopener" href="http://slhck.info/ffmpeg-encoding-course/">FFmpeg encoding and editing course</a></li>
+<li><a target="_blank" rel="noopener" href="http://dragonquest64.blogspot.com/2019/10/making-slideshows-wffmpeg.html">Making Slideshows w/FFMpeg</a></li>
+<li><a target="_blank" rel="noopener" href="https://itsfoss.com/ffmpeg/">The Complete Guide for Using ffmpeg in Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://bernd.dev/2020/04/adding-subtitles/">Adding subtitles to your videos the easy way</a></li>
+</ul>
+<p>（完）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/other/creative-commons-license/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/other/creative-commons-license/" class="post-title-link" itemprop="url">知识共享许可协议</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-19 09:22:20" itemprop="dateCreated datePublished" datetime="2020-04-19T09:22:20+08:00">2020-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/other/creative-commons-license/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/other/creative-commons-license/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>开源软件源码使用开源许可证, 而自己的其他作品例如图像, 视频, 文章则可以使用CC协议(知识共享许可协议)</p>
+<p>创作共享协议允许作者选择不同的授权条款和根据不同国家的著作权法制定的版权协议, 版权持有人可以指定以下的条件:</p>
+<ul>
+<li>姓名标示(by): 您可以自由复制, 散布, 展示及演出本作品；您必须按照莞作者或授权人所指定的方式, 保留其姓名标示</li>
+<li>非商业性(nc): 您可以自由复制, 散布, 展示及演出本作品；您不得为商业目的而使用本作品</li>
+<li>禁止改作(nd): 你可以自由复制, 散布, 展示及演出本作品；您不得改变, 转变或改作本作品</li>
+<li>相同方式分享(sa): 你可以自由复制, 散布, 展示及演出本作品；若您改变, 转变或改作本作品, 仅在遵守与本著作相同的授权条款下, 您才能散布由本作品产生的衍生作品</li>
+</ul>
+<p>这些不同条件共有16种组合模式, 其中有11种是有效的. 其它有4种组合由于同时包括互相排斥的”nd”和”sa”而无效; 1种没有以上任何条件的协议, 它相当于公有领域. 在CC 2.0以上的版本, 又有5种没有署名条款的协议被列为淘汰, 因为98%的授权者都要求署名. </p>
+<p><code>CC-BY-SA 4.0</code> 表示 署名-相同方式共享 CC 4.0协议<br><code>CC-BY-NC-SA 4.0</code> 表示 署名-非商用-相同方式共享 CC 4.0协议</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/other/open-source-license/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/other/open-source-license/" class="post-title-link" itemprop="url">开源许可证</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-19 09:16:02" itemprop="dateCreated datePublished" datetime="2020-04-19T09:16:02+08:00">2020-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/other/open-source-license/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/other/open-source-license/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>转载:   <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/10/open-source-license-tutorial.html">http://www.ruanyifeng.com/blog/2017/10/open-source-license-tutorial.html</a><br>作者： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/">阮一峰</a><br>日期： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/10/">2017年10月11日</a></p>
+</blockquote>
+<p>作为一个开发者，如果你打算开源自己的代码，千万不要忘记，选择一种开源许可证（license）。</p>
+<p>许多开发者对开源许可证了解很少，不清楚有哪些许可证，应该怎么选择。本文介绍开源许可证的基本知识，主要参考了 OpenSource.com （<a target="_blank" rel="noopener" href="https://opensource.com/article/17/9/9-open-source-software-rules-startups">1</a>，<a target="_blank" rel="noopener" href="https://opensource.com/article/17/9/open-source-licensing">2</a>）。</p>
+<h2 id="一、什么是开源许可证"><a href="#一、什么是开源许可证" class="headerlink" title="一、什么是开源许可证"></a>一、什么是开源许可证</h2><p>开源许可证是一种法律许可。通过它，版权拥有人明确允许，用户可以免费地使用、修改、共享版权软件。</p>
+<p>版权法默认禁止共享，也就是说，没有许可证的软件，就等同于保留版权，虽然开源了，用户只能看看源码，不能用，一用就会侵犯版权。所以软件开源的话，必须明确地授予用户开源许可证。</p>
+<h2 id="二、开源许可证的种类"><a href="#二、开源许可证的种类" class="headerlink" title="二、开源许可证的种类"></a>二、开源许可证的种类</h2><p>目前，国际公认的开源许可证共有<a target="_blank" rel="noopener" href="https://opensource.org/licenses/alphabetical">80多种</a>。它们的共同特征是，都允许用户免费地使用、修改、共享源码，但是都有各自的使用条件。</p>
+<p>如果一种开源许可证没有任何使用条件，连保留作者信息都不需要，那么就等同于放弃版权了。这时，软件可以直接声明进入”公共领域”（public domain）。</p>
+<p>根据使用条件的不同，开源许可证分成两大类。</p>
+<blockquote>
+<ul>
+<li>宽松式（permissive）许可证</li>
+<li>Copyleft 许可证</li>
+</ul>
+</blockquote>
+<h2 id="三、宽松式许可证"><a href="#三、宽松式许可证" class="headerlink" title="三、宽松式许可证"></a>三、宽松式许可证</h2><h3 id="3-1-特点"><a href="#3-1-特点" class="headerlink" title="3.1 特点"></a>3.1 特点</h3><p>宽松式许可证（permissive license）是最基本的类型，对用户几乎没有限制。用户可以修改代码后闭源。</p>
+<p>它有三个基本特点。</p>
+<p><strong>（1）没有使用限制</strong></p>
+<p>用户可以使用代码，做任何想做的事情。</p>
+<p><strong>（2）没有担保</strong></p>
+<p>不保证代码质量，用户自担风险。</p>
+<p><strong>（3）披露要求（notice requirement）</strong></p>
+<p>用户必须披露原始作者。</p>
+<h3 id="3-2-常见许可证"><a href="#3-2-常见许可证" class="headerlink" title="3.2 常见许可证"></a>3.2 常见许可证</h3><p>常见的宽松式许可证有四种。它们都允许用户任意使用代码，区别在于要求用户遵守的条件不同。</p>
+<p><strong>（1）BSD（二条款版）</strong></p>
+<p>分发软件时，必须保留原始的许可证声明。</p>
+<p><strong>（2） BSD（三条款版）</strong></p>
+<p>分发软件时，必须保留原始的许可证声明。不得使用原始作者的名字为软件促销。</p>
+<p><strong>（3）MIT</strong></p>
+<p>分发软件时，必须保留原始的许可证声明，与 BSD（二条款版）基本一致。</p>
+<p><strong>（4）Apache 2</strong></p>
+<p>分发软件时，必须保留原始的许可证声明。凡是修改过的文件，必须向用户说明该文件修改过；没有修改过的文件，必须保持许可证不变。</p>
+<h2 id="四、Copyleft-许可证"><a href="#四、Copyleft-许可证" class="headerlink" title="四、Copyleft 许可证"></a>四、Copyleft 许可证</h2><h3 id="4-1-Copyleft-的含义"><a href="#4-1-Copyleft-的含义" class="headerlink" title="4.1 Copyleft 的含义"></a>4.1 Copyleft 的含义</h3><p>Copyleft 是<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2005/03/post_112.html">理查德·斯托曼</a>发明的一个词，作为 Copyright （版权）的反义词。</p>
+<p>Copyright 直译是”复制权”，这是版权制度的核心，意为不经许可，用户无权复制。作为反义词，Copyleft 的含义是不经许可，用户可以随意复制。</p>
+<p>但是，它带有前提条件，比宽松式许可证的限制要多。</p>
+<blockquote>
+<ul>
+<li>如果分发二进制格式，必须提供源码</li>
+<li>修改后的源码，必须与修改前保持许可证一致</li>
+<li>不得在原始许可证以外，附加其他限制</li>
+</ul>
+</blockquote>
+<p>上面三个条件的核心就是：修改后的 Copyleft 代码不得闭源。 </p>
+<h3 id="4-2-常见许可证"><a href="#4-2-常见许可证" class="headerlink" title="4.2 常见许可证"></a>4.2 常见许可证</h3><p>常见的 Copyleft 许可证也有四种（对用户的限制从最强到最弱排序）。</p>
+<p><strong>（1）Affero GPL (AGPL)</strong></p>
+<p>如果云服务（即 SAAS）用到的代码是该许可证，那么云服务的代码也必须开源。</p>
+<p><strong>（2）GPL</strong></p>
+<p>如果项目包含了 GPL 许可证的代码，那么整个项目都必须使用 GPL 许可证。</p>
+<p><strong>（3）LGPL</strong></p>
+<p>如果项目采用动态链接调用该许可证的库，项目可以不用开源。</p>
+<p><strong>（4）Mozilla（MPL）</strong></p>
+<p>只要该许可证的代码在单独的文件中，新增的其他文件可以不用开源。</p>
+<h2 id="五、常见问题"><a href="#五、常见问题" class="headerlink" title="五、常见问题"></a>五、常见问题</h2><p>本节回答一些开源许可证的常见问题。</p>
+<h3 id="5-1-什么叫分发（distribution）？"><a href="#5-1-什么叫分发（distribution）？" class="headerlink" title="5.1 什么叫分发（distribution）？"></a>5.1 什么叫分发（distribution）？</h3><p>除了 Affero GPL (AGPL) ，其他许可证都规定只有在”分发”时，才需要遵守许可证。换言之，如果不”分发”，就不需要遵守。</p>
+<p>简单说，分发就是指将版权作品从一个人转移到另一个人。这意味着，如果你是自己使用，不提供给他人，就没有分发。另外，这里的”人”也指”法人”，因此如果使用方是公司，且只在公司内部使用，也不需要遵守许可证。</p>
+<p>云服务（SaaS）是否构成”分发”呢？答案是不构成。所以你使用开源软件提供云服务，不必提供源码。但是，Affero GPL (AGPL) 许可证除外，它规定云服务也必须提供源码。</p>
+<h3 id="5-2-开源软件的专利如何处理？"><a href="#5-2-开源软件的专利如何处理？" class="headerlink" title="5.2 开源软件的专利如何处理？"></a>5.2 开源软件的专利如何处理？</h3><p>某些许可证（Apache 2 和 GPL v3）包含明确的条款，授予用户许可，使用软件所包含的所有专利。</p>
+<p>另一些许可证（BSD、MIT 和 GPL v2）根本没提到专利。但是一般认为，它们默认给予用户专利许可，不构成侵犯专利。</p>
+<p>总得来说，除非有明确的”保留专利”的条款，使用开源软件都不会构成侵犯专利。</p>
+<h3 id="5-3-什么是披露要求？"><a href="#5-3-什么是披露要求？" class="headerlink" title="5.3 什么是披露要求？"></a>5.3 什么是披露要求？</h3><p>所有的开源许可证都带有”披露要求”（notice requirement），即要求软件的分发者必须向用户披露，软件里面有开源代码。</p>
+<p>一般来说，你只要在软件里面提供完整的原始许可证文本，并且披露原始作者，就满足了”披露要求”。</p>
+<h3 id="5-4-GPL-病毒是真的吗？"><a href="#5-4-GPL-病毒是真的吗？" class="headerlink" title="5.4  GPL 病毒是真的吗？"></a>5.4  GPL 病毒是真的吗？</h3><p>GPL 许可证规定，只要你的项目包含了 GPL 代码，整个项目就都变成了 GPL。有人把这种传染性比喻成”GPL 病毒”。</p>
+<p>很多公司希望避开这个条款，既使用 GPL 软件，又不把自己的专有代码开源。理论上，这是做不到的。因为 GPL 的设计目的，就是为了防止出现这种情况。</p>
+<p>但是实际上，不遵守 GPL，最坏情况就是被起诉。如果你向法院表示无法履行 GPL 的条件，法官只会判决你停止使用 GPL  代码（法律上叫做”停止侵害”），而不会强制要求你将源码开源，因为《版权法》里面的”违约救济”没有提到违约者必须开源，只提到可以停止侵害和赔偿损失。</p>
+<p>（完）</p>
+<p>附上一张图助于理解</p>
+<img data-src="/other/open-source-license/open-source-license.png" class="" title="常见开源协议">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/algorithm/hash-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/algorithm/hash-table/" class="post-title-link" itemprop="url">哈希表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-12 17:31:47" itemprop="dateCreated datePublished" datetime="2020-02-12T17:31:47+08:00">2020-02-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/algorithm/hash-table/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/algorithm/hash-table/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="概念和定义"><a href="#概念和定义" class="headerlink" title="概念和定义"></a>概念和定义</h2><ul>
+<li><p>简单理解: HashTable(哈希表/散列表)是存储[key, value]键值对的结构, 可以根据关键码key值直接访问对应位置value的数据结构, 可以达到$O(1)$的搜索效率, 是一种以空间换搜索速度的数据结构.</p>
+</li>
+<li><p>实现: 哈希表用数组实现, 对于给定的key, 通过特定的哈希函数计算出key的HashCode(哈希码), 再对哈希码取余得到数组下标, 数组长度保持为$2^n$可以让下标的计算简化($a%b=a&amp;(b-1)$ (其中$b=2^n$)), 因为位运算效率远高于取模运算.</p>
+</li>
+<li><p>冲突处理: 对于插入的两个键值对, 如果两个key不同, 但是计算的HashCode一样, 就需要进行冲突处理, 一般是用链表处理, Java中也有用红黑树处理冲突.</p>
+</li>
+<li><p>Hash函数: 开发者应该设计合理的Hash函数, 让不同的key计算出的HashCode尽量不相同, 减少冲突.</p>
+</li>
+<li><p>扩容: 哈希表的数组不应该填充太满, 否则冲突概率增加, 查找效率降低; 一般可以将增长因子定义为0.75, 当数组的使用率大于0.75时, 则将容量扩大一倍, 再将所有元素重新散列, 填充到新数组</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">K</span>, <span class="title">class</span> <span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    K key;</span><br><span class="line">    V value;</span><br><span class="line">    Node&lt;K, V&gt;* next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">K</span>, <span class="title">class</span> <span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">HashTable</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Put</span><span class="params">(<span class="keyword">const</span> K&amp; key, <span class="keyword">const</span> V&amp; value)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Get</span><span class="params">(<span class="keyword">const</span> K&amp; key, V&amp; value)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Delete</span><span class="params">(<span class="keyword">const</span> K&amp; key)</span></span>;</span><br><span class="line">    ~HashTable() &#123; <span class="keyword">delete</span>[] list_; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GetIndex</span><span class="params">(<span class="keyword">const</span> K&amp; key)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Resize</span><span class="params">()</span></span>;</span><br><span class="line">    Node&lt;K, V&gt;** list_; <span class="comment">// 初始化为Node&lt;K, V&gt;* [], 初始容量为DEFAULT_CAPACITY</span></span><br><span class="line">    <span class="keyword">int</span> len_;</span><br><span class="line">    <span class="keyword">int</span> cap_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hash函数"><a href="#Hash函数" class="headerlink" title="Hash函数"></a>Hash函数</h2><p>根据key计算对应HashCode的函数, 设计Hash函数时需要遵循一些原则:</p>
+<ul>
+<li><p>key1 == key2(值相等)时, 计算的HashCode1和HashCode2必须相等</p>
+</li>
+<li><p>key1 != key2(值不等)时, 计算的HashCode1和HashCode2应该尽可能不相等</p>
+</li>
+</ul>
+<p>最好的Hash函数应该保证key的值和HashCode对应相等或不等</p>
+<p>如果key是一个结构体, 可能判断key值相等只需要其中一部分字段对应相等, 所以Java中默认使用对象地址计算Hash值有时并不适用, 需要对自己的结构重写equals和hashCode函数</p>
+<p>如何计算HashCode, 可以参考一下Java的Arrays中的源码, hashCode初始为0, 对于整型值(int, long, short, char等), 将原hashCode乘以31再加上整型值; 对于bool值, 如果为true, 则算做1231, false算做1237; 对于float, double则转变为对应的整数值, 将浮点数的符号位-阶码-尾数统统看成10进制整数的二进制表示(具体可以搜索<em>doubleToLongBits</em>, <em>floatToLongBits</em>)</p>
+<p>定义一个结构体MyKey, 假设其中只有key1, key2, key3三个字段是关键字段, 值判断和HashCode计算只依赖这三个字段, 我们设计一个简单的hash函数<br><strong>一般将算术和关系操作符定义非成员函数，而将赋值操作符定义为成员函数</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MYKEY_KEY2_LEN = <span class="number">5</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MyKey</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> key1;</span><br><span class="line">    <span class="keyword">char</span> key2[MYKEY_KEY2_LEN];</span><br><span class="line">    <span class="keyword">bool</span> key3;</span><br><span class="line">    <span class="keyword">int</span> d1;</span><br><span class="line">    <span class="keyword">int</span> d2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 假设MyKey判断相等只需要key1, key2, key3三个字段</span></span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>==(<span class="keyword">const</span> MyKey&amp; left, <span class="keyword">const</span> MyKey&amp; right) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left.key1 != right.key1) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MYKEY_KEY2_LEN; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (left.key2[i] != right.key2[i]) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (left.key3 != right.key3) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 计算hashCode也应该与值的相等判断保持一致, 只使用key1, key2, key3计算</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hash</span><span class="params">(<span class="keyword">const</span> MyKey&amp; key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    result += key.key1;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MYKEY_KEY2_LEN; i++) &#123;</span><br><span class="line">        result = <span class="number">31</span> * result + (<span class="keyword">int</span>)(key.key2[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    result = <span class="number">31</span> * result + (key.key3 ? <span class="number">1231</span> : <span class="number">1237</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据插入"><a href="#数据插入" class="headerlink" title="数据插入"></a>数据插入</h2><p>我们已经定义了简单的哈希函数, 可以计算出key的哈希值, 接下来就是将对应的键值对插入到哈希表中.</p>
+<p>对于给定的[key, value]键值对, 插入时先计算下标, 如果下标位置已存在值, 则进行冲突处理.</p>
+<h3 id="下标计算"><a href="#下标计算" class="headerlink" title="下标计算"></a>下标计算</h3><p>我们将数组初始大小定义为$2^n$, 并且数组增大每次扩大一倍, 数组大小始终为$2^n$, 可以使用公式($a%b=a&amp;(b-1)$(其中$b=2^n$))简化下标计算</p>
+<h3 id="冲突处理"><a href="#冲突处理" class="headerlink" title="冲突处理"></a>冲突处理</h3><p>如果计算的下标位置已经有键值对, 则判断桶中的所有key是否与插入的key值相等, 如果有相等值, 则插入失败/替换value; 如果没有相等值, 只是哈希码冲突, 则添加在队列中. 想做的好一点, 可以在桶中元素较多时采用红黑树存储.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">K</span>, <span class="title">class</span> <span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">int</span> <span class="title">HashTable</span>&lt;K, V&gt;:</span>:GetIndex(<span class="keyword">const</span> K&amp; key) &#123;</span><br><span class="line">    <span class="keyword">return</span> hash(key) &amp; cap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">K</span>, <span class="title">class</span> <span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">bool</span> <span class="title">HashTable</span>&lt;K, V&gt;:</span>:Put(<span class="keyword">const</span> K&amp; key, <span class="keyword">const</span> V&amp; value) &#123;</span><br><span class="line">    <span class="keyword">int</span> index = GetIndex(key);</span><br><span class="line">    <span class="comment">// 循环链表, 插入节点, 或者碰到key相等时替换</span></span><br><span class="line">    <span class="comment">// 如果插入节点, 需要先判断len与cap, 看len/cap是否达到临界比例, 一般为0.75, 达到该比例则扩容数组</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h3><p>如果当前的<code>数据量/容量</code>大于0.75(一般选用该值作为临界比例), 则新建一个容量为<code>2*cap</code>的新数组, 将原数组中的所有键值对重新hash到新数组, 并销毁原数组</p>
+<h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><p>根据给定key计算下标, 遍历下标所在位置的链表, 找到key值相等的键值对, 得到value; 如果没有找到, 则返回默认值或者空值</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/golang/golang-param-pass/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/golang/golang-param-pass/" class="post-title-link" itemprop="url">Go语言中的值类型/引用类型和参数传递</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-07 15:02:26" itemprop="dateCreated datePublished" datetime="2020-02-07T15:02:26+08:00">2020-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/golang/golang-param-pass/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/golang/golang-param-pass/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>Go里边函数传参只有值传递一种方式</strong>(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数)</p>
+<p>刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice/map/chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递</p>
+<p>实际上, slice, map, channel都是<strong>结构体类型的值传递</strong>, 但是<strong>结构体中包含指向实际数据的指针</strong>, 所以它们是值传递, 而并非引用传递</p>
+<h2 id="引用的类型"><a href="#引用的类型" class="headerlink" title="引用的类型"></a>引用的类型</h2><p>Go语言中的slice, map, channel都是引用类型, 这个引用和Python相似, 和C++不同</p>
+<h3 id="C-中的引用"><a href="#C-中的引用" class="headerlink" title="C++中的引用"></a>C++中的引用</h3><p>C语言中没有引用类型, 但C++中实现了引用类型, 这个引用是编译器通过指针实现的, 让引用用起来像”别名”</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span>&amp; b)</span> </span>&#123; <span class="comment">// b为引用, 编译后其实是用指针实现</span></span><br><span class="line">    b = <span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line">change(a);</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a; <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中, 如果编译后进行反编译查看汇编代码, 会发现底层是将int变量地址(int*)作为参数传递, C++中的引用是编译器通过指针实现, 是编译器实现的一个语法糖</p>
+<h3 id="Go和Python中的引用"><a href="#Go和Python中的引用" class="headerlink" title="Go和Python中的引用"></a>Go和Python中的引用</h3><p>Go和Python中的引用其实是struct中包含指针, 当赋值/传递参数时, 会发生struct的复制, struct中的指针被一起复制, 主要数据没有发生复制, 两个struct中的指针指向同一块内存, 用起来和”引用”一样</p>
+<p>底层实现我也没有深入研究, 这里看看Go语言的slice结构(<a target="_blank" rel="noopener" href="https://github.com/golang/go/blob/master/src/runtime/slice.go">slice源码</a>), 就能理解了</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// slice</span></span><br><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span> &#123;</span><br><span class="line">    array unsafe.Pointer</span><br><span class="line">    <span class="built_in">len</span> <span class="keyword">int</span></span><br><span class="line">    <span class="built_in">cap</span> <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>slice其实是一个包含指针的结构体, 现在说Go语言中只有值传递就很好理解了, 当传递一个slice参数, 其实是结构体的值传递, 结构体中的指针指向同一内存区域, 所以函数中的数据操作也会影响函数外的slice值</p>
+<h2 id="Go语言中的常见引用类型和值类型"><a href="#Go语言中的常见引用类型和值类型" class="headerlink" title="Go语言中的常见引用类型和值类型"></a>Go语言中的常见引用类型和值类型</h2><h3 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h3><p>值类型进行赋值/参数传递时, 实际时将内存中的值进行了拷贝, <strong>数据/结构体是值类型也进行了拷贝</strong></p>
+<ul>
+<li><p>int, float, bool, string 等基本类型</p>
+</li>
+<li><p>数组, 结构体</p>
+</li>
+<li><p>指针</p>
+</li>
+</ul>
+<p>再次提醒, Go中的string/数组是值类型, 赋值时进行了拷贝, 拷贝后的变量修改不会影响原变量的值, 这和C++中的完全不同, 如果你和我一样之前是使用C++语言, 这里要特别注意</p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>记住Go语言中的引用类型其实是包含指针的struct, 该struct还是值类型</p>
+<ul>
+<li>slice, map, chan等</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//数组</span></span><br><span class="line">b := a</span><br><span class="line">b[<span class="number">0</span>] = <span class="number">99</span>;</span><br><span class="line">fmt.Println(a) <span class="comment">//[1 2 3 4 5]</span></span><br><span class="line">fmt.Println(b) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">c := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//slice, 这里想一下slice的struct结构</span></span><br><span class="line">d := c</span><br><span class="line">d[<span class="number">0</span>] = <span class="number">99</span></span><br><span class="line">fmt.Println(c) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">fmt.Println(d) <span class="comment">//[99 2 3 4 5]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="指针接收者"><a href="#指针接收者" class="headerlink" title="指针接收者"></a>指针接收者</h2><p>Go语言如果需要在函数中修改传入的实际参数的变量值, 应该使用指针接收者</p>
+<p>也就是说对于<code>func (a *T) test() &#123;&#125;</code>, 函数接收者可以是T类型, 并且函数中对a的修改会影响函数外的变量值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test1</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">100</span></span><br><span class="line">    a.y = <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">99</span></span><br><span class="line">    a.y = <span class="number">99</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    v := T&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;</span></span><br><span class="line">    v.test1()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;, 接收者传入是以值传递, struct复制</span></span><br><span class="line">    v.test2()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;99 99&#125;, 接收者传入是指针值传递, 指针复制</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于需要指针函数的函数, 则只能接受指针类型参数;<br>而接收者类型为指针时, 接收者可以是指针也可以是值, 传入值参数自动解释为指针(&amp;v);<br>接收者类型为值类型时, 接收者可以是值也可以是指针, 传入指针类型自动解释为值类型(*p).</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test1</span><span class="params">(a *T)</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">1</span></span><br><span class="line">    a.y = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">2</span></span><br><span class="line">    a.y = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test3</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">3</span></span><br><span class="line">    a.y = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    v := T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">    p := &amp;v</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">    test1(p)</span><br><span class="line">    <span class="comment">// test1(v) //编译出错</span></span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 1&#125;</span></span><br><span class="line">    p.test2()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">    v = T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">    v.test2()      <span class="comment">//自动解释为(&amp;v).test2()</span></span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">    v.test3()</span><br><span class="line">    p.test3()      <span class="comment">//自动解释为(*p).test3()</span></span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考资料:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84580859">一文理清 Go 引用的常见疑惑</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hoodlum1980/archive/2012/06/19/2554270.html">C++中引用的底层实现</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/algorithm/merge-sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/algorithm/merge-sort/" class="post-title-link" itemprop="url">归并排序(非递归&不回写)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-13 15:08:00" itemprop="dateCreated datePublished" datetime="2020-01-13T15:08:00+08:00">2020-01-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/algorithm/merge-sort/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/algorithm/merge-sort/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>归并排序和堆排序是两种渐进最优排序算法, 任何情况下的复杂度都是$O(n\log n)$</p>
+</blockquote>
+<p>MergeSort是分治思想的实现, 把大问题划分为小的容易解决的问题逐步解决, 主要操作是Merge(把两个有序的数列合并为一个有序数列)</p>
+<p>它需要一个相同长度的数组作为临时空间使用, 空间复杂度为$O(n)$</p>
+<p>MergeSort是一种<strong>稳定的排序算法</strong></p>
+<h2 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h2><p>简单的递归式归并排序非常容易, 网上随便搜一大堆, 大致如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> LENGTH = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> temp[LENGTH] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="comment">// 合并[start, mid)和[mid, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; <span class="built_in">end</span>; ++i) &#123; temp[i] = arr[i]; &#125;</span><br><span class="line">  <span class="keyword">int</span> left = start;</span><br><span class="line">  <span class="keyword">int</span> right = mid;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; <span class="built_in">end</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= mid) &#123; arr[i] = temp[right++]; &#125; <span class="comment">// 左边用尽</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (right &gt;= <span class="built_in">end</span>) &#123; arr[i] = temp[left++]; &#125; <span class="comment">// 右边用尽</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (temp[right] &lt; temp[left]) &#123; arr[i] = temp[right++]; &#125; <span class="comment">// 右边较小</span></span><br><span class="line">    <span class="keyword">else</span> &#123; arr[i] = temp[left++]; &#125; <span class="comment">// 左边不大于右边</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 排序arr, [start, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (start &lt; <span class="built_in">end</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> mid = start + ((<span class="built_in">end</span> - start) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    MergeSort(arr, start, mid);</span><br><span class="line">    MergeSort(arr, mid, <span class="built_in">end</span>);</span><br><span class="line">    Merge(arr, start, mid, <span class="built_in">end</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> arr[LENGTH];</span><br><span class="line">  <span class="comment">// 在arr中放随机数</span></span><br><span class="line">  MergeSort(arr, <span class="number">0</span>, LENGTH);</span><br><span class="line">  <span class="comment">// 检查排序结果</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优化的思路:</p>
+<ol>
+<li><p>需要使用的临时数组在开始就申请好, 而不是每次merge操作都用一个临时数组, 上面已经作到了</p>
+</li>
+<li><p>自底向上归并 上面的自上而下的归并需要递归处理, 而递归又使用栈空间, 增加空间和性能消耗</p>
+</li>
+<li><p>不回写 上面的归并, 每次都从arr拷贝到temp, 再从temp归并到arr, 额外操作很多; 其实可以不回写, 第一次直接从arr归并到temp, 下一次再从temp归并到arr, 减少额外的操作</p>
+</li>
+<li><p>可以考虑数字较少时改用插入排序</p>
+</li>
+</ol>
+<p>自底向上归并思路如图:</p>
+<img data-src="/algorithm/merge-sort/mergesort-think.png" class="" title="mergesort-think">
+
+<h2 id="无栈-amp-非递归-amp-不回写的归并"><a href="#无栈-amp-非递归-amp-不回写的归并" class="headerlink" title="无栈&amp;非递归&amp;不回写的归并"></a>无栈&amp;非递归&amp;不回写的归并</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以步长step从src合并到dis</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; src, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; dis, <span class="keyword">int</span> <span class="built_in">step</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">size</span> = src.<span class="built_in">size</span>();</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 每次循环合并[i, i + step)和[i + step, i + 2*step);</span></span><br><span class="line">  <span class="comment">// i + step &lt; size说明 [i + step, size)不为空, 还需要合并; i每次增加2*step</span></span><br><span class="line">  <span class="keyword">for</span> (; i + <span class="built_in">step</span> &lt; <span class="built_in">size</span>; i += (<span class="built_in">step</span> &lt;&lt; <span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="comment">// mid, end作为分割位, 不能更改</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mid = i + <span class="built_in">step</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> <span class="built_in">end</span> = (mid + <span class="built_in">step</span> &lt; <span class="built_in">size</span>) ? (mid + <span class="built_in">step</span>) : <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">int</span> left = i; <span class="comment">// [left, mid)为左边剩下的</span></span><br><span class="line">    <span class="keyword">int</span> right = mid; <span class="comment">// [right, end)为右边剩下的</span></span><br><span class="line">    <span class="comment">// 合并 [i, mid), [mid, end)</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; <span class="built_in">end</span>; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (left &gt;= mid) &#123; dis.at(j) = src.at(right++); &#125; <span class="comment">// 左边用尽</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (right &gt;= <span class="built_in">end</span>) &#123; dis.at(j) = src.at(left++); &#125; <span class="comment">// 右边用尽</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (src.at(right) &lt; src.at(left)) &#123; dis.at(j) = src.at(right++); &#125; <span class="comment">// 右边较小</span></span><br><span class="line">      <span class="keyword">else</span> &#123; dis.at(j) = src.at(left++); &#125; <span class="comment">// 左边不大于右边</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 剩下未处理的数据也要复制过去 (很重要)</span></span><br><span class="line">  <span class="keyword">for</span> (; i &lt; <span class="built_in">size</span>; ++i) &#123; dis.at(i) = src.at(i); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">temp</span><span class="params">(arr)</span></span>; <span class="comment">// 临时数组</span></span><br><span class="line">  <span class="keyword">bool</span> to_temp = <span class="literal">false</span>; <span class="comment">// 是否合并到临时数组</span></span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">step</span> = <span class="number">1</span>; <span class="comment">// 步长从1开始, 每次乘2</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">step</span> &lt; arr.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    to_temp = !to_temp;</span><br><span class="line">    <span class="comment">// 三元表达式后两个参数是类型相同的左值, 因此表达式值也是左值</span></span><br><span class="line">    Merge(to_temp ? arr : temp, to_temp ? temp : arr, <span class="built_in">step</span>);</span><br><span class="line">    <span class="built_in">step</span> &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (to_temp) &#123; <span class="comment">// 最后一次合并到临时数组, 则拷贝回来</span></span><br><span class="line">    arr.assign(temp.cbegin(), temp.cend());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意各边界条件的处理, 还有未处理数据的复制, 最后一次归并如果是归并到临时数组了, 需要拷贝回来; 我粗心大意的错了好几次才调对</p>
+<p>下面是简单测试的结果(100w随机数, 100w高重复率数字, 100w有序数字, 100w倒序数字):</p>
+<img data-src="/algorithm/merge-sort/mergesort.png" class="" title="mergesort">
+
+<p>测试环境:</p>
+<p>Win10 &amp; gcc8.1.0 &amp; RelWithDebInfo &amp; QN8H &amp; RAM8G</p>
+<p>参考资料:</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dlutxm/archive/2011/11/04/2236594.html">归并排序非递归+不回写优化实现</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/algorithm/binary-heap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/algorithm/binary-heap/" class="post-title-link" itemprop="url">二叉堆&堆排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-09 16:05:21" itemprop="dateCreated datePublished" datetime="2020-01-09T16:05:21+08:00">2020-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/algorithm/binary-heap/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/algorithm/binary-heap/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="二叉堆的性质"><a href="#二叉堆的性质" class="headerlink" title="二叉堆的性质"></a>二叉堆的性质</h2><ul>
+<li><p>二叉堆是完全二叉树(除了最底层外其它层节点个数达到最大, 最底层节点都集中在最左边)</p>
+</li>
+<li><p>一般存储在数组结构中, 父子节点之间依靠下标关联</p>
+</li>
+<li><p>堆分为最大堆和最小堆, 最大堆就是所有父节点值都不小于它的任意子节点值, 头节点为最大值; 最小堆相反. (以下默认最大堆)</p>
+</li>
+<li><p><strong>从0开始存储的二叉堆, 节点i的子节点为<code>(i&lt;&lt;1)+1</code>和<code>(i&lt;&lt;1)+2</code>, 节点i的父节点为<code>(i-1)&gt;&gt;1</code></strong></p>
+</li>
+<li><p>n个节点的二叉堆, 最后一个非叶节点下标为<code>(n&gt;&gt;1)-1</code></p>
+</li>
+<li><p>高为h的满二叉树有$2^h-1$个节点, 第i(1, 2…h)层有$2^{h-1}$个节点</p>
+</li>
+</ul>
+<h2 id="二叉堆构建维护"><a href="#二叉堆构建维护" class="headerlink" title="二叉堆构建维护"></a>二叉堆构建维护</h2><p>二叉堆的建立和维护主要有三个操作ShiftUp, ShiftDown, Heapify</p>
+<ul>
+<li><p>ShiftUp(i) 从节点i开始循环向上调整, 若<code>父节点值</code>小于<code>i节点值</code>则交换父节点与i, i=父节点; 直到<code>父节点值</code>不小于<code>i节点值</code>, 或者i为0. 该操作复杂度为$O(\log n)$</p>
+</li>
+<li><p>ShiftDown(i) 从节点i开始循环向下调整, 若<code>i节点值</code>小于<code>较大子节点值</code>则交换i和较大的子节点, i=较大子节点; 直到<code>i节点值</code>不小于<code>较大子节点值</code>, 或者i为叶子节点. 操作复杂度为$O(\log n)$</p>
+</li>
+<li><p>Heapify(arr) 从现有数组构造二叉堆, 具体做法是从最后一个非叶节点直到节点0, 对每个节点做ShiftDown调整. 该过程复杂度为$O(n)$</p>
+</li>
+</ul>
+<p>上述的ShiftUp和ShiftDown中的交换操作可以优化为赋值操作, 建堆使用Heapify相对于逐个插入元素并ShiftUp的好处是, Heapify只对非叶节点调整, 逐个插入元素需要对每个节点都做ShiftUp调整, 可以省去一半节点的调整操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ShiftUp 从将i节点向上调整</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShiftUp</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (i &lt; <span class="number">1</span>) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">  <span class="keyword">int</span> value = arr.at(i);</span><br><span class="line">  <span class="comment">// 如果i节点值比父节点大, 则arr[i] = arr[parent], i = parent</span></span><br><span class="line">  <span class="comment">// 循环直到i节点值不大于父节点, 或者i为0</span></span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> parent = (i - <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> parent_value = arr.at(parent);</span><br><span class="line">    <span class="keyword">if</span> (!(parent_value &lt; value)) &#123; <span class="keyword">break</span>; &#125;</span><br><span class="line">    arr.at(i) = arr.at(parent);</span><br><span class="line">    i = parent;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.at(i) = value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ShiftDown 堆大小为size, 将i节点向下调整</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShiftDown</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">size</span> &lt; <span class="number">2</span>) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">  <span class="keyword">int</span> value = arr.at(i);</span><br><span class="line">  <span class="keyword">while</span> (i &lt; (<span class="built_in">size</span> &gt;&gt; <span class="number">1</span>)) &#123; <span class="comment">// 最后一个非叶节点为 (size&gt;&gt;1)-1</span></span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">max</span> = (i&lt;&lt;<span class="number">1</span>) + <span class="number">1</span>; <span class="comment">// 左节点</span></span><br><span class="line">    <span class="keyword">int</span> right = (i&lt;&lt;<span class="number">1</span>) + <span class="number">2</span>; <span class="comment">// 右节点</span></span><br><span class="line">    <span class="keyword">if</span> (right &lt; <span class="built_in">size</span> &amp;&amp; arr.at(<span class="built_in">max</span>) &lt; arr.at(right)) &#123; <span class="built_in">max</span> = right; &#125;</span><br><span class="line">    <span class="comment">// i与较大的子节点比较, arr.at(i)经过一次循环变成空位, 应该使用value</span></span><br><span class="line">    <span class="keyword">if</span> (!(value &lt; arr.at(<span class="built_in">max</span>))) &#123; <span class="keyword">break</span>; &#125;</span><br><span class="line">    <span class="comment">// 若i节点值小于最大子节点, 则arr[i] = arr[max], i = max; 直到i节点不小于子节点或者i为叶子节点</span></span><br><span class="line">    arr.at(i) = arr.at(<span class="built_in">max</span>);</span><br><span class="line">    i = <span class="built_in">max</span>; <span class="comment">// i变成空位</span></span><br><span class="line">  &#125;</span><br><span class="line">  arr.at(i) = value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Heapify 将现有的数组arr调整为堆 (原位建堆)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Heapify</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 对每个非叶节点(size&gt;&gt;1)-1到0, 执行ShiftDown调整</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = (arr.<span class="built_in">size</span>()&gt;&gt;<span class="number">1</span>) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">    ShiftDown(arr, arr.<span class="built_in">size</span>(), i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二叉堆的应用"><a href="#二叉堆的应用" class="headerlink" title="二叉堆的应用"></a>二叉堆的应用</h2><h3 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h3><p>作为优先队列使用, 主要有两个操作</p>
+<ol>
+<li><p>插入节点</p>
+<p>插入新节点到二叉堆数组末端, 对该节点做ShiftUp调整即可</p>
+</li>
+<li><p>取头节点</p>
+<p>头节点值赋值给其它变量(取出), 将数组末尾元素赋值给头节点, 删除末尾元素, 长度减1, 并对头节点做ShiftDown调整</p>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Insert 假设arr前size个节点是堆, 将节点插入到下标size处, 对该节点ShiftUp调整, ++size</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span>&amp; <span class="built_in">size</span>, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">  arr.insert(arr.cbegin() + <span class="built_in">size</span>, value);</span><br><span class="line">  ShiftUp(arr, <span class="built_in">size</span>);</span><br><span class="line">  ++<span class="built_in">size</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// PopHead 取头节点, 先拿到头节点的值, 将未节点赋值给头节点, erase末节点, --size, 再ShiftDown(0) (顺序不能错)</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PopHead</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span>&amp; <span class="built_in">size</span>, <span class="keyword">int</span>&amp; head)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">size</span> &lt; <span class="number">1</span>) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">  <span class="keyword">int</span> head = arr.at(<span class="number">0</span>);</span><br><span class="line">  arr.at(<span class="number">0</span>) = arr.at(<span class="built_in">size</span> - <span class="number">1</span>);</span><br><span class="line">  arr.erase(arr.cbegin() + <span class="built_in">size</span> - <span class="number">1</span>);</span><br><span class="line">  --<span class="built_in">size</span>;</span><br><span class="line">  ShiftDown(arr, <span class="built_in">size</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>堆排序和归并排序都是渐进最优的, 任何情况下的复杂度都是$O(n\log n)$</p>
+<p>堆排序是一种不稳定的排序方法, 使用原位堆排序可以省去空间的开销</p>
+<p>具体操作是先原位Heapify构造堆, 然后循环执行以下步骤:</p>
+<p>交换堆的头尾节点, 将堆大小减1(不移除末尾元素), 对头节点进行ShiftDown调整</p>
+<p>直到堆大小变成1, 排序完成</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HeapSort</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">  Heapify(arr);</span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">size</span> = arr.<span class="built_in">size</span>();</span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">size</span> &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">std</span>::swap(arr.at(<span class="number">0</span>), arr.at(<span class="built_in">size</span> - <span class="number">1</span>));</span><br><span class="line">    --<span class="built_in">size</span>;</span><br><span class="line">    ShiftDown(arr, <span class="built_in">size</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>堆排序简单测试(100w随机数, 100w高重复率数字, 100w有序数字, 100w倒序数字):</p>
+<img data-src="/algorithm/binary-heap/heapsort.png" class="" title="堆排序">
+
+<p>测试环境:</p>
+<p>Win10 &amp; gcc8.1.0 &amp; RelWithDebInfo &amp; QN8H &amp; RAM8G</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EricYe</p>
+  <div class="site-description" itemprop="description">The compiler in my hand will be a part of my soul.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fetasty" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fetasty" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fetasty@outlook.com" title="E-Mail → mailto:fetasty@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.unrealengine.com/" title="https:&#x2F;&#x2F;www.unrealengine.com" rel="noopener" target="_blank">Unreal Engine</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://kexingfu.github.io/" title="http:&#x2F;&#x2F;kexingfu.github.io" rel="noopener" target="_blank">Kexingfu</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EricYe</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'http://fetasty.github.io/',]
+      });
+      });
+  </script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'IyyIsLTeEAleQasCvYmTAx6Q-gzGzoHsz',
+      appKey     : '3laWJNFvNHzGHaRXfffC3K9H',
+      placeholder: "文明用语暖人心, 遵纪守法好公民",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

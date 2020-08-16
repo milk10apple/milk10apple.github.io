@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="The compiler in my hand will be a part of my soul.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fetasty">
+<meta property="og:url" content="http://fetasty.github.io/page/2/index.html">
+<meta property="og:site_name" content="fetasty">
+<meta property="og:description" content="The compiler in my hand will be a part of my soul.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="EricYe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://fetasty.github.io/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>fetasty</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fetasty</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">念念不忘, 必有回响</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/algorithm/quick-sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/algorithm/quick-sort/" class="post-title-link" itemprop="url">快速排序&优化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-07 20:25:48" itemprop="dateCreated datePublished" datetime="2020-01-07T20:25:48+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/algorithm/quick-sort/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/algorithm/quick-sort/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>快速排序是一种不稳定的排序方法, 一般情况下的复杂度为$O(n\log n)$, 效率主要取决于每次选取的中枢值是不是能比较平均的划分数列</p>
+<h2 id="简单快速排序"><a href="#简单快速排序" class="headerlink" title="简单快速排序"></a>简单快速排序</h2><p>最基本的快排思路比较简单, 首先选取一个中枢值(pivot), 然后对其它数据进行划分, 小于pivot的放左边, 不小于pivot的数字放右边, 然后递归对两边数据划分</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简单快排 [start, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SimpleQuickSort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">end</span> - start &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span>; &#125; <span class="comment">// 递归退出条件</span></span><br><span class="line">  <span class="comment">// 以start位置的值作为中枢</span></span><br><span class="line">  <span class="keyword">int</span> pivot = arr[start]; <span class="comment">// start位置的值暂存在pivot中, arr[start]可以作为一个空位使用</span></span><br><span class="line">  <span class="keyword">int</span> i = start;</span><br><span class="line">  <span class="keyword">int</span> j = <span class="built_in">end</span> - <span class="number">1</span>;</span><br><span class="line">  <span class="comment">// 一趟划分</span></span><br><span class="line">  <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">    <span class="comment">// 从右往左找到一个&lt;pivot的值, 填在i所在的空位, j所在位置变成空位</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[j] &gt;= pivot) &#123; --j; &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        ++i;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从左往右找到一个&gt;=pivot的值, 填在j所在空位, i位置变成空位</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] &lt; pivot) &#123; ++i; &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        arr[j] = arr[i];</span><br><span class="line">        --j;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 在这里必有 i == j 且指向空位, 此时将pivot填入该位置</span></span><br><span class="line">  <span class="comment">// assert(i == j);</span></span><br><span class="line">  arr[i] = pivot;</span><br><span class="line">  <span class="comment">// [start, i)都是&lt;pivot的值, 而(i, end)都是&gt;=pivot的值, 递归划分; (i位置必定是pivot, 它在正确位置)</span></span><br><span class="line">  <span class="comment">// 这里需要注意无法退出的递归, 要保证递归后的规模一定小于当前规模 (考虑循环完后i是否可能等于start或者end)</span></span><br><span class="line">  SimpleQuickSort(arr, start, i);</span><br><span class="line">  SimpleQuickSort(arr, i + <span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>简单测试一下:</p>
+<ul>
+<li><p>先排100个数字看看正确性</p>
+<img data-src="/algorithm/quick-sort/simple-quicksort-test1.png" class="" title="正确性">
+</li>
+<li><p>100w随机数(生成范围0-1000000)排序用时, 还挺快的</p>
+<img data-src="/algorithm/quick-sort/simple-quicksort-test2.png" class="" title="100w随机数">
+</li>
+<li><p>100w有较多重复数字时(生成范围0-100)</p>
+<img data-src="/algorithm/quick-sort/simple-quicksort-test3.png" class="" title="100w重复率高的数字">
+
+<p>可以看到效率明显下降了</p>
+</li>
+<li><p>100w的有序数列(0, 1, … 100w-1)<br>emm… 100w的有序数列直接跑半天没结果, 改成了10w有序数列</p>
+<img data-src="/algorithm/quick-sort/simple-quicksort-test4.png" class="" title="10w有序数字">
+
+<p>这效率下降的不是一星半点了</p>
+</li>
+</ul>
+<h2 id="快速排序的优化"><a href="#快速排序的优化" class="headerlink" title="快速排序的优化"></a>快速排序的优化</h2><p>网上搜索得到几种快排的优化方法:</p>
+<ol>
+<li><p><strong>三值取中</strong> 中枢值单纯选择最左位置, 效果可能不佳, 从start, mid, end - 1三个位置取中位数, 可以选出较好的中枢</p>
+</li>
+<li><p><strong>等值聚集</strong> 与中枢pivot相等的数字单纯划分到一边, 也会导致划分不平衡, 增加迭代次数, 特别是重复数字较多的时候; 所以最好把相等的数字单独处理</p>
+</li>
+<li><p><strong>少数插排</strong> 插入排序复杂度为$O(n^2)$, 但是在数据量较少时, 快排的效率不如插入排序好, 可以在快速排序划分到较小区块时使用插入排序</p>
+</li>
+</ol>
+<p>只接使用start位置作为中枢值, 在数列有序时, 这种做法每次都是最不平均的划分, 直接让算法退化为$O(n^2)$, 随机取中枢值好一点, 但是有较高随机性, 相比而言, 三值取中是一个比较好的选取中枢的方法; 在数据比较有序时, 插入排序可以避免不必要的交换; 在数据重复量比较大时, 等值聚集和插入排序都可以节省大量时间, 让数据规模迅速缩小.</p>
+<p>选取这三种优化方法, 改进一下快排:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插入排序 [start, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertionSort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">end</span> - start &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = start + <span class="number">1</span>; i &lt; <span class="built_in">end</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">int</span> value = arr[i];</span><br><span class="line">    <span class="keyword">int</span> j = i;</span><br><span class="line">    <span class="keyword">for</span> (; j &gt; start &amp;&amp; value &lt; arr[j - <span class="number">1</span>]; --j) &#123;</span><br><span class="line">      arr[j] = arr[j - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[j] = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 快排 + 三值取中 + 等值聚集 + 少数插排 [start, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">end</span> - start &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">  <span class="comment">// 少数插排 我这里设置为10, 数据量不超过10时使用插入排序</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">end</span> - start &lt;= <span class="number">10</span>) &#123;</span><br><span class="line">    InsertionSort(arr, start, <span class="built_in">end</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 三值取中 中位数放在start位置</span></span><br><span class="line">  <span class="keyword">int</span> mid = start + ((<span class="built_in">end</span> - start) &gt;&gt; <span class="number">1</span>); <span class="comment">// +的优先级高于&gt;&gt;, 要注意下</span></span><br><span class="line">  <span class="keyword">if</span> (arr[<span class="built_in">end</span> - <span class="number">1</span>] &lt; arr[start]) &#123; <span class="built_in">std</span>::swap(arr[<span class="built_in">end</span> - <span class="number">1</span>], arr[start]); &#125;</span><br><span class="line">  <span class="keyword">if</span> (arr[<span class="built_in">end</span> - <span class="number">1</span>] &lt; arr[mid]) &#123; <span class="built_in">std</span>::swap(arr[<span class="built_in">end</span> - <span class="number">1</span>], arr[mid]); &#125;</span><br><span class="line">  <span class="keyword">if</span> (arr[start] &lt; arr[mid]) &#123; <span class="built_in">std</span>::swap(arr[start], arr[mid]); &#125;</span><br><span class="line">  <span class="comment">// 划分 与pivot相等的值移动到两端</span></span><br><span class="line">  <span class="keyword">int</span> pivot = arr[start];</span><br><span class="line">  <span class="keyword">int</span> i = start;</span><br><span class="line">  <span class="keyword">int</span> j = <span class="built_in">end</span> - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> leq = <span class="number">0</span>; <span class="comment">// i从左向右碰到的==pivot的元素个数</span></span><br><span class="line">  <span class="keyword">int</span> req = <span class="number">0</span>; <span class="comment">// j从右向左碰到的==pivot的元素个数</span></span><br><span class="line">  <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (pivot &lt; arr[j]) &#123; --j; &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        ++i;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 从右向左碰到==pivot的元素, 移动到右边, 并增加计数, j向左移动</span></span><br><span class="line">        <span class="built_in">std</span>::swap(arr[j], arr[<span class="built_in">end</span> - <span class="number">1</span> - req]);</span><br><span class="line">        ++req;</span><br><span class="line">        --j;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] &lt; pivot) &#123; ++i; &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (pivot &lt; arr[i]) &#123;</span><br><span class="line">        arr[j] = arr[i];</span><br><span class="line">        --j;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 从左向右碰到==pivot的元素, 移动到左边, 增加计数, i向右移动</span></span><br><span class="line">        <span class="built_in">std</span>::swap(arr[i], arr[start + leq]);</span><br><span class="line">        ++leq;</span><br><span class="line">        ++i;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// assert(i == j);</span></span><br><span class="line">  arr[i] = pivot;</span><br><span class="line">  <span class="comment">// 等值聚集 将移动到两端的与pivot相等的值移动到中间位置</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; leq; ++k) &#123; <span class="built_in">std</span>::swap(arr[start + k], arr[i - <span class="number">1</span> - k]); &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; req; ++k) &#123; <span class="built_in">std</span>::swap(arr[<span class="built_in">end</span> - <span class="number">1</span> - k], arr[i + <span class="number">1</span> + k]); &#125;</span><br><span class="line">  <span class="comment">// 递归处理</span></span><br><span class="line">  QuickSort(arr, start, i - leq); <span class="comment">// &lt;pivot的元素</span></span><br><span class="line">  QuickSort(arr, i + <span class="number">1</span> + req, <span class="built_in">end</span>); <span class="comment">// &gt;pivot的元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>简单测试: </p>
+<p>从上到下依次为 100w随机数(0-1000000), 100w较多重复数字(0-10), 100w有序数字(0, 1, … 100w-1), 100w倒序数字</p>
+  <img data-src="/algorithm/quick-sort/quicksort.png" class="" title="quicksort结果">
+
+<p>从测试结果可以看出来, 优化后的快排效果还是很不错的, 在绝大多数数情况下都能达到$O(n\log n)$ (极少情况: 比如设计一个数组, 让上述的三值取中每次都取到一个最不平衡的中枢值, 让排序的每次划分都是不理想的)</p>
+<p>测试环境:</p>
+<p>Win10 &amp; gcc8.1.0 &amp; RelWithDebInfo &amp; QN8H &amp; RAM8G</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>查资料时发现快排其实有很多种实现方法, 其中有一个”三轴双向”的快排实现也比较有意思</p>
+<ol>
+<li><p>使用i, k, j三个指向变量, 初始时<code>i = start</code>, <code>k = start + 1</code>, <code>j = end - 1</code>, <code>pivot = arr.at(start)</code></p>
+</li>
+<li><p>保持i指向第一个等于pivot的位置, i之前的元素都是小于pivot, k指向最后一个等于pivot的元素下一位置, j之后的元素都是大于pivot</p>
+</li>
+<li><p>判断k位置的元素, 若小于pivot, 则swap(i, k), 然后<code>i++</code>, <code>k++</code>, 再次执行本步骤; 若等于pivot, 则<code>k++</code>, 再次执行本步骤; 若大于pivot, 则转第4步</p>
+</li>
+<li><p>判断j位置的元素, 若小于pivot, 则swap(j, k), 然后<code>j--</code>, 转第3步; 若等于pivot, 则swap(j, k), 然后<code>j--</code>, <code>k++</code>, 再次执行本步; 若大于pivot, 则<code>j--</code>, 再次执行本步骤</p>
+</li>
+<li><p>第3步和第4步循环直到k &gt; j退出, 因为k, j指向的其实都是未扫描元素, <code>k == j</code>时, 指向的元素并未扫描</p>
+</li>
+<li><p>递归处理<code>[start, i)</code>和<code>[j+1, end)</code>, <code>[i, k)</code>部分则是等于pivot的元素</p>
+</li>
+</ol>
+<p>还有双轴快排, 选取两个值作为中枢, 比较次数变多, 交换次数变少, 因为现在的硬件情况是CPU性能比较强悍, 远超过RAM的速度, 所以把较多的任务交给CPU处理, 而尽量少的使用内存也可以有意想不到的效果, 有兴趣的朋友可以看看</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nullzx/p/5880191.html">图文并茂的参考资料</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/gxx-generate-process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/gxx-generate-process/" class="post-title-link" itemprop="url">g++生成可执行文件过程简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-10 11:09:44" itemprop="dateCreated datePublished" datetime="2019-12-10T11:09:44+08:00">2019-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/gxx-generate-process/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/gxx-generate-process/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>g++生成可执行文件有四个步骤</p>
+<h2 id="四个步骤"><a href="#四个步骤" class="headerlink" title="四个步骤"></a>四个步骤</h2><ul>
+<li><p>预处理: 处理条件编译, 头文件展开, 宏展开 (生成<code>.i</code>文件)</p>
+</li>
+<li><p>编译: 语法解析处理, 生成汇编代码 (生成<code>.s</code>汇编文件)</p>
+</li>
+<li><p>汇编: 将汇编代码处理为目标机器代码 (生成<code>.o</code>目标文件)</p>
+</li>
+<li><p>链接: 链接各目标文件, 库文件, 生成二进制可执行程序</p>
+</li>
+</ul>
+<h2 id="使用g-分阶段处理"><a href="#使用g-分阶段处理" class="headerlink" title="使用g++分阶段处理"></a>使用g++分阶段处理</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cc</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;hello\n&quot;</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -E main.cc &gt; main.i</span><br></pre></td></tr></table></figure>
+
+<p>只进行预处理, 并将结果存到<code>main.i</code>文件中, 可以打开看到各种展开的结果</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -S main.cc &gt; main.s</span><br></pre></td></tr></table></figure>
+
+<p>只进行预处理&amp;编译, 并将结果输出到<code>main.s</code>文件中, 打开可以看到汇编指令</p>
+<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -c main.cc &gt; main.o</span><br></pre></td></tr></table></figure>
+
+<p>进行预处理&amp;编译&amp;汇编, 生成目标文件, 已经是二进制机器码了</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ main.cc -o main</span><br></pre></td></tr></table></figure>
+
+<p>执行预处理&amp;编译&amp;汇编&amp;链接, 生成可执行文件</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/staticlib-sharedlib-in-cpp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/staticlib-sharedlib-in-cpp/" class="post-title-link" itemprop="url">C++中的静态链接库和动态链接库区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-10 10:41:45" itemprop="dateCreated datePublished" datetime="2019-12-10T10:41:45+08:00">2019-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/staticlib-sharedlib-in-cpp/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/staticlib-sharedlib-in-cpp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>稍加总结</p>
+<h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p><strong>静态链接库</strong>是在编译最后一步(链接阶段), 一起打包到可执行文件中</p>
+<p><strong>动态链接库</strong>在编译生成阶段没有动作, 而是在程序运行时加载, 加载发生在运行时期, 库文件与执行文件分开, 执行文件依赖于库文件 (不同平台上的动态加载方式并不相同)</p>
+<h2 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h2><p>静态库在Windows上为<code>.lib</code>文件, 在Linux上是<code>.a</code>文件</p>
+<p>动态库在Windows上为<code>.dll</code>和<code>.lib</code>文件, 在Linux上是<code>.so</code>文件</p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h3 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h3><p>优点:</p>
+<ul>
+<li><p>被打包到可执行文件中, 可执行文件不再依赖库文件</p>
+</li>
+<li><p>链接时直接包含库文件, 执行期间代码装载速度快</p>
+</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li><p>可执行文件变大 (包含了库文件)</p>
+</li>
+<li><p>库更新后, 可执行文件也必须重新编译</p>
+</li>
+<li><p>不可共用, 每个依赖静态库的可执行文件都要包含这个库</p>
+</li>
+</ul>
+<h3 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h3><p>优点:</p>
+<ul>
+<li><p>多个可执行文件可依赖同一个动态库文件</p>
+</li>
+<li><p>升级简单, 不需要重新编译可执行文件</p>
+</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li><p>运行时加载, 减慢速度</p>
+</li>
+<li><p>增加程序依赖性, 必须和可执行文件一起</p>
+</li>
+</ul>
+<h2 id="CMake生成"><a href="#CMake生成" class="headerlink" title="CMake生成"></a>CMake生成</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">aux_source_directory</span>(. SRC_LIST)</span><br><span class="line"><span class="comment"># STATIC为生存静态库  SHARED生成动态库</span></span><br><span class="line"><span class="keyword">add_library</span>(mylib STATIC <span class="variable">$&#123;SRC_LIST&#125;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="CMake使用"><a href="#CMake使用" class="headerlink" title="CMake使用"></a>CMake使用</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add_executable</span>(myapp main.cc)</span><br><span class="line"><span class="comment"># 静态库</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(myapp libmyfun.a)</span><br><span class="line"><span class="comment"># 动态库</span></span><br><span class="line"><span class="comment"># target_link_libraries(myapp libmyfun.so)</span></span><br></pre></td></tr></table></figure>
+
+<p>之后在源码中引入函数声明的头文件, 使用对应函数</p>
+<h3 id="代码动态加载"><a href="#代码动态加载" class="headerlink" title="代码动态加载"></a>代码动态加载</h3><p>Windows下和Linux中加载方式不同, 具体可以搜索<code>Windows 动态库使用</code> <code>Linux 动态库使用</code></p>
+<p>参考资料: <a target="_blank" rel="noopener" href="https://blog.csdn.net/a369189453/article/details/81124685">https://blog.csdn.net/a369189453/article/details/81124685</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/other/search-expression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/other/search-expression/" class="post-title-link" itemprop="url">搜索语法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-10 10:08:57" itemprop="dateCreated datePublished" datetime="2019-12-10T10:08:57+08:00">2019-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/other/search-expression/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/other/search-expression/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;如何阅读一本书&quot;</span><br></pre></td></tr></table></figure>
+
+<p>  只搜索包含整个词语的结果, 不会出现只有”阅读”或者”一本书”的结果</p>
+<h2 id="排除关键词"><a href="#排除关键词" class="headerlink" title="排除关键词"></a>排除关键词</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如何阅读一本书 -孩子</span><br></pre></td></tr></table></figure>
+
+<p>  排除搜索结果中包含”孩子”的结果</p>
+<h2 id="包含关键词"><a href="#包含关键词" class="headerlink" title="包含关键词"></a>包含关键词</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如何阅读一本书 -孩子 +推荐</span><br></pre></td></tr></table></figure>
+
+<h2 id="在特定网站-域名中搜索"><a href="#在特定网站-域名中搜索" class="headerlink" title="在特定网站/域名中搜索"></a>在特定网站/域名中搜索</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如何阅读一本书 site:pan.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>  不要<code>http://</code>, 不加<code>www</code>, 上面的网盘搜索不要使用百度搜索 (Google/duckduckgo/dogedoge)</p>
+<h2 id="搜索特定文件类型"><a href="#搜索特定文件类型" class="headerlink" title="搜索特定文件类型"></a>搜索特定文件类型</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="url链接中包含关键字"><a href="#url链接中包含关键字" class="headerlink" title="url链接中包含关键字"></a>url链接中包含关键字</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如何阅读 inurl:gov.cn</span><br></pre></td></tr></table></figure>
+
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="标题中包含"><a href="#标题中包含" class="headerlink" title="标题中包含"></a>标题中包含</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf intitle:大学</span><br></pre></td></tr></table></figure>
+
+<h2 id="结合使用"><a href="#结合使用" class="headerlink" title="结合使用"></a>结合使用</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;如何*一本书&quot; -孩子 filetype:pdf inurl:edu intitle:大学</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">intitle:如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/other/tips-on-windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/other/tips-on-windows/" class="post-title-link" itemprop="url">Windows上的一些实用小命令/技巧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-10 09:43:57" itemprop="dateCreated datePublished" datetime="2019-12-10T09:43:57+08:00">2019-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/other/tips-on-windows/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/other/tips-on-windows/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="自动关机"><a href="#自动关机" class="headerlink" title="自动关机"></a>自动关机</h2><p>有时候电脑在处理一些任务, 需要一段时间, 但是我不想等, 可以设置一个定时关机, 然后去干自己的事情就好了</p>
+<p><code>-s</code> 表示关闭计算机</p>
+<p><code>-f</code> 强制执行, 不显示警告</p>
+<p><code>-t 7200</code> 定时7200秒(2小时)之后执行</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -s -f -t <span class="number">7200</span></span><br></pre></td></tr></table></figure>
+
+<p>突然我又回来了, 又不想让它自动关机了, 可以取消自动关机</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -a</span><br></pre></td></tr></table></figure>
+
+<h2 id="系统级隐藏"><a href="#系统级隐藏" class="headerlink" title="系统级隐藏"></a>系统级隐藏</h2><p>当然, 这个不是加密, 想看到还是能看到, 但只打开一个显示隐藏文件, 是不会显示的</p>
+<p>(查看-&gt;选项-&gt;查看-&gt;取消勾选 隐藏受保护的操作系统文件)</p>
+<p>命令格式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ATTRIB [+R | -R] [+A | -A ] [+S | -S] [+H | -H] [[drive:] [path] filename] [&#x2F;S [&#x2F;D]]</span><br><span class="line">+ 设置属性</span><br><span class="line">- 清除属性</span><br><span class="line">R 只读文件属性</span><br><span class="line">A 存档文件属性</span><br><span class="line">S 系统文件属性</span><br><span class="line">H 隐藏文件属性</span><br><span class="line">&#x2F;S 处理当前文件夹及其子文件夹中的匹配文件</span><br><span class="line">&#x2F;D 处理文件夹</span><br><span class="line">或者直接运行attrib可以查看当前文件夹下所有文件的属性</span><br><span class="line">attrib &lt;filename&gt;查看指定文件属性</span><br><span class="line">attrib &lt;filename&gt; +S +H +R添加属性</span><br><span class="line">attrib &lt;filename&gt; -S -H -R去除属性</span><br></pre></td></tr></table></figure>
+
+<h3 id="U盘设置自定义图标"><a href="#U盘设置自定义图标" class="headerlink" title="U盘设置自定义图标"></a>U盘设置自定义图标</h3><p>准备一个自己的ico图标my.ico放在根目录</p>
+<p>u盘根目录中新建文件autorun.inf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[autorun]</span></span><br><span class="line"><span class="attr">icon</span>=my.ico</span><br></pre></td></tr></table></figure>
+
+<p>之后命令行隐藏这两个文件</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">attrib</span> my.ico +S +H +R</span><br><span class="line"><span class="built_in">attrib</span> autorun.inf +S +H +R</span><br></pre></td></tr></table></figure>
+
+<h3 id="U盘病毒常用隐藏方法"><a href="#U盘病毒常用隐藏方法" class="headerlink" title="U盘病毒常用隐藏方法"></a>U盘病毒常用隐藏方法</h3><p>U盘中毒时, 可能会隐藏U盘下所有文件, 只显示病毒本体, 引诱用户点击</p>
+<p>看到U盘异常时, 先去掉U盘中所有文件和文件夹隐藏属性</p>
+<p>Windows默认隐藏文件后缀名, 建议默认打开后缀名显示</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">attrib</span> autorun.inf -a -s -r -h # 去掉autorun.inf的四种属性</span><br><span class="line"><span class="built_in">attrib</span> *.* -a -s -r -h # 还原所有被隐藏的文件</span><br><span class="line"><span class="built_in">attrib</span> /d /s +a -s -h -r # 还原所有被隐藏文件夹</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令行关闭进程"><a href="#命令行关闭进程" class="headerlink" title="命令行关闭进程"></a>命令行关闭进程</h2><p>碰到过一个应用, 会开启2个进程, 互相保护, 任务管理器中只能一个个关, 但是关一个另一个马上新开一个进程..</p>
+<p>Windows任务管理器详细信息中有每个进程的进程名和进程PID</p>
+<p>可以存为bat后缀文件双击运行</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">taskkill</span> /im ThunderPlatform.exe # 通过进程名关闭进程</span><br><span class="line"><span class="built_in">taskkill</span> /pid <span class="number">4472</span> # 通过PID关闭进程</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示所有windows工具-上帝模式"><a href="#显示所有windows工具-上帝模式" class="headerlink" title="显示所有windows工具 (上帝模式)"></a>显示所有windows工具 (上帝模式)</h2><p>新建文件夹, 命名为 <code>上帝模式.&#123;ED7BA470-8E54-465E-825C-99712043E01C&#125;</code></p>
+<h2 id="一些特殊字符的快速输入"><a href="#一些特殊字符的快速输入" class="headerlink" title="一些特殊字符的快速输入"></a>一些特殊字符的快速输入</h2><p>有些字符很常用, 但找起来不容易</p>
+<p>按住Alt, 键入对应字符的<strong>Unicode编码十进制数字</strong>, 然后松开Alt</p>
+<p><code>191</code> <code>¿</code></p>
+<p><code>41420</code> <code>√</code></p>
+<p><code>215</code> <code>×</code></p>
+<p><code>169</code> <code>©</code></p>
+<p><code>153</code> <code>™</code></p>
+<p>更多的字符编码可以查阅<a target="_blank" rel="noopener" href="https://unicode-table.com/">Unicode Table</a>, 找到对应字符的HTML Code后面的十进制数字 (不一定全部管用)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/vscode-cmake-cpp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/vscode-cmake-cpp/" class="post-title-link" itemprop="url">VS Code中使用CMake编译调试C++</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-07 22:20:30" itemprop="dateCreated datePublished" datetime="2019-12-07T22:20:30+08:00">2019-12-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/vscode-cmake-cpp/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/vscode-cmake-cpp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>适用于Windows系统</p>
+<h2 id="VS-Code的C-环境"><a href="#VS-Code的C-环境" class="headerlink" title="VS Code的C++环境"></a>VS Code的C++环境</h2><ul>
+<li><p><a href="https://fetasty.github.io/cpp/win-mingw-w64-install/">安装MingGW</a></p>
+</li>
+<li><p><code>C/C++</code> 提供基本语言支持, 智能提示</p>
+</li>
+<li><p><code>CMake</code> 提供CMakeLists文件的智能提示</p>
+</li>
+<li><p><code>CMake Tools</code> 提供CMake工具链支持</p>
+</li>
+</ul>
+<p>在VS Code设置中可以针对每个扩展进行一些个性化设置</p>
+<h2 id="建立项目目录-编写源代码"><a href="#建立项目目录-编写源代码" class="headerlink" title="建立项目目录, 编写源代码"></a>建立项目目录, 编写源代码</h2><p>一般的项目目录结构:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">proj_name&#x2F;</span><br><span class="line">  |- CMakeLists.txt 项目的根cmake文件</span><br><span class="line">  |- LICENSE 项目授权文件</span><br><span class="line">  |- README.MD 项目说明</span><br><span class="line">  |- src&#x2F; 源码目录</span><br><span class="line">    |- module_name&#x2F; 模块源码目录</span><br><span class="line">      |- CMakeLists.txt 模块目录中的cmake文件</span><br><span class="line">    |- CMakeLists.txt src&#x2F;目录中的cmake文件</span><br><span class="line">  |- doc&#x2F; 文档目录</span><br><span class="line">  |- build&#x2F; 构建目录</span><br><span class="line">    |- bin&#x2F; 二进制文件目录</span><br><span class="line">    |- lib&#x2F; 二进制库文件目录</span><br><span class="line">    |- includes&#x2F; 二进制库头文件目录</span><br></pre></td></tr></table></figure>
+
+<h2 id="VS-Code中使用CMake调试"><a href="#VS-Code中使用CMake调试" class="headerlink" title="VS Code中使用CMake调试"></a>VS Code中使用CMake调试</h2><p>在编写源文件和CMake文件之后</p>
+<p>在项目状态栏 可以看到CMake的一些工具, 可以选择Debug/Release编译环境, 可以选择工具包, 生成文件, 选择生成目标, 或者调试</p>
+<p>如果没有看到CMake工具, 先确认CMake Tools正常安装, 或者<code>ctrl + shift + p</code>输入”cmake quick start”看看</p>
+<h2 id="GUN风格版本号管理"><a href="#GUN风格版本号管理" class="headerlink" title="GUN风格版本号管理"></a>GUN风格版本号管理</h2><p>一般格式为 主版本号.子版本号[.修正版本号[ build-编译版本号]]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Major.Minor.[.Revision[ Build]]</span><br><span class="line">1.3.10 build-0925</span><br><span class="line">1.3.10</span><br></pre></td></tr></table></figure>
+
+<p>项目最初版本一般为0.1.0</p>
+<ul>
+<li><p>项目在进行了局部修改或 bug 修正时，主版本号和子版本号都不变，修正版本号加 1</p>
+</li>
+<li><p>项目在原有的基础上增加了部分功能时，主版本号不变，子版本号加 1，修正版本号复位为 0，因而可以被忽略掉</p>
+</li>
+<li><p>项目在进行了重大修改或局部修正累积较多，而导致项目整体发生全局变化时，主版本号加 1</p>
+</li>
+<li><p>如果有编译版本号, 编译版本号一般自动生成, 不人为控制</p>
+</li>
+</ul>
+<h2 id="编写CMakeLists文件"><a href="#编写CMakeLists文件" class="headerlink" title="编写CMakeLists文件"></a>编写CMakeLists文件</h2><p><code>project(myapp [VERSION 3.10.5])</code> 会隐式定义一些cmake变量</p>
+<p><code>PROJECT_BINARY_DIR</code> 该变量是构建目录, 也就是<code>cmake xx</code>命令运行目录</p>
+<p><code>PROJECT_SOURCE_DIR</code> 该变量是源码目录, 项目根目录</p>
+<p><code>PROJECT_VERSION_MAJOR</code> <code>PROJECT_VERSION_MINOR</code> <code>PROJECT_VERSION_PATCH</code> 分别表示Major/Minor/Patch值, 这里是(3/10/5)</p>
+<p><code>message(STATUS &quot;&quot; [xx])</code> 可以用于打印一些信息</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">message</span>(STATUS <span class="string">&quot;version major: &quot;</span> <span class="variable">$&#123;PROJECT_VERSION_MAJOR&#125;</span>)</span><br><span class="line"><span class="keyword">message</span>(STATUS <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>有空格的文件名或者路径必须使用双引号包括</strong></p>
+<h3 id="项目目录中的CMake"><a href="#项目目录中的CMake" class="headerlink" title="项目目录中的CMake"></a>项目目录中的CMake</h3><p><strong>简单项目</strong></p>
+<p>如果项目中比较简单, 没有目录结构, 源文件就在项目根目录, 可以直接一个CMake文件即可</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># myapp/</span></span><br><span class="line"><span class="comment"># 最低要求版本</span></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>.<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 设置项目名称 版本号</span></span><br><span class="line"><span class="keyword">project</span>(myapp VERSION <span class="number">0.1</span>.<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 将源文件列表设置为变量值</span></span><br><span class="line"><span class="keyword">set</span>(SRC_LIST main.cc func1.cc func2.cc)</span><br><span class="line"><span class="comment"># 根据源文件生成可执行文件 (可执行文件名 源文件列表)</span></span><br><span class="line"><span class="keyword">add_executable</span>(myapp <span class="variable">$&#123;SRC_LIST&#125;</span>)</span><br><span class="line"><span class="comment"># 相当于add_executable(myapp main.cc func1.cc func2.cc)</span></span><br><span class="line"><span class="comment"># 生成库文件 库文件名/静态库或者动态库(STATIC|SHARED)/源文件列表</span></span><br><span class="line"><span class="comment"># add_library(mylib STATIC $&#123;SRC_LIST&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>源文件都在src目录中</strong></p>
+<p>项目根目录</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># myapp/</span></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>.<span class="number">0</span>)</span><br><span class="line"><span class="keyword">project</span>(myapp VERSION <span class="number">0.1</span>.<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 添加子目录, 并指定子目录生成的二进制文件存放位置(相对于build目录 这里是build/bin)</span></span><br><span class="line"><span class="comment"># 构建时, 子目录中的CMakeLists也会被构建</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>(src bin)</span><br></pre></td></tr></table></figure>
+
+<p>项目的src目录</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># myapp/src/</span></span><br><span class="line"><span class="comment"># 自动扫描给定文件夹中的源文件, 并把源文件列表存到变量中</span></span><br><span class="line"><span class="keyword">aux_source_directory</span>(. SRC_LIST)</span><br><span class="line"><span class="keyword">add_executable</span>(myapp <span class="variable">$&#123;SRC_LIST&#125;</span>)</span><br><span class="line"><span class="comment"># add_library(mylib STATIC $&#123;SRC_LIST&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="引用外部库"><a href="#引用外部库" class="headerlink" title="引用外部库"></a>引用外部库</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加头文件搜索路径</span></span><br><span class="line"><span class="keyword">include_directories</span>(dir1 [dir2 ...])</span><br></pre></td></tr></table></figure>
+
+<p>假设<code>myfun.h</code>在dir1下, 现在就可以在代码中使用<code>#include &quot;myfun.h&quot;</code>引入dir1中的头文件了</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加共享库所在目录</span></span><br><span class="line"><span class="keyword">link_directories</span>(libdir1 [libdir2 ...])</span><br><span class="line"><span class="comment"># 链接共享库 可执行文件名(target 需要先add_executable生成) 库文件名(可省略前缀lib和扩展名.a, 但是要明确表示使用静态库或者动态库, 还是要写出全名)</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="keyword">target</span> libname)</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用生成的库"><a href="#引用生成的库" class="headerlink" title="引用生成的库"></a>引用生成的库</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># src/myfun</span></span><br><span class="line"><span class="keyword">aux_source_directory</span>(. LIB_MYFUN_SRC_LIST)</span><br><span class="line"><span class="keyword">add_library</span>(myfun STATIC <span class="variable">$&#123;LIB_MYFUN_SRC_LIST&#125;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># src/</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>(myfun lib) <span class="comment"># 添加生成静态库</span></span><br><span class="line"><span class="keyword">aux_source_directory</span>(. MAIN_SRC_LIST)</span><br><span class="line"><span class="keyword">add_executable</span>(myapp <span class="variable">$&#123;MAIN_SRC_LIST&#125;</span>)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(myapp libmyfun.a)</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码中使用CMake中定义的宏"><a href="#代码中使用CMake中定义的宏" class="headerlink" title="代码中使用CMake中定义的宏"></a>代码中使用CMake中定义的宏</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加入一个配置头文件，用于处理 CMake 对源码的设置</span></span><br><span class="line"><span class="keyword">configure_file</span> (</span><br><span class="line">  <span class="string">&quot;$&#123;PROJECT_SOURCE_DIR&#125;/config.h.in&quot;</span></span><br><span class="line">  <span class="string">&quot;$&#123;PROJECT_BINARY_DIR&#125;/config.h&quot;</span></span><br><span class="line">  )</span><br><span class="line"><span class="comment"># 是否使用自己的 MathFunctions 库</span></span><br><span class="line"><span class="keyword">option</span> (USE_MYMATH</span><br><span class="line">       <span class="string">&quot;Use provided math implementation&quot;</span> <span class="keyword">ON</span>)</span><br><span class="line"><span class="comment"># 是否加入 MathFunctions 库</span></span><br><span class="line"><span class="keyword">if</span> (USE_MYMATH)</span><br><span class="line">  <span class="keyword">include_directories</span> (<span class="string">&quot;$&#123;PROJECT_SOURCE_DIR&#125;/math&quot;</span>)</span><br><span class="line">  <span class="keyword">add_subdirectory</span> (<span class="keyword">math</span>)  </span><br><span class="line">  <span class="keyword">set</span> (EXTRA_LIBS <span class="variable">$&#123;EXTRA_LIBS&#125;</span> MathFunctions)</span><br><span class="line"><span class="keyword">endif</span> (USE_MYMATH)</span><br></pre></td></tr></table></figure>
+
+<p>在项目根目录添加config.h.in文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// config.h.in</span></span><br><span class="line"><span class="meta">#cmakedefine USE_MYMATH</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MY_MAJAR @PROJECT_VERSION_MAJOR@</span></span><br></pre></td></tr></table></figure>
+
+<p>在项目源文件中可以<code>#include &quot;config.h&quot;</code>, 就可以使用其中的宏</p>
+<p><a target="_blank" rel="noopener" href="https://www.hahack.com/codes/cmake/#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9">CMake入门实战教程</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unreal-engine/note/ue4-learn-levels/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unreal-engine/note/ue4-learn-levels/" class="post-title-link" itemprop="url">UE4学习 - 1. 关卡</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-21 22:36:09" itemprop="dateCreated datePublished" datetime="2019-11-21T22:36:09+08:00">2019-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal-engine/" itemprop="url" rel="index"><span itemprop="name">UE4</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unreal-engine/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unreal-engine/note/ue4-learn-levels/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unreal-engine/note/ue4-learn-levels/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>完全空白的关卡是漆黑一片的, 因为UE4世界完全模拟现实, 要能看到东西, 首先需要添加一个光源</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li><p>定向光源</p>
+<p>提供基础光照, 完全的平行光, 可以绑定一个大气雾, 会有联动效果, 雾气颜色会随着光源方向调整 (搜索fog)</p>
+</li>
+<li><p>天空球</p>
+<ul>
+<li><p>提供基础的蓝天, 太阳, 星星, 云层背景 (不提供光源)</p>
+</li>
+<li><p>可以绑定一个方向光, 这样天空球的太阳位置(白天黑夜)会根据方向光的指向方向而不同, 可以显示一天中的早和晚</p>
+</li>
+<li><p>可以调整其中的云层透明度, 移动速度等, 拉拉数据, 看一看</p>
+</li>
+<li><p>可以设置星星亮度, 在夜晚有效(定向光方向调整)</p>
+</li>
+<li><p>可以多改些参数看看, 查查文档看看</p>
+</li>
+</ul>
+</li>
+<li><p>大气雾</p>
+<p>提供大自然中的雾气, 效果真实</p>
+</li>
+<li><p>反射采集</p>
+<p>根据场景环境中的物体, 产生真实的光线反射效果</p>
+<p>注意半径调整, 覆盖整个场景</p>
+</li>
+<li><p>天空光照</p>
+<p>阴影中的自然补光</p>
+<p>只有上面的Actor后, 背景效果不错, 但是光线是完全的平行光, 阴影部分是完全的黑暗, 但是大自然的光线在阴影里也会有自然的漫反射光线, 不会一片漆黑</p>
+<p>自然补光调整会让人感觉光线一会亮一会暗, <strong>需要使用PostProcessVolume调整</strong></p>
+</li>
+<li><p>后期光照体积 <a target="_blank" rel="noopener" href="https://docs.unrealengine.com/zh-CN/Engine/Rendering/PostProcessEffects/index.html">PostProcessVolume</a></p>
+<ul>
+<li><p>在Lens-&gt;Exposure中可以调整最大/最小曝光, 解决上面天空关照中的自动补光造成的亮度不断变化, 提供稳定的曝光</p>
+</li>
+<li><p>搜索infinity, 勾选, 将影响范围包括到整个场景</p>
+</li>
+<li><p>镜头眩光 Lens Flare</p>
+<ul>
+<li>Tint 着色</li>
+<li>Threshold 阈值</li>
+<li>Bokeh Size (散景尺寸）</li>
+<li>Bokeh Shape （散景形状）</li>
+<li>Intensity（强度）</li>
+</ul>
+</li>
+<li><p>也可以在这里调整泛光参数</p>
+</li>
+<li><p>其中提供很多光照的处理</p>
+</li>
+</ul>
+</li>
+<li><p>光束, 泛光 (一缕缕的阳光)</p>
+<ul>
+<li><p>在定向光源的Light Shafts中打开Light Shaft Occlusion(光束)和Bloom(泛光)</p>
+<ul>
+<li><p>如果发现太阳变大失控,将定向光源和天空球中的太阳亮度都调整为1, 之后再慢慢调整定向光源亮度, 达到想要的效果</p>
+</li>
+<li><p>光束参数默认效果不错, 也可以进一步调整</p>
+</li>
+<li><p>intensity 泛光的强度</p>
+</li>
+<li><p>threshold 阈值, 只有亮度大于多少才产生泛光</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>每次都提示渲染光照(左上角红字) &amp; Preview</p>
+<ul>
+<li>静态光照会需要烘焙, 可以暂时将定向光源改为Moveable, 实时渲染光照</li>
+</ul>
+</li>
+</ul>
+<h2 id="摆放"><a href="#摆放" class="headerlink" title="摆放"></a>摆放</h2><ul>
+<li><p>场景中按住右键, <code>W</code> <code>A</code> <code>S</code> <code>D</code> <code>Q</code> <code>E</code>可以漫游场景</p>
+</li>
+<li><p><code>END</code> 快速与下方物体表面齐平</p>
+</li>
+<li><p><code>W</code> <code>E</code> <code>R</code> 为移动/旋转/缩放的快捷键, 操作时学会使用各种视图, 可以大大加快效率</p>
+</li>
+<li><p>Alt + 移动/旋转 = 复制</p>
+</li>
+<li><p>world line中分文件夹管理同类型资源, 文件夹名以<code>!</code>开头可以在视图中置顶</p>
+</li>
+<li><p>使用分组, 可以快速操作一批模型</p>
+</li>
+<li><p>按住Shift + 移动操作, 镜头跟随, 加快效率; Shift + Alt + 移动</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/common-library/about-protobuf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/common-library/about-protobuf/" class="post-title-link" itemprop="url">使用protobuf3的一些注意点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 17:11:23" itemprop="dateCreated datePublished" datetime="2019-11-18T17:11:23+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/common-library/" itemprop="url" rel="index"><span itemprop="name">common-library</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/common-library/about-protobuf/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/common-library/about-protobuf/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>工作中碰到需求变更, 有时需要改变传输的数据结构, C++结构体增删字段, 还要让lua客户端兼容, 非常吃力, 有时候甚至动态拼接多个结构体, 然后依靠数据长度将一个void*的数据各部分转换为不同的指针, 既复杂又危险</p>
+<p>后来为解决这个问题, 引入了Google的protobuf(为结构化数据提供自动高效灵活的支持), 这还真是个好东西, 相对于xml/json/纯结构体, 它的定义文件可读性非常好, 可以添加注释, 使用起来也灵活许多, 而且序列化之后非常小, 可以节省n多流量</p>
+<img data-src="/common-library/about-protobuf/why-not-use-xml.png" class="" title="why not use xml">
+
+<p>但是xml/json是自描述, 可读的格式, protobuf结构在序列化之后是不可读的, 需要解析后才能清晰的获取结构中的数据</p>
+<p>使用protobuf过程中碰到的问题记录一下</p>
+<h2 id="proto3与proto2的区别需要注意"><a href="#proto3与proto2的区别需要注意" class="headerlink" title="proto3与proto2的区别需要注意"></a>proto3与proto2的区别需要注意</h2><p>我们使用的proto3, 记录的都是proto3需要注意的</p>
+<h3 id="proto3必须注明版本"><a href="#proto3必须注明版本" class="headerlink" title="proto3必须注明版本"></a>proto3必须注明版本</h3><p>在第一行非空白非注释行，必须写</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>不加这一行, 将以proto2解析</p>
+<h3 id="proto3从语法层面移除了required和optional"><a href="#proto3从语法层面移除了required和optional" class="headerlink" title="proto3从语法层面移除了required和optional"></a>proto3从语法层面移除了required和optional</h3><p>即使proto2中, “required”也是不推荐使用的</p>
+<p>proto3默认都是optional, 所以单个值的字段定义, proto2写为</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">optional</span> <span class="built_in">string</span> foo = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>而proto3是</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> foo = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="proto3中的repeated字段默认采用packed编码"><a href="#proto3中的repeated字段默认采用packed编码" class="headerlink" title="proto3中的repeated字段默认采用packed编码"></a>proto3中的repeated字段默认采用packed编码</h3><p>在proto2中需要注明</p>
+<h3 id="proto3中没有default选项"><a href="#proto3中没有default选项" class="headerlink" title="proto3中没有default选项"></a>proto3中没有default选项</h3><p>proto3中认为字段默认值只能根据类型由系统决定, 约定为大</p>
+<h3 id="proto3中枚举类型第一个字段必须为0"><a href="#proto3中枚举类型第一个字段必须为0" class="headerlink" title="proto3中枚举类型第一个字段必须为0"></a>proto3中枚举类型第一个字段必须为0</h3><p>这是约定</p>
+<p>如果业务需求需要从1开始, 可以定义UNKNOWN = 0</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">message</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">enum</span> <span class="title">PhoneType</span> </span>&#123;</span><br><span class="line">    UNKNOWN = <span class="number">0</span>;</span><br><span class="line">    MOBILE = <span class="number">1</span>;</span><br><span class="line">    HOME = <span class="number">2</span>;</span><br><span class="line">    WORK = <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">message</span> <span class="title">PhoneNumber</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> number = <span class="number">1</span>;</span><br><span class="line">    PhoneType type = <span class="number">2</span> [default = HOME];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">string</span> name = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">int32</span> id = <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">string</span> email = <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">repeated</span> PhoneNumber phone = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="proto3没有分组"><a href="#proto3没有分组" class="headerlink" title="proto3没有分组"></a>proto3没有分组</h3><p>消息嵌套即可</p>
+<h2 id="保留字段-protobuf弃用字段处理"><a href="#保留字段-protobuf弃用字段处理" class="headerlink" title="保留字段(protobuf弃用字段处理)"></a>保留字段(protobuf弃用字段处理)</h2><p>工作中碰到弃用的字段直接注释掉了</p>
+<p>对于不使用的字段, 直接删除或者注释掉, 以后的用户可能重新使用这个编号或者字段名称而且不会有报错, 可能导致非常隐蔽的bug, 有一种确保不会发生这种情况的方法: 对弃用的字段指定保留标识符(<strong>名称和标识号都指定</strong>), <strong>不要在同一行指定编号和名称</strong></p>
+<p>以下为官方原文</p>
+<blockquote>
+<p>If you update an enum type by entirely removing an enum entry, or commenting it out, future users can reuse the numeric value when making their own updates to the type. This can cause severe issues if they later load old versions of the same .proto, including data corruption, privacy bugs, and so on. One way to make sure this doesn’t happen is to specify that the numeric values (and/or names, which can also cause issues for JSON serialization) of your deleted entries are reserved. The protocol buffer compiler will complain if any future users try to use these identifiers. You can specify that your reserved numeric value range goes up to the maximum possible value using the max keyword.</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  reserved <span class="number">2</span>, <span class="number">15</span>, <span class="number">9</span> to <span class="number">11</span>, <span class="number">40</span> to max;</span><br><span class="line">  reserved <span class="string">&quot;FOO&quot;</span>, <span class="string">&quot;BAR&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Note that you can’t mix field names and numeric values in the same reserved statement.</p>
+</blockquote>
+<h2 id="proto中的string字段必须UTF-8或者ASCII编码"><a href="#proto中的string字段必须UTF-8或者ASCII编码" class="headerlink" title="proto中的string字段必须UTF-8或者ASCII编码"></a>proto中的string字段必须UTF-8或者ASCII编码</h2><p>工作中碰到使用protobuf解析错误, 原因是字符串编码问题</p>
+<p>从ini中读取一段中文, 存入protobuf的string字段中, 服务器发送消息, 客户端解析失败</p>
+<p>看了好久才发现, 中文改成英文就解析成功了, 然后去官网查看了下字段说明</p>
+<blockquote>
+<p>string    A string must always contain UTF-8 encoded or 7-bit ASCII text, and cannot be longer than 2^32.</p>
+<p>string字段必须是UTF-8编码或者7bit的ASCII编码</p>
+</blockquote>
+<p>ini中读取的字符串是GB2312编码, 所以解析出错了</p>
+<hr>
+<p>碰到再加</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/win-mingw-w64-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/win-mingw-w64-install/" class="post-title-link" itemprop="url">Windows下MinGW-w64安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-15 10:21:38" itemprop="dateCreated datePublished" datetime="2019-11-15T10:21:38+08:00">2019-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/win-mingw-w64-install/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/win-mingw-w64-install/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>很多时候都必不可少一套GCC/G++编译器</p>
+<p>这里我选择MinGW-w64 x86_64-posix-seh</p>
+<h2 id="MinGW-amp-MinGW-w64-amp-TDM-GCC"><a href="#MinGW-amp-MinGW-w64-amp-TDM-GCC" class="headerlink" title="MinGW &amp; MinGW-w64 &amp; TDM-GCC"></a>MinGW &amp; MinGW-w64 &amp; TDM-GCC</h2><p>MinGW 只有32位版本  更新较慢 LastUpdate(2018-07-13) 查看日期[2019-11-15]</p>
+<p>MinGW-w64 提供32位和64位, 更新快 LastUpdate(11hours ago) 查看日期[2019-11-15]</p>
+<p>TDM-GCC 提供32位和64位, 更新较慢 LastUpdate(2015-07-02) 查看日期[2019-11-15]</p>
+<p>MinGW-w64的64位和TDM-GCC的64位的区别, 64位的TDM-GCC既能编译64位binary，也能编译32位binary(用-m32参数), 而64位的MinGW-w64只能编译64位binary, 编译32位程序只能再用32位版本的MinGW-w64编辑</p>
+<p>看看这个维护活跃度, 还是选择MinGW-w64吧 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64">https://sourceforge.net/projects/mingw-w64</a></p>
+<h2 id="MinGW-w64选择"><a href="#MinGW-w64选择" class="headerlink" title="MinGW-w64选择"></a>MinGW-w64选择</h2><blockquote>
+<p>以下资料来源于网络, 可以作一个大概了解</p>
+</blockquote>
+<ol>
+<li><p>i686与x86_64 架构选择</p>
+<p>32位选择i686 只能编译32位应用</p>
+<p>64位选择x86_64 只能编译64位应用</p>
+</li>
+<li><p>posix与win32 操作系统接口协议</p>
+<p>只开发win下运行的程序, 可以选择win32, 这样就不能使用std::thread, 需要使用win的thread接口</p>
+<p>同时需要开发其它平台, 选择posix, 可以使用std::thread, 不能使用win的thread接口</p>
+<ul>
+<li><p>posix: 启用c++11/c11多线程功能. 使depend依赖于libwinpthreads, 这样即使你不直接调用API, 你将分发winpthreads. 使用应用程序分发一个DLL没有什么问题.</p>
+</li>
+<li><p>win32: 没有C++11多线程功能.</p>
+</li>
+</ul>
+</li>
+<li><p>异常处理模型</p>
+<p>前面选择32位可以选择dwarf或sjlj</p>
+<p>前面选择64位可以选择seh或sjlj</p>
+<p>区别:</p>
+<ul>
+<li>sjlj 古老, 稳定, 性能较慢, 支持32位和64位</li>
+<li>seh新发明, 只支持64位, 性能好</li>
+<li>dwarf只支持32位, 性能比sjlj好点</li>
+</ul>
+</li>
+</ol>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>在MinGW-w64项目主页, 选择files, 在下方选择需要的版本 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>将解压的文件夹的bin目录配置到环境变量的PATH中</p>
+<p>在命令行测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/database/about-sqlite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/database/about-sqlite/" class="post-title-link" itemprop="url">使用SQLite的一些注意点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-14 14:57:24" itemprop="dateCreated datePublished" datetime="2019-11-14T14:57:24+08:00">2019-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/database/" itemprop="url" rel="index"><span itemprop="name">database</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/database/about-sqlite/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/database/about-sqlite/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>SQLite是一个非常轻量的数据库系统, 用C语言实现, 是一个小型, 快速, 可靠, 功能全面的SQL数据库引擎. SQLite内置在许多地方使用.</p>
+<p>如果不要求大量的数据并发写入, 且应用程序和数据库没有通过网络分离时, 可以选择适用轻量的SQLite</p>
+<p>经测试, 读写千万级别的数据完全没有问题</p>
+<p>这里记录一些使用过程中碰到的问题</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>SQLite实际用于存储的数据类型只有5种(NULL, INTEGER, REAL, TEXT, BLOB)</p>
+<p><code>NULL</code> 就是NULL</p>
+<p><code>INTEGER</code> 存储整数, 根据大小存储为1, 2, 3, 4, 6或者8 bytes</p>
+<p><code>REAL</code> 8 bytes大小的IEEE浮点数</p>
+<p><code>TEXT</code> 用数据库编码存储的字符串(UTF-8, UTF-16BE or UTF-16LE)</p>
+<p><code>BLOB</code> 二进制存储数据</p>
+<p>5种怎么够用? 虽说实际存储只有这5种类型, 但是SQLite支持很多其它类型, 然后以上面某一种数据类型实际存储</p>
+<p>下表列出了当创建 SQLite3 表时可使用的各种数据类型名称，同时也显示了相应的亲和类型</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>亲和类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>INT</code> <code>INTEGER</code> <code>TINYINT</code> <code>SMALLINT</code> <code>MEDIUMINT</code> <code>BIGINT</code> <code>UNSIGNED</code> <code>BIG</code> <code>INT</code> <code>INT2</code> <code>INT8</code></td>
+<td><code>INTEGER</code></td>
+</tr>
+<tr>
+<td><code>CHARACTER(20)</code> <code>VARCHAR(255)</code> <code>VARYING</code> <code>CHARACTER(255)</code> <code>NCHAR(55)</code> <code>NATIVE</code> <code>CHARACTER(70)</code> <code>NVARCHAR(100)</code> <code>TEXT</code> <code>CLOB</code></td>
+<td><code>TEXT</code></td>
+</tr>
+<tr>
+<td><code>BLOB</code> <code>no</code> <code>datatype</code> <code>specified</code></td>
+<td><code>NONE</code></td>
+</tr>
+<tr>
+<td><code>REAL</code> <code>DOUBLE</code> <code>DOUBLE</code> <code>PRECISION</code> <code>FLOAT</code></td>
+<td><code>REAL</code></td>
+</tr>
+<tr>
+<td><code>NUMERIC</code> <code>DECIMAL(10</code>,<code>5)</code> <code>BOOLEAN</code> <code>DATE</code> <code>DATETIME</code></td>
+<td><code>NUMERIC</code></td>
+</tr>
+</tbody></table>
+<h2 id="database-is-locked"><a href="#database-is-locked" class="headerlink" title="database is locked"></a>database is locked</h2><p>刚开始使用时, 不一会就异常报错了, 异常信息就一个”database is locked”, 查查资料</p>
+<p>找到官方网站对多连接和多线程的一些解释说明(<a target="_blank" rel="noopener" href="https://sqlite.org/faq.html#q5">链接</a>):</p>
+<blockquote>
+<p>Multiple processes can have the same database open at the same time. Multiple processes can be doing a SELECT at the same time. But only one process can be making changes to the database at any moment in time, however.<br>同一数据库可以被多个线程同时打开, 多个线程可以在同一时间做SELECT操作, 但是同一时刻只允许一个线程对数据库做更改</p>
+<p>SQLite uses reader/writer locks to control access to the database.<br>SQLite使用读/写锁控制数据库的访问许可(读写锁同时只允许一个写或者多个读, 不允许读写共存)</p>
+<p>When SQLite tries to access a file that is locked by another process, the default behavior is to return SQLITE_BUSY. You can adjust this behavior from C code using the sqlite3_busy_handler() or sqlite3_busy_timeout() API functions.<br>当你尝试访问一个被其它线程锁定的SQLite数据库时, 默认行为是返回SQLITE_BUSY, 可以用API函数调整默认行为</p>
+<p>SQLite is threadsafe. We make this concession since many users choose to ignore the advice given in the previous paragraph. But in order to be thread-safe, SQLite must be compiled with the SQLITE_THREADSAFE preprocessor macro set to 1.<br>SQLite是线程安全的, 官方表示他们做出这样的让步是因为很多人不看上面的建议, 如果想要使用线程安全的SQLite, 需要改对应的标志宏, 然后自行重新编译</p>
+<p>Under Unix, you should not carry an open SQLite database across a fork() system call into the child process.<br>在Unix系统下, 你不应该把一个打开的SQLite连接通过fork()调用带到子线程中</p>
+</blockquote>
+<p>可见, 官方非常不推荐多线程使用SQLite, 所以平时尽量用<strong>单线程单连接</strong>来使用SQLite, 如果发现必须要使用多线程实现高并发操作, 应该考虑是不是要用MySQL等大型数据库</p>
+<p>出现”database is locked”的错误提示是因为我们开了多个连接, 并且用一个连接访问了锁定中的数据库(有连接正在进行写操作), 解决方法是不要每次都重新打开一个连接, 而是在程序初始化时打开一个连接, 运行过程中只使用一个连接, 运行结束时释放该连接. 单线程单连接使用.</p>
+<h2 id="复制SQLite数据库文件导致报错"><a href="#复制SQLite数据库文件导致报错" class="headerlink" title="复制SQLite数据库文件导致报错"></a>复制SQLite数据库文件导致报错</h2><p>通过上面的方法解决了运行时报错问题, 但有时我们想看看数据, 直接拷贝运行中程序的SQLite数据库文件, 会导致程序报错, 因为我们复制文件时相当于锁定了该文件, 而程序在不断的读写, 碰到数据库锁定就默认返回了SQLITE_BUSY.</p>
+<p>解决方法是, 打开连接后设置一下超时时间(sqlite3_busy_timeout), 一般复制数据库文件不需要多久, 超时时间设置1分钟一般就可以, 可以再设置一下超时后的处理行为(sqlite3_busy_handler), 超时不要崩掉</p>
+<h2 id="Upsert"><a href="#Upsert" class="headerlink" title="Upsert"></a>Upsert</h2><p>还在写<code>if exists (select 1 ...) then update ... else insert ... end</code> ?</p>
+<p>存在则更新, 否则插入, 很多数据库系统都提供类似操作, 可以使用<strong>数据库引擎 upsert</strong>搜索对应数据库的Upsert方案</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tblGameInfoDaily (RecordDate, RoomID, UserID, Diffs, Bouts, Wins, GiveUps) </span><br><span class="line"><span class="keyword">VALUES</span>(:RecordDate, :RoomID, :UserID, :Diffs, :Bouts, :Wins, :GiveUps) </span><br><span class="line"><span class="keyword">ON</span> CONFLICT(RecordDate, RoomID, UserID) </span><br><span class="line"><span class="keyword">DO</span> <span class="keyword">UPDATE</span> <span class="keyword">SET</span> Diffs = Diffs + excluded.Diffs, Bouts = Bouts + excluded.Bouts, Wins = Wins + excluded.Wins, GiveUps = GiveUps + excluded.GiveUps</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是<code>ON CONFLICT</code>中的字段, 要么是主键, 要么是UNIQUE KEY, 比如上面表中的三个字段, 其实是一个UNIQUE KEY</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> tblGameInfoDaily(</span><br><span class="line"><span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,</span><br><span class="line">RecordDate <span class="built_in">TEXT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">RoomID <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">UserID <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">Diffs <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">Bouts <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">Wins <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">GiveUps <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line"><span class="keyword">UNIQUE</span>(RecordDate,RoomID,UserID));</span><br></pre></td></tr></table></figure>
+
+<p>在<code>ON CONFLICT</code>之后可以使用<code>excluded.xxx</code>引用传入的数据</p>
+<h2 id="数据批量插入"><a href="#数据批量插入" class="headerlink" title="数据批量插入"></a>数据批量插入</h2><p>工作中使用SQLite记录玩家的统计数据, 数据量几万到一百万左右, 需要经常更新或插入, 但是每次数据来只是简单执行一下Upsert, 看了下耗时大概200ms一次操作, 如果碰到高峰期, 请求数据太多, 必然在这里一直堆积</p>
+<p>我先用一个缓存结构(list)将短时间内的请求数据都存下, 然后每隔固定时间执行一次批量更新(我这里是1分钟一次)</p>
+<ul>
+<li>预编译语句</li>
+<li>开启事务</li>
+<li>循环更新批量数据</li>
+<li>提交事务</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sqlite3_exec(db,<span class="string">&quot;begin;&quot;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">sqlite3_stmt *stmt;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* sql = <span class="string">&quot;insert into t1 values(?,?,?,?)&quot;</span>;</span><br><span class="line">sqlite3_prepare_v2(db,sql,<span class="built_in">strlen</span>(sql),&amp;stmt,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nCount;++i)</span><br><span class="line">&#123;</span><br><span class="line">    sqlite3_reset(stmt);</span><br><span class="line">    sqlite3_bind_int(stmt,<span class="number">1</span>,i);</span><br><span class="line">    sqlite3_bind_int(stmt,<span class="number">1</span>,i*<span class="number">2</span>);</span><br><span class="line">    sqlite3_bind_int(stmt,<span class="number">1</span>,i/<span class="number">2</span>);</span><br><span class="line">    sqlite3_bind_double(stmt,<span class="number">1</span>,i*i);</span><br><span class="line">&#125;</span><br><span class="line">sqlite3_finalize(stmt);</span><br><span class="line">sqlite3_exec(db,<span class="string">&quot;commit;&quot;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里顺便提一下, 使用python的peewee批量插入时有个优化思路是把多条插入数据整合成一条语句</p>
+<p>就是原本是循环执行多个<code>INSERT INTO t1 (v1, v2, v3) VALUES (?, ?, ?)</code>, 可以优化为一条语句<code>INSERT INTO t1 (v1, v2, v3) VALUES (?, ?, ?), (?, ?, ?), (?, ?, ?)</code>一次更新多条数据</p>
+<p>需要注意的是, SQLite中的参数个数限制, 默认为999, 就是<code>?</code>的个数不能超过这个值, 详细可见<a target="_blank" rel="noopener" href="https://sqlite.org/limits.html">Maximum Number Of Host Parameters In A Single SQL Statement</a></p>
+<h2 id="数据不增文件越来越大"><a href="#数据不增文件越来越大" class="headerlink" title="数据不增文件越来越大"></a>数据不增文件越来越大</h2><ul>
+<li><p>大量数据删除后, SQLite会留下大量空白数据库页, 但占用的空间不会释放.</p>
+</li>
+<li><p>频繁的insert/update/delete会让数据库碎片化.</p>
+</li>
+<li><p>删除的数据只是被标记其存储空间为可再用, 这些数据可能被hacker恢复, 不仅占空间, 而且不安全.</p>
+</li>
+</ul>
+<p>可以在删除/更新大量数据后再执行一下<code>VACUUM</code>命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VACUUM;</span><br></pre></td></tr></table></figure>
+
+<p>该命令会复制数据库中内容到临时文件, 然后清空主数据库, 再从副本中重新载入数据</p>
+<p>通过重建数据库, 释放空间, 整理数据, 反碎片化</p>
+<p>详细见 <a target="_blank" rel="noopener" href="https://sqlite.org/lang_vacuum.html">VACUUM</a></p>
+<p><strong>不推荐Aoto-VACUUM</strong></p>
+<p>Auto-VACUUM属性必须在数据库文件建立时指定才会有效, 默认该属性为0/“none”, 即不开启</p>
+<p>Auto-VACUUM与手动执行的VACUUM不一样, 它只是移动空闲页到数据库末尾, 减小数据库大小, 但这样<strong>会让数据碎片化情况更严重</strong></p>
+<p>以下为<a target="_blank" rel="noopener" href="https://sqlite.org/pragma.html#pragma_auto_vacuum">官方原文</a></p>
+<blockquote>
+<p>The default setting for auto-vacuum is 0 or “none”, unless the SQLITE_DEFAULT_AUTOVACUUM compile-time option is used. The “none” setting means that auto-vacuum is disabled.</p>
+</blockquote>
+<blockquote>
+<p>When the auto-vacuum mode is 1 or “full”, the freelist pages are moved to the end of the database file and the database file is truncated to remove the freelist pages at every transaction commit. Note, however, that auto-vacuum only truncates the freelist pages from the file. Auto-vacuum does not defragment the database nor repack individual database pages the way that the VACUUM command does. In fact, because it moves pages around within the file, auto-vacuum can actually make fragmentation worse.</p>
+</blockquote>
+<h2 id="使用封装好的库"><a href="#使用封装好的库" class="headerlink" title="使用封装好的库"></a>使用封装好的库</h2><p>工作中在C++里使用sqlite3提供的原生接口, 用起来比较吃力, 而且写的代码不好看, 还不安全</p>
+<p>同事推荐了个C++的sqlite封装库, <a target="_blank" rel="noopener" href="https://github.com/neosmart/CppSQLite">CppSqlite</a>, 用起来舒服多了</p>
+<hr>
+<p>碰到再加</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EricYe</p>
+  <div class="site-description" itemprop="description">The compiler in my hand will be a part of my soul.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fetasty" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fetasty" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fetasty@outlook.com" title="E-Mail → mailto:fetasty@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.unrealengine.com/" title="https:&#x2F;&#x2F;www.unrealengine.com" rel="noopener" target="_blank">Unreal Engine</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://kexingfu.github.io/" title="http:&#x2F;&#x2F;kexingfu.github.io" rel="noopener" target="_blank">Kexingfu</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EricYe</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
+
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'http://fetasty.github.io/page/2/',]
+      });
+      });
+  </script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'IyyIsLTeEAleQasCvYmTAx6Q-gzGzoHsz',
+      appKey     : '3laWJNFvNHzGHaRXfffC3K9H',
+      placeholder: "文明用语暖人心, 遵纪守法好公民",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

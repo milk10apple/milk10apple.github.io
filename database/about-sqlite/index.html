@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="SQLite是一个非常轻量的数据库系统, 用C语言实现, 是一个小型, 快速, 可靠, 功能全面的SQL数据库引擎. SQLite内置在许多地方使用. 如果不要求大量的数据并发写入, 且应用程序和数据库没有通过网络分离时, 可以选择适用轻量的SQLite 经测试, 读写千万级别的数据完全没有问题 这里记录一些使用过程中碰到的问题 数据类型SQLite实际用于存储的数据类型只有5种(NULL, IN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用SQLite的一些注意点">
+<meta property="og:url" content="http://fetasty.github.io/database/about-sqlite/index.html">
+<meta property="og:site_name" content="fetasty">
+<meta property="og:description" content="SQLite是一个非常轻量的数据库系统, 用C语言实现, 是一个小型, 快速, 可靠, 功能全面的SQL数据库引擎. SQLite内置在许多地方使用. 如果不要求大量的数据并发写入, 且应用程序和数据库没有通过网络分离时, 可以选择适用轻量的SQLite 经测试, 读写千万级别的数据完全没有问题 这里记录一些使用过程中碰到的问题 数据类型SQLite实际用于存储的数据类型只有5种(NULL, IN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-14T06:57:24.000Z">
+<meta property="article:modified_time" content="2020-08-02T06:57:07.965Z">
+<meta property="article:author" content="EricYe">
+<meta property="article:tag" content="SQLite">
+<meta property="article:tag" content="Database">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://fetasty.github.io/database/about-sqlite/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>使用SQLite的一些注意点 | fetasty</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fetasty</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">念念不忘, 必有回响</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/database/about-sqlite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用SQLite的一些注意点
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-14 14:57:24" itemprop="dateCreated datePublished" datetime="2019-11-14T14:57:24+08:00">2019-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/database/" itemprop="url" rel="index"><span itemprop="name">database</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/database/about-sqlite/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/database/about-sqlite/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>SQLite是一个非常轻量的数据库系统, 用C语言实现, 是一个小型, 快速, 可靠, 功能全面的SQL数据库引擎. SQLite内置在许多地方使用.</p>
+<p>如果不要求大量的数据并发写入, 且应用程序和数据库没有通过网络分离时, 可以选择适用轻量的SQLite</p>
+<p>经测试, 读写千万级别的数据完全没有问题</p>
+<p>这里记录一些使用过程中碰到的问题</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>SQLite实际用于存储的数据类型只有5种(NULL, INTEGER, REAL, TEXT, BLOB)</p>
+<p><code>NULL</code> 就是NULL</p>
+<p><code>INTEGER</code> 存储整数, 根据大小存储为1, 2, 3, 4, 6或者8 bytes</p>
+<p><code>REAL</code> 8 bytes大小的IEEE浮点数</p>
+<p><code>TEXT</code> 用数据库编码存储的字符串(UTF-8, UTF-16BE or UTF-16LE)</p>
+<p><code>BLOB</code> 二进制存储数据</p>
+<p>5种怎么够用? 虽说实际存储只有这5种类型, 但是SQLite支持很多其它类型, 然后以上面某一种数据类型实际存储</p>
+<p>下表列出了当创建 SQLite3 表时可使用的各种数据类型名称，同时也显示了相应的亲和类型</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>亲和类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>INT</code> <code>INTEGER</code> <code>TINYINT</code> <code>SMALLINT</code> <code>MEDIUMINT</code> <code>BIGINT</code> <code>UNSIGNED</code> <code>BIG</code> <code>INT</code> <code>INT2</code> <code>INT8</code></td>
+<td><code>INTEGER</code></td>
+</tr>
+<tr>
+<td><code>CHARACTER(20)</code> <code>VARCHAR(255)</code> <code>VARYING</code> <code>CHARACTER(255)</code> <code>NCHAR(55)</code> <code>NATIVE</code> <code>CHARACTER(70)</code> <code>NVARCHAR(100)</code> <code>TEXT</code> <code>CLOB</code></td>
+<td><code>TEXT</code></td>
+</tr>
+<tr>
+<td><code>BLOB</code> <code>no</code> <code>datatype</code> <code>specified</code></td>
+<td><code>NONE</code></td>
+</tr>
+<tr>
+<td><code>REAL</code> <code>DOUBLE</code> <code>DOUBLE</code> <code>PRECISION</code> <code>FLOAT</code></td>
+<td><code>REAL</code></td>
+</tr>
+<tr>
+<td><code>NUMERIC</code> <code>DECIMAL(10</code>,<code>5)</code> <code>BOOLEAN</code> <code>DATE</code> <code>DATETIME</code></td>
+<td><code>NUMERIC</code></td>
+</tr>
+</tbody></table>
+<h2 id="database-is-locked"><a href="#database-is-locked" class="headerlink" title="database is locked"></a>database is locked</h2><p>刚开始使用时, 不一会就异常报错了, 异常信息就一个”database is locked”, 查查资料</p>
+<p>找到官方网站对多连接和多线程的一些解释说明(<a target="_blank" rel="noopener" href="https://sqlite.org/faq.html#q5">链接</a>):</p>
+<blockquote>
+<p>Multiple processes can have the same database open at the same time. Multiple processes can be doing a SELECT at the same time. But only one process can be making changes to the database at any moment in time, however.<br>同一数据库可以被多个线程同时打开, 多个线程可以在同一时间做SELECT操作, 但是同一时刻只允许一个线程对数据库做更改</p>
+<p>SQLite uses reader/writer locks to control access to the database.<br>SQLite使用读/写锁控制数据库的访问许可(读写锁同时只允许一个写或者多个读, 不允许读写共存)</p>
+<p>When SQLite tries to access a file that is locked by another process, the default behavior is to return SQLITE_BUSY. You can adjust this behavior from C code using the sqlite3_busy_handler() or sqlite3_busy_timeout() API functions.<br>当你尝试访问一个被其它线程锁定的SQLite数据库时, 默认行为是返回SQLITE_BUSY, 可以用API函数调整默认行为</p>
+<p>SQLite is threadsafe. We make this concession since many users choose to ignore the advice given in the previous paragraph. But in order to be thread-safe, SQLite must be compiled with the SQLITE_THREADSAFE preprocessor macro set to 1.<br>SQLite是线程安全的, 官方表示他们做出这样的让步是因为很多人不看上面的建议, 如果想要使用线程安全的SQLite, 需要改对应的标志宏, 然后自行重新编译</p>
+<p>Under Unix, you should not carry an open SQLite database across a fork() system call into the child process.<br>在Unix系统下, 你不应该把一个打开的SQLite连接通过fork()调用带到子线程中</p>
+</blockquote>
+<p>可见, 官方非常不推荐多线程使用SQLite, 所以平时尽量用<strong>单线程单连接</strong>来使用SQLite, 如果发现必须要使用多线程实现高并发操作, 应该考虑是不是要用MySQL等大型数据库</p>
+<p>出现”database is locked”的错误提示是因为我们开了多个连接, 并且用一个连接访问了锁定中的数据库(有连接正在进行写操作), 解决方法是不要每次都重新打开一个连接, 而是在程序初始化时打开一个连接, 运行过程中只使用一个连接, 运行结束时释放该连接. 单线程单连接使用.</p>
+<h2 id="复制SQLite数据库文件导致报错"><a href="#复制SQLite数据库文件导致报错" class="headerlink" title="复制SQLite数据库文件导致报错"></a>复制SQLite数据库文件导致报错</h2><p>通过上面的方法解决了运行时报错问题, 但有时我们想看看数据, 直接拷贝运行中程序的SQLite数据库文件, 会导致程序报错, 因为我们复制文件时相当于锁定了该文件, 而程序在不断的读写, 碰到数据库锁定就默认返回了SQLITE_BUSY.</p>
+<p>解决方法是, 打开连接后设置一下超时时间(sqlite3_busy_timeout), 一般复制数据库文件不需要多久, 超时时间设置1分钟一般就可以, 可以再设置一下超时后的处理行为(sqlite3_busy_handler), 超时不要崩掉</p>
+<h2 id="Upsert"><a href="#Upsert" class="headerlink" title="Upsert"></a>Upsert</h2><p>还在写<code>if exists (select 1 ...) then update ... else insert ... end</code> ?</p>
+<p>存在则更新, 否则插入, 很多数据库系统都提供类似操作, 可以使用<strong>数据库引擎 upsert</strong>搜索对应数据库的Upsert方案</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tblGameInfoDaily (RecordDate, RoomID, UserID, Diffs, Bouts, Wins, GiveUps) </span><br><span class="line"><span class="keyword">VALUES</span>(:RecordDate, :RoomID, :UserID, :Diffs, :Bouts, :Wins, :GiveUps) </span><br><span class="line"><span class="keyword">ON</span> CONFLICT(RecordDate, RoomID, UserID) </span><br><span class="line"><span class="keyword">DO</span> <span class="keyword">UPDATE</span> <span class="keyword">SET</span> Diffs = Diffs + excluded.Diffs, Bouts = Bouts + excluded.Bouts, Wins = Wins + excluded.Wins, GiveUps = GiveUps + excluded.GiveUps</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是<code>ON CONFLICT</code>中的字段, 要么是主键, 要么是UNIQUE KEY, 比如上面表中的三个字段, 其实是一个UNIQUE KEY</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> tblGameInfoDaily(</span><br><span class="line"><span class="keyword">ID</span> <span class="built_in">INTEGER</span> PRIMARY <span class="keyword">KEY</span> AUTOINCREMENT,</span><br><span class="line">RecordDate <span class="built_in">TEXT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">RoomID <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">UserID <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">Diffs <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">Bouts <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">Wins <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">GiveUps <span class="built_in">INTEGER</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line"><span class="keyword">UNIQUE</span>(RecordDate,RoomID,UserID));</span><br></pre></td></tr></table></figure>
+
+<p>在<code>ON CONFLICT</code>之后可以使用<code>excluded.xxx</code>引用传入的数据</p>
+<h2 id="数据批量插入"><a href="#数据批量插入" class="headerlink" title="数据批量插入"></a>数据批量插入</h2><p>工作中使用SQLite记录玩家的统计数据, 数据量几万到一百万左右, 需要经常更新或插入, 但是每次数据来只是简单执行一下Upsert, 看了下耗时大概200ms一次操作, 如果碰到高峰期, 请求数据太多, 必然在这里一直堆积</p>
+<p>我先用一个缓存结构(list)将短时间内的请求数据都存下, 然后每隔固定时间执行一次批量更新(我这里是1分钟一次)</p>
+<ul>
+<li>预编译语句</li>
+<li>开启事务</li>
+<li>循环更新批量数据</li>
+<li>提交事务</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sqlite3_exec(db,<span class="string">&quot;begin;&quot;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">sqlite3_stmt *stmt;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* sql = <span class="string">&quot;insert into t1 values(?,?,?,?)&quot;</span>;</span><br><span class="line">sqlite3_prepare_v2(db,sql,<span class="built_in">strlen</span>(sql),&amp;stmt,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nCount;++i)</span><br><span class="line">&#123;</span><br><span class="line">    sqlite3_reset(stmt);</span><br><span class="line">    sqlite3_bind_int(stmt,<span class="number">1</span>,i);</span><br><span class="line">    sqlite3_bind_int(stmt,<span class="number">1</span>,i*<span class="number">2</span>);</span><br><span class="line">    sqlite3_bind_int(stmt,<span class="number">1</span>,i/<span class="number">2</span>);</span><br><span class="line">    sqlite3_bind_double(stmt,<span class="number">1</span>,i*i);</span><br><span class="line">&#125;</span><br><span class="line">sqlite3_finalize(stmt);</span><br><span class="line">sqlite3_exec(db,<span class="string">&quot;commit;&quot;</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里顺便提一下, 使用python的peewee批量插入时有个优化思路是把多条插入数据整合成一条语句</p>
+<p>就是原本是循环执行多个<code>INSERT INTO t1 (v1, v2, v3) VALUES (?, ?, ?)</code>, 可以优化为一条语句<code>INSERT INTO t1 (v1, v2, v3) VALUES (?, ?, ?), (?, ?, ?), (?, ?, ?)</code>一次更新多条数据</p>
+<p>需要注意的是, SQLite中的参数个数限制, 默认为999, 就是<code>?</code>的个数不能超过这个值, 详细可见<a target="_blank" rel="noopener" href="https://sqlite.org/limits.html">Maximum Number Of Host Parameters In A Single SQL Statement</a></p>
+<h2 id="数据不增文件越来越大"><a href="#数据不增文件越来越大" class="headerlink" title="数据不增文件越来越大"></a>数据不增文件越来越大</h2><ul>
+<li><p>大量数据删除后, SQLite会留下大量空白数据库页, 但占用的空间不会释放.</p>
+</li>
+<li><p>频繁的insert/update/delete会让数据库碎片化.</p>
+</li>
+<li><p>删除的数据只是被标记其存储空间为可再用, 这些数据可能被hacker恢复, 不仅占空间, 而且不安全.</p>
+</li>
+</ul>
+<p>可以在删除/更新大量数据后再执行一下<code>VACUUM</code>命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VACUUM;</span><br></pre></td></tr></table></figure>
+
+<p>该命令会复制数据库中内容到临时文件, 然后清空主数据库, 再从副本中重新载入数据</p>
+<p>通过重建数据库, 释放空间, 整理数据, 反碎片化</p>
+<p>详细见 <a target="_blank" rel="noopener" href="https://sqlite.org/lang_vacuum.html">VACUUM</a></p>
+<p><strong>不推荐Aoto-VACUUM</strong></p>
+<p>Auto-VACUUM属性必须在数据库文件建立时指定才会有效, 默认该属性为0/“none”, 即不开启</p>
+<p>Auto-VACUUM与手动执行的VACUUM不一样, 它只是移动空闲页到数据库末尾, 减小数据库大小, 但这样<strong>会让数据碎片化情况更严重</strong></p>
+<p>以下为<a target="_blank" rel="noopener" href="https://sqlite.org/pragma.html#pragma_auto_vacuum">官方原文</a></p>
+<blockquote>
+<p>The default setting for auto-vacuum is 0 or “none”, unless the SQLITE_DEFAULT_AUTOVACUUM compile-time option is used. The “none” setting means that auto-vacuum is disabled.</p>
+</blockquote>
+<blockquote>
+<p>When the auto-vacuum mode is 1 or “full”, the freelist pages are moved to the end of the database file and the database file is truncated to remove the freelist pages at every transaction commit. Note, however, that auto-vacuum only truncates the freelist pages from the file. Auto-vacuum does not defragment the database nor repack individual database pages the way that the VACUUM command does. In fact, because it moves pages around within the file, auto-vacuum can actually make fragmentation worse.</p>
+</blockquote>
+<h2 id="使用封装好的库"><a href="#使用封装好的库" class="headerlink" title="使用封装好的库"></a>使用封装好的库</h2><p>工作中在C++里使用sqlite3提供的原生接口, 用起来比较吃力, 而且写的代码不好看, 还不安全</p>
+<p>同事推荐了个C++的sqlite封装库, <a target="_blank" rel="noopener" href="https://github.com/neosmart/CppSQLite">CppSqlite</a>, 用起来舒服多了</p>
+<hr>
+<p>碰到再加</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/SQLite/" rel="tag"><i class="fa fa-tag"></i> SQLite</a>
+              <a href="/tags/Database/" rel="tag"><i class="fa fa-tag"></i> Database</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/golang/golang-with-vscode/" rel="prev" title="在VS Code下使用Go插件安装失败问题">
+      <i class="fa fa-chevron-left"></i> 在VS Code下使用Go插件安装失败问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/cpp/win-mingw-w64-install/" rel="next" title="Windows下MinGW-w64安装">
+      Windows下MinGW-w64安装 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#database-is-locked"><span class="nav-number">2.</span> <span class="nav-text">database is locked</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6SQLite%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E5%AF%BC%E8%87%B4%E6%8A%A5%E9%94%99"><span class="nav-number">3.</span> <span class="nav-text">复制SQLite数据库文件导致报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Upsert"><span class="nav-number">4.</span> <span class="nav-text">Upsert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5"><span class="nav-number">5.</span> <span class="nav-text">数据批量插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%8D%E5%A2%9E%E6%96%87%E4%BB%B6%E8%B6%8A%E6%9D%A5%E8%B6%8A%E5%A4%A7"><span class="nav-number">6.</span> <span class="nav-text">数据不增文件越来越大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%B0%81%E8%A3%85%E5%A5%BD%E7%9A%84%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">使用封装好的库</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EricYe</p>
+  <div class="site-description" itemprop="description">The compiler in my hand will be a part of my soul.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fetasty" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fetasty" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fetasty@outlook.com" title="E-Mail → mailto:fetasty@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.unrealengine.com/" title="https:&#x2F;&#x2F;www.unrealengine.com" rel="noopener" target="_blank">Unreal Engine</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://kexingfu.github.io/" title="http:&#x2F;&#x2F;kexingfu.github.io" rel="noopener" target="_blank">Kexingfu</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EricYe</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'IyyIsLTeEAleQasCvYmTAx6Q-gzGzoHsz',
+      appKey     : '3laWJNFvNHzGHaRXfffC3K9H',
+      placeholder: "文明用语暖人心, 遵纪守法好公民",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
