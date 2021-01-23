@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/Unity/unity-base/">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-console-function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/Unity/unity-base/" class="post-title-link" itemprop="url">Unity基础</a>
+            <a href="/csharp/csharp-console-function/" class="post-title-link" itemprop="url">C#中Console类常用方法总结</a>
         </h2>
 
         <div class="post-meta">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-25 23:07:47 / 修改时间：23:09:21" itemprop="dateCreated datePublished" datetime="2020-10-25T23:07:47+08:00">2020-10-25</time>
+              <time title="创建时间：2021-01-23 18:00:21 / 修改时间：19:03:20" itemprop="dateCreated datePublished" datetime="2021-01-23T18:00:21+08:00">2021-01-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,7 +225,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
                 </span>
             </span>
 
@@ -238,8 +238,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Unity/unity-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Unity/unity-base/" itemprop="commentCount"></span>
+    <a title="valine" href="/csharp/csharp-console-function/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-console-function/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -254,28 +254,211 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="预制体"><a href="#预制体" class="headerlink" title="预制体"></a>预制体</h2><ul>
-<li>制作预制体一般先新建一个空物体, 然后在空物体中制作 (便于操作)</li>
-<li>预制体属性面板选项<ul>
-<li><code>revert</code>, 重置预制体初始状态</li>
-<li><code>apply</code>, 将修改应用到预制体</li>
-</ul>
-</li>
-<li>预制体的嵌套: 预制体没有层次, 如果一个预制体的某一部分是另一个预制体的实例, 那么预制体保存之后, 它们将没有任何关系, 也就是说 <strong>预制体没有嵌套</strong></li>
-<li>预制体中删除物体之后, 预制体提示”散了”, 但此时再点属性面板的apply, 还是会应用到预制体</li>
-</ul>
-<h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><h3 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h3><ul>
-<li><code>ProjectSettings</code> 很重要, 包含所有的项目设置, 比如Input, Tag, Layer等信息</li>
-<li><code>Asset</code> 资源文件夹, Unity项目的所有资源都在Asset文件夹下</li>
-<li><code>Library</code> <code>Temp</code> 缓存, 可以删除, 不重要</li>
-</ul>
-<h3 id="音乐格式"><a href="#音乐格式" class="headerlink" title="音乐格式"></a>音乐格式</h3><ul>
-<li>AIFF和WAV一般用于游戏打斗音效</li>
-<li>MP3和OGG一般用于较长的背景音乐</li>
-</ul>
+          <p>学习了泰课C#入门课程后需要做一个控制台应用程序, 发现课程中使用了许多之前没有用过的控制台方法, 这里将常用的方法稍微总结一下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Console.CursorVisible = <span class="literal">false</span>;  <span class="comment">// 隐藏光标</span></span><br><span class="line">Console.Clear();                <span class="comment">// 清空控制台</span></span><br><span class="line">Console.SetWindowSize(x, y);    <span class="comment">// 设置控制台窗口大小 (窗口大小不能超过缓存区大小)</span></span><br><span class="line">Console.SetBufferSize(x, y);    <span class="comment">// 设置控制台缓存区大小 (缓存区大于窗口大小时会在窗口上出现控制拉杆)</span></span><br><span class="line">Console.SetCursorPosition(x, y);            <span class="comment">// 设置光标位置, 之后输出就从光标位置输出</span></span><br><span class="line">Console.ForegroundColor = ConsoleColor.Red; <span class="comment">// 设置前景色, 之后输出的颜色将以该颜色输出; (同样有背景色设置)</span></span><br><span class="line">Console.Title = <span class="string">&quot;My Title&quot;</span>;                 <span class="comment">// 设置控制台标题</span></span><br><span class="line"><span class="keyword">var</span> key = Console.ReadKey().Key;            <span class="comment">// 读取一个按键输入</span></span><br><span class="line">Console.ReadKey(<span class="literal">true</span>);                      <span class="comment">// 读取输入, 但控制台不显示 (可用于控制台游戏的即时输入)</span></span><br><span class="line">Console.Write(<span class="string">&quot;&quot;</span>);                          <span class="comment">// 输出字符串</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;&quot;</span>);                      <span class="comment">// 输出字符串后换行</span></span><br></pre></td></tr></table></figure>
+
+<p>常用的接口就这些, 如果还需要别的功能, 可以去Console类中去看一看, 在Visual Studio 2019中, 按住Ctrl点击Console类就可以看到类的接口</p>
+<p>要是看不懂英文注释, 可以去 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn">Microsoft中文文档</a> 搜索查看</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/cpp-buildin-macro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/cpp-buildin-macro/" class="post-title-link" itemprop="url">C++中的内置宏定义</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-13 12:06:46" itemprop="dateCreated datePublished" datetime="2020-12-13T12:06:46+08:00">2020-12-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-23 17:58:24" itemprop="dateModified" datetime="2021-01-23T17:58:24+08:00">2021-01-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/cpp-buildin-macro/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/cpp-buildin-macro/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在一些日志库中看到代码中使用了 <code>__FILE__</code> <code>__LINE__</code> (文件名, 行号)这样的宏定义, 好奇C++中到底提供了哪些可以使用的内置宏定义呢</p>
+<p>在网上查了一些资料, 这里稍作总结</p>
+<p>在C++的<a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/cpp/preprocessor/replace">文本替换宏</a>文档中, 可以看到有一些宏预定义在每一个翻译单元中(一定可用). 然而有的宏定义不一定存在, 可能与具体的实现, 编译器, 系统都有关系</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Unity/unity-base/#more" rel="contents">
+              <a class="btn" href="/cpp/cpp-buildin-macro/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-event-and-delegate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-event-and-delegate/" class="post-title-link" itemprop="url">C#中的事件与委托实例的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-13 22:29:39" itemprop="dateCreated datePublished" datetime="2020-11-13T22:29:39+08:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-23 17:54:27" itemprop="dateModified" datetime="2021-01-23T17:54:27+08:00">2021-01-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-event-and-delegate/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-event-and-delegate/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>区别概括为两点:</p>
+<ol>
+<li><p>允许的操作: 事件只允许通过 <code>+=</code> 和 <code>-=</code> 来订阅和取消订阅; 但是委托实例除了<code>+=</code>和<code>-=</code>, 还可以使用<code>=</code>直接赋值操作</p>
+</li>
+<li><p>调用的位置: 事件只能在所在类的内部调用(事件的调用也称做触发), 而委托实例在类外部也可以调用</p>
+</li>
+</ol>
+<hr>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TwoNumOpe</span>(<span class="params"><span class="keyword">int</span> a, <span class="keyword">int</span> b</span>)</span>; <span class="comment">// 委托</span></span><br><span class="line"><span class="keyword">public</span> TwoNumOpe Func = <span class="literal">null</span>; <span class="comment">// 委托实例</span></span><br></pre></td></tr></table></figure>
+
+<p>为了便于区分, 本文中将<strong>委托</strong>和<strong>委托实例</strong>区分称呼</p>
+<p><strong>委托</strong>是一种自定义类型, 而委托类型的变量我们称为<strong>委托实例</strong></p>
+<p>基本用法不再赘述, 这里着重介绍事件与委托实例的区别, 也就是以下两个变量的区别</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-event-and-delegate/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -395,7 +578,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/Lua/lua-tutorial/">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/lua/lua-tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -409,7 +592,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/Lua/lua-tutorial/" class="post-title-link" itemprop="url">Lua简明教程</a>
+            <a href="/lua/lua-tutorial/" class="post-title-link" itemprop="url">Lua简明教程</a>
         </h2>
 
         <div class="post-meta">
@@ -434,7 +617,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Lua/" itemprop="url" rel="index"><span itemprop="name">Lua</span></a>
+                  <a href="/categories/lua/" itemprop="url" rel="index"><span itemprop="name">Lua</span></a>
                 </span>
             </span>
 
@@ -447,8 +630,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Lua/lua-tutorial/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Lua/lua-tutorial/" itemprop="commentCount"></span>
+    <a title="valine" href="/lua/lua-tutorial/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/lua/lua-tutorial/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -481,7 +664,7 @@
 <h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--[[</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">]]</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Lua/lua-tutorial/#more" rel="contents">
+              <a class="btn" href="/lua/lua-tutorial/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1002,203 +1185,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/golang/golang-param-pass/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/golang/golang-param-pass/" class="post-title-link" itemprop="url">Go语言中的值类型/引用类型和参数传递</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-07 15:02:26" itemprop="dateCreated datePublished" datetime="2020-02-07T15:02:26+08:00">2020-02-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-20 22:57:50" itemprop="dateModified" datetime="2020-10-20T22:57:50+08:00">2020-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/golang/golang-param-pass/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/golang/golang-param-pass/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>Go里边函数传参只有值传递一种方式</strong>(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数)</p>
-<p>刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice/map/chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递</p>
-<p>实际上, slice, map, channel都是<strong>结构体类型的值传递</strong>, 但是<strong>结构体中包含指向实际数据的指针</strong>, 所以它们是值传递, 而并非引用传递</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/golang/golang-param-pass/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/algorithm/merge-sort/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/algorithm/merge-sort/" class="post-title-link" itemprop="url">归并排序(非递归&不回写)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-13 15:08:00" itemprop="dateCreated datePublished" datetime="2020-01-13T15:08:00+08:00">2020-01-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-20 22:58:01" itemprop="dateModified" datetime="2020-10-20T22:58:01+08:00">2020-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/algorithm/merge-sort/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/algorithm/merge-sort/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>归并排序和堆排序是两种渐进最优排序算法, 任何情况下的复杂度都是$O(n\log n)$</p>
-</blockquote>
-<p>MergeSort是分治思想的实现, 把大问题划分为小的容易解决的问题逐步解决, 主要操作是Merge(把两个有序的数列合并为一个有序数列)</p>
-<p>它需要一个相同长度的数组作为临时空间使用, 空间复杂度为$O(n)$</p>
-<p>MergeSort是一种<strong>稳定的排序算法</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/algorithm/merge-sort/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1268,20 +1254,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1332,7 +1318,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fas fa-heartbeat"></i>
   </span>
@@ -1416,8 +1402,58 @@
 
   
       
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css">
 
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
