@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="开源软件源码使用开源许可证, 而自己的其他作品例如图像, 视频, 文章则可以使用CC协议(知识共享许可协议) 创作共享协议允许作者选择不同的授权条款和根据不同国家的著作权法制定的版权协议, 版权持有人可以指定以下的条件:  姓名标示(by): 您可以自由复制, 散布, 展示及演出本作品；您必须按照莞作者或授权人所指定的方式, 保留其姓名标示 非商业性(nc): 您可以自由复制, 散布, 展示及演出">
+  <meta name="description" content="进程和线程进程进程是操作系统进行资源分配和调度的基本单位 进程之间独立运行, 具有独立的内存空间, 进程间也可以相互访问 线程线程是操作系统调度的最小单位 线程包含在进程之中, 是进程中的实际运作单位 一个进程中可以并发执行多个线程 多线程使用 线程执行的代码需要封装到一个静态static函数之中 线程的启动 t.Start() 设置后台线程:主线程结束时, 整个程序也就结束了, 即使还有还有后台">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识共享许可协议">
-<meta property="og:url" content="http://fetasty.github.io/other/creative-commons-license/index.html">
+<meta property="og:title" content="C#中的多线程">
+<meta property="og:url" content="http://fetasty.github.io/csharp/csharp-multi-threads/index.html">
 <meta property="og:site_name" content="fetasty">
-<meta property="og:description" content="开源软件源码使用开源许可证, 而自己的其他作品例如图像, 视频, 文章则可以使用CC协议(知识共享许可协议) 创作共享协议允许作者选择不同的授权条款和根据不同国家的著作权法制定的版权协议, 版权持有人可以指定以下的条件:  姓名标示(by): 您可以自由复制, 散布, 展示及演出本作品；您必须按照莞作者或授权人所指定的方式, 保留其姓名标示 非商业性(nc): 您可以自由复制, 散布, 展示及演出">
+<meta property="og:description" content="进程和线程进程进程是操作系统进行资源分配和调度的基本单位 进程之间独立运行, 具有独立的内存空间, 进程间也可以相互访问 线程线程是操作系统调度的最小单位 线程包含在进程之中, 是进程中的实际运作单位 一个进程中可以并发执行多个线程 多线程使用 线程执行的代码需要封装到一个静态static函数之中 线程的启动 t.Start() 设置后台线程:主线程结束时, 整个程序也就结束了, 即使还有还有后台">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-19T01:22:20.000Z">
-<meta property="article:modified_time" content="2020-08-02T06:57:07.977Z">
+<meta property="article:published_time" content="2021-03-02T14:26:50.000Z">
+<meta property="article:modified_time" content="2021-03-02T16:17:02.186Z">
 <meta property="article:author" content="EricYe">
+<meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fetasty.github.io/other/creative-commons-license/">
+<link rel="canonical" href="http://fetasty.github.io/csharp/csharp-multi-threads/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>知识共享许可协议 | fetasty</title>
+  <title>C#中的多线程 | fetasty</title>
   
 
 
@@ -195,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/other/creative-commons-license/">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-multi-threads/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -208,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          知识共享许可协议
+          C#中的多线程
         </h1>
 
         <div class="post-meta">
@@ -218,14 +219,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-19 09:22:20" itemprop="dateCreated datePublished" datetime="2020-04-19T09:22:20+08:00">2020-04-19</time>
+              <time title="创建时间：2021-03-02 22:26:50" itemprop="dateCreated datePublished" datetime="2021-03-02T22:26:50+08:00">2021-03-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-02 14:57:07" itemprop="dateModified" datetime="2020-08-02T14:57:07+08:00">2020-08-02</time>
+                <time title="修改时间：2021-03-03 00:17:02" itemprop="dateModified" datetime="2021-03-03T00:17:02+08:00">2021-03-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,7 +234,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
                 </span>
             </span>
 
@@ -253,8 +254,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/other/creative-commons-license/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/other/creative-commons-license/" itemprop="commentCount"></span>
+    <a title="valine" href="/csharp/csharp-multi-threads/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-multi-threads/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,16 +270,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>开源软件源码使用开源许可证, 而自己的其他作品例如图像, 视频, 文章则可以使用CC协议(知识共享许可协议)</p>
-<p>创作共享协议允许作者选择不同的授权条款和根据不同国家的著作权法制定的版权协议, 版权持有人可以指定以下的条件:</p>
-<ul>
-<li>姓名标示(by): 您可以自由复制, 散布, 展示及演出本作品；您必须按照莞作者或授权人所指定的方式, 保留其姓名标示</li>
-<li>非商业性(nc): 您可以自由复制, 散布, 展示及演出本作品；您不得为商业目的而使用本作品</li>
-<li>禁止改作(nd): 你可以自由复制, 散布, 展示及演出本作品；您不得改变, 转变或改作本作品</li>
-<li>相同方式分享(sa): 你可以自由复制, 散布, 展示及演出本作品；若您改变, 转变或改作本作品, 仅在遵守与本著作相同的授权条款下, 您才能散布由本作品产生的衍生作品</li>
+        <h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程是操作系统进行资源分配和调度的基本单位</p>
+<p>进程之间独立运行, 具有独立的内存空间, 进程间也可以相互访问</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程是操作系统调度的最小单位</p>
+<p>线程包含在进程之中, 是进程中的实际运作单位</p>
+<p>一个进程中可以并发执行多个线程</p>
+<h2 id="多线程使用"><a href="#多线程使用" class="headerlink" title="多线程使用"></a>多线程使用</h2><ul>
+<li>线程执行的代码需要封装到一个静态static函数之中</li>
+<li>线程的启动 <code>t.Start()</code></li>
+<li>设置后台线程:<br>主线程结束时, 整个程序也就结束了, 即使还有还有后台线程, 后台线程不会防止应用程序被终止掉, 如果不设置为后台线程, 可能导致进程无法正常关闭(默认开启的为前台线程); (一般来说, 我们应该优雅的关闭所有线程, 而不是强制退出)</li>
+<li>关闭线程<ul>
+<li>非循环的线程, 不用刻意去关闭, 等自然运行完毕即可</li>
+<li>死循环线程, 可以设置运行标志位, 循环判断标志位退出</li>
+<li>通过线程提供的方法关闭 <code>t.Abort()</code> .Net core会报错 (不推荐)</li>
 </ul>
-<p>这些不同条件共有16种组合模式, 其中有11种是有效的. 其它有4种组合由于同时包括互相排斥的”nd”和”sa”而无效; 1种没有以上任何条件的协议, 它相当于公有领域. 在CC 2.0以上的版本, 又有5种没有署名条款的协议被列为淘汰, 因为98%的授权者都要求署名. </p>
-<p><code>CC-BY-SA 4.0</code> 表示 署名-相同方式共享 CC 4.0协议<br><code>CC-BY-NC-SA 4.0</code> 表示 署名-非商用-相同方式共享 CC 4.0协议</p>
+</li>
+<li>线程休眠<br>休眠函数在哪个线程中执行, 则休眠哪个线程, 单位为毫秒数<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.Sleep(<span class="number">1000</span>); <span class="comment">// 休眠1s</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Threading;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">bool</span> isRunning = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewThreadLogic</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (isRunning)</span><br><span class="line">    &#123;</span><br><span class="line">        ++i;</span><br><span class="line">        Console.WriteLine(i);</span><br><span class="line">        Thread.Sleep(<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用静态函数创建线程</span></span><br><span class="line">Thread t = <span class="keyword">new</span> Thread(NewThreadLogic);</span><br><span class="line"><span class="comment">// 启动线程</span></span><br><span class="line">t.start();</span><br><span class="line"><span class="comment">// 设置后台线程</span></span><br><span class="line">t.IsBackground = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 主线程</span></span><br><span class="line">Console.ReadKey();</span><br><span class="line">isRunning = <span class="literal">false</span>;</span><br><span class="line">Console.ReadKey();</span><br></pre></td></tr></table></figure>
+
+<h2 id="线程间共享数据"><a href="#线程间共享数据" class="headerlink" title="线程间共享数据"></a>线程间共享数据</h2><p>进程间的内存是互相独立的, 但同一个进程中的线程间共享进程的内存</p>
+<p>所以需要注意, 当多线程同时操作同一片内存区域时可能有数据同步问题</p>
+<p>可以通过加锁方式避免问题, <code>lock(引用类型对象)</code></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">object</span> obj = <span class="keyword">new</span> <span class="keyword">object</span>();</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewThreadLogic1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">lock</span>(obj)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.SetCurorPosition(<span class="number">10</span>, <span class="number">5</span>);</span><br><span class="line">        Console.ForgroundColor = ConsoleColor.Red;</span><br><span class="line">        Console.Write(<span class="string">&quot;⚪&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewThreadLogic2</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">lock</span>(obj)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.SetCurorPosition(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        Console.ForgroundColor = ConsoleColor.Blue;</span><br><span class="line">        Console.Write(<span class="string">&quot;■&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="多线程作用"><a href="#多线程作用" class="headerlink" title="多线程作用"></a>多线程作用</h2><p>用于处理一些复杂耗时的逻辑, 比如寻路, 网络通信等等, 避免主线程卡顿</p>
 
     </div>
 
@@ -287,6 +305,10 @@
     
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/csharp/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+          </div>
 
         
 
@@ -294,13 +316,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/other/open-source-license/" rel="prev" title="开源许可证">
-      <i class="fa fa-chevron-left"></i> 开源许可证
+    <a href="/csharp/csharp-covariance-and-inverter/" rel="prev" title="C#中的协变和逆变">
+      <i class="fa fa-chevron-left"></i> C#中的协变和逆变
     </a></div>
-      <div class="post-nav-item">
-    <a href="/other/ffmpeg-basic/" rel="next" title="FFmpeg基础教程">
-      FFmpeg基础教程 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -360,6 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">多线程使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">线程间共享数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BD%9C%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">多线程作用</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
