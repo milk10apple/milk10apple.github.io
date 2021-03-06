@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="object中的静态方法static Equals 判断两个对象是否相等 最终判断权交给左边的对象的Equals方法 不管值类型引用类型都会按照左侧对象的Equals方法比较  static ReferenceEquals 比较两个对象是否是相同的引用, 用于比较引用类型对象 值类型对象返回值始终都是false  1Console.WriteLine(object.ReferenceEquals(">
+  <meta name="description" content="迭代器概念迭代器是什么迭代器 (Iterator) 有时又称为光标(cursor) 是程序设计的一种软件设计模式 迭代器模式: 提供一个方法顺序访问一个集合对象中的各个元素, 而又不暴露其内部的标识 从表现效果上看是可以在容器对象(例如链表或者数组)上遍历访问的接口 可以使用 foreach 遍历的类都是实现了迭代器的 标准迭代器的实现方法关键接口: IEnumerator, IEnumerabl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#中的万物之父object">
-<meta property="og:url" content="http://fetasty.github.io/csharp/csharp-object/index.html">
+<meta property="og:title" content="C#中的迭代器">
+<meta property="og:url" content="http://fetasty.github.io/csharp/csharp-iterator/index.html">
 <meta property="og:site_name" content="fetasty">
-<meta property="og:description" content="object中的静态方法static Equals 判断两个对象是否相等 最终判断权交给左边的对象的Equals方法 不管值类型引用类型都会按照左侧对象的Equals方法比较  static ReferenceEquals 比较两个对象是否是相同的引用, 用于比较引用类型对象 值类型对象返回值始终都是false  1Console.WriteLine(object.ReferenceEquals(">
+<meta property="og:description" content="迭代器概念迭代器是什么迭代器 (Iterator) 有时又称为光标(cursor) 是程序设计的一种软件设计模式 迭代器模式: 提供一个方法顺序访问一个集合对象中的各个元素, 而又不暴露其内部的标识 从表现效果上看是可以在容器对象(例如链表或者数组)上遍历访问的接口 可以使用 foreach 遍历的类都是实现了迭代器的 标准迭代器的实现方法关键接口: IEnumerator, IEnumerabl">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-21T13:10:40.000Z">
-<meta property="article:modified_time" content="2021-02-21T13:31:28.969Z">
+<meta property="article:published_time" content="2021-03-06T06:42:51.000Z">
+<meta property="article:modified_time" content="2021-03-06T10:46:35.195Z">
 <meta property="article:author" content="EricYe">
 <meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fetasty.github.io/csharp/csharp-object/">
+<link rel="canonical" href="http://fetasty.github.io/csharp/csharp-iterator/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>C#中的万物之父object | fetasty</title>
+  <title>C#中的迭代器 | fetasty</title>
   
 
 
@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-object/">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-iterator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C#中的万物之父object
+          C#中的迭代器
         </h1>
 
         <div class="post-meta">
@@ -220,7 +220,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-02-21 21:10:40 / 修改时间：21:31:28" itemprop="dateCreated datePublished" datetime="2021-02-21T21:10:40+08:00">2021-02-21</time>
+              <time title="创建时间：2021-03-06 14:42:51 / 修改时间：18:46:35" itemprop="dateCreated datePublished" datetime="2021-03-06T14:42:51+08:00">2021-03-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/csharp/csharp-object/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-object/" itemprop="commentCount"></span>
+    <a title="valine" href="/csharp/csharp-iterator/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-iterator/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,29 +264,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="object中的静态方法"><a href="#object中的静态方法" class="headerlink" title="object中的静态方法"></a>object中的静态方法</h2><h3 id="static-Equals"><a href="#static-Equals" class="headerlink" title="static Equals"></a>static Equals</h3><ul>
-<li>判断两个对象是否相等</li>
-<li>最终判断权交给左边的对象的Equals方法</li>
-<li>不管值类型引用类型都会按照左侧对象的Equals方法比较</li>
-</ul>
-<h3 id="static-ReferenceEquals"><a href="#static-ReferenceEquals" class="headerlink" title="static ReferenceEquals"></a>static ReferenceEquals</h3><ul>
-<li>比较两个对象是否是相同的引用, 用于比较引用类型对象</li>
-<li>值类型对象返回值始终都是false</li>
-</ul>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(<span class="keyword">object</span>.ReferenceEquals(<span class="number">1</span>, <span class="number">1</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<h2 id="object中的成员方法"><a href="#object中的成员方法" class="headerlink" title="object中的成员方法"></a>object中的成员方法</h2><h3 id="GetType"><a href="#GetType" class="headerlink" title="GetType"></a>GetType</h3><p>在反射中是非常重要的方法, 返回Type类对象, 表示对象运行时的类型, 结合反射相关知识可以做很多对象操作</p>
-<h3 id="MemberwiseClone-protected"><a href="#MemberwiseClone-protected" class="headerlink" title="MemberwiseClone (protected)"></a>MemberwiseClone (protected)</h3><p>该方法用于获取对象的浅拷贝对象, 会返回一个新对象, 但是新对象中的引用变量会和老对象指向同一位置</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Test <span class="title">Clone</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> MemberwiseClone() <span class="keyword">as</span> Test;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="迭代器概念"><a href="#迭代器概念" class="headerlink" title="迭代器概念"></a>迭代器概念</h2><h3 id="迭代器是什么"><a href="#迭代器是什么" class="headerlink" title="迭代器是什么"></a>迭代器是什么</h3><p>迭代器 (Iterator) 有时又称为光标(cursor)</p>
+<p>是程序设计的一种软件设计模式</p>
+<p>迭代器模式: 提供一个方法顺序访问一个集合对象中的各个元素, 而又不暴露其内部的标识</p>
+<p>从表现效果上看是可以在容器对象(例如链表或者数组)上遍历访问的接口</p>
+<p>可以使用 <code>foreach</code> 遍历的类都是实现了迭代器的</p>
+<h2 id="标准迭代器的实现方法"><a href="#标准迭代器的实现方法" class="headerlink" title="标准迭代器的实现方法"></a>标准迭代器的实现方法</h2><p>关键接口: <code>IEnumerator</code>, <code>IEnumerable</code></p>
+<p>命令空间: <code>using System.Collections</code></p>
+<p>可以通过同时继承<code>IEnumerable</code>和<code>IEnumerator</code>实现其中的方法</p>
+<p><strong>想要在foreach中使用的类型, 必须实现<code>public IEunmerator GetEnumerator()</code>方法</strong>, 一般通过实现<code>IEnumerable</code>接口来实现方法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">CustomList</span> : <span class="title">IEnumerable</span>, <span class="title">IEnumerator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomList</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> &#125;;</span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Reset(); <span class="comment">// 重置光标一般在获取迭代器时调用一次</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerator</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">object</span> Current =&gt; list[position];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 移动光标</span></span><br><span class="line">        ++position;</span><br><span class="line">        <span class="keyword">return</span> position &lt; list.Length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 重置光标</span></span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="object中的虚方法"><a href="#object中的虚方法" class="headerlink" title="object中的虚方法"></a>object中的虚方法</h2><h3 id="virtual-Equals"><a href="#virtual-Equals" class="headerlink" title="virtual Equals"></a>virtual Equals</h3><p>和object中的静态方法不同, 这是个成员方法</p>
-<ul>
-<li>默认的实现还是比较两者是否为同一个引用, 相当于ReferenceEquals</li>
-<li>微软在所有值类型基类<code>System.ValueType</code>中重写了该方法, 用来比较值相等</li>
-<li>我们可以重写该方法, 定义自己的相等比较规则</li>
-</ul>
-<h3 id="virtual-GetHashCode"><a href="#virtual-GetHashCode" class="headerlink" title="virtual GetHashCode"></a>virtual GetHashCode</h3><p>获取对象的哈希值, 由算法计算出, 表示对象的唯一编码</p>
-<h3 id="virtual-ToString"><a href="#virtual-ToString" class="headerlink" title="virtual ToString"></a>virtual ToString</h3><p>该方法返回当前对象表示的字符串, 可以重写该方法定义自己的对象转字符串规则, 当我们直接打印该对象时, 默认使用的就是ToString返回值</p>
-<p>默认的ToString返回类的完整类型名</p>
+<a id="more"></a>
+
+<h4 id="foreach-本质"><a href="#foreach-本质" class="headerlink" title="foreach 本质"></a>foreach 本质</h4><ol>
+<li>先获取遍历对象的<code>IEnumerator</code>, 调用它的<code>public IEnumerator GetEnumerator()</code>方法获取</li>
+<li>执行得到这个<code>IEnumerator</code>对象中的<code>MoveNext</code>方法</li>
+<li>只要MoveNext方法返回true, 就去得到Current, 赋值给item(迭代变量)</li>
+<li>如果MoveNext方法返回false, 则调用Reset方法, 退出foreach循环</li>
+</ol>
+<h2 id="用yield-return语法糖实现迭代器"><a href="#用yield-return语法糖实现迭代器" class="headerlink" title="用yield return语法糖实现迭代器"></a>用yield return语法糖实现迭代器</h2><p>yield return 是C#的语法糖(糖衣语法, 简化实现逻辑)</p>
+<p>让想要通过<code>foreach</code>遍历的自定义类实现<code>IEnumerable</code>接口</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyList</span> : <span class="title">IEnumerable</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyList</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.Length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// yield 关键字, 配合迭代器使用</span></span><br><span class="line">            <span class="comment">// 可以理解为, 暂时返回, 保留当前状态</span></span><br><span class="line">            <span class="comment">// 下次调用&quot;MoveNext&quot;并获取&quot;Current&quot;其实接着上次的yield return 位置下一句继续执行</span></span><br><span class="line">            <span class="comment">// C#的语法糖, 本质还是 一个IEnumerator对象, 通过迭代器对象内部的&quot;MoveNext&quot;和&quot;Current&quot;实现 </span></span><br><span class="line">            <span class="keyword">yield</span> <span class="keyword">return</span> list[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型迭代器"><a href="#泛型迭代器" class="headerlink" title="泛型迭代器"></a>泛型迭代器</h2><p>可以将上述的类改为泛型实现, <code>IEnumerable</code>也有泛型的接口, <code>IEnumerator</code>也有泛型类型</p>
 
     </div>
 
@@ -306,13 +307,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/csharp/csharp-abstract-class/" rel="prev" title="C#中的抽象类">
-      <i class="fa fa-chevron-left"></i> C#中的抽象类
+    <a href="/csharp/csharp-reflect/" rel="prev" title="C#反射">
+      <i class="fa fa-chevron-left"></i> C#反射
     </a></div>
-      <div class="post-nav-item">
-    <a href="/csharp/csharp-class-and-struct/" rel="next" title="C#中的结构体和类的区别">
-      C#中的结构体和类的区别 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -372,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#object%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">object中的静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-Equals"><span class="nav-number">1.1.</span> <span class="nav-text">static Equals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static-ReferenceEquals"><span class="nav-number">1.2.</span> <span class="nav-text">static ReferenceEquals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#object%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">object中的成员方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GetType"><span class="nav-number">2.1.</span> <span class="nav-text">GetType</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MemberwiseClone-protected"><span class="nav-number">2.2.</span> <span class="nav-text">MemberwiseClone (protected)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#object%E4%B8%AD%E7%9A%84%E8%99%9A%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">object中的虚方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#virtual-Equals"><span class="nav-number">3.1.</span> <span class="nav-text">virtual Equals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#virtual-GetHashCode"><span class="nav-number">3.2.</span> <span class="nav-text">virtual GetHashCode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#virtual-ToString"><span class="nav-number">3.3.</span> <span class="nav-text">virtual ToString</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">迭代器概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">迭代器是什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">标准迭代器的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#foreach-%E6%9C%AC%E8%B4%A8"><span class="nav-number">2.0.1.</span> <span class="nav-text">foreach 本质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8yield-return%E8%AF%AD%E6%B3%95%E7%B3%96%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">用yield return语法糖实现迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">泛型迭代器</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
