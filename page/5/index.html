@@ -192,6 +192,217 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/golang/golang-with-vscode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/golang/golang-with-vscode/" class="post-title-link" itemprop="url">在VS Code下使用Go插件安装失败问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-12 10:52:25" itemprop="dateCreated datePublished" datetime="2019-11-12T10:52:25+08:00">2019-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 23:01:17" itemprop="dateModified" datetime="2020-10-20T23:01:17+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/golang/golang-with-vscode/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/golang/golang-with-vscode/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>对比了几个Golang IDE, 还是VS Code最轻量好用, 但是使用时会提示一堆插件安装失败, 记录一下问题</p>
+<p>环境: Win10, VS Code, go1.13.4.windows-amd64</p>
+<h2 id="安装Go语言环境"><a href="#安装Go语言环境" class="headerlink" title="安装Go语言环境"></a>安装Go语言环境</h2><p>在<a target="_blank" rel="noopener" href="https://golang.google.cn/">官方网站</a>下载安装</p>
+<h2 id="VSC安装Go扩展"><a href="#VSC安装Go扩展" class="headerlink" title="VSC安装Go扩展"></a>VSC安装Go扩展</h2><p>VS Code扩展栏搜索<code>Go</code>进行安装</p>
+<img data-src="/golang/golang-with-vscode/go-vsc-ext.png" class="" title="插件主页">
+
+<p>这一步比较简单, 一般没有问题, 安装好后编写Go源文件, 提示需要安装一些代码提示工具</p>
+<p>在VSC下方状态栏显示有<code>Analysis Tools Missing</code>, 点击该提示, 点击”install”, 出现安装失败提示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Installing github.com&#x2F;mdempsky&#x2F;gocode FAILED</span><br><span class="line">Installing github.com&#x2F;uudashr&#x2F;gopkgs&#x2F;cmd&#x2F;gopkgs FAILED</span><br><span class="line">Installing github.com&#x2F;ramya-rao-a&#x2F;go-outline FAILED</span><br><span class="line">Installing github.com&#x2F;stamblerre&#x2F;gocode FAILED</span><br><span class="line">Installing github.com&#x2F;rogpeppe&#x2F;godef FAILED</span><br><span class="line">Installing github.com&#x2F;sqs&#x2F;goreturns FAILED</span><br><span class="line">Installing golang.org&#x2F;x&#x2F;lint&#x2F;golint FAILED</span><br></pre></td></tr></table></figure>
+
+<p>大概是<code>golang.org/x/...</code>下的包安装连接失败, 试着打开<code>golang.org</code>果然无法访问</p>
+<p>但这些包其实在github上可以下载到, 是golang官方提供的镜像, 项目有<code>[mirror]</code>标志</p>
+<h2 id="解决第三方库下载失败问题"><a href="#解决第三方库下载失败问题" class="headerlink" title="解决第三方库下载失败问题"></a>解决第三方库下载失败问题</h2><blockquote>
+<p>golang.org被屏蔽了, 但很多第三方包都需要访问该地址, 若不处理, 会经常报错</p>
+<p>几种方法任选一个, 推荐度从高到底</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/golang/golang-with-vscode/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/career/stick-to-writting-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/career/stick-to-writting-blog/" class="post-title-link" itemprop="url">为什么要坚持写博客</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-10 08:15:12" itemprop="dateCreated datePublished" datetime="2019-11-10T08:15:12+08:00">2019-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 23:01:28" itemprop="dateModified" datetime="2020-10-20T23:01:28+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/career/" itemprop="url" rel="index"><span itemprop="name">career</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/career/stick-to-writting-blog/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/career/stick-to-writting-blog/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>写博客有很多好处, 时常听到周围的人或网友这样说, 也有时候会有种想写点东西的冲动, 又不知道怎么开始, 只是想一想又放弃了. 但我们还是应该勇敢开始的, 不是吗?</p>
+<h2 id="第一个原因"><a href="#第一个原因" class="headerlink" title="第一个原因"></a>第一个原因</h2><p>经常在网上看到大佬的博客, 那真是丰富呀, 上至天文地理, 下到感情人生, 读起来像一本百科全书, 非常羡慕他们有这样一片独立的天地. 再看看自己, 小白一个, 啥啥都不会, 也没有什么文采, 我写东西出来不丢人吗?</p>
+<p>不知道大家有没有我一样的疑虑, 有想法不敢去尝试, 羡慕别人却不敢争取. 万事开头难, 我自己为什么要想得那么多? 换一个角度想, 我想写点东西, 没有任何人阻止我, 让我迟迟不能动笔的, 竟然是我自己, 自己的思想禁锢了自己, 我要写东西时, 并没有人会夺走我的鼠标砸掉我的键盘, 所以, 我在害怕担心什么? 不知道怎么开始 还是担心写的不好丢人, 还是怕写错了被指责?</p>
+<p>我觉得这是为什么要写博客的第一个原因: 克服自己, 突破思维禁锢, 不要犹豫害怕, 想到什么, 勇敢去做, 迈出第一步!</p>
+<h2 id="提高自己"><a href="#提高自己" class="headerlink" title="提高自己"></a>提高自己</h2><p>“我是一个小白, 文采不好, 没有技术”, 这个现状可以是限制我让我不敢开始的绊脚石(我不好所以我别丢人了); 也可以成为我前进的原因和动力(我没有技术, 所以我更应该提高自己, 积累点点滴滴).</p>
+<p>看到大佬们闪亮发光的文章, 一篇篇的高端技术解说, 成千上万的粉丝和阅读量时, 我们也应该想到, 万丈高楼平地起. 博客不像别的东西, 大家开始的时候都是一篇一篇累积的; 技术的成长也不是一蹴而就, 一个大佬的背后, 一定肝了非常非常多的文章教程和实战.</p>
+<p>开始的时候都难, 那就把学到的新知识和碰到的难点都一点点记录下来, 在学习和解决各种问题的时候就会慢慢变强</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/career/stick-to-writting-blog/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/career/build-my-site-with-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -354,7 +565,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
