@@ -192,6 +192,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-multi-threads/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-multi-threads/" class="post-title-link" itemprop="url">C#中的多线程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-02 22:26:50" itemprop="dateCreated datePublished" datetime="2021-03-02T22:26:50+08:00">2021-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-06 17:39:18" itemprop="dateModified" datetime="2021-03-06T17:39:18+08:00">2021-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-multi-threads/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-multi-threads/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程是操作系统进行资源分配和调度的基本单位</p>
+<p>进程之间独立运行, 具有独立的内存空间, 进程间也可以相互访问</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程是操作系统调度的最小单位</p>
+<p>线程包含在进程之中, 是进程中的实际运作单位</p>
+<p>一个进程中可以并发执行多个线程</p>
+<h2 id="多线程使用"><a href="#多线程使用" class="headerlink" title="多线程使用"></a>多线程使用</h2><ul>
+<li>线程执行的代码需要封装到一个静态static函数之中</li>
+<li>线程的启动 <code>t.Start()</code></li>
+<li>设置后台线程:<br>主线程结束时, 整个程序也就结束了, 即使还有还有后台线程, 后台线程不会防止应用程序被终止掉, 如果不设置为后台线程, 可能导致进程无法正常关闭(默认开启的为前台线程); (一般来说, 我们应该优雅的关闭所有线程, 而不是强制退出)</li>
+<li>关闭线程<ul>
+<li>非循环的线程, 不用刻意去关闭, 等自然运行完毕即可</li>
+<li>死循环线程, 可以设置运行标志位, 循环判断标志位退出</li>
+<li>通过线程提供的方法关闭 <code>t.Abort()</code> .Net core会报错 (不推荐)</li>
+</ul>
+</li>
+<li>线程休眠<br>休眠函数在哪个线程中执行, 则休眠哪个线程, 单位为毫秒数<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.Sleep(<span class="number">1000</span>); <span class="comment">// 休眠1s</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-multi-threads/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-covariance-and-inverter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1144,120 +1257,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-interface/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-interface/" class="post-title-link" itemprop="url">C#中的接口</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-21 12:12:38 / 修改时间：20:57:24" itemprop="dateCreated datePublished" datetime="2021-02-21T12:12:38+08:00">2021-02-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-interface/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-interface/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="接口申明"><a href="#接口申明" class="headerlink" title="接口申明"></a>接口申明</h2><p><strong>接口是抽象行为的”基类”</strong>, 接口命名规范是大写I开头并且使用大驼峰(帕斯卡命名)</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IFly</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span>; <span class="comment">// 方法</span></span><br><span class="line">    <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 未实现的属性(不是自动属性)</span></span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>; &#125; <span class="comment">// 索引器</span></span><br><span class="line">    <span class="keyword">event</span> Action DoSomething; <span class="comment">// 事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>不包含成员变量</li>
-<li>只能包含<strong>方法, 属性, 索引器, 事件</strong></li>
-<li><strong>成员不能被实现</strong></li>
-<li>成员可以不用写访问修饰符, 不能是私有的</li>
-<li>接口不能继承类, 但是可以继承另一个接口 (行为合并)</li>
-<li>实现接口方法时可以添加virtual关键字, 让子类可以重写</li>
-</ol>
-<h2 id="接口的使用规范"><a href="#接口的使用规范" class="headerlink" title="接口的使用规范"></a>接口的使用规范</h2><p>接口用来继承</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Animal</span> : <span class="title">IFLy</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 实现接口, 但是允许子类重写</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 自动属性, 实现接口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>&#123; <span class="keyword">return</span> <span class="number">0</span>; &#125;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> Action DoSomething;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>类可以继承多个接口</li>
-<li>类继承接口后必须实现接口中所有成员</li>
-</ol>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
-<li>接口是用来继承的</li>
-<li>接口不能被直接实例化, 但是可以作为容器存储对象(里氏替换/多态)</li>
-</ol>
-<p>接口可以继承接口, 但接口不需要去实现, 当类继承后自己实现所有内容</p>
-<h2 id="显式实现接口"><a href="#显式实现接口" class="headerlink" title="显式实现接口"></a>显式实现接口</h2><p>当一个类继承两个接口, 但是接口中存在两个同名方法时, 如果该方法需要针对两个接口分别实现, 则需要使用显式实现</p>
-<p>注意: 显式实现接口时不能写访问修饰符</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title">ISuperAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 两个接口同一个实现方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是一般来说, 两个接口代表的不应该是同一个行为表现</p>
-<p>下面是显式分别实现的方法</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="comment">// 显式实现接口不能写访问修饰符</span></span><br><span class="line">    <span class="keyword">void</span> IAtk.Atk() &#123;&#125;</span><br><span class="line">    <span class="keyword">void</span> ISuperAtk.Atk() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Player p = <span class="keyword">new</span> Player();</span><br><span class="line"><span class="comment">// 无法直接用父类调用Atk方法</span></span><br><span class="line">(p <span class="keyword">as</span> IAtk).Atk();</span><br><span class="line">(p <span class="keyword">as</span> ISuperAtk).Atk();</span><br><span class="line"><span class="comment">// 但是也可以在Player类中实现一个自己的Atk方法, 自己实现的Atk方法与显式实现接口中的方法无关</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1323,7 +1326,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
