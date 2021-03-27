@@ -192,6 +192,639 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/vscode-cmake-cpp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/vscode-cmake-cpp/" class="post-title-link" itemprop="url">VS Code中使用CMake编译调试C++</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-07 22:20:30" itemprop="dateCreated datePublished" datetime="2019-12-07T22:20:30+08:00">2019-12-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 22:59:23" itemprop="dateModified" datetime="2020-10-20T22:59:23+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/vscode-cmake-cpp/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/vscode-cmake-cpp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>适用于Windows系统</p>
+<h2 id="VS-Code的C-环境"><a href="#VS-Code的C-环境" class="headerlink" title="VS Code的C++环境"></a>VS Code的C++环境</h2><ul>
+<li><p><a href="https://fetasty.github.io/cpp/win-mingw-w64-install/">安装MingGW</a></p>
+</li>
+<li><p><code>C/C++</code> 提供基本语言支持, 智能提示</p>
+</li>
+<li><p><code>CMake</code> 提供CMakeLists文件的智能提示</p>
+</li>
+<li><p><code>CMake Tools</code> 提供CMake工具链支持</p>
+</li>
+</ul>
+<p>在VS Code设置中可以针对每个扩展进行一些个性化设置</p>
+<h2 id="建立项目目录-编写源代码"><a href="#建立项目目录-编写源代码" class="headerlink" title="建立项目目录, 编写源代码"></a>建立项目目录, 编写源代码</h2><p>一般的项目目录结构:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">proj_name&#x2F;</span><br><span class="line">  |- CMakeLists.txt 项目的根cmake文件</span><br><span class="line">  |- LICENSE 项目授权文件</span><br><span class="line">  |- README.MD 项目说明</span><br><span class="line">  |- src&#x2F; 源码目录</span><br><span class="line">    |- module_name&#x2F; 模块源码目录</span><br><span class="line">      |- CMakeLists.txt 模块目录中的cmake文件</span><br><span class="line">    |- CMakeLists.txt src&#x2F;目录中的cmake文件</span><br><span class="line">  |- doc&#x2F; 文档目录</span><br><span class="line">  |- build&#x2F; 构建目录</span><br><span class="line">    |- bin&#x2F; 二进制文件目录</span><br><span class="line">    |- lib&#x2F; 二进制库文件目录</span><br><span class="line">    |- includes&#x2F; 二进制库头文件目录</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/cpp/vscode-cmake-cpp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/common-library/about-protobuf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/common-library/about-protobuf/" class="post-title-link" itemprop="url">使用protobuf3的一些注意点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 17:11:23" itemprop="dateCreated datePublished" datetime="2019-11-18T17:11:23+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 22:59:56" itemprop="dateModified" datetime="2020-10-20T22:59:56+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/common-library/" itemprop="url" rel="index"><span itemprop="name">common-library</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/common-library/about-protobuf/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/common-library/about-protobuf/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>工作中碰到需求变更, 有时需要改变传输的数据结构, C++结构体增删字段, 还要让lua客户端兼容, 非常吃力, 有时候甚至动态拼接多个结构体, 然后依靠数据长度将一个void*的数据各部分转换为不同的指针, 既复杂又危险</p>
+<p>后来为解决这个问题, 引入了Google的protobuf(为结构化数据提供自动高效灵活的支持), 这还真是个好东西, 相对于xml/json/纯结构体, 它的定义文件可读性非常好, 可以添加注释, 使用起来也灵活许多, 而且序列化之后非常小, 可以节省n多流量</p>
+<img data-src="/common-library/about-protobuf/why-not-use-xml.png" class="" title="why not use xml">
+
+<p>但是xml/json是自描述, 可读的格式, protobuf结构在序列化之后是不可读的, 需要解析后才能清晰的获取结构中的数据</p>
+<p>使用protobuf过程中碰到的问题记录一下</p>
+<h2 id="proto3与proto2的区别需要注意"><a href="#proto3与proto2的区别需要注意" class="headerlink" title="proto3与proto2的区别需要注意"></a>proto3与proto2的区别需要注意</h2><p>我们使用的proto3, 记录的都是proto3需要注意的</p>
+<h3 id="proto3必须注明版本"><a href="#proto3必须注明版本" class="headerlink" title="proto3必须注明版本"></a>proto3必须注明版本</h3><p>在第一行非空白非注释行，必须写</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>不加这一行, 将以proto2解析</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/common-library/about-protobuf/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/win-mingw-w64-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/win-mingw-w64-install/" class="post-title-link" itemprop="url">Windows下MinGW-w64安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-15 10:21:38" itemprop="dateCreated datePublished" datetime="2019-11-15T10:21:38+08:00">2019-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 23:00:18" itemprop="dateModified" datetime="2020-10-20T23:00:18+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/win-mingw-w64-install/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/win-mingw-w64-install/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>很多时候都必不可少一套GCC/G++编译器</p>
+<p>这里我选择MinGW-w64 x86_64-posix-seh</p>
+<h2 id="MinGW-amp-MinGW-w64-amp-TDM-GCC"><a href="#MinGW-amp-MinGW-w64-amp-TDM-GCC" class="headerlink" title="MinGW &amp; MinGW-w64 &amp; TDM-GCC"></a>MinGW &amp; MinGW-w64 &amp; TDM-GCC</h2><p>MinGW 只有32位版本  更新较慢 LastUpdate(2018-07-13) 查看日期[2019-11-15]</p>
+<p>MinGW-w64 提供32位和64位, 更新快 LastUpdate(11hours ago) 查看日期[2019-11-15]</p>
+<p>TDM-GCC 提供32位和64位, 更新较慢 LastUpdate(2015-07-02) 查看日期[2019-11-15]</p>
+<p>MinGW-w64的64位和TDM-GCC的64位的区别, 64位的TDM-GCC既能编译64位binary，也能编译32位binary(用-m32参数), 而64位的MinGW-w64只能编译64位binary, 编译32位程序只能再用32位版本的MinGW-w64编辑</p>
+<p>看看这个维护活跃度, 还是选择MinGW-w64吧 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64">https://sourceforge.net/projects/mingw-w64</a></p>
+<h2 id="MinGW-w64选择"><a href="#MinGW-w64选择" class="headerlink" title="MinGW-w64选择"></a>MinGW-w64选择</h2><blockquote>
+<p>以下资料来源于网络, 可以作一个大概了解</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/cpp/win-mingw-w64-install/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/database/about-sqlite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/database/about-sqlite/" class="post-title-link" itemprop="url">使用SQLite的一些注意点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-14 14:57:24" itemprop="dateCreated datePublished" datetime="2019-11-14T14:57:24+08:00">2019-11-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 23:00:32" itemprop="dateModified" datetime="2020-10-20T23:00:32+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/database/" itemprop="url" rel="index"><span itemprop="name">database</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/database/about-sqlite/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/database/about-sqlite/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>SQLite是一个非常轻量的数据库系统, 用C语言实现, 是一个小型, 快速, 可靠, 功能全面的SQL数据库引擎. SQLite内置在许多地方使用.</p>
+<p>如果不要求大量的数据并发写入, 且应用程序和数据库没有通过网络分离时, 可以选择适用轻量的SQLite</p>
+<p>经测试, 读写千万级别的数据完全没有问题</p>
+<p>这里记录一些使用过程中碰到的问题</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>SQLite实际用于存储的数据类型只有5种(NULL, INTEGER, REAL, TEXT, BLOB)</p>
+<p><code>NULL</code> 就是NULL</p>
+<p><code>INTEGER</code> 存储整数, 根据大小存储为1, 2, 3, 4, 6或者8 bytes</p>
+<p><code>REAL</code> 8 bytes大小的IEEE浮点数</p>
+<p><code>TEXT</code> 用数据库编码存储的字符串(UTF-8, UTF-16BE or UTF-16LE)</p>
+<p><code>BLOB</code> 二进制存储数据</p>
+<p>5种怎么够用? 虽说实际存储只有这5种类型, 但是SQLite支持很多其它类型, 然后以上面某一种数据类型实际存储</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/database/about-sqlite/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/golang/golang-with-vscode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/golang/golang-with-vscode/" class="post-title-link" itemprop="url">在VS Code下使用Go插件安装失败问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-12 10:52:25" itemprop="dateCreated datePublished" datetime="2019-11-12T10:52:25+08:00">2019-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 23:01:17" itemprop="dateModified" datetime="2020-10-20T23:01:17+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/golang/golang-with-vscode/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/golang/golang-with-vscode/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>对比了几个Golang IDE, 还是VS Code最轻量好用, 但是使用时会提示一堆插件安装失败, 记录一下问题</p>
+<p>环境: Win10, VS Code, go1.13.4.windows-amd64</p>
+<h2 id="安装Go语言环境"><a href="#安装Go语言环境" class="headerlink" title="安装Go语言环境"></a>安装Go语言环境</h2><p>在<a target="_blank" rel="noopener" href="https://golang.google.cn/">官方网站</a>下载安装</p>
+<h2 id="VSC安装Go扩展"><a href="#VSC安装Go扩展" class="headerlink" title="VSC安装Go扩展"></a>VSC安装Go扩展</h2><p>VS Code扩展栏搜索<code>Go</code>进行安装</p>
+<img data-src="/golang/golang-with-vscode/go-vsc-ext.png" class="" title="插件主页">
+
+<p>这一步比较简单, 一般没有问题, 安装好后编写Go源文件, 提示需要安装一些代码提示工具</p>
+<p>在VSC下方状态栏显示有<code>Analysis Tools Missing</code>, 点击该提示, 点击”install”, 出现安装失败提示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Installing github.com&#x2F;mdempsky&#x2F;gocode FAILED</span><br><span class="line">Installing github.com&#x2F;uudashr&#x2F;gopkgs&#x2F;cmd&#x2F;gopkgs FAILED</span><br><span class="line">Installing github.com&#x2F;ramya-rao-a&#x2F;go-outline FAILED</span><br><span class="line">Installing github.com&#x2F;stamblerre&#x2F;gocode FAILED</span><br><span class="line">Installing github.com&#x2F;rogpeppe&#x2F;godef FAILED</span><br><span class="line">Installing github.com&#x2F;sqs&#x2F;goreturns FAILED</span><br><span class="line">Installing golang.org&#x2F;x&#x2F;lint&#x2F;golint FAILED</span><br></pre></td></tr></table></figure>
+
+<p>大概是<code>golang.org/x/...</code>下的包安装连接失败, 试着打开<code>golang.org</code>果然无法访问</p>
+<p>但这些包其实在github上可以下载到, 是golang官方提供的镜像, 项目有<code>[mirror]</code>标志</p>
+<h2 id="解决第三方库下载失败问题"><a href="#解决第三方库下载失败问题" class="headerlink" title="解决第三方库下载失败问题"></a>解决第三方库下载失败问题</h2><blockquote>
+<p>golang.org被屏蔽了, 但很多第三方包都需要访问该地址, 若不处理, 会经常报错</p>
+<p>几种方法任选一个, 推荐度从高到底</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/golang/golang-with-vscode/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/career/stick-to-writting-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/career/stick-to-writting-blog/" class="post-title-link" itemprop="url">为什么要坚持写博客</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-10 08:15:12" itemprop="dateCreated datePublished" datetime="2019-11-10T08:15:12+08:00">2019-11-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 23:01:28" itemprop="dateModified" datetime="2020-10-20T23:01:28+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/career/" itemprop="url" rel="index"><span itemprop="name">career</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/career/stick-to-writting-blog/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/career/stick-to-writting-blog/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>写博客有很多好处, 时常听到周围的人或网友这样说, 也有时候会有种想写点东西的冲动, 又不知道怎么开始, 只是想一想又放弃了. 但我们还是应该勇敢开始的, 不是吗?</p>
+<h2 id="第一个原因"><a href="#第一个原因" class="headerlink" title="第一个原因"></a>第一个原因</h2><p>经常在网上看到大佬的博客, 那真是丰富呀, 上至天文地理, 下到感情人生, 读起来像一本百科全书, 非常羡慕他们有这样一片独立的天地. 再看看自己, 小白一个, 啥啥都不会, 也没有什么文采, 我写东西出来不丢人吗?</p>
+<p>不知道大家有没有我一样的疑虑, 有想法不敢去尝试, 羡慕别人却不敢争取. 万事开头难, 我自己为什么要想得那么多? 换一个角度想, 我想写点东西, 没有任何人阻止我, 让我迟迟不能动笔的, 竟然是我自己, 自己的思想禁锢了自己, 我要写东西时, 并没有人会夺走我的鼠标砸掉我的键盘, 所以, 我在害怕担心什么? 不知道怎么开始 还是担心写的不好丢人, 还是怕写错了被指责?</p>
+<p>我觉得这是为什么要写博客的第一个原因: 克服自己, 突破思维禁锢, 不要犹豫害怕, 想到什么, 勇敢去做, 迈出第一步!</p>
+<h2 id="提高自己"><a href="#提高自己" class="headerlink" title="提高自己"></a>提高自己</h2><p>“我是一个小白, 文采不好, 没有技术”, 这个现状可以是限制我让我不敢开始的绊脚石(我不好所以我别丢人了); 也可以成为我前进的原因和动力(我没有技术, 所以我更应该提高自己, 积累点点滴滴).</p>
+<p>看到大佬们闪亮发光的文章, 一篇篇的高端技术解说, 成千上万的粉丝和阅读量时, 我们也应该想到, 万丈高楼平地起. 博客不像别的东西, 大家开始的时候都是一篇一篇累积的; 技术的成长也不是一蹴而就, 一个大佬的背后, 一定肝了非常非常多的文章教程和实战.</p>
+<p>开始的时候都难, 那就把学到的新知识和碰到的难点都一点点记录下来, 在学习和解决各种问题的时候就会慢慢变强</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/career/stick-to-writting-blog/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/career/build-my-site-with-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -354,7 +987,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -367,7 +1000,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
