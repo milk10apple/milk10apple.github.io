@@ -91,6 +91,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows下MinGW-w64安装</title>
+    <url>/cpp/win-mingw-w64-install/</url>
+    <content><![CDATA[<p>很多时候都必不可少一套GCC/G++编译器</p>
+<p>这里我选择MinGW-w64 x86_64-posix-seh</p>
+<h2 id="MinGW-amp-MinGW-w64-amp-TDM-GCC"><a href="#MinGW-amp-MinGW-w64-amp-TDM-GCC" class="headerlink" title="MinGW &amp; MinGW-w64 &amp; TDM-GCC"></a>MinGW &amp; MinGW-w64 &amp; TDM-GCC</h2><p>MinGW 只有32位版本  更新较慢 LastUpdate(2018-07-13) 查看日期[2019-11-15]</p>
+<p>MinGW-w64 提供32位和64位, 更新快 LastUpdate(11hours ago) 查看日期[2019-11-15]</p>
+<p>TDM-GCC 提供32位和64位, 更新较慢 LastUpdate(2015-07-02) 查看日期[2019-11-15]</p>
+<p>MinGW-w64的64位和TDM-GCC的64位的区别, 64位的TDM-GCC既能编译64位binary，也能编译32位binary(用-m32参数), 而64位的MinGW-w64只能编译64位binary, 编译32位程序只能再用32位版本的MinGW-w64编辑</p>
+<p>看看这个维护活跃度, 还是选择MinGW-w64吧 <a href="https://sourceforge.net/projects/mingw-w64">https://sourceforge.net/projects/mingw-w64</a></p>
+<h2 id="MinGW-w64选择"><a href="#MinGW-w64选择" class="headerlink" title="MinGW-w64选择"></a>MinGW-w64选择</h2><blockquote>
+<p>以下资料来源于网络, 可以作一个大概了解</p>
+</blockquote>
+<a id="more"></a>
+
+<ol>
+<li><p>i686与x86_64 架构选择</p>
+<p>32位选择i686 只能编译32位应用</p>
+<p>64位选择x86_64 只能编译64位应用</p>
+</li>
+<li><p>posix与win32 操作系统接口协议</p>
+<p>只开发win下运行的程序, 可以选择win32, 这样就不能使用std::thread, 需要使用win的thread接口</p>
+<p>同时需要开发其它平台, 选择posix, 可以使用std::thread, 不能使用win的thread接口</p>
+<ul>
+<li><p>posix: 启用c++11/c11多线程功能. 使depend依赖于libwinpthreads, 这样即使你不直接调用API, 你将分发winpthreads. 使用应用程序分发一个DLL没有什么问题.</p>
+</li>
+<li><p>win32: 没有C++11多线程功能.</p>
+</li>
+</ul>
+</li>
+<li><p>异常处理模型</p>
+<p>前面选择32位可以选择dwarf或sjlj</p>
+<p>前面选择64位可以选择seh或sjlj</p>
+<p>区别:</p>
+<ul>
+<li>sjlj 古老, 稳定, 性能较慢, 支持32位和64位</li>
+<li>seh新发明, 只支持64位, 性能好</li>
+<li>dwarf只支持32位, 性能比sjlj好点</li>
+</ul>
+</li>
+</ol>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>在MinGW-w64项目主页, 选择files, 在下方选择需要的版本 <a href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>将解压的文件夹的bin目录配置到环境变量的PATH中</p>
+<p>在命令行测试</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>gcc</tag>
+        <tag>g++</tag>
+        <tag>MinGW-w64</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用SQLite的一些注意点</title>
     <url>/database/about-sqlite/</url>
     <content><![CDATA[<p>SQLite是一个非常轻量的数据库系统, 用C语言实现, 是一个小型, 快速, 可靠, 功能全面的SQL数据库引擎. SQLite内置在许多地方使用.</p>
@@ -204,61 +259,6 @@
       <tags>
         <tag>SQLite</tag>
         <tag>Database</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Windows下MinGW-w64安装</title>
-    <url>/cpp/win-mingw-w64-install/</url>
-    <content><![CDATA[<p>很多时候都必不可少一套GCC/G++编译器</p>
-<p>这里我选择MinGW-w64 x86_64-posix-seh</p>
-<h2 id="MinGW-amp-MinGW-w64-amp-TDM-GCC"><a href="#MinGW-amp-MinGW-w64-amp-TDM-GCC" class="headerlink" title="MinGW &amp; MinGW-w64 &amp; TDM-GCC"></a>MinGW &amp; MinGW-w64 &amp; TDM-GCC</h2><p>MinGW 只有32位版本  更新较慢 LastUpdate(2018-07-13) 查看日期[2019-11-15]</p>
-<p>MinGW-w64 提供32位和64位, 更新快 LastUpdate(11hours ago) 查看日期[2019-11-15]</p>
-<p>TDM-GCC 提供32位和64位, 更新较慢 LastUpdate(2015-07-02) 查看日期[2019-11-15]</p>
-<p>MinGW-w64的64位和TDM-GCC的64位的区别, 64位的TDM-GCC既能编译64位binary，也能编译32位binary(用-m32参数), 而64位的MinGW-w64只能编译64位binary, 编译32位程序只能再用32位版本的MinGW-w64编辑</p>
-<p>看看这个维护活跃度, 还是选择MinGW-w64吧 <a href="https://sourceforge.net/projects/mingw-w64">https://sourceforge.net/projects/mingw-w64</a></p>
-<h2 id="MinGW-w64选择"><a href="#MinGW-w64选择" class="headerlink" title="MinGW-w64选择"></a>MinGW-w64选择</h2><blockquote>
-<p>以下资料来源于网络, 可以作一个大概了解</p>
-</blockquote>
-<a id="more"></a>
-
-<ol>
-<li><p>i686与x86_64 架构选择</p>
-<p>32位选择i686 只能编译32位应用</p>
-<p>64位选择x86_64 只能编译64位应用</p>
-</li>
-<li><p>posix与win32 操作系统接口协议</p>
-<p>只开发win下运行的程序, 可以选择win32, 这样就不能使用std::thread, 需要使用win的thread接口</p>
-<p>同时需要开发其它平台, 选择posix, 可以使用std::thread, 不能使用win的thread接口</p>
-<ul>
-<li><p>posix: 启用c++11/c11多线程功能. 使depend依赖于libwinpthreads, 这样即使你不直接调用API, 你将分发winpthreads. 使用应用程序分发一个DLL没有什么问题.</p>
-</li>
-<li><p>win32: 没有C++11多线程功能.</p>
-</li>
-</ul>
-</li>
-<li><p>异常处理模型</p>
-<p>前面选择32位可以选择dwarf或sjlj</p>
-<p>前面选择64位可以选择seh或sjlj</p>
-<p>区别:</p>
-<ul>
-<li>sjlj 古老, 稳定, 性能较慢, 支持32位和64位</li>
-<li>seh新发明, 只支持64位, 性能好</li>
-<li>dwarf只支持32位, 性能比sjlj好点</li>
-</ul>
-</li>
-</ol>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>在MinGW-w64项目主页, 选择files, 在下方选择需要的版本 <a href="https://sourceforge.net/projects/mingw-w64/files/">https://sourceforge.net/projects/mingw-w64/files/</a></p>
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>将解压的文件夹的bin目录配置到环境变量的PATH中</p>
-<p>在命令行测试</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>gcc</tag>
-        <tag>g++</tag>
-        <tag>MinGW-w64</tag>
       </tags>
   </entry>
   <entry>
@@ -440,6 +440,38 @@
       </tags>
   </entry>
   <entry>
+    <title>搜索语法</title>
+    <url>/other/search-expression/</url>
+    <content><![CDATA[<h2 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何阅读一本书&quot;</span><br></pre></td></tr></table></figure>
+
+<p>  只搜索包含整个词语的结果, 不会出现只有”阅读”或者”一本书”的结果</p>
+<h2 id="排除关键词"><a href="#排除关键词" class="headerlink" title="排除关键词"></a>排除关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子</span><br></pre></td></tr></table></figure>
+
+<p>  排除搜索结果中包含”孩子”的结果</p>
+<h2 id="包含关键词"><a href="#包含关键词" class="headerlink" title="包含关键词"></a>包含关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子 +推荐</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="在特定网站-域名中搜索"><a href="#在特定网站-域名中搜索" class="headerlink" title="在特定网站/域名中搜索"></a>在特定网站/域名中搜索</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 site:pan.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>  不要<code>http://</code>, 不加<code>www</code>, 上面的网盘搜索不要使用百度搜索 (Google/duckduckgo/dogedoge)</p>
+<h2 id="搜索特定文件类型"><a href="#搜索特定文件类型" class="headerlink" title="搜索特定文件类型"></a>搜索特定文件类型</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="url链接中包含关键字"><a href="#url链接中包含关键字" class="headerlink" title="url链接中包含关键字"></a>url链接中包含关键字</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读 inurl:gov.cn</span><br></pre></td></tr></table></figure>
+
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="标题中包含"><a href="#标题中包含" class="headerlink" title="标题中包含"></a>标题中包含</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf intitle:大学</span><br></pre></td></tr></table></figure>
+
+<h2 id="结合使用"><a href="#结合使用" class="headerlink" title="结合使用"></a>结合使用</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; -孩子 filetype:pdf inurl:edu intitle:大学</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">intitle:如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
+  </entry>
+  <entry>
     <title>C++中的静态链接库和动态链接库区别</title>
     <url>/cpp/staticlib-sharedlib-in-cpp/</url>
     <content><![CDATA[<p>稍加总结</p>
@@ -494,38 +526,6 @@
         <tag>C++</tag>
         <tag>lib</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>搜索语法</title>
-    <url>/other/search-expression/</url>
-    <content><![CDATA[<h2 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何阅读一本书&quot;</span><br></pre></td></tr></table></figure>
-
-<p>  只搜索包含整个词语的结果, 不会出现只有”阅读”或者”一本书”的结果</p>
-<h2 id="排除关键词"><a href="#排除关键词" class="headerlink" title="排除关键词"></a>排除关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子</span><br></pre></td></tr></table></figure>
-
-<p>  排除搜索结果中包含”孩子”的结果</p>
-<h2 id="包含关键词"><a href="#包含关键词" class="headerlink" title="包含关键词"></a>包含关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子 +推荐</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="在特定网站-域名中搜索"><a href="#在特定网站-域名中搜索" class="headerlink" title="在特定网站/域名中搜索"></a>在特定网站/域名中搜索</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 site:pan.baidu.com</span><br></pre></td></tr></table></figure>
-
-<p>  不要<code>http://</code>, 不加<code>www</code>, 上面的网盘搜索不要使用百度搜索 (Google/duckduckgo/dogedoge)</p>
-<h2 id="搜索特定文件类型"><a href="#搜索特定文件类型" class="headerlink" title="搜索特定文件类型"></a>搜索特定文件类型</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="url链接中包含关键字"><a href="#url链接中包含关键字" class="headerlink" title="url链接中包含关键字"></a>url链接中包含关键字</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读 inurl:gov.cn</span><br></pre></td></tr></table></figure>
-
-<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="标题中包含"><a href="#标题中包含" class="headerlink" title="标题中包含"></a>标题中包含</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf intitle:大学</span><br></pre></td></tr></table></figure>
-
-<h2 id="结合使用"><a href="#结合使用" class="headerlink" title="结合使用"></a>结合使用</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; -孩子 filetype:pdf inurl:edu intitle:大学</span><br></pre></td></tr></table></figure>
-
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">intitle:如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
   </entry>
   <entry>
     <title>Windows上的一些实用小命令/技巧</title>
@@ -654,6 +654,53 @@
       </tags>
   </entry>
   <entry>
+    <title>归并排序(非递归&amp;不回写)</title>
+    <url>/algorithm/merge-sort/</url>
+    <content><![CDATA[<blockquote>
+<p>归并排序和堆排序是两种渐进最优排序算法, 任何情况下的复杂度都是$O(n\log n)$</p>
+</blockquote>
+<p>MergeSort是分治思想的实现, 把大问题划分为小的容易解决的问题逐步解决, 主要操作是Merge(把两个有序的数列合并为一个有序数列)</p>
+<p>它需要一个相同长度的数组作为临时空间使用, 空间复杂度为$O(n)$</p>
+<p>MergeSort是一种<strong>稳定的排序算法</strong></p>
+<a id="more"></a>
+
+<h2 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h2><p>简单的递归式归并排序非常容易, 网上随便搜一大堆, 大致如下:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> LENGTH = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> temp[LENGTH] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="comment">// 合并[start, mid)和[mid, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; <span class="built_in">end</span>; ++i) &#123; temp[i] = arr[i]; &#125;</span><br><span class="line">  <span class="keyword">int</span> left = start;</span><br><span class="line">  <span class="keyword">int</span> right = mid;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; <span class="built_in">end</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= mid) &#123; arr[i] = temp[right++]; &#125; <span class="comment">// 左边用尽</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (right &gt;= <span class="built_in">end</span>) &#123; arr[i] = temp[left++]; &#125; <span class="comment">// 右边用尽</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (temp[right] &lt; temp[left]) &#123; arr[i] = temp[right++]; &#125; <span class="comment">// 右边较小</span></span><br><span class="line">    <span class="keyword">else</span> &#123; arr[i] = temp[left++]; &#125; <span class="comment">// 左边不大于右边</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 排序arr, [start, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (start &lt; <span class="built_in">end</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> mid = start + ((<span class="built_in">end</span> - start) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    MergeSort(arr, start, mid);</span><br><span class="line">    MergeSort(arr, mid, <span class="built_in">end</span>);</span><br><span class="line">    Merge(arr, start, mid, <span class="built_in">end</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> arr[LENGTH];</span><br><span class="line">  <span class="comment">// 在arr中放随机数</span></span><br><span class="line">  MergeSort(arr, <span class="number">0</span>, LENGTH);</span><br><span class="line">  <span class="comment">// 检查排序结果</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优化的思路:</p>
+<ol>
+<li><p>需要使用的临时数组在开始就申请好, 而不是每次merge操作都用一个临时数组, 上面已经作到了</p>
+</li>
+<li><p>自底向上归并 上面的自上而下的归并需要递归处理, 而递归又使用栈空间, 增加空间和性能消耗</p>
+</li>
+<li><p>不回写 上面的归并, 每次都从arr拷贝到temp, 再从temp归并到arr, 额外操作很多; 其实可以不回写, 第一次直接从arr归并到temp, 下一次再从temp归并到arr, 减少额外的操作</p>
+</li>
+<li><p>可以考虑数字较少时改用插入排序</p>
+</li>
+</ol>
+<p>自底向上归并思路如图:</p>
+<img data-src="/algorithm/merge-sort/mergesort-think.png" class="" title="mergesort-think">
+
+<h2 id="无栈-amp-非递归-amp-不回写的归并"><a href="#无栈-amp-非递归-amp-不回写的归并" class="headerlink" title="无栈&amp;非递归&amp;不回写的归并"></a>无栈&amp;非递归&amp;不回写的归并</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以步长step从src合并到dis</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; src, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; dis, <span class="keyword">int</span> <span class="built_in">step</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">size</span> = src.<span class="built_in">size</span>();</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 每次循环合并[i, i + step)和[i + step, i + 2*step);</span></span><br><span class="line">  <span class="comment">// i + step &lt; size说明 [i + step, size)不为空, 还需要合并; i每次增加2*step</span></span><br><span class="line">  <span class="keyword">for</span> (; i + <span class="built_in">step</span> &lt; <span class="built_in">size</span>; i += (<span class="built_in">step</span> &lt;&lt; <span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="comment">// mid, end作为分割位, 不能更改</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mid = i + <span class="built_in">step</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> <span class="built_in">end</span> = (mid + <span class="built_in">step</span> &lt; <span class="built_in">size</span>) ? (mid + <span class="built_in">step</span>) : <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">int</span> left = i; <span class="comment">// [left, mid)为左边剩下的</span></span><br><span class="line">    <span class="keyword">int</span> right = mid; <span class="comment">// [right, end)为右边剩下的</span></span><br><span class="line">    <span class="comment">// 合并 [i, mid), [mid, end)</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; <span class="built_in">end</span>; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (left &gt;= mid) &#123; dis.at(j) = src.at(right++); &#125; <span class="comment">// 左边用尽</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (right &gt;= <span class="built_in">end</span>) &#123; dis.at(j) = src.at(left++); &#125; <span class="comment">// 右边用尽</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (src.at(right) &lt; src.at(left)) &#123; dis.at(j) = src.at(right++); &#125; <span class="comment">// 右边较小</span></span><br><span class="line">      <span class="keyword">else</span> &#123; dis.at(j) = src.at(left++); &#125; <span class="comment">// 左边不大于右边</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 剩下未处理的数据也要复制过去 (很重要)</span></span><br><span class="line">  <span class="keyword">for</span> (; i &lt; <span class="built_in">size</span>; ++i) &#123; dis.at(i) = src.at(i); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">temp</span><span class="params">(arr)</span></span>; <span class="comment">// 临时数组</span></span><br><span class="line">  <span class="keyword">bool</span> to_temp = <span class="literal">false</span>; <span class="comment">// 是否合并到临时数组</span></span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">step</span> = <span class="number">1</span>; <span class="comment">// 步长从1开始, 每次乘2</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">step</span> &lt; arr.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    to_temp = !to_temp;</span><br><span class="line">    <span class="comment">// 三元表达式后两个参数是类型相同的左值, 因此表达式值也是左值</span></span><br><span class="line">    Merge(to_temp ? arr : temp, to_temp ? temp : arr, <span class="built_in">step</span>);</span><br><span class="line">    <span class="built_in">step</span> &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (to_temp) &#123; <span class="comment">// 最后一次合并到临时数组, 则拷贝回来</span></span><br><span class="line">    arr.assign(temp.cbegin(), temp.cend());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意各边界条件的处理, 还有未处理数据的复制, 最后一次归并如果是归并到临时数组了, 需要拷贝回来; 我粗心大意的错了好几次才调对</p>
+<p>下面是简单测试的结果(100w随机数, 100w高重复率数字, 100w有序数字, 100w倒序数字):</p>
+<img data-src="/algorithm/merge-sort/mergesort.png" class="" title="mergesort">
+
+<p>测试环境:</p>
+<p>Win10 &amp; gcc8.1.0 &amp; RelWithDebInfo &amp; QN8H &amp; RAM8G</p>
+<p>参考资料:</p>
+<p><a href="https://www.cnblogs.com/dlutxm/archive/2011/11/04/2236594.html">归并排序非递归+不回写优化实现</a></p>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>Sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉堆&amp;堆排序</title>
     <url>/algorithm/binary-heap/</url>
     <content><![CDATA[<h2 id="二叉堆的性质"><a href="#二叉堆的性质" class="headerlink" title="二叉堆的性质"></a>二叉堆的性质</h2><ul>
@@ -715,53 +762,6 @@
         <tag>algorithm</tag>
         <tag>Sort</tag>
         <tag>Heap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>归并排序(非递归&amp;不回写)</title>
-    <url>/algorithm/merge-sort/</url>
-    <content><![CDATA[<blockquote>
-<p>归并排序和堆排序是两种渐进最优排序算法, 任何情况下的复杂度都是$O(n\log n)$</p>
-</blockquote>
-<p>MergeSort是分治思想的实现, 把大问题划分为小的容易解决的问题逐步解决, 主要操作是Merge(把两个有序的数列合并为一个有序数列)</p>
-<p>它需要一个相同长度的数组作为临时空间使用, 空间复杂度为$O(n)$</p>
-<p>MergeSort是一种<strong>稳定的排序算法</strong></p>
-<a id="more"></a>
-
-<h2 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h2><p>简单的递归式归并排序非常容易, 网上随便搜一大堆, 大致如下:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> LENGTH = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> temp[LENGTH] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="comment">// 合并[start, mid)和[mid, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; <span class="built_in">end</span>; ++i) &#123; temp[i] = arr[i]; &#125;</span><br><span class="line">  <span class="keyword">int</span> left = start;</span><br><span class="line">  <span class="keyword">int</span> right = mid;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt; <span class="built_in">end</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= mid) &#123; arr[i] = temp[right++]; &#125; <span class="comment">// 左边用尽</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (right &gt;= <span class="built_in">end</span>) &#123; arr[i] = temp[left++]; &#125; <span class="comment">// 右边用尽</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (temp[right] &lt; temp[left]) &#123; arr[i] = temp[right++]; &#125; <span class="comment">// 右边较小</span></span><br><span class="line">    <span class="keyword">else</span> &#123; arr[i] = temp[left++]; &#125; <span class="comment">// 左边不大于右边</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 排序arr, [start, end)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span>* arr, <span class="keyword">int</span> start, <span class="keyword">int</span> <span class="built_in">end</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (start &lt; <span class="built_in">end</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> mid = start + ((<span class="built_in">end</span> - start) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    MergeSort(arr, start, mid);</span><br><span class="line">    MergeSort(arr, mid, <span class="built_in">end</span>);</span><br><span class="line">    Merge(arr, start, mid, <span class="built_in">end</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 主函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> arr[LENGTH];</span><br><span class="line">  <span class="comment">// 在arr中放随机数</span></span><br><span class="line">  MergeSort(arr, <span class="number">0</span>, LENGTH);</span><br><span class="line">  <span class="comment">// 检查排序结果</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>优化的思路:</p>
-<ol>
-<li><p>需要使用的临时数组在开始就申请好, 而不是每次merge操作都用一个临时数组, 上面已经作到了</p>
-</li>
-<li><p>自底向上归并 上面的自上而下的归并需要递归处理, 而递归又使用栈空间, 增加空间和性能消耗</p>
-</li>
-<li><p>不回写 上面的归并, 每次都从arr拷贝到temp, 再从temp归并到arr, 额外操作很多; 其实可以不回写, 第一次直接从arr归并到temp, 下一次再从temp归并到arr, 减少额外的操作</p>
-</li>
-<li><p>可以考虑数字较少时改用插入排序</p>
-</li>
-</ol>
-<p>自底向上归并思路如图:</p>
-<img data-src="/algorithm/merge-sort/mergesort-think.png" class="" title="mergesort-think">
-
-<h2 id="无栈-amp-非递归-amp-不回写的归并"><a href="#无栈-amp-非递归-amp-不回写的归并" class="headerlink" title="无栈&amp;非递归&amp;不回写的归并"></a>无栈&amp;非递归&amp;不回写的归并</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 以步长step从src合并到dis</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; src, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; dis, <span class="keyword">int</span> <span class="built_in">step</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">size</span> = src.<span class="built_in">size</span>();</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 每次循环合并[i, i + step)和[i + step, i + 2*step);</span></span><br><span class="line">  <span class="comment">// i + step &lt; size说明 [i + step, size)不为空, 还需要合并; i每次增加2*step</span></span><br><span class="line">  <span class="keyword">for</span> (; i + <span class="built_in">step</span> &lt; <span class="built_in">size</span>; i += (<span class="built_in">step</span> &lt;&lt; <span class="number">1</span>)) &#123;</span><br><span class="line">    <span class="comment">// mid, end作为分割位, 不能更改</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mid = i + <span class="built_in">step</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> <span class="built_in">end</span> = (mid + <span class="built_in">step</span> &lt; <span class="built_in">size</span>) ? (mid + <span class="built_in">step</span>) : <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">int</span> left = i; <span class="comment">// [left, mid)为左边剩下的</span></span><br><span class="line">    <span class="keyword">int</span> right = mid; <span class="comment">// [right, end)为右边剩下的</span></span><br><span class="line">    <span class="comment">// 合并 [i, mid), [mid, end)</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; <span class="built_in">end</span>; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (left &gt;= mid) &#123; dis.at(j) = src.at(right++); &#125; <span class="comment">// 左边用尽</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (right &gt;= <span class="built_in">end</span>) &#123; dis.at(j) = src.at(left++); &#125; <span class="comment">// 右边用尽</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (src.at(right) &lt; src.at(left)) &#123; dis.at(j) = src.at(right++); &#125; <span class="comment">// 右边较小</span></span><br><span class="line">      <span class="keyword">else</span> &#123; dis.at(j) = src.at(left++); &#125; <span class="comment">// 左边不大于右边</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 剩下未处理的数据也要复制过去 (很重要)</span></span><br><span class="line">  <span class="keyword">for</span> (; i &lt; <span class="built_in">size</span>; ++i) &#123; dis.at(i) = src.at(i); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">temp</span><span class="params">(arr)</span></span>; <span class="comment">// 临时数组</span></span><br><span class="line">  <span class="keyword">bool</span> to_temp = <span class="literal">false</span>; <span class="comment">// 是否合并到临时数组</span></span><br><span class="line">  <span class="keyword">int</span> <span class="built_in">step</span> = <span class="number">1</span>; <span class="comment">// 步长从1开始, 每次乘2</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">step</span> &lt; arr.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    to_temp = !to_temp;</span><br><span class="line">    <span class="comment">// 三元表达式后两个参数是类型相同的左值, 因此表达式值也是左值</span></span><br><span class="line">    Merge(to_temp ? arr : temp, to_temp ? temp : arr, <span class="built_in">step</span>);</span><br><span class="line">    <span class="built_in">step</span> &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (to_temp) &#123; <span class="comment">// 最后一次合并到临时数组, 则拷贝回来</span></span><br><span class="line">    arr.assign(temp.cbegin(), temp.cend());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>需要注意各边界条件的处理, 还有未处理数据的复制, 最后一次归并如果是归并到临时数组了, 需要拷贝回来; 我粗心大意的错了好几次才调对</p>
-<p>下面是简单测试的结果(100w随机数, 100w高重复率数字, 100w有序数字, 100w倒序数字):</p>
-<img data-src="/algorithm/merge-sort/mergesort.png" class="" title="mergesort">
-
-<p>测试环境:</p>
-<p>Win10 &amp; gcc8.1.0 &amp; RelWithDebInfo &amp; QN8H &amp; RAM8G</p>
-<p>参考资料:</p>
-<p><a href="https://www.cnblogs.com/dlutxm/archive/2011/11/04/2236594.html">归并排序非递归+不回写优化实现</a></p>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>Sort</tag>
       </tags>
   </entry>
   <entry>
@@ -1186,186 +1186,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Python中的logging使用</title>
-    <url>/python/python-logging/</url>
-    <content><![CDATA[<p>正式项目中, 我们不能一直使用print打印日志, 有时候需要将日志输出到文件, 或者控制日志等级, 在调试时打印所有等级日志, 在正式发布版本中不打印Debug和Info等级日志, 就需要用到日志模块, 这里介绍Python自带的logging模块</p>
-<p>logging模块线程安全</p>
-<a id="more"></a>
-
-<h2 id="一般使用"><a href="#一般使用" class="headerlink" title="一般使用"></a>一般使用</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取logger对象, 不传入名字返回默认的root的logger, 使用相同名字返回相同的logger对象</span></span><br><span class="line">my_logger = logging.getLogger(<span class="string">&quot;mylog&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置等级</span></span><br><span class="line">my_logger.setLevel(logging.INFO)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义日志格式</span></span><br><span class="line">formatter = logging.Formatter(<span class="string">&#x27;[%(asctime)s][%(levelname)s] - &#x27;</span>\</span><br><span class="line">    <span class="string">&#x27;%(filename)s[line:%(lineno)d] - %(message)s&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义console日志处理器</span></span><br><span class="line">output_console = logging.StreamHandler() <span class="comment"># 控制台</span></span><br><span class="line">output_console.setFormatter(formatter) <span class="comment"># 设置处理器使用的日志格式</span></span><br><span class="line">output_console.setLevel(logging.INFO) <span class="comment"># 设置处理器处理的日志等级</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义文件日志处理器</span></span><br><span class="line">output_file = logging.FileHandler(filename=<span class="string">r&quot;E:\log\test.log&quot;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">output_file.setFormatter(formatter)</span><br><span class="line">output_file.setLevel(logging.WARNING)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将处理器添加到logger</span></span><br><span class="line">my_logger.addHandler(output_console)</span><br><span class="line">my_logger.addHandler(output_file)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用logger</span></span><br><span class="line">my_logger.debug(<span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line">my_logger.info(<span class="string">&#x27;info test&#x27;</span>)</span><br><span class="line">my_logger.warning(<span class="string">&#x27;warning test&#x27;</span>)</span><br><span class="line">my_logger.error(<span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">my_logger.critical(<span class="string">&#x27;critical&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现错误时打印调用栈</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># do something</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="comment"># 传入exc_info</span></span><br><span class="line">    logger.error(<span class="string">&quot;错误&quot;</span>, exc_info=e)</span><br></pre></td></tr></table></figure>
-
-<h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>如果只是简单使用root的logger, 则使用<code>logging.basicConfig()</code>函数简单配置即可</p>
-<table>
-<thead>
-<tr>
-<th align="left">格式</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><em>filename</em></td>
-<td align="left">使用指定的文件名而不是 StreamHandler 创建 FileHandler。</td>
-</tr>
-<tr>
-<td align="left"><em>filemode</em></td>
-<td align="left">如果指定了 <em>filename</em>，则用此 <a href="https://docs.python.org/zh-cn/3/library/functions.html#filemodes">模式</a> 打开该文件。 默认模式为 <code>&#39;a&#39;</code>。</td>
-</tr>
-<tr>
-<td align="left"><em>format</em></td>
-<td align="left">处理器使用的指定格式字符串。</td>
-</tr>
-<tr>
-<td align="left"><em>datefmt</em></td>
-<td align="left">使用指定的日期/时间格式，与 <a href="https://docs.python.org/zh-cn/3/library/time.html#time.strftime"><code>time.strftime()</code></a> 所接受的格式相同。</td>
-</tr>
-<tr>
-<td align="left"><em>style</em></td>
-<td align="left">如果指定了 <em>format</em>，将为格式字符串使用此风格。 <code>&#39;%&#39;</code>, <code>&#39;&#123;&#39;</code> 或 <code>&#39;$&#39;</code> 分别对应于 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#old-string-formatting">printf 风格</a>, <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format"><code>str.format()</code></a> 或 <a href="https://docs.python.org/zh-cn/3/library/string.html#string.Template"><code>string.Template</code></a>。 默认为 <code>&#39;%&#39;</code>。</td>
-</tr>
-<tr>
-<td align="left"><em>level</em></td>
-<td align="left">设置根记录器级别去指定 <a href="https://docs.python.org/zh-cn/3/library/logging.html#levels">level</a>.</td>
-</tr>
-<tr>
-<td align="left"><em>stream</em></td>
-<td align="left">使用指定的流初始化 StreamHandler。 请注意此参数与 <em>filename</em> 是不兼容的 - 如果两者同时存在，则会引发 <code>ValueError</code>。</td>
-</tr>
-<tr>
-<td align="left"><em>handlers</em></td>
-<td align="left">如果指定，这应为一个包含要加入根日志记录器的已创建处理程序的可迭代对象。 任何尚未设置格式描述符的处理程序将被设置为在此函数中创建的默认格式描述符。 请注意此参数与 <em>filename</em> 或 <em>stream</em> 不兼容 —— 如果两者同时存在，则会引发 <code>ValueError</code>。</td>
-</tr>
-<tr>
-<td align="left"><em>force</em></td>
-<td align="left">如果将此关键字参数指定为 true，则在执行其他参数指定的配置之前，将移除并关闭附加到根记录器的所有现有处理器。</td>
-</tr>
-</tbody></table>
-<h2 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h2><p>分为5个等级, 从低到高为 DEBUG, INFO, WARNING, ERROR, CRITICAL, 设定一个等级后, 只有等于或者高于该等级的日志才会输出</p>
-<h2 id="日志格式化"><a href="#日志格式化" class="headerlink" title="日志格式化"></a>日志格式化</h2><p><a href="https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes">LogRecord官方文档</a></p>
-<table>
-<thead>
-<tr>
-<th align="left">属性名称</th>
-<th align="left">格式</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">args</td>
-<td align="left">不需要格式化。</td>
-<td align="left">合并到 <code>msg</code> 以产生 <code>message</code> 的包含参数的元组，或是其中的值将被用于合并的字典（当只有一个参数且其类型为字典时）。</td>
-</tr>
-<tr>
-<td align="left">asctime</td>
-<td align="left"><code>%(asctime)s</code></td>
-<td align="left">表示 <a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 何时被创建的供人查看时间值。 默认形式为 ‘2003-07-08 16:49:45,896’ (逗号之后的数字为时间的毫秒部分)。</td>
-</tr>
-<tr>
-<td align="left">created</td>
-<td align="left"><code>%(created)f</code></td>
-<td align="left"><a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 被创建的时间（即 <a href="https://docs.python.org/zh-cn/3/library/time.html#time.time"><code>time.time()</code></a> 的返回值）。</td>
-</tr>
-<tr>
-<td align="left">exc_info</td>
-<td align="left">不需要格式化。</td>
-<td align="left">异常元组 (例如 <code>sys.exc_info</code>) 或者如未发生异常则为 <code>None</code>。</td>
-</tr>
-<tr>
-<td align="left">文件名</td>
-<td align="left"><code>%(filename)s</code></td>
-<td align="left"><code>pathname</code> 的文件名部分。</td>
-</tr>
-<tr>
-<td align="left">funcName</td>
-<td align="left"><code>%(funcName)s</code></td>
-<td align="left">函数名包括调用日志记录.</td>
-</tr>
-<tr>
-<td align="left">levelname</td>
-<td align="left"><code>%(levelname)s</code></td>
-<td align="left">消息文本记录级别 (<code>&#39;DEBUG&#39;</code>, <code>&#39;INFO&#39;</code>, <code>&#39;WARNING&#39;</code>, <code>&#39;ERROR&#39;</code>, <code>&#39;CRITICAL&#39;</code>).</td>
-</tr>
-<tr>
-<td align="left">levelno</td>
-<td align="left"><code>%(levelno)s</code></td>
-<td align="left">消息数字记录级别 (<code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code>).</td>
-</tr>
-<tr>
-<td align="left">lineno</td>
-<td align="left"><code>%(lineno)d</code></td>
-<td align="left">发出日志记录调用所在的源行号（如果可用）。</td>
-</tr>
-<tr>
-<td align="left">message</td>
-<td align="left"><code>%(message)s</code></td>
-<td align="left">记入日志的消息，即 <code>msg % args</code> 的结果。 这是在发起调用 <a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.Formatter.format"><code>Formatter.format()</code></a> 时设置的。</td>
-</tr>
-<tr>
-<td align="left">module</td>
-<td align="left"><code>%(module)s</code></td>
-<td align="left">模块 (<code>filename</code> 的名称部分)。</td>
-</tr>
-<tr>
-<td align="left">msecs</td>
-<td align="left"><code>%(msecs)d</code></td>
-<td align="left"><a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 被创建的时间的毫秒部分。</td>
-</tr>
-<tr>
-<td align="left">msg</td>
-<td align="left">不需要格式化。</td>
-<td align="left">在原始日志记录调用中传入的格式字符串。 与 <code>args</code> 合并以产生 <code>message</code>，或是一个任意对象 (参见 <a href="https://docs.python.org/zh-cn/3/howto/logging.html#arbitrary-object-messages">使用任意对象作为消息</a>)。</td>
-</tr>
-<tr>
-<td align="left">名称</td>
-<td align="left"><code>%(name)s</code></td>
-<td align="left">用于记录调用的日志记录器名称。</td>
-</tr>
-<tr>
-<td align="left">pathname</td>
-<td align="left"><code>%(pathname)s</code></td>
-<td align="left">发出日志记录调用的源文件的完整路径名（如果可用）。</td>
-</tr>
-<tr>
-<td align="left">process</td>
-<td align="left"><code>%(process)d</code></td>
-<td align="left">进程ID（如果可用）</td>
-</tr>
-<tr>
-<td align="left">processName</td>
-<td align="left"><code>%(processName)s</code></td>
-<td align="left">进程名（如果可用）</td>
-</tr>
-<tr>
-<td align="left">relativeCreated</td>
-<td align="left"><code>%(relativeCreated)d</code></td>
-<td align="left">以毫秒数表示的 LogRecord 被创建的时间，即相对于 logging 模块被加载时间的差值。</td>
-</tr>
-<tr>
-<td align="left">stack_info</td>
-<td align="left">不需要格式化。</td>
-<td align="left">当前线程中从堆栈底部起向上直到包括日志记录调用并导致创建此记录的堆栈帧的堆栈帧信息（如果可用）。</td>
-</tr>
-<tr>
-<td align="left">thread</td>
-<td align="left"><code>%(thread)d</code></td>
-<td align="left">线程ID（如果可用）</td>
-</tr>
-<tr>
-<td align="left">threadName</td>
-<td align="left"><code>%(threadName)s</code></td>
-<td align="left">线程名（如果可用）</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Log</tag>
-        <tag>Debug</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C#中的事件与委托实例的区别</title>
     <url>/csharp/csharp-event-and-delegate/</url>
     <content><![CDATA[<p>区别概括为两点:</p>
@@ -1609,6 +1429,186 @@
       </categories>
       <tags>
         <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python中的logging使用</title>
+    <url>/python/python-logging/</url>
+    <content><![CDATA[<p>正式项目中, 我们不能一直使用print打印日志, 有时候需要将日志输出到文件, 或者控制日志等级, 在调试时打印所有等级日志, 在正式发布版本中不打印Debug和Info等级日志, 就需要用到日志模块, 这里介绍Python自带的logging模块</p>
+<p>logging模块线程安全</p>
+<a id="more"></a>
+
+<h2 id="一般使用"><a href="#一般使用" class="headerlink" title="一般使用"></a>一般使用</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取logger对象, 不传入名字返回默认的root的logger, 使用相同名字返回相同的logger对象</span></span><br><span class="line">my_logger = logging.getLogger(<span class="string">&quot;mylog&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置等级</span></span><br><span class="line">my_logger.setLevel(logging.INFO)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义日志格式</span></span><br><span class="line">formatter = logging.Formatter(<span class="string">&#x27;[%(asctime)s][%(levelname)s] - &#x27;</span>\</span><br><span class="line">    <span class="string">&#x27;%(filename)s[line:%(lineno)d] - %(message)s&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义console日志处理器</span></span><br><span class="line">output_console = logging.StreamHandler() <span class="comment"># 控制台</span></span><br><span class="line">output_console.setFormatter(formatter) <span class="comment"># 设置处理器使用的日志格式</span></span><br><span class="line">output_console.setLevel(logging.INFO) <span class="comment"># 设置处理器处理的日志等级</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义文件日志处理器</span></span><br><span class="line">output_file = logging.FileHandler(filename=<span class="string">r&quot;E:\log\test.log&quot;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">output_file.setFormatter(formatter)</span><br><span class="line">output_file.setLevel(logging.WARNING)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将处理器添加到logger</span></span><br><span class="line">my_logger.addHandler(output_console)</span><br><span class="line">my_logger.addHandler(output_file)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用logger</span></span><br><span class="line">my_logger.debug(<span class="string">&#x27;debug&#x27;</span>)</span><br><span class="line">my_logger.info(<span class="string">&#x27;info test&#x27;</span>)</span><br><span class="line">my_logger.warning(<span class="string">&#x27;warning test&#x27;</span>)</span><br><span class="line">my_logger.error(<span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">my_logger.critical(<span class="string">&#x27;critical&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 出现错误时打印调用栈</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># do something</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="comment"># 传入exc_info</span></span><br><span class="line">    logger.error(<span class="string">&quot;错误&quot;</span>, exc_info=e)</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>如果只是简单使用root的logger, 则使用<code>logging.basicConfig()</code>函数简单配置即可</p>
+<table>
+<thead>
+<tr>
+<th align="left">格式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><em>filename</em></td>
+<td align="left">使用指定的文件名而不是 StreamHandler 创建 FileHandler。</td>
+</tr>
+<tr>
+<td align="left"><em>filemode</em></td>
+<td align="left">如果指定了 <em>filename</em>，则用此 <a href="https://docs.python.org/zh-cn/3/library/functions.html#filemodes">模式</a> 打开该文件。 默认模式为 <code>&#39;a&#39;</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>format</em></td>
+<td align="left">处理器使用的指定格式字符串。</td>
+</tr>
+<tr>
+<td align="left"><em>datefmt</em></td>
+<td align="left">使用指定的日期/时间格式，与 <a href="https://docs.python.org/zh-cn/3/library/time.html#time.strftime"><code>time.strftime()</code></a> 所接受的格式相同。</td>
+</tr>
+<tr>
+<td align="left"><em>style</em></td>
+<td align="left">如果指定了 <em>format</em>，将为格式字符串使用此风格。 <code>&#39;%&#39;</code>, <code>&#39;&#123;&#39;</code> 或 <code>&#39;$&#39;</code> 分别对应于 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#old-string-formatting">printf 风格</a>, <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#str.format"><code>str.format()</code></a> 或 <a href="https://docs.python.org/zh-cn/3/library/string.html#string.Template"><code>string.Template</code></a>。 默认为 <code>&#39;%&#39;</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>level</em></td>
+<td align="left">设置根记录器级别去指定 <a href="https://docs.python.org/zh-cn/3/library/logging.html#levels">level</a>.</td>
+</tr>
+<tr>
+<td align="left"><em>stream</em></td>
+<td align="left">使用指定的流初始化 StreamHandler。 请注意此参数与 <em>filename</em> 是不兼容的 - 如果两者同时存在，则会引发 <code>ValueError</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>handlers</em></td>
+<td align="left">如果指定，这应为一个包含要加入根日志记录器的已创建处理程序的可迭代对象。 任何尚未设置格式描述符的处理程序将被设置为在此函数中创建的默认格式描述符。 请注意此参数与 <em>filename</em> 或 <em>stream</em> 不兼容 —— 如果两者同时存在，则会引发 <code>ValueError</code>。</td>
+</tr>
+<tr>
+<td align="left"><em>force</em></td>
+<td align="left">如果将此关键字参数指定为 true，则在执行其他参数指定的配置之前，将移除并关闭附加到根记录器的所有现有处理器。</td>
+</tr>
+</tbody></table>
+<h2 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h2><p>分为5个等级, 从低到高为 DEBUG, INFO, WARNING, ERROR, CRITICAL, 设定一个等级后, 只有等于或者高于该等级的日志才会输出</p>
+<h2 id="日志格式化"><a href="#日志格式化" class="headerlink" title="日志格式化"></a>日志格式化</h2><p><a href="https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes">LogRecord官方文档</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">属性名称</th>
+<th align="left">格式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">args</td>
+<td align="left">不需要格式化。</td>
+<td align="left">合并到 <code>msg</code> 以产生 <code>message</code> 的包含参数的元组，或是其中的值将被用于合并的字典（当只有一个参数且其类型为字典时）。</td>
+</tr>
+<tr>
+<td align="left">asctime</td>
+<td align="left"><code>%(asctime)s</code></td>
+<td align="left">表示 <a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 何时被创建的供人查看时间值。 默认形式为 ‘2003-07-08 16:49:45,896’ (逗号之后的数字为时间的毫秒部分)。</td>
+</tr>
+<tr>
+<td align="left">created</td>
+<td align="left"><code>%(created)f</code></td>
+<td align="left"><a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 被创建的时间（即 <a href="https://docs.python.org/zh-cn/3/library/time.html#time.time"><code>time.time()</code></a> 的返回值）。</td>
+</tr>
+<tr>
+<td align="left">exc_info</td>
+<td align="left">不需要格式化。</td>
+<td align="left">异常元组 (例如 <code>sys.exc_info</code>) 或者如未发生异常则为 <code>None</code>。</td>
+</tr>
+<tr>
+<td align="left">文件名</td>
+<td align="left"><code>%(filename)s</code></td>
+<td align="left"><code>pathname</code> 的文件名部分。</td>
+</tr>
+<tr>
+<td align="left">funcName</td>
+<td align="left"><code>%(funcName)s</code></td>
+<td align="left">函数名包括调用日志记录.</td>
+</tr>
+<tr>
+<td align="left">levelname</td>
+<td align="left"><code>%(levelname)s</code></td>
+<td align="left">消息文本记录级别 (<code>&#39;DEBUG&#39;</code>, <code>&#39;INFO&#39;</code>, <code>&#39;WARNING&#39;</code>, <code>&#39;ERROR&#39;</code>, <code>&#39;CRITICAL&#39;</code>).</td>
+</tr>
+<tr>
+<td align="left">levelno</td>
+<td align="left"><code>%(levelno)s</code></td>
+<td align="left">消息数字记录级别 (<code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code>).</td>
+</tr>
+<tr>
+<td align="left">lineno</td>
+<td align="left"><code>%(lineno)d</code></td>
+<td align="left">发出日志记录调用所在的源行号（如果可用）。</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left"><code>%(message)s</code></td>
+<td align="left">记入日志的消息，即 <code>msg % args</code> 的结果。 这是在发起调用 <a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.Formatter.format"><code>Formatter.format()</code></a> 时设置的。</td>
+</tr>
+<tr>
+<td align="left">module</td>
+<td align="left"><code>%(module)s</code></td>
+<td align="left">模块 (<code>filename</code> 的名称部分)。</td>
+</tr>
+<tr>
+<td align="left">msecs</td>
+<td align="left"><code>%(msecs)d</code></td>
+<td align="left"><a href="https://docs.python.org/zh-cn/3/library/logging.html#logging.LogRecord"><code>LogRecord</code></a> 被创建的时间的毫秒部分。</td>
+</tr>
+<tr>
+<td align="left">msg</td>
+<td align="left">不需要格式化。</td>
+<td align="left">在原始日志记录调用中传入的格式字符串。 与 <code>args</code> 合并以产生 <code>message</code>，或是一个任意对象 (参见 <a href="https://docs.python.org/zh-cn/3/howto/logging.html#arbitrary-object-messages">使用任意对象作为消息</a>)。</td>
+</tr>
+<tr>
+<td align="left">名称</td>
+<td align="left"><code>%(name)s</code></td>
+<td align="left">用于记录调用的日志记录器名称。</td>
+</tr>
+<tr>
+<td align="left">pathname</td>
+<td align="left"><code>%(pathname)s</code></td>
+<td align="left">发出日志记录调用的源文件的完整路径名（如果可用）。</td>
+</tr>
+<tr>
+<td align="left">process</td>
+<td align="left"><code>%(process)d</code></td>
+<td align="left">进程ID（如果可用）</td>
+</tr>
+<tr>
+<td align="left">processName</td>
+<td align="left"><code>%(processName)s</code></td>
+<td align="left">进程名（如果可用）</td>
+</tr>
+<tr>
+<td align="left">relativeCreated</td>
+<td align="left"><code>%(relativeCreated)d</code></td>
+<td align="left">以毫秒数表示的 LogRecord 被创建的时间，即相对于 logging 模块被加载时间的差值。</td>
+</tr>
+<tr>
+<td align="left">stack_info</td>
+<td align="left">不需要格式化。</td>
+<td align="left">当前线程中从堆栈底部起向上直到包括日志记录调用并导致创建此记录的堆栈帧的堆栈帧信息（如果可用）。</td>
+</tr>
+<tr>
+<td align="left">thread</td>
+<td align="left"><code>%(thread)d</code></td>
+<td align="left">线程ID（如果可用）</td>
+</tr>
+<tr>
+<td align="left">threadName</td>
+<td align="left"><code>%(threadName)s</code></td>
+<td align="left">线程名（如果可用）</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Log</tag>
+        <tag>Debug</tag>
       </tags>
   </entry>
   <entry>
@@ -1903,6 +1903,50 @@
       </tags>
   </entry>
   <entry>
+    <title>C#中的泛型和泛型约束</title>
+    <url>/csharp/csharp-generic/</url>
+    <content><![CDATA[<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型实现了类型参数化, 达到代码复用目的</p>
+<p>泛型相当于类型占位符</p>
+<h3 id="泛型类和泛型接口"><a href="#泛型类和泛型接口" class="headerlink" title="泛型类和泛型接口"></a>泛型类和泛型接口</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">TestClass</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>,<span class="title">K</span>,<span class="title">M</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T v1;</span><br><span class="line">    <span class="keyword">public</span> K v2;</span><br><span class="line">    <span class="keyword">public</span> M v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">ITest</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    T Value &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Test</span> : <span class="title">ITest</span>&lt;<span class="title">int</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> v;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span> =&gt; v; <span class="keyword">set</span> &#123; v = <span class="keyword">value</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">default</span>(<span class="keyword">int</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="keyword">default</span>(<span class="keyword">string</span>); <span class="comment">// null</span></span><br><span class="line"><span class="keyword">default</span>(T); <span class="comment">// 获得泛型类型的默认值</span></span><br></pre></td></tr></table></figure>
+
+<p>普通类中的泛型方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params">T <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="keyword">value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 用泛型类型做一些逻辑判断</span></span><br><span class="line">        T t = <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> v</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>,<span class="title">K</span>&gt;(<span class="params">T v1, K v2</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>泛型类中的泛型方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params">T t</span>)</span> &#123;&#125; <span class="comment">// 不是泛型类, 因为类型变量是属于类的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K v</span>)</span> &#123;&#125; <span class="comment">// 与类的泛型变量不同</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">Test&lt;<span class="keyword">int</span>&gt; t = <span class="keyword">new</span> Test&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">t.TestFun(<span class="number">10</span>); <span class="comment">// 使用非泛型方法</span></span><br><span class="line">t.TestFun&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>); <span class="comment">// 使用泛型方法</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型的作用"><a href="#泛型的作用" class="headerlink" title="泛型的作用"></a>泛型的作用</h2><ol>
+<li>不同类型对象的相同逻辑处理可以选择泛型</li>
+<li>泛型可以一定程度避免装箱拆箱</li>
+<li>不确定泛型类型时, 想获取默认值, 可以使用<code>default(占位符)</code></li>
+</ol>
+<h2 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h2><p>让泛型的类型有一定约束</p>
+<h3 id="泛型约束类型"><a href="#泛型约束类型" class="headerlink" title="泛型约束类型"></a>泛型约束类型</h3><p>关键字 <code>where</code></p>
+<ol>
+<li>值类型                   <code>where T:struct</code></li>
+<li>引用类型                 <code>where T:class</code></li>
+<li>存在无参公共构造函数      <code>where T:new()</code></li>
+<li>某个类本身或者其派生类    <code>where T:类名</code></li>
+<li>某个接口的派生类型        <code>where T:接口名</code></li>
+<li>另一个泛型类型本身或者派生类型 <code>where T:V</code></li>
+</ol>
+<p>上面的4,5,6类似, 要求泛型是后面的类型或其子类</p>
+<h3 id="泛型约束使用"><a href="#泛型约束使用" class="headerlink" title="泛型约束使用"></a>泛型约束使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt; <span class="keyword">where</span> <span class="title">T</span> : <span class="title">struct</span> <span class="comment">// T只允许是值类型</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K <span class="keyword">value</span></span>) <span class="keyword">where</span> K : <span class="title">new</span>(<span class="params"></span>) <span class="comment">// K必须有公共的无参构造函数</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun1</span>&lt;<span class="title">M</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> M : class <span class="comment">// M必须是引用类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun2</span>&lt;<span class="title">P</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> P : GameObject <span class="comment">// P必须是GameObject或者其子类类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型约束组合使用"><a href="#泛型约束组合使用" class="headerlink" title="泛型约束组合使用"></a>泛型约束组合使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">class Test&lt;T, K&gt; where T : class , new() where K : struct</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C#中的委托和事件</title>
     <url>/csharp/csharp-delegate-and-event/</url>
     <content><![CDATA[<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><p>委托是函数的容器, 可以用来存储传递函数</p>
@@ -1953,50 +1997,6 @@
 <li>防止外部随意置空委托</li>
 <li>防止外部随意调用委托</li>
 </ul>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C#中的泛型和泛型约束</title>
-    <url>/csharp/csharp-generic/</url>
-    <content><![CDATA[<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型实现了类型参数化, 达到代码复用目的</p>
-<p>泛型相当于类型占位符</p>
-<h3 id="泛型类和泛型接口"><a href="#泛型类和泛型接口" class="headerlink" title="泛型类和泛型接口"></a>泛型类和泛型接口</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">TestClass</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>,<span class="title">K</span>,<span class="title">M</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T v1;</span><br><span class="line">    <span class="keyword">public</span> K v2;</span><br><span class="line">    <span class="keyword">public</span> M v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">ITest</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    T Value &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Test</span> : <span class="title">ITest</span>&lt;<span class="title">int</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> v;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span> =&gt; v; <span class="keyword">set</span> &#123; v = <span class="keyword">value</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">default</span>(<span class="keyword">int</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="keyword">default</span>(<span class="keyword">string</span>); <span class="comment">// null</span></span><br><span class="line"><span class="keyword">default</span>(T); <span class="comment">// 获得泛型类型的默认值</span></span><br></pre></td></tr></table></figure>
-
-<p>普通类中的泛型方法</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params">T <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="keyword">value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 用泛型类型做一些逻辑判断</span></span><br><span class="line">        T t = <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> v</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>,<span class="title">K</span>&gt;(<span class="params">T v1, K v2</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>泛型类中的泛型方法</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params">T t</span>)</span> &#123;&#125; <span class="comment">// 不是泛型类, 因为类型变量是属于类的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K v</span>)</span> &#123;&#125; <span class="comment">// 与类的泛型变量不同</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">Test&lt;<span class="keyword">int</span>&gt; t = <span class="keyword">new</span> Test&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">t.TestFun(<span class="number">10</span>); <span class="comment">// 使用非泛型方法</span></span><br><span class="line">t.TestFun&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>); <span class="comment">// 使用泛型方法</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="泛型的作用"><a href="#泛型的作用" class="headerlink" title="泛型的作用"></a>泛型的作用</h2><ol>
-<li>不同类型对象的相同逻辑处理可以选择泛型</li>
-<li>泛型可以一定程度避免装箱拆箱</li>
-<li>不确定泛型类型时, 想获取默认值, 可以使用<code>default(占位符)</code></li>
-</ol>
-<h2 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h2><p>让泛型的类型有一定约束</p>
-<h3 id="泛型约束类型"><a href="#泛型约束类型" class="headerlink" title="泛型约束类型"></a>泛型约束类型</h3><p>关键字 <code>where</code></p>
-<ol>
-<li>值类型                   <code>where T:struct</code></li>
-<li>引用类型                 <code>where T:class</code></li>
-<li>存在无参公共构造函数      <code>where T:new()</code></li>
-<li>某个类本身或者其派生类    <code>where T:类名</code></li>
-<li>某个接口的派生类型        <code>where T:接口名</code></li>
-<li>另一个泛型类型本身或者派生类型 <code>where T:V</code></li>
-</ol>
-<p>上面的4,5,6类似, 要求泛型是后面的类型或其子类</p>
-<h3 id="泛型约束使用"><a href="#泛型约束使用" class="headerlink" title="泛型约束使用"></a>泛型约束使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt; <span class="keyword">where</span> <span class="title">T</span> : <span class="title">struct</span> <span class="comment">// T只允许是值类型</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K <span class="keyword">value</span></span>) <span class="keyword">where</span> K : <span class="title">new</span>(<span class="params"></span>) <span class="comment">// K必须有公共的无参构造函数</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun1</span>&lt;<span class="title">M</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> M : class <span class="comment">// M必须是引用类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun2</span>&lt;<span class="title">P</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> P : GameObject <span class="comment">// P必须是GameObject或者其子类类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="泛型约束组合使用"><a href="#泛型约束组合使用" class="headerlink" title="泛型约束组合使用"></a>泛型约束组合使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">class Test&lt;T, K&gt; where T : class , new() where K : struct</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>C#</category>
@@ -2228,6 +2228,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity工具栏与基础操作</title>
+    <url>/unity/unity-toolbar/</url>
+    <content><![CDATA[<h3 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h3><ul>
+<li>File: 新建工程, 新建场景, 工程打包设置等<ul>
+<li><strong>Build Settings</strong> (工程打包设置)</li>
+</ul>
+</li>
+<li>Edit: 对象编辑, 工程设置, 引擎相关<ul>
+<li>Frame Selected (f) 视野集中到所选物体</li>
+<li>Lock View to Selected (shift + f) 视野锁定跟随物体</li>
+<li><strong>Project Settings</strong> (工程设置, 输入系统, 物理系统, Tag&amp;Layer等) 保存在ProjectSettings文件夹中</li>
+<li><strong>Preferences</strong> (首选项, IDE工具设置)</li>
+<li>Clear All PlayerPrefs</li>
+<li>Grid and Snap (设置网格大小, 移动的吸附, 旋转吸附, 缩放吸附(按住Ctrl))</li>
+</ul>
+</li>
+</ul>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
+<li><code>Ctrl+Alt+F</code> Move To View 将物体移动到摄像机视口中央位置</li>
+<li><code>Ctrl+Shift+F</code> Align With View 将物体对齐到当前视口位置 (位置, 旋转), 常用于操作摄像机, 用Scenes窗口找到一个看起来比较好的视角, 选中摄像机对齐到视口, 那么该摄像机看到的就是当前Scenes视口看到的 (快速设置摄像机位置)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C#中的特殊语法</title>
     <url>/csharp/csharp-special/</url>
     <content><![CDATA[<h3 id="var隐式类型"><a href="#var隐式类型" class="headerlink" title="var隐式类型"></a>var隐式类型</h3><p>var可以表示任意类型的临时变量 (自动推导类型), 可以用于简化复杂类型, 但是尽量不要影响代码的理解</p>
@@ -2335,36 +2365,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity工具栏与基础操作</title>
-    <url>/unity/unity-toolbar/</url>
-    <content><![CDATA[<h3 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h3><ul>
-<li>File: 新建工程, 新建场景, 工程打包设置等<ul>
-<li><strong>Build Settings</strong> (工程打包设置)</li>
-</ul>
-</li>
-<li>Edit: 对象编辑, 工程设置, 引擎相关<ul>
-<li>Frame Selected (f) 视野集中到所选物体</li>
-<li>Lock View to Selected (shift + f) 视野锁定跟随物体</li>
-<li><strong>Project Settings</strong> (工程设置, 输入系统, 物理系统, Tag&amp;Layer等) 保存在ProjectSettings文件夹中</li>
-<li><strong>Preferences</strong> (首选项, IDE工具设置)</li>
-<li>Clear All PlayerPrefs</li>
-<li>Grid and Snap (设置网格大小, 移动的吸附, 旋转吸附, 缩放吸附(按住Ctrl))</li>
-</ul>
-</li>
-</ul>
-<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
-<li><code>Ctrl+Alt+F</code> Move To View 将物体移动到摄像机视口中央位置</li>
-<li><code>Ctrl+Shift+F</code> Align With View 将物体对齐到当前视口位置 (位置, 旋转), 常用于操作摄像机, 用Scenes窗口找到一个看起来比较好的视角, 选中摄像机对齐到视口, 那么该摄像机看到的就是当前Scenes视口看到的 (快速设置摄像机位置)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C#中特性的使用</title>
     <url>/csharp/csharp-features/</url>
     <content><![CDATA[<h3 id="特性是什么"><a href="#特性是什么" class="headerlink" title="特性是什么"></a>特性是什么</h3><p>特性可以在运行时使用反射查询特性信息</p>
@@ -2423,31 +2423,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity中的反射机制和游戏场景</title>
-    <url>/unity/unity-reflection-and-scene/</url>
-    <content><![CDATA[<p>Unity的运行就是利用反射和引擎提供的各种功能进行扩展开发</p>
-<h2 id="场景中对象的本质"><a href="#场景中对象的本质" class="headerlink" title="场景中对象的本质"></a>场景中对象的本质</h2><ul>
-<li><code>GameObject</code> 是Unity场景中所有对象的根本, 在游戏场景中出现的任何一个对象不管是图片/模型/音效/摄像机等等, 都是依附于GameObject对象的</li>
-<li><code>Transform</code> 是一个必不可少的组件, 每个GameObject都必须拥有一个<code>Transform</code>组件</li>
-<li>利用Inspector面板中Transform的内容: 利用反射, 已知对象, 类名, 变量名, 通过反射为该对象设置变量值</li>
-<li>新建一个脚本后, 添加给一个指定的GameObject对象: 利用反射, 已知类名, 可以获取类的所有公共成员, 可以在Inspector面板上获取/修改各公共字段信息</li>
-</ul>
-<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="场景叠加显式"><a href="#场景叠加显式" class="headerlink" title="场景叠加显式"></a>场景叠加显式</h3><p>一般不会让场景叠加显式, 只在编辑模式下需要拷贝一些东西时, 可以这样操作</p>
-<p>直接将另一个Scene资源从Project窗口中拖拽到层级窗口中即可</p>
-<h3 id="场景的本质"><a href="#场景的本质" class="headerlink" title="场景的本质"></a>场景的本质</h3><p>场景本质就是配置文件</p>
-<p>场景资源文件: *.unity</p>
-<p>用文本编辑器打开就很清晰了, 场景上每个物体的信息, 存储的值都在配置中</p>
-<p>其实读取配置文件后还是使用了反射创建关联的对象</p>
-<p>其实预制体也是配置文件</p>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity中对象间的父子关系</title>
     <url>/unity/unity-object-parent/</url>
     <content><![CDATA[<ul>
@@ -2480,6 +2455,31 @@
       <tags>
         <tag>Unity</tag>
         <tag>Framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity中的反射机制和游戏场景</title>
+    <url>/unity/unity-reflection-and-scene/</url>
+    <content><![CDATA[<p>Unity的运行就是利用反射和引擎提供的各种功能进行扩展开发</p>
+<h2 id="场景中对象的本质"><a href="#场景中对象的本质" class="headerlink" title="场景中对象的本质"></a>场景中对象的本质</h2><ul>
+<li><code>GameObject</code> 是Unity场景中所有对象的根本, 在游戏场景中出现的任何一个对象不管是图片/模型/音效/摄像机等等, 都是依附于GameObject对象的</li>
+<li><code>Transform</code> 是一个必不可少的组件, 每个GameObject都必须拥有一个<code>Transform</code>组件</li>
+<li>利用Inspector面板中Transform的内容: 利用反射, 已知对象, 类名, 变量名, 通过反射为该对象设置变量值</li>
+<li>新建一个脚本后, 添加给一个指定的GameObject对象: 利用反射, 已知类名, 可以获取类的所有公共成员, 可以在Inspector面板上获取/修改各公共字段信息</li>
+</ul>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="场景叠加显式"><a href="#场景叠加显式" class="headerlink" title="场景叠加显式"></a>场景叠加显式</h3><p>一般不会让场景叠加显式, 只在编辑模式下需要拷贝一些东西时, 可以这样操作</p>
+<p>直接将另一个Scene资源从Project窗口中拖拽到层级窗口中即可</p>
+<h3 id="场景的本质"><a href="#场景的本质" class="headerlink" title="场景的本质"></a>场景的本质</h3><p>场景本质就是配置文件</p>
+<p>场景资源文件: *.unity</p>
+<p>用文本编辑器打开就很清晰了, 场景上每个物体的信息, 存储的值都在配置中</p>
+<p>其实读取配置文件后还是使用了反射创建关联的对象</p>
+<p>其实预制体也是配置文件</p>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -2558,22 +2558,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity游戏基础框架6 -- 场景管理模块</title>
-    <url>/unity/unity-game-base-scene-manager/</url>
-    <content><![CDATA[<p>场景管理模块用于统一管理场景的切换</p>
-<p>可以在场景切换前后利用事件管理模块发送 <code>场景退出</code> 和 <code>场景进入</code> 的事件, 也可以在异步加载时发出 <code>加载进度</code> 的事件</p>
-<p>需要切换的场景Scene要提前添加到BuildSettings中的场景列表中, 否则不能切换</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.SceneManagement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SceneMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">SceneMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 同步加载场景</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>场景名<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// todo 可以通知场景退出 SceneManager.GetActiveScene().name 获取当前场景名</span></span><br><span class="line">        SceneManager.LoadScene(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 异步加载场景</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>场景名<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadSceneAsync</span>(<span class="params"><span class="keyword">string</span> name, UnityAction callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoMgr.Instance.StartCoroutine(LoadSceneCoroutine(name, callback));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> IEnumerator <span class="title">LoadSceneCoroutine</span>(<span class="params"><span class="keyword">string</span> name, UnityAction callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        AsyncOperation ao = SceneManager.LoadSceneAsync(name);</span><br><span class="line">        <span class="keyword">while</span> (!ao.isDone)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// todo 通知加载进度 ao.progress</span></span><br><span class="line">            <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        callback?.Invoke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>Framework</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity中的坐标类型和坐标转换</title>
     <url>/unity/unity-coordinate-system-and-translate/</url>
     <content><![CDATA[<h2 id="坐标类型"><a href="#坐标类型" class="headerlink" title="坐标类型"></a>坐标类型</h2><h3 id="世界坐标"><a href="#世界坐标" class="headerlink" title="世界坐标"></a>世界坐标</h3><p>在世界坐标系中, 相对于场景中世界零点(0, 0, 0)的坐标</p>
@@ -2582,6 +2566,8 @@
 
 <h3 id="本地坐标"><a href="#本地坐标" class="headerlink" title="本地坐标"></a>本地坐标</h3><p>相对于父物体的位置, 旋转, 缩放</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.localPosition; <span class="comment">// 相对于父节点的位置</span></span><br><span class="line">transform.localRotation; <span class="comment">// 相对于父节点的旋转 (四元数)</span></span><br><span class="line">transform.localScale; <span class="comment">// 相对于父节点的缩放 (可读可写)</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h3 id="屏幕坐标"><a href="#屏幕坐标" class="headerlink" title="屏幕坐标"></a>屏幕坐标</h3><p>游戏窗口坐标, 窗口左下角为(0, 0), 该坐标以像素为单位</p>
 <p>常见的屏幕坐标:</p>
@@ -2598,6 +2584,8 @@
 </li>
 </ul>
 <h3 id="视口坐标"><a href="#视口坐标" class="headerlink" title="视口坐标"></a>视口坐标</h3><p>视口坐标, 指的是游戏窗口区域的<strong>比例单位</strong>, 左下角为(0, 0), 右上角(1.0, 1.0)</p>
+<!--More-->
+
 <h2 id="坐标概念和转换"><a href="#坐标概念和转换" class="headerlink" title="坐标概念和转换"></a>坐标概念和转换</h2><h3 id="transform-forward与Vector3-forward"><a href="#transform-forward与Vector3-forward" class="headerlink" title="transform.forward与Vector3.forward"></a><code>transform.forward</code>与<code>Vector3.forward</code></h3><ul>
 <li><code>transform.forward</code>是<strong>物体本地的z轴正方向的单位向量在世界坐标系中的值</strong>, 会随着物体旋转而改变</li>
 <li><code>Vector3.forward</code>是世界坐标z轴正方向的单位向量, 永远是(0, 0, 1)</li>
@@ -2633,12 +2621,106 @@
 <p>这里传入的是一个Vector3, (x, y)是像素单位的屏幕坐标, z是世界单位的 点到相机所在平面的距离 (相机坐标系中 物体的z坐标)</p>
 </li>
 </ul>
+<h3 id="UI中的坐标"><a href="#UI中的坐标" class="headerlink" title="UI中的坐标"></a>UI中的坐标</h3><p>查阅很多资料, 发现Unity的UGUI的坐标相对不太好理解, 而且很多地方将锚框anchorMin与anchorMax是否重合分成两种情况讲, 让我有些疑惑</p>
+<p>这里查阅大量资料和动手实践, 试图找到一种解释, 让锚框无论是否为一点还是矩形框时, 其各属性都能得到统一的解释</p>
+<p><code>RectTransform</code>继承于<code>Transform</code>, 它有自己特有的一些属性, 用于表示UI对象的位置信息</p>
+<p>RectTransform中有position和localPosition和anchoredPosition是像素单位的屏幕坐标, 其它很多坐标都是比例坐标, 比如pivot, anchorMin, anchorMax. 为了方便表达, 以下<strong>使用xxxPos表示比例坐标对应的屏幕坐标</strong>, 比如pivotPos表示UI对象的轴心点实际的屏幕坐标</p>
+<p>屏幕坐标: 相对于游戏窗口左下角的像素单位坐标</p>
+<p><strong>Canvas</strong>的轴心点(pivotPos): 游戏窗口正中间(Screen.width/2, Screen.height/2)</p>
+<p>以下用<code>rect</code>表示UI对象的<code>RectTransform</code>组件对象, xxxPos表示比例坐标对应的屏幕坐标</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>说明</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>position</td>
+<td>Vector3 (z为0)</td>
+<td>等于pivotPos, 也就是轴心点的屏幕坐标(相对于屏幕左下角的像素坐标)</td>
+</tr>
+<tr>
+<td>localPosition</td>
+<td>Vector3 (z为0)</td>
+<td>UI对象的pivotPos相对于父对象pivotPos的屏幕坐标 (Canvas的轴心点为屏幕中间)</td>
+</tr>
+<tr>
+<td>pivot</td>
+<td>比例坐标 (0到1)</td>
+<td>pivotPos在UI对象矩形框的位置, (0, 0)表示左下角, (1, 1)表示右上角; <strong>同时影响锚点位置</strong></td>
+</tr>
+<tr>
+<td>rect</td>
+<td>Rect</td>
+<td>UI对象的矩形框, rect.min和rect.max是矩形框左下角和右上角相对于自身pivotPos的坐标, rect.size(UI真正大小)</td>
+</tr>
+<tr>
+<td>anchorMin</td>
+<td>比例坐标 (0到1)</td>
+<td>UI对象锚框左下角, <strong>相对于父对象矩形框的比例位置</strong></td>
+</tr>
+<tr>
+<td>anchorMax</td>
+<td>比例坐标 (0到1)</td>
+<td>锚框右上角, 相对于父对象的位置</td>
+</tr>
+<tr>
+<td>anchorPos</td>
+<td>不能直接获取</td>
+<td><strong>真正锚点位置, anchorMinPos和anchorMaxPos对pivot求插值(Lerp)获得</strong></td>
+</tr>
+<tr>
+<td>anchoredPosition</td>
+<td>Vector2</td>
+<td><strong>pivotPos相对于anchorPos的屏幕坐标</strong></td>
+</tr>
+<tr>
+<td>offsetMin</td>
+<td>Vector2</td>
+<td>UI矩形框左下角坐标 - anchorMinPos</td>
+</tr>
+<tr>
+<td>offsetMax</td>
+<td>Vector2</td>
+<td>UI矩形框右上角坐标 - anchorMaxPos</td>
+</tr>
+<tr>
+<td>sizeDelta</td>
+<td>Vector2</td>
+<td>offsetMax - offsetMin (也就是<strong>UI矩形框大小减去锚框大小</strong>), 当锚框为一点时, 它与rect.size相同, 但要区别开来</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>sizeDelta只有当锚框为一点时与rect.size相同, 所以不能把它当作UI对象的大小, UI对象大小为<code>rect.size</code></p>
+</li>
+<li><p>anchorMin, anchorMax都是相对于父对象的比例坐标</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// parent 是当前UI对象的父对象的RectTransform</span></span><br><span class="line">Vector2 parentPos = parent.position; <span class="comment">// 自动取用x和y, 忽略z</span></span><br><span class="line">Vector2 anchorMinPos = parentPos + Vector2.Lerp(parent.rect.min, parent.rect.max, anchorMin); <span class="comment">// 这里忽略了类型转换</span></span><br><span class="line">Vector2 anchorMaxPos = parentPos + Vector2.Lerp(parent.rect.min, parent.rect.max, anchorMax);</span><br><span class="line">Vector2 anchorPos = Vector2.Lerp(anchorMinPos, anchorMaxPos, pivot); <span class="comment">// anchor也使用pivot</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Unity</category>
       </categories>
       <tags>
         <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity游戏基础框架6 -- 场景管理模块</title>
+    <url>/unity/unity-game-base-scene-manager/</url>
+    <content><![CDATA[<p>场景管理模块用于统一管理场景的切换</p>
+<p>可以在场景切换前后利用事件管理模块发送 <code>场景退出</code> 和 <code>场景进入</code> 的事件, 也可以在异步加载时发出 <code>加载进度</code> 的事件</p>
+<p>需要切换的场景Scene要提前添加到BuildSettings中的场景列表中, 否则不能切换</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.SceneManagement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SceneMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">SceneMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 同步加载场景</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>场景名<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// todo 可以通知场景退出 SceneManager.GetActiveScene().name 获取当前场景名</span></span><br><span class="line">        SceneManager.LoadScene(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 异步加载场景</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>场景名<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadSceneAsync</span>(<span class="params"><span class="keyword">string</span> name, UnityAction callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoMgr.Instance.StartCoroutine(LoadSceneCoroutine(name, callback));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> IEnumerator <span class="title">LoadSceneCoroutine</span>(<span class="params"><span class="keyword">string</span> name, UnityAction callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        AsyncOperation ao = SceneManager.LoadSceneAsync(name);</span><br><span class="line">        <span class="keyword">while</span> (!ao.isDone)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// todo 通知加载进度 ao.progress</span></span><br><span class="line">            <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        callback?.Invoke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>Framework</tag>
       </tags>
   </entry>
   <entry>
