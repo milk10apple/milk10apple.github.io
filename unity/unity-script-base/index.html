@@ -20,17 +20,20 @@
     var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="The compiler in my hand will be a part of my soul.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="fetasty">
-<meta property="og:url" content="http://fetasty.github.io/categories/UML/index.html">
+  <meta name="description" content="创建脚本注意事项 创建脚本最好在Unity中创建 需要挂载的脚本(MonoBehaviour), 类名和文件名必须一致, 因为反射机制创建对象会用文件名去找Type, 不一致的脚本不能加载  MonoBehaviour基础 只有继承了MonoBehaviour的脚本才能挂载到GameObject上 MonoBehaviour只能挂载, 不能用new实例化 MonoBehaviour不要写构造函数,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity脚本基础规则">
+<meta property="og:url" content="http://fetasty.github.io/unity/unity-script-base/index.html">
 <meta property="og:site_name" content="fetasty">
-<meta property="og:description" content="The compiler in my hand will be a part of my soul.">
+<meta property="og:description" content="创建脚本注意事项 创建脚本最好在Unity中创建 需要挂载的脚本(MonoBehaviour), 类名和文件名必须一致, 因为反射机制创建对象会用文件名去找Type, 不一致的脚本不能加载  MonoBehaviour基础 只有继承了MonoBehaviour的脚本才能挂载到GameObject上 MonoBehaviour只能挂载, 不能用new实例化 MonoBehaviour不要写构造函数,">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-13T14:17:51.000Z">
+<meta property="article:modified_time" content="2021-04-13T15:13:26.878Z">
 <meta property="article:author" content="EricYe">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fetasty.github.io/categories/UML/">
+<link rel="canonical" href="http://fetasty.github.io/unity/unity-script-base/">
 
 
 <script id="page-configurations">
@@ -38,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: UML | fetasty</title>
+  <title>Unity脚本基础规则 | fetasty</title>
   
 
 
@@ -186,57 +189,131 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-script-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity脚本基础规则
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-13 22:17:51 / 修改时间：23:13:26" itemprop="dateCreated datePublished" datetime="2021-04-13T22:17:51+08:00">2021-04-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">UML
-          <small>分类</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-script-base/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-script-base/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h2 id="创建脚本注意事项"><a href="#创建脚本注意事项" class="headerlink" title="创建脚本注意事项"></a>创建脚本注意事项</h2><ul>
+<li>创建脚本最好在Unity中创建</li>
+<li>需要挂载的脚本(MonoBehaviour), <strong>类名和文件名必须一致</strong>, 因为反射机制创建对象会用文件名去找Type, 不一致的脚本不能加载</li>
+</ul>
+<h2 id="MonoBehaviour基础"><a href="#MonoBehaviour基础" class="headerlink" title="MonoBehaviour基础"></a>MonoBehaviour基础</h2><ul>
+<li>只有继承了MonoBehaviour的脚本才能挂载到GameObject上</li>
+<li>MonoBehaviour只能挂载, 不能用new实例化</li>
+<li>MonoBehaviour不要写构造函数, 初始化在Awake/Start中</li>
+<li>如果没有DisallowMultipleComponent属性, 可以挂载多个实例在同一个脚本上</li>
+</ul>
+<h2 id="脚本执行的先后顺序"><a href="#脚本执行的先后顺序" class="headerlink" title="脚本执行的先后顺序"></a>脚本执行的先后顺序</h2><p>点击一个脚本, 右上角有执行顺序选项, 默认为0</p>
+<p>从ProjectSettings中也可以打开</p>
+<h2 id="默认脚本内容"><a href="#默认脚本内容" class="headerlink" title="默认脚本内容"></a>默认脚本内容</h2><p>目录: <code>Editor\Data\Resources\ScriptTemplates</code></p>
+<p>可以修改其中的模板内容</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-27T14:36:22+08:00"
-              content="2021-02-27">
-          02-27
-        </time>
-      </div>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/UML/uml-class-diagram/" itemprop="url">
-            <span itemprop="name">UML类图</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/unity/unity-coordinate-system-and-translate/" rel="prev" title="Unity中的坐标类型和坐标转换">
+      <i class="fa fa-chevron-left"></i> Unity中的坐标类型和坐标转换
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -283,6 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%84%9A%E6%9C%AC%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.</span> <span class="nav-text">创建脚本注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MonoBehaviour%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">MonoBehaviour基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E7%9A%84%E5%85%88%E5%90%8E%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">脚本执行的先后顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E8%84%9A%E6%9C%AC%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">默认脚本内容</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -192,6 +192,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-object-parent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-object-parent/" class="post-title-link" itemprop="url">Unity中对象间的父子关系</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-20 20:18:59" itemprop="dateCreated datePublished" datetime="2021-03-20T20:18:59+08:00">2021-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-05 19:52:20" itemprop="dateModified" datetime="2021-04-05T19:52:20+08:00">2021-04-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-object-parent/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-object-parent/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><strong>子对象Inspector窗口中的Transform信息是相对于父对象的</strong>(包括位置, 旋转, 缩放; 通过Inspector窗口右上角三点的Debug模式可以看到, 位置其实是Local Position)</li>
+<li>子对象会随着父对象的变化而变化</li>
+<li><code>pivot/center</code> 中心点位置, pivot是当前选中对象的位置点; center是当前对象以及其所有子对象的位置点的中心位置</li>
+<li><code>global/local</code> 坐标系显式是全局坐标系还是本地坐标系</li>
+<li>一般为了方便管理物体, 可以创建空物体作为父物体来管理</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-features/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1130,102 +1224,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-anonymous-func/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-anonymous-func/" class="post-title-link" itemprop="url">C#中的匿名函数和lambda表达式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-28 16:24:09 / 修改时间：23:34:04" itemprop="dateCreated datePublished" datetime="2021-02-28T16:24:09+08:00">2021-02-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-anonymous-func/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-anonymous-func/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>匿名函数就是没有名字的函数</p>
-<p><strong>匿名函数必须配合委托/事件使用</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Action a = <span class="keyword">delegate</span>()</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;匿名函数&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Func&lt;<span class="keyword">int</span>, <span class="keyword">string</span>&gt; f = <span class="keyword">delegate</span>(<span class="keyword">int</span> a)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">$&quot;值为<span class="subst">&#123;a&#125;</span>&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">f(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-
-<p>匿名函数一般作为函数参数传递或者作为函数返回值</p>
-<p>如果一个委托中存储了多个匿名函数, 是没有办法指定移除某一个匿名函数的, 只能全部清除才能移除其中的匿名函数 (<code>-=</code>一个逻辑相同的匿名函数是不行的)</p>
-<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><p>lambda表达式理解为匿名函数的简写, 它除了写法不一样外, 使用上和匿名函数一模一样, 都是和委托或者事件配合使用的</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Action a = () =&gt; &#123;</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;lambda&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Action&lt;<span class="keyword">int</span>&gt; a1 = (<span class="keyword">value</span>) =&gt; &#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$&quot;<span class="subst">&#123;<span class="keyword">value</span>&#125;</span>&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Func&lt;<span class="keyword">string</span>, <span class="keyword">int</span>&gt; f = (<span class="keyword">value</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>内层的函数可以引用包含在它外层的函数的变量</p>
-<p>即使外层函数的执行已经终止</p>
-<p>注意: <strong>该变量提供的值并非变量创建时的值, 而是在父函数范围内的最终值</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> Action action;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">value</span> = <span class="number">10</span>;</span><br><span class="line">        <span class="comment">// 这里就形成闭包</span></span><br><span class="line">        action = () =&gt; &#123;</span><br><span class="line">            Console.WriteLine(<span class="keyword">value</span>); <span class="comment">// 打印10</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 这里实例上面的注意事项</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            action += () =&gt; &#123;</span><br><span class="line">                Console.WriteLine(i); <span class="comment">// 打印?</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        action(); <span class="comment">// 后面的i在循环完之后, 已经变成了10, 后面打印的全都是10, 如果想要打印0到9 (运行时的值), 可以用临时变量或者参数传递</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果想让闭包中使用的外部变量值是运行时的值, 可以使用临时变量存储或者当作参数传递给lamdba表达式中</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1295,7 +1293,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -192,6 +192,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-script-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-script-base/" class="post-title-link" itemprop="url">Unity脚本基础规则</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-13 22:17:51 / 修改时间：23:13:26" itemprop="dateCreated datePublished" datetime="2021-04-13T22:17:51+08:00">2021-04-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-script-base/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-script-base/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="创建脚本注意事项"><a href="#创建脚本注意事项" class="headerlink" title="创建脚本注意事项"></a>创建脚本注意事项</h2><ul>
+<li>创建脚本最好在Unity中创建</li>
+<li>需要挂载的脚本(MonoBehaviour), <strong>类名和文件名必须一致</strong>, 因为反射机制创建对象会用文件名去找Type, 不一致的脚本不能加载</li>
+</ul>
+<h2 id="MonoBehaviour基础"><a href="#MonoBehaviour基础" class="headerlink" title="MonoBehaviour基础"></a>MonoBehaviour基础</h2><ul>
+<li>只有继承了MonoBehaviour的脚本才能挂载到GameObject上</li>
+<li>MonoBehaviour只能挂载, 不能用new实例化</li>
+<li>MonoBehaviour不要写构造函数, 初始化在Awake/Start中</li>
+<li>如果没有DisallowMultipleComponent属性, 可以挂载多个实例在同一个脚本上</li>
+</ul>
+<h2 id="脚本执行的先后顺序"><a href="#脚本执行的先后顺序" class="headerlink" title="脚本执行的先后顺序"></a>脚本执行的先后顺序</h2><p>点击一个脚本, 右上角有执行顺序选项, 默认为0</p>
+<p>从ProjectSettings中也可以打开</p>
+<h2 id="默认脚本内容"><a href="#默认脚本内容" class="headerlink" title="默认脚本内容"></a>默认脚本内容</h2><p>目录: <code>Editor\Data\Resources\ScriptTemplates</code></p>
+<p>可以修改其中的模板内容</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-coordinate-system-and-translate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,7 +318,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-11 17:38:12" itemprop="dateModified" datetime="2021-04-11T17:38:12+08:00">2021-04-11</time>
+                <time title="修改时间：2021-04-13 23:15:11" itemprop="dateModified" datetime="2021-04-13T23:15:11+08:00">2021-04-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -998,100 +1093,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-object-parent/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-object-parent/" class="post-title-link" itemprop="url">Unity中对象间的父子关系</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-20 20:18:59" itemprop="dateCreated datePublished" datetime="2021-03-20T20:18:59+08:00">2021-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-05 19:52:20" itemprop="dateModified" datetime="2021-04-05T19:52:20+08:00">2021-04-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-object-parent/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-object-parent/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><strong>子对象Inspector窗口中的Transform信息是相对于父对象的</strong>(包括位置, 旋转, 缩放; 通过Inspector窗口右上角三点的Debug模式可以看到, 位置其实是Local Position)</li>
-<li>子对象会随着父对象的变化而变化</li>
-<li><code>pivot/center</code> 中心点位置, pivot是当前选中对象的位置点; center是当前对象以及其所有子对象的位置点的中心位置</li>
-<li><code>global/local</code> 坐标系显式是全局坐标系还是本地坐标系</li>
-<li>一般为了方便管理物体, 可以创建空物体作为父物体来管理</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1161,7 +1162,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
