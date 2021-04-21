@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="稍加总结 加载静态链接库是在编译最后一步(链接阶段), 一起打包到可执行文件中 动态链接库在编译生成阶段没有动作, 而是在程序运行时加载, 加载发生在运行时期, 库文件与执行文件分开, 执行文件依赖于库文件 (不同平台上的动态加载方式并不相同) 文件格式静态库在Windows上为.lib文件, 在Linux上是.a文件 动态库在Windows上为.dll和.lib文件, 在Linux上是.so">
+  <meta name="description" content="学习最好的方法, 就是进入这个类, 依次看一下, 不懂的再查查文档 重要成员 gameObject 依附的GameObject transform 依附的GameObject的transform信息 (位置旋转缩放) enabled 获取&#x2F;控制该脚本是否激活 (脚本左上角的勾选)  重要方法一般不会在同一个对象挂载多个相同对象 1234567891011121314&#x2F;&#x2F; 1. 获取依附GameOb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++中的静态链接库和动态链接库区别">
-<meta property="og:url" content="http://fetasty.github.io/cpp/staticlib-sharedlib-in-cpp/index.html">
+<meta property="og:title" content="Unity中MonoBehaviour的基础内容">
+<meta property="og:url" content="http://fetasty.github.io/unity/unity-mono-base/index.html">
 <meta property="og:site_name" content="fetasty">
-<meta property="og:description" content="稍加总结 加载静态链接库是在编译最后一步(链接阶段), 一起打包到可执行文件中 动态链接库在编译生成阶段没有动作, 而是在程序运行时加载, 加载发生在运行时期, 库文件与执行文件分开, 执行文件依赖于库文件 (不同平台上的动态加载方式并不相同) 文件格式静态库在Windows上为.lib文件, 在Linux上是.a文件 动态库在Windows上为.dll和.lib文件, 在Linux上是.so">
+<meta property="og:description" content="学习最好的方法, 就是进入这个类, 依次看一下, 不懂的再查查文档 重要成员 gameObject 依附的GameObject transform 依附的GameObject的transform信息 (位置旋转缩放) enabled 获取&#x2F;控制该脚本是否激活 (脚本左上角的勾选)  重要方法一般不会在同一个对象挂载多个相同对象 1234567891011121314&#x2F;&#x2F; 1. 获取依附GameOb">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-10T02:41:45.000Z">
-<meta property="article:modified_time" content="2020-10-20T14:58:41.714Z">
+<meta property="article:published_time" content="2021-04-21T15:19:17.000Z">
+<meta property="article:modified_time" content="2021-04-21T15:41:39.155Z">
 <meta property="article:author" content="EricYe">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="lib">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fetasty.github.io/cpp/staticlib-sharedlib-in-cpp/">
+<link rel="canonical" href="http://fetasty.github.io/unity/unity-mono-base/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>C++中的静态链接库和动态链接库区别 | fetasty</title>
+  <title>Unity中MonoBehaviour的基础内容 | fetasty</title>
   
 
 
@@ -197,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/staticlib-sharedlib-in-cpp/">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-mono-base/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -210,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++中的静态链接库和动态链接库区别
+          Unity中MonoBehaviour的基础内容
         </h1>
 
         <div class="post-meta">
@@ -219,23 +218,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-12-10 10:41:45" itemprop="dateCreated datePublished" datetime="2019-12-10T10:41:45+08:00">2019-12-10</time>
+              <time title="创建时间：2021-04-21 23:19:17 / 修改时间：23:41:39" itemprop="dateCreated datePublished" datetime="2021-04-21T23:19:17+08:00">2021-04-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-20 22:58:41" itemprop="dateModified" datetime="2020-10-20T22:58:41+08:00">2020-10-20</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
                 </span>
             </span>
 
@@ -255,8 +248,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/cpp/staticlib-sharedlib-in-cpp/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/cpp/staticlib-sharedlib-in-cpp/" itemprop="commentCount"></span>
+    <a title="valine" href="/unity/unity-mono-base/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-mono-base/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,50 +264,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>稍加总结</p>
-<h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p><strong>静态链接库</strong>是在编译最后一步(链接阶段), 一起打包到可执行文件中</p>
-<p><strong>动态链接库</strong>在编译生成阶段没有动作, 而是在程序运行时加载, 加载发生在运行时期, 库文件与执行文件分开, 执行文件依赖于库文件 (不同平台上的动态加载方式并不相同)</p>
-<h2 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h2><p>静态库在Windows上为<code>.lib</code>文件, 在Linux上是<code>.a</code>文件</p>
-<p>动态库在Windows上为<code>.dll</code>和<code>.lib</code>文件, 在Linux上是<code>.so</code></p>
-<a id="more"></a>
+        <p>学习最好的方法, 就是进入这个类, 依次看一下, 不懂的再查查文档</p>
+<h2 id="重要成员"><a href="#重要成员" class="headerlink" title="重要成员"></a>重要成员</h2><ul>
+<li><code>gameObject</code> 依附的GameObject</li>
+<li><code>transform</code> 依附的GameObject的transform信息 (位置旋转缩放)</li>
+<li><code>enabled</code> 获取/控制该脚本是否激活 (脚本左上角的勾选)</li>
+</ul>
+<h2 id="重要方法"><a href="#重要方法" class="headerlink" title="重要方法"></a>重要方法</h2><p>一般不会在同一个对象挂载多个相同对象</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 获取依附GameObject上的单个脚本 (没有对应脚本则返回null)</span></span><br><span class="line">ComponentType component = GetComponent&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 2. 得到自己挂载的多个脚本</span></span><br><span class="line">ComponentType[] arr = GetComponents&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 3. 得到子对象挂载的脚本 (同时会寻找自身) 递归子对象</span></span><br><span class="line">ComponentType component = GetComponentInChildren&lt;ComponentType&gt;(); <span class="comment">// 相当于传入参数false, 子对象失活不会找到对应脚本</span></span><br><span class="line">GetComponentInChildren&lt;ComponentType&gt;(<span class="literal">true</span>); <span class="comment">// 即使子对象失活了也会找到对应脚本</span></span><br><span class="line">GetComponentsInChildren&lt;ComponentType&gt;(<span class="literal">true</span>); <span class="comment">// 查找所有</span></span><br><span class="line"><span class="comment">// 4. 得到父对象挂载的脚本 (同时会寻找自身) 递归父对象</span></span><br><span class="line">GetComponentInParent&lt;ComponentType&gt;(); <span class="comment">// 不可以传参</span></span><br><span class="line">GetComponentsInParent&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 5. 尝试 (和上面的直接获取后判空差不多)</span></span><br><span class="line">ComponentType component;</span><br><span class="line"><span class="keyword">if</span> (TryGetComponent&lt;ComponentType&gt;(<span class="keyword">out</span> component)) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h3 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h3><p>优点:</p>
-<ul>
-<li><p>被打包到可执行文件中, 可执行文件不再依赖库文件</p>
-</li>
-<li><p>链接时直接包含库文件, 执行期间代码装载速度快</p>
-</li>
-</ul>
-<p>缺点:</p>
-<ul>
-<li><p>可执行文件变大 (包含了库文件)</p>
-</li>
-<li><p>库更新后, 可执行文件也必须重新编译</p>
-</li>
-<li><p>不可共用, 每个依赖静态库的可执行文件都要包含这个库</p>
-</li>
-</ul>
-<h3 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h3><p>优点:</p>
-<ul>
-<li><p>多个可执行文件可依赖同一个动态库文件</p>
-</li>
-<li><p>升级简单, 不需要重新编译可执行文件</p>
-</li>
-</ul>
-<p>缺点:</p>
-<ul>
-<li><p>运行时加载, 减慢速度</p>
-</li>
-<li><p>增加程序依赖性, 必须和可执行文件一起</p>
-</li>
-</ul>
-<h2 id="CMake生成"><a href="#CMake生成" class="headerlink" title="CMake生成"></a>CMake生成</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">aux_source_directory</span>(. SRC_LIST)</span><br><span class="line"><span class="comment"># STATIC为生存静态库  SHARED生成动态库</span></span><br><span class="line"><span class="keyword">add_library</span>(mylib STATIC <span class="variable">$&#123;SRC_LIST&#125;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="CMake使用"><a href="#CMake使用" class="headerlink" title="CMake使用"></a>CMake使用</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add_executable</span>(myapp main.cc)</span><br><span class="line"><span class="comment"># 静态库</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(myapp libmyfun.a)</span><br><span class="line"><span class="comment"># 动态库</span></span><br><span class="line"><span class="comment"># target_link_libraries(myapp libmyfun.so)</span></span><br></pre></td></tr></table></figure>
-
-<p>之后在源码中引入函数声明的头文件, 使用对应函数</p>
-<h3 id="代码动态加载"><a href="#代码动态加载" class="headerlink" title="代码动态加载"></a>代码动态加载</h3><p>Windows下和Linux中加载方式不同, 具体可以搜索<code>Windows 动态库使用</code> <code>Linux 动态库使用</code></p>
-<p>参考资料: <a target="_blank" rel="noopener" href="https://blog.csdn.net/a369189453/article/details/81124685">https://blog.csdn.net/a369189453/article/details/81124685</a></p>
+<p>重点: <strong>注意GetComponentInChildren的参数, 默认情况下不会查找失活的子对象的脚本</strong></p>
+<p>以上的<code>GetComponentsxxx</code>都可以传入一个list参数, 用以代替返回数组的函数</p>
+<p>得到脚本就可以得到脚本相关的对象所有相关信息</p>
 
     </div>
 
@@ -325,8 +286,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/cpp/" rel="tag"><i class="fa fa-tag"></i> C++</a>
-              <a href="/tags/lib/" rel="tag"><i class="fa fa-tag"></i> lib</a>
+              <a href="/tags/unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
           </div>
 
         
@@ -335,13 +295,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/other/search-expression/" rel="prev" title="搜索语法">
-      <i class="fa fa-chevron-left"></i> 搜索语法
+    <a href="/unity/unity-inspector-field/" rel="prev" title="Unity中Inspector窗口中的可编辑变量">
+      <i class="fa fa-chevron-left"></i> Unity中Inspector窗口中的可编辑变量
     </a></div>
-      <div class="post-nav-item">
-    <a href="/cpp/gxx-generate-process/" rel="next" title="g++生成可执行文件过程简介">
-      g++生成可执行文件过程简介 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -401,7 +358,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">文件格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">静态库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BA%93"><span class="nav-number">3.2.</span> <span class="nav-text">动态库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMake%E7%94%9F%E6%88%90"><span class="nav-number">4.</span> <span class="nav-text">CMake生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMake%E4%BD%BF%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">CMake使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD"><span class="nav-number">5.2.</span> <span class="nav-text">代码动态加载</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E6%88%90%E5%91%98"><span class="nav-number">1.</span> <span class="nav-text">重要成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">重要方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -192,6 +192,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-mono-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-mono-base/" class="post-title-link" itemprop="url">Unity中MonoBehaviour的基础内容</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-21 23:19:17 / 修改时间：23:41:39" itemprop="dateCreated datePublished" datetime="2021-04-21T23:19:17+08:00">2021-04-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-mono-base/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-mono-base/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>学习最好的方法, 就是进入这个类, 依次看一下, 不懂的再查查文档</p>
+<h2 id="重要成员"><a href="#重要成员" class="headerlink" title="重要成员"></a>重要成员</h2><ul>
+<li><code>gameObject</code> 依附的GameObject</li>
+<li><code>transform</code> 依附的GameObject的transform信息 (位置旋转缩放)</li>
+<li><code>enabled</code> 获取/控制该脚本是否激活 (脚本左上角的勾选)</li>
+</ul>
+<h2 id="重要方法"><a href="#重要方法" class="headerlink" title="重要方法"></a>重要方法</h2><p>一般不会在同一个对象挂载多个相同对象</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 获取依附GameObject上的单个脚本 (没有对应脚本则返回null)</span></span><br><span class="line">ComponentType component = GetComponent&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 2. 得到自己挂载的多个脚本</span></span><br><span class="line">ComponentType[] arr = GetComponents&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 3. 得到子对象挂载的脚本 (同时会寻找自身) 递归子对象</span></span><br><span class="line">ComponentType component = GetComponentInChildren&lt;ComponentType&gt;(); <span class="comment">// 相当于传入参数false, 子对象失活不会找到对应脚本</span></span><br><span class="line">GetComponentInChildren&lt;ComponentType&gt;(<span class="literal">true</span>); <span class="comment">// 即使子对象失活了也会找到对应脚本</span></span><br><span class="line">GetComponentsInChildren&lt;ComponentType&gt;(<span class="literal">true</span>); <span class="comment">// 查找所有</span></span><br><span class="line"><span class="comment">// 4. 得到父对象挂载的脚本 (同时会寻找自身) 递归父对象</span></span><br><span class="line">GetComponentInParent&lt;ComponentType&gt;(); <span class="comment">// 不可以传参</span></span><br><span class="line">GetComponentsInParent&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 5. 尝试 (和上面的直接获取后判空差不多)</span></span><br><span class="line">ComponentType component;</span><br><span class="line"><span class="keyword">if</span> (TryGetComponent&lt;ComponentType&gt;(<span class="keyword">out</span> component)) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+
+<p>重点: <strong>注意GetComponentInChildren的参数, 默认情况下不会查找失活的子对象的脚本</strong></p>
+<p>以上的<code>GetComponentsxxx</code>都可以传入一个list参数, 用以代替返回数组的函数</p>
+<p>得到脚本就可以得到脚本相关的对象所有相关信息</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-inspector-field/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1007,96 +1100,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-game-base-cache-pool/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-game-base-cache-pool/" class="post-title-link" itemprop="url">Unity游戏基础框架2 -- 缓存池模块</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-24 20:58:02" itemprop="dateCreated datePublished" datetime="2021-03-24T20:58:02+08:00">2021-03-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-26 21:43:50" itemprop="dateModified" datetime="2021-03-26T21:43:50+08:00">2021-03-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-game-base-cache-pool/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-game-base-cache-pool/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="缓存池模块"><a href="#缓存池模块" class="headerlink" title="缓存池模块"></a>缓存池模块</h2><p>对于场景上需要大量创建的物体, 例如子弹, 不能一直创建新物体然后弃用, 这样会不断消耗内存, 使得GC发生频率变高</p>
-<p>缓存池放各种抽屉, 每个抽屉里存放一种资源的缓存</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"><span class="comment">// 抽屉</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PoolData</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> GameObject root_;</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;GameObject&gt; objQueue_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PoolData</span>(<span class="params"><span class="keyword">string</span> name, GameObject poolObj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        root_ = <span class="keyword">new</span> GameObject(name);</span><br><span class="line">        root_.transform.parent = poolObj.transform;</span><br><span class="line">        objQueue_ = <span class="keyword">new</span> Queue&lt;GameObject&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetObj</span>(<span class="params">UnityAction&lt;GameObject&gt; callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GameObject obj;</span><br><span class="line">        <span class="keyword">if</span> (objQueue_.Count &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            obj = objQueue_.Dequeue();</span><br><span class="line">            obj.transform.parent = <span class="literal">null</span>;</span><br><span class="line">            obj.SetActive(<span class="literal">true</span>);</span><br><span class="line">            callback?.Invoke(obj);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ResMgr.Instance.LoadAsync&lt;GameObject&gt;(root_.name, (obj) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                obj.name = root_.name;</span><br><span class="line">                callback(obj);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PushObj</span>(<span class="params">GameObject obj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        obj.SetActive(<span class="literal">false</span>);</span><br><span class="line">        obj.transform.parent = root_.transform;</span><br><span class="line">        objQueue_.Enqueue(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 缓存池</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PoolMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">PoolMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, PoolData&gt; poolDic_;</span><br><span class="line">    <span class="keyword">private</span> GameObject poolObj_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PoolMgr</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        poolDic_ = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, PoolData&gt;();</span><br><span class="line">        poolObj_ = <span class="keyword">new</span> GameObject(<span class="string">&quot;Pool&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">CheckData</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (poolObj_ == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            poolObj_ = <span class="keyword">new</span> GameObject(<span class="string">&quot;Pool&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!poolDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            poolDic_[name] = <span class="keyword">new</span> PoolData(name, poolObj_);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 获取缓存池中的对象, 若不存在则自动从Resources目录中异步加载实例化</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>资源在Resources目录中的相对路劲<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>处理资源的回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetObj</span>(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;GameObject&gt; callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        CheckData(name);</span><br><span class="line">        poolDic_[name].GetObj(callback);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 调用该方法, 将对象压入缓存池中</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>抽屉名称(Resources下的资源路径)<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;obj&quot;&gt;</span>需要压入的对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PushObj</span>(<span class="params"><span class="keyword">string</span> name, GameObject obj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        CheckData(name);</span><br><span class="line">        poolDic_[name].PushObj(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1166,7 +1169,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
