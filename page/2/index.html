@@ -192,6 +192,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-game-base-message-center/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-game-base-message-center/" class="post-title-link" itemprop="url">Unity游戏基础框架3 -- 消息中心模块</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-24 20:59:52 / 修改时间：21:02:44" itemprop="dateCreated datePublished" datetime="2021-03-24T20:59:52+08:00">2021-03-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-game-base-message-center/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-game-base-message-center/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="事件中心模块"><a href="#事件中心模块" class="headerlink" title="事件中心模块"></a>事件中心模块</h2><p>各模块间复杂交互解耦神器, 建议全代码背诵</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MessageException</span> : <span class="title">System.Exception</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageException</span>(<span class="params"><span class="keyword">string</span> msg</span>) : <span class="title">base</span>(<span class="params">msg</span>)</span> &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MessageCenter</span> : <span class="title">BaseManager</span>&lt;<span class="title">MessageCenter</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, System.Delegate&gt; msgDic_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageCenter</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        msgDic_ = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, System.Delegate&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddListener</span>(<span class="params"><span class="keyword">string</span> name, UnityAction listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnListening(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction)msgDic_[name] + listener;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddListener</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnListening(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction&lt;T&gt;)msgDic_[name] + listener;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveListener</span>(<span class="params"><span class="keyword">string</span> name, UnityAction listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnRemoving(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction)msgDic_[name] - listener;</span><br><span class="line">        OnRemoved(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveListener</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnRemoving(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction&lt;T&gt;)msgDic_[name] - listener;</span><br><span class="line">        OnRemoved(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d != <span class="literal">null</span> &amp;&amp; d.GetType() != <span class="keyword">typeof</span>(UnityAction))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to send msg <span class="subst">&#123;name&#125;</span> as &quot;</span> +</span><br><span class="line">                    <span class="string">$&quot;UnityAction but dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            UnityAction action = d <span class="keyword">as</span> UnityAction;</span><br><span class="line">            action?.Invoke();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, T arg</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d != <span class="literal">null</span> &amp;&amp; d.GetType() != <span class="keyword">typeof</span>(UnityAction&lt;T&gt;))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to send msg <span class="subst">&#123;name&#125;</span> as &quot;</span> +</span><br><span class="line">                    <span class="string">$&quot;UnityAction but dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            UnityAction&lt;T&gt; action = d <span class="keyword">as</span> UnityAction&lt;T&gt;;</span><br><span class="line">            action?.Invoke(arg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Clear</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        msgDic_.Clear();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnListening</span>(<span class="params"><span class="keyword">string</span> name, Delegate listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            msgDic_.Add(name, <span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d != <span class="literal">null</span> &amp;&amp; d.GetType() != listener.GetType())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to add listener with type&quot;</span> +</span><br><span class="line">                    <span class="string">$&quot; <span class="subst">&#123;listener.GetType()&#125;</span>, but listeners in dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnRemoving</span>(<span class="params"><span class="keyword">string</span> name, Delegate listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to remove listener&quot;</span> +</span><br><span class="line">                <span class="string">$&quot; from dic[<span class="subst">&#123;name&#125;</span>] but dic[<span class="subst">&#123;name&#125;</span>] not exist&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to remove listener from&quot;</span> +</span><br><span class="line">                    <span class="string">$&quot; dic[<span class="subst">&#123;name&#125;</span>] but dic[<span class="subst">&#123;name&#125;</span>] is null&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (d.GetType() != listener.GetType())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to remove listener with type&quot;</span> +</span><br><span class="line">                    <span class="string">$&quot; <span class="subst">&#123;listener.GetType()&#125;</span> but listeners in dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnRemoved</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (msgDic_[name] == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            msgDic_.Remove(name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-game-base-cache-pool/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1096,113 +1179,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-reflect/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-reflect/" class="post-title-link" itemprop="url">C#反射</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-04 22:09:32" itemprop="dateCreated datePublished" datetime="2021-03-04T22:09:32+08:00">2021-03-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-06 13:56:22" itemprop="dateModified" datetime="2021-03-06T13:56:22+08:00">2021-03-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-reflect/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-reflect/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="基础认识"><a href="#基础认识" class="headerlink" title="基础认识"></a>基础认识</h2><h3 id="程序集"><a href="#程序集" class="headerlink" title="程序集"></a>程序集</h3><p>程序集是编译器编译得到的一个产物</p>
-<p>我们写的一个代码集合编译成一个程序集可以方便的提供给他人使用</p>
-<p>在Windows系统中, 一般是后缀为<code>.dll</code>或者<code>.exe</code>的格式</p>
-<h3 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h3><p>元数据就是用来描述数据的数据</p>
-<p>程序中的类, 类中的函数, 变量等信息就是程序的元数据</p>
-<p>有关程序以及类型的数据被称为元数据, 保存在程序集中</p>
-<h3 id="反射概念"><a href="#反射概念" class="headerlink" title="反射概念"></a>反射概念</h3><p>程序在运行时可以查看其它程序集或者自身的元数据, 这种行为叫做反射</p>
-<p>反射可以在程序编译后获得信息, 提高了程序的扩展性和灵活性</p>
-<ul>
-<li>运行时得到元数据, 以及元数据特性</li>
-<li>运行时实例化对象, 操作对象</li>
-<li>运行时创建对象, 执行对象的操作</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/csharp/csharp-reflect/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1272,7 +1248,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

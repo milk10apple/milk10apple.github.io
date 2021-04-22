@@ -192,6 +192,113 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-event-and-delegate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-event-and-delegate/" class="post-title-link" itemprop="url">C#中的事件与委托实例的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-13 22:29:39" itemprop="dateCreated datePublished" datetime="2020-11-13T22:29:39+08:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-23 17:54:27" itemprop="dateModified" datetime="2021-01-23T17:54:27+08:00">2021-01-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-event-and-delegate/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-event-and-delegate/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>区别概括为两点:</p>
+<ol>
+<li><p>允许的操作: 事件只允许通过 <code>+=</code> 和 <code>-=</code> 来订阅和取消订阅; 但是委托实例除了<code>+=</code>和<code>-=</code>, 还可以使用<code>=</code>直接赋值操作</p>
+</li>
+<li><p>调用的位置: 事件只能在所在类的内部调用(事件的调用也称做触发), 而委托实例在类外部也可以调用</p>
+</li>
+</ol>
+<hr>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TwoNumOpe</span>(<span class="params"><span class="keyword">int</span> a, <span class="keyword">int</span> b</span>)</span>; <span class="comment">// 委托</span></span><br><span class="line"><span class="keyword">public</span> TwoNumOpe Func = <span class="literal">null</span>; <span class="comment">// 委托实例</span></span><br></pre></td></tr></table></figure>
+
+<p>为了便于区分, 本文中将<strong>委托</strong>和<strong>委托实例</strong>区分称呼</p>
+<p><strong>委托</strong>是一种自定义类型, 而委托类型的变量我们称为<strong>委托实例</strong></p>
+<p>基本用法不再赘述, 这里着重介绍事件与委托实例的区别, 也就是以下两个变量的区别</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-event-and-delegate/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/python/python-logging/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1092,114 +1199,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/algorithm/binary-heap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/algorithm/binary-heap/" class="post-title-link" itemprop="url">二叉堆&堆排序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-09 16:05:21" itemprop="dateCreated datePublished" datetime="2020-01-09T16:05:21+08:00">2020-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-20 22:58:09" itemprop="dateModified" datetime="2020-10-20T22:58:09+08:00">2020-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/algorithm/binary-heap/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/algorithm/binary-heap/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="二叉堆的性质"><a href="#二叉堆的性质" class="headerlink" title="二叉堆的性质"></a>二叉堆的性质</h2><ul>
-<li><p>二叉堆是完全二叉树(除了最底层外其它层节点个数达到最大, 最底层节点都集中在最左边)</p>
-</li>
-<li><p>一般存储在数组结构中, 父子节点之间依靠下标关联</p>
-</li>
-<li><p>堆分为最大堆和最小堆, 最大堆就是所有父节点值都不小于它的任意子节点值, 头节点为最大值; 最小堆相反. (以下默认最大堆)</p>
-</li>
-<li><p><strong>从0开始存储的二叉堆, 节点i的子节点为<code>(i&lt;&lt;1)+1</code>和<code>(i&lt;&lt;1)+2</code>, 节点i的父节点为<code>(i-1)&gt;&gt;1</code></strong></p>
-</li>
-<li><p>n个节点的二叉堆, 最后一个非叶节点下标为<code>(n&gt;&gt;1)-1</code></p>
-</li>
-<li><p>高为h的满二叉树有$2^h-1$个节点, 第i(1, 2…h)层有$2^{h-1}$个节点</p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/algorithm/binary-heap/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1269,7 +1268,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
