@@ -440,38 +440,6 @@
       </tags>
   </entry>
   <entry>
-    <title>搜索语法</title>
-    <url>/other/search-expression/</url>
-    <content><![CDATA[<h2 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何阅读一本书&quot;</span><br></pre></td></tr></table></figure>
-
-<p>  只搜索包含整个词语的结果, 不会出现只有”阅读”或者”一本书”的结果</p>
-<h2 id="排除关键词"><a href="#排除关键词" class="headerlink" title="排除关键词"></a>排除关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子</span><br></pre></td></tr></table></figure>
-
-<p>  排除搜索结果中包含”孩子”的结果</p>
-<h2 id="包含关键词"><a href="#包含关键词" class="headerlink" title="包含关键词"></a>包含关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子 +推荐</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="在特定网站-域名中搜索"><a href="#在特定网站-域名中搜索" class="headerlink" title="在特定网站/域名中搜索"></a>在特定网站/域名中搜索</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 site:pan.baidu.com</span><br></pre></td></tr></table></figure>
-
-<p>  不要<code>http://</code>, 不加<code>www</code>, 上面的网盘搜索不要使用百度搜索 (Google/duckduckgo/dogedoge)</p>
-<h2 id="搜索特定文件类型"><a href="#搜索特定文件类型" class="headerlink" title="搜索特定文件类型"></a>搜索特定文件类型</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="url链接中包含关键字"><a href="#url链接中包含关键字" class="headerlink" title="url链接中包含关键字"></a>url链接中包含关键字</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读 inurl:gov.cn</span><br></pre></td></tr></table></figure>
-
-<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="标题中包含"><a href="#标题中包含" class="headerlink" title="标题中包含"></a>标题中包含</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf intitle:大学</span><br></pre></td></tr></table></figure>
-
-<h2 id="结合使用"><a href="#结合使用" class="headerlink" title="结合使用"></a>结合使用</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; -孩子 filetype:pdf inurl:edu intitle:大学</span><br></pre></td></tr></table></figure>
-
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">intitle:如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
-  </entry>
-  <entry>
     <title>C++中的静态链接库和动态链接库区别</title>
     <url>/cpp/staticlib-sharedlib-in-cpp/</url>
     <content><![CDATA[<p>稍加总结</p>
@@ -526,6 +494,38 @@
         <tag>C++</tag>
         <tag>lib</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>搜索语法</title>
+    <url>/other/search-expression/</url>
+    <content><![CDATA[<h2 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何阅读一本书&quot;</span><br></pre></td></tr></table></figure>
+
+<p>  只搜索包含整个词语的结果, 不会出现只有”阅读”或者”一本书”的结果</p>
+<h2 id="排除关键词"><a href="#排除关键词" class="headerlink" title="排除关键词"></a>排除关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子</span><br></pre></td></tr></table></figure>
+
+<p>  排除搜索结果中包含”孩子”的结果</p>
+<h2 id="包含关键词"><a href="#包含关键词" class="headerlink" title="包含关键词"></a>包含关键词</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 -孩子 +推荐</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="在特定网站-域名中搜索"><a href="#在特定网站-域名中搜索" class="headerlink" title="在特定网站/域名中搜索"></a>在特定网站/域名中搜索</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 site:pan.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>  不要<code>http://</code>, 不加<code>www</code>, 上面的网盘搜索不要使用百度搜索 (Google/duckduckgo/dogedoge)</p>
+<h2 id="搜索特定文件类型"><a href="#搜索特定文件类型" class="headerlink" title="搜索特定文件类型"></a>搜索特定文件类型</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="url链接中包含关键字"><a href="#url链接中包含关键字" class="headerlink" title="url链接中包含关键字"></a>url链接中包含关键字</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">如何阅读 inurl:gov.cn</span><br></pre></td></tr></table></figure>
+
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="标题中包含"><a href="#标题中包含" class="headerlink" title="标题中包含"></a>标题中包含</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; filetype:pdf intitle:大学</span><br></pre></td></tr></table></figure>
+
+<h2 id="结合使用"><a href="#结合使用" class="headerlink" title="结合使用"></a>结合使用</h2>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;如何*一本书&quot; -孩子 filetype:pdf inurl:edu intitle:大学</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">intitle:如何阅读一本书 filetype:pdf</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>other</category>
+      </categories>
   </entry>
   <entry>
     <title>Windows上的一些实用小命令/技巧</title>
@@ -1561,6 +1561,57 @@
       </tags>
   </entry>
   <entry>
+    <title>C#中的索引器</title>
+    <url>/csharp/csharp-indexer/</url>
+    <content><![CDATA[<p>索引器可以让C#对象像数组一样通过索引访问其中的元素</p>
+<p><strong>索引器定义</strong></p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyList</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> T[] dataArr;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">return</span> dataArr[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; dataArr = <span class="keyword">new</span> T[<span class="number">10</span>]; &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">            dataArr[index] = <span class="keyword">value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用索引器</strong></p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// MyList类中省略了具体实现, 这里只表示使用方法</span></span><br><span class="line">MyList&lt;<span class="keyword">int</span>&gt; mList = <span class="keyword">new</span> MyList&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">mList[<span class="number">0</span>] = <span class="number">99</span>;</span><br><span class="line">Console.WriteLine(mList[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+
+<p><strong>索引器可以重载</strong></p>
+<p><strong>索引器可以只有get或者只有set</strong></p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">string</span> key, <span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C# 中的运算符重载</title>
+    <url>/csharp/csharp-override-operator/</url>
+    <content><![CDATA[<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Point</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Point <span class="keyword">operator</span> +(Point p1, Point p2)</span><br><span class="line">    &#123;</span><br><span class="line">        Point p = <span class="keyword">new</span> Point();</span><br><span class="line">        p.x = p1.x + p2.x;</span><br><span class="line">        p.y = p1.y + p2.y;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意:</p>
+<ul>
+<li>一定是一个公共静态方法</li>
+<li>运算符重载中的参数至少有一个参数类型是所在的类类型</li>
+<li>条件运算符必须成对实现 <code>&lt;</code>和<code>&gt;</code> <code>&gt;=</code>和<code>&lt;=</code> <code>==</code>和<code>!=</code></li>
+<li>一个符号可以有多个重载</li>
+<li>不能使用ref和out</li>
+</ul>
+<p>不可重载的运算符</p>
+<ul>
+<li>逻辑与<code>&amp;&amp;</code> 逻辑或<code>||</code></li>
+<li>索引符<code>[]</code></li>
+<li>强制运算符<code>()</code></li>
+<li>点<code>.</code> 三目运算符<code>?:</code> 赋值符号<code>=</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C#中的抽象类</title>
     <url>/csharp/csharp-abstract-class/</url>
     <content><![CDATA[<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><ul>
@@ -1590,29 +1641,6 @@
 <li>父类中的行为不太需要被实现, 只希望子类定义具体的规则</li>
 </ul>
 <p>抽象类主要在系统整体框架设计时使用</p>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C#中的索引器</title>
-    <url>/csharp/csharp-indexer/</url>
-    <content><![CDATA[<p>索引器可以让C#对象像数组一样通过索引访问其中的元素</p>
-<p><strong>索引器定义</strong></p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyList</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> T[] dataArr;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">return</span> dataArr[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; dataArr = <span class="keyword">new</span> T[<span class="number">10</span>]; &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">            dataArr[index] = <span class="keyword">value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用索引器</strong></p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// MyList类中省略了具体实现, 这里只表示使用方法</span></span><br><span class="line">MyList&lt;<span class="keyword">int</span>&gt; mList = <span class="keyword">new</span> MyList&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">mList[<span class="number">0</span>] = <span class="number">99</span>;</span><br><span class="line">Console.WriteLine(mList[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-
-<p><strong>索引器可以重载</strong></p>
-<p><strong>索引器可以只有get或者只有set</strong></p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">string</span> key, <span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 ]]></content>
       <categories>
         <category>C#</category>
@@ -1657,25 +1685,37 @@
       </tags>
   </entry>
   <entry>
-    <title>C# 中的运算符重载</title>
-    <url>/csharp/csharp-override-operator/</url>
-    <content><![CDATA[<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Point</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Point <span class="keyword">operator</span> +(Point p1, Point p2)</span><br><span class="line">    &#123;</span><br><span class="line">        Point p = <span class="keyword">new</span> Point();</span><br><span class="line">        p.x = p1.x + p2.x;</span><br><span class="line">        p.y = p1.y + p2.y;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>C#中的接口</title>
+    <url>/csharp/csharp-interface/</url>
+    <content><![CDATA[<h2 id="接口申明"><a href="#接口申明" class="headerlink" title="接口申明"></a>接口申明</h2><p><strong>接口是抽象行为的”基类”</strong>, 接口命名规范是大写I开头并且使用大驼峰(帕斯卡命名)</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IFly</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span>; <span class="comment">// 方法</span></span><br><span class="line">    <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 未实现的属性(不是自动属性)</span></span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>; &#125; <span class="comment">// 索引器</span></span><br><span class="line">    <span class="keyword">event</span> Action DoSomething; <span class="comment">// 事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>注意:</p>
-<ul>
-<li>一定是一个公共静态方法</li>
-<li>运算符重载中的参数至少有一个参数类型是所在的类类型</li>
-<li>条件运算符必须成对实现 <code>&lt;</code>和<code>&gt;</code> <code>&gt;=</code>和<code>&lt;=</code> <code>==</code>和<code>!=</code></li>
-<li>一个符号可以有多个重载</li>
-<li>不能使用ref和out</li>
-</ul>
-<p>不可重载的运算符</p>
-<ul>
-<li>逻辑与<code>&amp;&amp;</code> 逻辑或<code>||</code></li>
-<li>索引符<code>[]</code></li>
-<li>强制运算符<code>()</code></li>
-<li>点<code>.</code> 三目运算符<code>?:</code> 赋值符号<code>=</code></li>
-</ul>
+<ol>
+<li>不包含成员变量</li>
+<li>只能包含<strong>方法, 属性, 索引器, 事件</strong></li>
+<li><strong>成员不能被实现</strong></li>
+<li>成员可以不用写访问修饰符, 不能是私有的</li>
+<li>接口不能继承类, 但是可以继承另一个接口 (行为合并)</li>
+<li>实现接口方法时可以添加virtual关键字, 让子类可以重写</li>
+</ol>
+<h2 id="接口的使用规范"><a href="#接口的使用规范" class="headerlink" title="接口的使用规范"></a>接口的使用规范</h2><p>接口用来继承</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Animal</span> : <span class="title">IFLy</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 实现接口, 但是允许子类重写</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 自动属性, 实现接口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>&#123; <span class="keyword">return</span> <span class="number">0</span>; &#125;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> Action DoSomething;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>类可以继承多个接口</li>
+<li>类继承接口后必须实现接口中所有成员</li>
+</ol>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>接口是用来继承的</li>
+<li>接口不能被直接实例化, 但是可以作为容器存储对象(里氏替换/多态)</li>
+</ol>
+<p>接口可以继承接口, 但接口不需要去实现, 当类继承后自己实现所有内容</p>
+<h2 id="显式实现接口"><a href="#显式实现接口" class="headerlink" title="显式实现接口"></a>显式实现接口</h2><p>当一个类继承两个接口, 但是接口中存在两个同名方法时, 如果该方法需要针对两个接口分别实现, 则需要使用显式实现</p>
+<p>注意: 显式实现接口时不能写访问修饰符</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title">ISuperAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 两个接口同一个实现方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是一般来说, 两个接口代表的不应该是同一个行为表现</p>
+<p>下面是显式分别实现的方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="comment">// 显式实现接口不能写访问修饰符</span></span><br><span class="line">    <span class="keyword">void</span> IAtk.Atk() &#123;&#125;</span><br><span class="line">    <span class="keyword">void</span> ISuperAtk.Atk() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Player p = <span class="keyword">new</span> Player();</span><br><span class="line"><span class="comment">// 无法直接用父类调用Atk方法</span></span><br><span class="line">(p <span class="keyword">as</span> IAtk).Atk();</span><br><span class="line">(p <span class="keyword">as</span> ISuperAtk).Atk();</span><br><span class="line"><span class="comment">// 但是也可以在Player类中实现一个自己的Atk方法, 自己实现的Atk方法与显式实现接口中的方法无关</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>C#</category>
@@ -1710,6 +1750,30 @@
 <h3 id="virtual-GetHashCode"><a href="#virtual-GetHashCode" class="headerlink" title="virtual GetHashCode"></a>virtual GetHashCode</h3><p>获取对象的哈希值, 由算法计算出, 表示对象的唯一编码</p>
 <h3 id="virtual-ToString"><a href="#virtual-ToString" class="headerlink" title="virtual ToString"></a>virtual ToString</h3><p>该方法返回当前对象表示的字符串, 可以重写该方法定义自己的对象转字符串规则, 当我们直接打印该对象时, 默认使用的就是ToString返回值</p>
 <p>默认的ToString返回类的完整类型名</p>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C#中的装箱拆箱</title>
+    <url>/csharp/csharp-packing-and-unpacking/</url>
+    <content><![CDATA[<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">object</span> obj = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">value</span> = (<span class="keyword">int</span>)obj;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params"><span class="keyword">params</span> <span class="keyword">object</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TestFun(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3.45</span>, <span class="string">&quot;string&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="发生条件"><a href="#发生条件" class="headerlink" title="发生条件"></a>发生条件</h2><ul>
+<li>装箱: 值类型存储为object时</li>
+<li>拆箱: 将object转为值类型</li>
+</ul>
+<h2 id="装箱"><a href="#装箱" class="headerlink" title="装箱"></a>装箱</h2><p>把值类型用引用类型存储, 装箱时会将栈内存迁移到堆内存中, 会有性能消耗</p>
+<h2 id="拆箱"><a href="#拆箱" class="headerlink" title="拆箱"></a>拆箱</h2><p>把引用类型存储的值取出来, 堆内存迁移到栈内存</p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ul>
+<li>好处: 不确定类型时可以方便参数的存储和传递</li>
+<li>坏处: 存在内存迁移, 增加性能消耗</li>
+</ul>
+<p>装箱拆箱不是说不能用, 而是尽量少用, 避免频繁装箱拆箱造成大量的性能消耗</p>
 ]]></content>
       <categories>
         <category>C#</category>
@@ -1839,46 +1903,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C#中的接口</title>
-    <url>/csharp/csharp-interface/</url>
-    <content><![CDATA[<h2 id="接口申明"><a href="#接口申明" class="headerlink" title="接口申明"></a>接口申明</h2><p><strong>接口是抽象行为的”基类”</strong>, 接口命名规范是大写I开头并且使用大驼峰(帕斯卡命名)</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IFly</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span>; <span class="comment">// 方法</span></span><br><span class="line">    <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 未实现的属性(不是自动属性)</span></span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>; &#125; <span class="comment">// 索引器</span></span><br><span class="line">    <span class="keyword">event</span> Action DoSomething; <span class="comment">// 事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>不包含成员变量</li>
-<li>只能包含<strong>方法, 属性, 索引器, 事件</strong></li>
-<li><strong>成员不能被实现</strong></li>
-<li>成员可以不用写访问修饰符, 不能是私有的</li>
-<li>接口不能继承类, 但是可以继承另一个接口 (行为合并)</li>
-<li>实现接口方法时可以添加virtual关键字, 让子类可以重写</li>
-</ol>
-<h2 id="接口的使用规范"><a href="#接口的使用规范" class="headerlink" title="接口的使用规范"></a>接口的使用规范</h2><p>接口用来继承</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Animal</span> : <span class="title">IFLy</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 实现接口, 但是允许子类重写</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 自动属性, 实现接口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>&#123; <span class="keyword">return</span> <span class="number">0</span>; &#125;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> Action DoSomething;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>类可以继承多个接口</li>
-<li>类继承接口后必须实现接口中所有成员</li>
-</ol>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
-<li>接口是用来继承的</li>
-<li>接口不能被直接实例化, 但是可以作为容器存储对象(里氏替换/多态)</li>
-</ol>
-<p>接口可以继承接口, 但接口不需要去实现, 当类继承后自己实现所有内容</p>
-<h2 id="显式实现接口"><a href="#显式实现接口" class="headerlink" title="显式实现接口"></a>显式实现接口</h2><p>当一个类继承两个接口, 但是接口中存在两个同名方法时, 如果该方法需要针对两个接口分别实现, 则需要使用显式实现</p>
-<p>注意: 显式实现接口时不能写访问修饰符</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title">ISuperAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 两个接口同一个实现方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是一般来说, 两个接口代表的不应该是同一个行为表现</p>
-<p>下面是显式分别实现的方法</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="comment">// 显式实现接口不能写访问修饰符</span></span><br><span class="line">    <span class="keyword">void</span> IAtk.Atk() &#123;&#125;</span><br><span class="line">    <span class="keyword">void</span> ISuperAtk.Atk() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Player p = <span class="keyword">new</span> Player();</span><br><span class="line"><span class="comment">// 无法直接用父类调用Atk方法</span></span><br><span class="line">(p <span class="keyword">as</span> IAtk).Atk();</span><br><span class="line">(p <span class="keyword">as</span> ISuperAtk).Atk();</span><br><span class="line"><span class="comment">// 但是也可以在Player类中实现一个自己的Atk方法, 自己实现的Atk方法与显式实现接口中的方法无关</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C#中的委托和事件</title>
     <url>/csharp/csharp-delegate-and-event/</url>
     <content><![CDATA[<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><p>委托是函数的容器, 可以用来存储传递函数</p>
@@ -1938,21 +1962,70 @@
       </tags>
   </entry>
   <entry>
-    <title>C#中的装箱拆箱</title>
-    <url>/csharp/csharp-packing-and-unpacking/</url>
-    <content><![CDATA[<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">object</span> obj = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">value</span> = (<span class="keyword">int</span>)obj;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params"><span class="keyword">params</span> <span class="keyword">object</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TestFun(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3.45</span>, <span class="string">&quot;string&quot;</span>);</span><br></pre></td></tr></table></figure>
+    <title>C#中的泛型和泛型约束</title>
+    <url>/csharp/csharp-generic/</url>
+    <content><![CDATA[<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型实现了类型参数化, 达到代码复用目的</p>
+<p>泛型相当于类型占位符</p>
+<h3 id="泛型类和泛型接口"><a href="#泛型类和泛型接口" class="headerlink" title="泛型类和泛型接口"></a>泛型类和泛型接口</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">TestClass</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>,<span class="title">K</span>,<span class="title">M</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T v1;</span><br><span class="line">    <span class="keyword">public</span> K v2;</span><br><span class="line">    <span class="keyword">public</span> M v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="发生条件"><a href="#发生条件" class="headerlink" title="发生条件"></a>发生条件</h2><ul>
-<li>装箱: 值类型存储为object时</li>
-<li>拆箱: 将object转为值类型</li>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">ITest</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    T Value &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Test</span> : <span class="title">ITest</span>&lt;<span class="title">int</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> v;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span> =&gt; v; <span class="keyword">set</span> &#123; v = <span class="keyword">value</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">default</span>(<span class="keyword">int</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="keyword">default</span>(<span class="keyword">string</span>); <span class="comment">// null</span></span><br><span class="line"><span class="keyword">default</span>(T); <span class="comment">// 获得泛型类型的默认值</span></span><br></pre></td></tr></table></figure>
+
+<p>普通类中的泛型方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params">T <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="keyword">value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 用泛型类型做一些逻辑判断</span></span><br><span class="line">        T t = <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> v</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>,<span class="title">K</span>&gt;(<span class="params">T v1, K v2</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>泛型类中的泛型方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params">T t</span>)</span> &#123;&#125; <span class="comment">// 不是泛型类, 因为类型变量是属于类的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K v</span>)</span> &#123;&#125; <span class="comment">// 与类的泛型变量不同</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">Test&lt;<span class="keyword">int</span>&gt; t = <span class="keyword">new</span> Test&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">t.TestFun(<span class="number">10</span>); <span class="comment">// 使用非泛型方法</span></span><br><span class="line">t.TestFun&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>); <span class="comment">// 使用泛型方法</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型的作用"><a href="#泛型的作用" class="headerlink" title="泛型的作用"></a>泛型的作用</h2><ol>
+<li>不同类型对象的相同逻辑处理可以选择泛型</li>
+<li>泛型可以一定程度避免装箱拆箱</li>
+<li>不确定泛型类型时, 想获取默认值, 可以使用<code>default(占位符)</code></li>
+</ol>
+<h2 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h2><p>让泛型的类型有一定约束</p>
+<h3 id="泛型约束类型"><a href="#泛型约束类型" class="headerlink" title="泛型约束类型"></a>泛型约束类型</h3><p>关键字 <code>where</code></p>
+<ol>
+<li>值类型                   <code>where T:struct</code></li>
+<li>引用类型                 <code>where T:class</code></li>
+<li>存在无参公共构造函数      <code>where T:new()</code></li>
+<li>某个类本身或者其派生类    <code>where T:类名</code></li>
+<li>某个接口的派生类型        <code>where T:接口名</code></li>
+<li>另一个泛型类型本身或者派生类型 <code>where T:V</code></li>
+</ol>
+<p>上面的4,5,6类似, 要求泛型是后面的类型或其子类</p>
+<h3 id="泛型约束使用"><a href="#泛型约束使用" class="headerlink" title="泛型约束使用"></a>泛型约束使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt; <span class="keyword">where</span> <span class="title">T</span> : <span class="title">struct</span> <span class="comment">// T只允许是值类型</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K <span class="keyword">value</span></span>) <span class="keyword">where</span> K : <span class="title">new</span>(<span class="params"></span>) <span class="comment">// K必须有公共的无参构造函数</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun1</span>&lt;<span class="title">M</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> M : class <span class="comment">// M必须是引用类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun2</span>&lt;<span class="title">P</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> P : GameObject <span class="comment">// P必须是GameObject或者其子类类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型约束组合使用"><a href="#泛型约束组合使用" class="headerlink" title="泛型约束组合使用"></a>泛型约束组合使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">class Test&lt;T, K&gt; where T : class , new() where K : struct</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C#中的协变和逆变</title>
+    <url>/csharp/csharp-covariance-and-inverter/</url>
+    <content><![CDATA[<h2 id="什么是协变逆变"><a href="#什么是协变逆变" class="headerlink" title="什么是协变逆变"></a>什么是协变逆变</h2><p><strong>主要用于泛型重载之间相互装载时使用</strong></p>
+<p>基本原理就是<strong>子类对象可以作为父类使用</strong></p>
+<p>只有<strong>泛型接口</strong>和<strong>泛型委托</strong>能使用</p>
+<p>协变和逆变是用来修饰泛型类型的</p>
+<ul>
+<li>协变: <code>out</code> 只能用于返回值  父类泛型委托装子类泛型委托对象</li>
+<li>逆变: <code>in</code> 只能用于参数     子类泛型委托装父类泛型委托对象</li>
 </ul>
-<h2 id="装箱"><a href="#装箱" class="headerlink" title="装箱"></a>装箱</h2><p>把值类型用引用类型存储, 装箱时会将栈内存迁移到堆内存中, 会有性能消耗</p>
-<h2 id="拆箱"><a href="#拆箱" class="headerlink" title="拆箱"></a>拆箱</h2><p>把引用类型存储的值取出来, 堆内存迁移到栈内存</p>
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><ul>
-<li>好处: 不确定类型时可以方便参数的存储和传递</li>
-<li>坏处: 存在内存迁移, 增加性能消耗</li>
-</ul>
-<p>装箱拆箱不是说不能用, 而是尽量少用, 避免频繁装箱拆箱造成大量的性能消耗</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="返回值和参数"><a href="#返回值和参数" class="headerlink" title="返回值和参数"></a>返回值和参数</h3><ol>
+<li>用<code>out</code>修饰的泛型只能作为返回值类型</li>
+<li>用<code>in</code>修饰的泛型只能作为参数类型</li>
+</ol>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">TestOut</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>; <span class="comment">// T只能作为返回值类型</span></span><br><span class="line"><span class="comment">// delegate void TestOut&lt;out T&gt;(T v); // 报错, out修饰的类型不能作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TestIn</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T t</span>)</span>; <span class="comment">// T只能作为参数类型</span></span><br><span class="line"><span class="comment">// 同样, in修饰的类型不能作为返回值类型</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">Test</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">T <span class="title">TestFun</span>(<span class="params"></span>)</span>; <span class="comment">// T作为返回值可以, 作为参数不行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>父类总是能被子类替代</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Base</span> &#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">A</span> : <span class="title">Base</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">Test</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; ta = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line"><span class="comment">// Test&lt;Base&gt; tb = ta; // 这里会报错, 虽然返回的A对象其实可以作为Base使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">TestOut</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; toa = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line">Test&lt;Base&gt; tob = toa; <span class="comment">// 这里不会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">Test&lt;Base&gt; tb = (<span class="keyword">value</span>) =&gt; &#123;&#125;; <span class="comment">// value是Base类型</span></span><br><span class="line"><span class="comment">// Test&lt;A&gt; ta = tb; // 报错, 虽然传入的A参数可以作为Base传给value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TestIn</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">TestIn&lt;Base&gt; tib = (<span class="keyword">value</span>) =&gt; &#123;&#125;;</span><br><span class="line">TestIn&lt;A&gt; tia = tib; <span class="comment">// 不会报错</span></span><br><span class="line"></span><br><span class="line">tia(<span class="keyword">new</span> A());</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>C#</category>
@@ -1999,6 +2072,22 @@
 
 <h2 id="多线程作用"><a href="#多线程作用" class="headerlink" title="多线程作用"></a>多线程作用</h2><p>用于处理一些复杂耗时的逻辑, 比如寻路, 网络通信等等, 避免主线程卡顿</p>
 ]]></content>
+      <categories>
+        <category>C#</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C#中的预编译指令</title>
+    <url>/csharp/csharp-precompile/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>预处理器指令可以在代码编译之前进行一些逻辑处理, 一般用于平台或者版本的判断</p>
+<h3 id="代码折叠-region"><a href="#代码折叠-region" class="headerlink" title="代码折叠 region"></a>代码折叠 region</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 知识点一</span></span><br><span class="line"><span class="comment">// 这是C#专有的预编译指令, 可以让一段代码可以折叠起来</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;这里是知识点一&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="符号定义-amp-条件编译"><a href="#符号定义-amp-条件编译" class="headerlink" title="符号定义 &amp; 条件编译"></a>符号定义 &amp; 条件编译</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Unity5 // 定义符号</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> Unity5 // 取消定义符号</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Unity2019</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Unity2019版本&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line"><span class="comment">// 可以通过 &amp;&amp; 和 || 进行多种逻辑判断</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> Unity2017 &amp;&amp; IOS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="警告与错误"><a href="#警告与错误" class="headerlink" title="警告与错误"></a>警告与错误</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> Unity2017</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">warning</span> 版本较低</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="comment">// #error 如果生效, 则直接产生错误, 不允许编译</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">error</span> 这个版本不支持</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>C#</category>
       </categories>
@@ -2104,70 +2193,32 @@
       </tags>
   </entry>
   <entry>
-    <title>C#中的泛型和泛型约束</title>
-    <url>/csharp/csharp-generic/</url>
-    <content><![CDATA[<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型实现了类型参数化, 达到代码复用目的</p>
-<p>泛型相当于类型占位符</p>
-<h3 id="泛型类和泛型接口"><a href="#泛型类和泛型接口" class="headerlink" title="泛型类和泛型接口"></a>泛型类和泛型接口</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">TestClass</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>,<span class="title">K</span>,<span class="title">M</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T v1;</span><br><span class="line">    <span class="keyword">public</span> K v2;</span><br><span class="line">    <span class="keyword">public</span> M v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>C#中的迭代器</title>
+    <url>/csharp/csharp-iterator/</url>
+    <content><![CDATA[<h2 id="迭代器概念"><a href="#迭代器概念" class="headerlink" title="迭代器概念"></a>迭代器概念</h2><h3 id="迭代器是什么"><a href="#迭代器是什么" class="headerlink" title="迭代器是什么"></a>迭代器是什么</h3><p>迭代器 (Iterator) 有时又称为光标(cursor)</p>
+<p>是程序设计的一种软件设计模式</p>
+<p>迭代器模式: 提供一个方法顺序访问一个集合对象中的各个元素, 而又不暴露其内部的标识</p>
+<p>从表现效果上看是可以在容器对象(例如链表或者数组)上遍历访问的接口</p>
+<p>可以使用 <code>foreach</code> 遍历的类都是实现了迭代器的</p>
+<h2 id="标准迭代器的实现方法"><a href="#标准迭代器的实现方法" class="headerlink" title="标准迭代器的实现方法"></a>标准迭代器的实现方法</h2><p>关键接口: <code>IEnumerator</code>, <code>IEnumerable</code></p>
+<p>命令空间: <code>using System.Collections</code></p>
+<p>可以通过同时继承<code>IEnumerable</code>和<code>IEnumerator</code>实现其中的方法</p>
+<p><strong>想要在foreach中使用的类型, 必须实现<code>public IEunmerator GetEnumerator()</code>方法</strong>, 一般通过实现<code>IEnumerable</code>接口来实现方法</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">CustomList</span> : <span class="title">IEnumerable</span>, <span class="title">IEnumerator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomList</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> &#125;;</span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Reset(); <span class="comment">// 重置光标一般在获取迭代器时调用一次</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerator</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">object</span> Current =&gt; list[position];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 移动光标</span></span><br><span class="line">        ++position;</span><br><span class="line">        <span class="keyword">return</span> position &lt; list.Length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 重置光标</span></span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">ITest</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    T Value &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Test</span> : <span class="title">ITest</span>&lt;<span class="title">int</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> v;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span> =&gt; v; <span class="keyword">set</span> &#123; v = <span class="keyword">value</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 
-<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">default</span>(<span class="keyword">int</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="keyword">default</span>(<span class="keyword">string</span>); <span class="comment">// null</span></span><br><span class="line"><span class="keyword">default</span>(T); <span class="comment">// 获得泛型类型的默认值</span></span><br></pre></td></tr></table></figure>
-
-<p>普通类中的泛型方法</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params">T <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="keyword">value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 用泛型类型做一些逻辑判断</span></span><br><span class="line">        T t = <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> v</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>,<span class="title">K</span>&gt;(<span class="params">T v1, K v2</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>泛型类中的泛型方法</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params">T t</span>)</span> &#123;&#125; <span class="comment">// 不是泛型类, 因为类型变量是属于类的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K v</span>)</span> &#123;&#125; <span class="comment">// 与类的泛型变量不同</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">Test&lt;<span class="keyword">int</span>&gt; t = <span class="keyword">new</span> Test&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">t.TestFun(<span class="number">10</span>); <span class="comment">// 使用非泛型方法</span></span><br><span class="line">t.TestFun&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>); <span class="comment">// 使用泛型方法</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="泛型的作用"><a href="#泛型的作用" class="headerlink" title="泛型的作用"></a>泛型的作用</h2><ol>
-<li>不同类型对象的相同逻辑处理可以选择泛型</li>
-<li>泛型可以一定程度避免装箱拆箱</li>
-<li>不确定泛型类型时, 想获取默认值, 可以使用<code>default(占位符)</code></li>
+<h4 id="foreach-本质"><a href="#foreach-本质" class="headerlink" title="foreach 本质"></a>foreach 本质</h4><ol>
+<li>先获取遍历对象的<code>IEnumerator</code>, 调用它的<code>public IEnumerator GetEnumerator()</code>方法获取</li>
+<li>执行得到这个<code>IEnumerator</code>对象中的<code>MoveNext</code>方法</li>
+<li>只要MoveNext方法返回true, 就去得到Current, 赋值给item(迭代变量)</li>
+<li>如果MoveNext方法返回false, 则调用Reset方法, 退出foreach循环</li>
 </ol>
-<h2 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h2><p>让泛型的类型有一定约束</p>
-<h3 id="泛型约束类型"><a href="#泛型约束类型" class="headerlink" title="泛型约束类型"></a>泛型约束类型</h3><p>关键字 <code>where</code></p>
-<ol>
-<li>值类型                   <code>where T:struct</code></li>
-<li>引用类型                 <code>where T:class</code></li>
-<li>存在无参公共构造函数      <code>where T:new()</code></li>
-<li>某个类本身或者其派生类    <code>where T:类名</code></li>
-<li>某个接口的派生类型        <code>where T:接口名</code></li>
-<li>另一个泛型类型本身或者派生类型 <code>where T:V</code></li>
-</ol>
-<p>上面的4,5,6类似, 要求泛型是后面的类型或其子类</p>
-<h3 id="泛型约束使用"><a href="#泛型约束使用" class="headerlink" title="泛型约束使用"></a>泛型约束使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt; <span class="keyword">where</span> <span class="title">T</span> : <span class="title">struct</span> <span class="comment">// T只允许是值类型</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K <span class="keyword">value</span></span>) <span class="keyword">where</span> K : <span class="title">new</span>(<span class="params"></span>) <span class="comment">// K必须有公共的无参构造函数</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun1</span>&lt;<span class="title">M</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> M : class <span class="comment">// M必须是引用类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun2</span>&lt;<span class="title">P</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> P : GameObject <span class="comment">// P必须是GameObject或者其子类类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="用yield-return语法糖实现迭代器"><a href="#用yield-return语法糖实现迭代器" class="headerlink" title="用yield return语法糖实现迭代器"></a>用yield return语法糖实现迭代器</h2><p>yield return 是C#的语法糖(糖衣语法, 简化实现逻辑)</p>
+<p>让想要通过<code>foreach</code>遍历的自定义类实现<code>IEnumerable</code>接口</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyList</span> : <span class="title">IEnumerable</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyList</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.Length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// yield 关键字, 配合迭代器使用</span></span><br><span class="line">            <span class="comment">// 可以理解为, 暂时返回, 保留当前状态</span></span><br><span class="line">            <span class="comment">// 下次调用&quot;MoveNext&quot;并获取&quot;Current&quot;其实接着上次的yield return 位置下一句继续执行</span></span><br><span class="line">            <span class="comment">// C#的语法糖, 本质还是 一个IEnumerator对象, 通过迭代器对象内部的&quot;MoveNext&quot;和&quot;Current&quot;实现 </span></span><br><span class="line">            <span class="keyword">yield</span> <span class="keyword">return</span> list[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="泛型约束组合使用"><a href="#泛型约束组合使用" class="headerlink" title="泛型约束组合使用"></a>泛型约束组合使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">class Test&lt;T, K&gt; where T : class , new() where K : struct</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C#中的协变和逆变</title>
-    <url>/csharp/csharp-covariance-and-inverter/</url>
-    <content><![CDATA[<h2 id="什么是协变逆变"><a href="#什么是协变逆变" class="headerlink" title="什么是协变逆变"></a>什么是协变逆变</h2><p><strong>主要用于泛型重载之间相互装载时使用</strong></p>
-<p>基本原理就是<strong>子类对象可以作为父类使用</strong></p>
-<p>只有<strong>泛型接口</strong>和<strong>泛型委托</strong>能使用</p>
-<p>协变和逆变是用来修饰泛型类型的</p>
-<ul>
-<li>协变: <code>out</code> 只能用于返回值  父类泛型委托装子类泛型委托对象</li>
-<li>逆变: <code>in</code> 只能用于参数     子类泛型委托装父类泛型委托对象</li>
-</ul>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="返回值和参数"><a href="#返回值和参数" class="headerlink" title="返回值和参数"></a>返回值和参数</h3><ol>
-<li>用<code>out</code>修饰的泛型只能作为返回值类型</li>
-<li>用<code>in</code>修饰的泛型只能作为参数类型</li>
-</ol>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">TestOut</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>; <span class="comment">// T只能作为返回值类型</span></span><br><span class="line"><span class="comment">// delegate void TestOut&lt;out T&gt;(T v); // 报错, out修饰的类型不能作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TestIn</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T t</span>)</span>; <span class="comment">// T只能作为参数类型</span></span><br><span class="line"><span class="comment">// 同样, in修饰的类型不能作为返回值类型</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">Test</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">T <span class="title">TestFun</span>(<span class="params"></span>)</span>; <span class="comment">// T作为返回值可以, 作为参数不行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>父类总是能被子类替代</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Base</span> &#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">A</span> : <span class="title">Base</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">Test</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; ta = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line"><span class="comment">// Test&lt;Base&gt; tb = ta; // 这里会报错, 虽然返回的A对象其实可以作为Base使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">TestOut</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; toa = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line">Test&lt;Base&gt; tob = toa; <span class="comment">// 这里不会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">Test&lt;Base&gt; tb = (<span class="keyword">value</span>) =&gt; &#123;&#125;; <span class="comment">// value是Base类型</span></span><br><span class="line"><span class="comment">// Test&lt;A&gt; ta = tb; // 报错, 虽然传入的A参数可以作为Base传给value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TestIn</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">TestIn&lt;Base&gt; tib = (<span class="keyword">value</span>) =&gt; &#123;&#125;;</span><br><span class="line">TestIn&lt;A&gt; tia = tib; <span class="comment">// 不会报错</span></span><br><span class="line"></span><br><span class="line">tia(<span class="keyword">new</span> A());</span><br></pre></td></tr></table></figure>
+<h2 id="泛型迭代器"><a href="#泛型迭代器" class="headerlink" title="泛型迭代器"></a>泛型迭代器</h2><p>可以将上述的类改为泛型实现, <code>IEnumerable</code>也有泛型的接口, <code>IEnumerator</code>也有泛型类型</p>
 ]]></content>
       <categories>
         <category>C#</category>
@@ -2284,6 +2335,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity工具栏与基础操作</title>
+    <url>/unity/unity-toolbar/</url>
+    <content><![CDATA[<h3 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h3><ul>
+<li>File: 新建工程, 新建场景, 工程打包设置等<ul>
+<li><strong>Build Settings</strong> (工程打包设置)</li>
+</ul>
+</li>
+<li>Edit: 对象编辑, 工程设置, 引擎相关<ul>
+<li>Frame Selected (f) 视野集中到所选物体</li>
+<li>Lock View to Selected (shift + f) 视野锁定跟随物体</li>
+<li><strong>Project Settings</strong> (工程设置, 输入系统, 物理系统, Tag&amp;Layer等) 保存在ProjectSettings文件夹中</li>
+<li><strong>Preferences</strong> (首选项, IDE工具设置)</li>
+<li>Clear All PlayerPrefs</li>
+<li>Grid and Snap (设置网格大小, 移动的吸附, 旋转吸附, 缩放吸附(按住Ctrl))</li>
+</ul>
+</li>
+</ul>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
+<li><code>Ctrl+Alt+F</code> Move To View 将物体移动到摄像机视口中央位置</li>
+<li><code>Ctrl+Shift+F</code> Align With View 将物体对齐到当前视口位置 (位置, 旋转), 常用于操作摄像机, 用Scenes窗口找到一个看起来比较好的视角, 选中摄像机对齐到视口, 那么该摄像机看到的就是当前Scenes视口看到的 (快速设置摄像机位置)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C#中特性的使用</title>
     <url>/csharp/csharp-features/</url>
     <content><![CDATA[<h3 id="特性是什么"><a href="#特性是什么" class="headerlink" title="特性是什么"></a>特性是什么</h3><p>特性可以在运行时使用反射查询特性信息</p>
@@ -2342,102 +2423,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C#中的预编译指令</title>
-    <url>/csharp/csharp-precompile/</url>
-    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>预处理器指令可以在代码编译之前进行一些逻辑处理, 一般用于平台或者版本的判断</p>
-<h3 id="代码折叠-region"><a href="#代码折叠-region" class="headerlink" title="代码折叠 region"></a>代码折叠 region</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 知识点一</span></span><br><span class="line"><span class="comment">// 这是C#专有的预编译指令, 可以让一段代码可以折叠起来</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;这里是知识点一&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="符号定义-amp-条件编译"><a href="#符号定义-amp-条件编译" class="headerlink" title="符号定义 &amp; 条件编译"></a>符号定义 &amp; 条件编译</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Unity5 // 定义符号</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> Unity5 // 取消定义符号</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Unity2019</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Unity2019版本&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line"><span class="comment">// 可以通过 &amp;&amp; 和 || 进行多种逻辑判断</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> Unity2017 &amp;&amp; IOS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="警告与错误"><a href="#警告与错误" class="headerlink" title="警告与错误"></a>警告与错误</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> Unity2017</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">warning</span> 版本较低</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="comment">// #error 如果生效, 则直接产生错误, 不允许编译</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">error</span> 这个版本不支持</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C#中的迭代器</title>
-    <url>/csharp/csharp-iterator/</url>
-    <content><![CDATA[<h2 id="迭代器概念"><a href="#迭代器概念" class="headerlink" title="迭代器概念"></a>迭代器概念</h2><h3 id="迭代器是什么"><a href="#迭代器是什么" class="headerlink" title="迭代器是什么"></a>迭代器是什么</h3><p>迭代器 (Iterator) 有时又称为光标(cursor)</p>
-<p>是程序设计的一种软件设计模式</p>
-<p>迭代器模式: 提供一个方法顺序访问一个集合对象中的各个元素, 而又不暴露其内部的标识</p>
-<p>从表现效果上看是可以在容器对象(例如链表或者数组)上遍历访问的接口</p>
-<p>可以使用 <code>foreach</code> 遍历的类都是实现了迭代器的</p>
-<h2 id="标准迭代器的实现方法"><a href="#标准迭代器的实现方法" class="headerlink" title="标准迭代器的实现方法"></a>标准迭代器的实现方法</h2><p>关键接口: <code>IEnumerator</code>, <code>IEnumerable</code></p>
-<p>命令空间: <code>using System.Collections</code></p>
-<p>可以通过同时继承<code>IEnumerable</code>和<code>IEnumerator</code>实现其中的方法</p>
-<p><strong>想要在foreach中使用的类型, 必须实现<code>public IEunmerator GetEnumerator()</code>方法</strong>, 一般通过实现<code>IEnumerable</code>接口来实现方法</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">CustomList</span> : <span class="title">IEnumerable</span>, <span class="title">IEnumerator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomList</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> &#125;;</span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Reset(); <span class="comment">// 重置光标一般在获取迭代器时调用一次</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerator</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">object</span> Current =&gt; list[position];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 移动光标</span></span><br><span class="line">        ++position;</span><br><span class="line">        <span class="keyword">return</span> position &lt; list.Length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 重置光标</span></span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h4 id="foreach-本质"><a href="#foreach-本质" class="headerlink" title="foreach 本质"></a>foreach 本质</h4><ol>
-<li>先获取遍历对象的<code>IEnumerator</code>, 调用它的<code>public IEnumerator GetEnumerator()</code>方法获取</li>
-<li>执行得到这个<code>IEnumerator</code>对象中的<code>MoveNext</code>方法</li>
-<li>只要MoveNext方法返回true, 就去得到Current, 赋值给item(迭代变量)</li>
-<li>如果MoveNext方法返回false, 则调用Reset方法, 退出foreach循环</li>
-</ol>
-<h2 id="用yield-return语法糖实现迭代器"><a href="#用yield-return语法糖实现迭代器" class="headerlink" title="用yield return语法糖实现迭代器"></a>用yield return语法糖实现迭代器</h2><p>yield return 是C#的语法糖(糖衣语法, 简化实现逻辑)</p>
-<p>让想要通过<code>foreach</code>遍历的自定义类实现<code>IEnumerable</code>接口</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyList</span> : <span class="title">IEnumerable</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyList</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.Length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// yield 关键字, 配合迭代器使用</span></span><br><span class="line">            <span class="comment">// 可以理解为, 暂时返回, 保留当前状态</span></span><br><span class="line">            <span class="comment">// 下次调用&quot;MoveNext&quot;并获取&quot;Current&quot;其实接着上次的yield return 位置下一句继续执行</span></span><br><span class="line">            <span class="comment">// C#的语法糖, 本质还是 一个IEnumerator对象, 通过迭代器对象内部的&quot;MoveNext&quot;和&quot;Current&quot;实现 </span></span><br><span class="line">            <span class="keyword">yield</span> <span class="keyword">return</span> list[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="泛型迭代器"><a href="#泛型迭代器" class="headerlink" title="泛型迭代器"></a>泛型迭代器</h2><p>可以将上述的类改为泛型实现, <code>IEnumerable</code>也有泛型的接口, <code>IEnumerator</code>也有泛型类型</p>
-]]></content>
-      <categories>
-        <category>C#</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity工具栏与基础操作</title>
-    <url>/unity/unity-toolbar/</url>
-    <content><![CDATA[<h3 id="工具栏"><a href="#工具栏" class="headerlink" title="工具栏"></a>工具栏</h3><ul>
-<li>File: 新建工程, 新建场景, 工程打包设置等<ul>
-<li><strong>Build Settings</strong> (工程打包设置)</li>
-</ul>
-</li>
-<li>Edit: 对象编辑, 工程设置, 引擎相关<ul>
-<li>Frame Selected (f) 视野集中到所选物体</li>
-<li>Lock View to Selected (shift + f) 视野锁定跟随物体</li>
-<li><strong>Project Settings</strong> (工程设置, 输入系统, 物理系统, Tag&amp;Layer等) 保存在ProjectSettings文件夹中</li>
-<li><strong>Preferences</strong> (首选项, IDE工具设置)</li>
-<li>Clear All PlayerPrefs</li>
-<li>Grid and Snap (设置网格大小, 移动的吸附, 旋转吸附, 缩放吸附(按住Ctrl))</li>
-</ul>
-</li>
-</ul>
-<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
-<li><code>Ctrl+Alt+F</code> Move To View 将物体移动到摄像机视口中央位置</li>
-<li><code>Ctrl+Shift+F</code> Align With View 将物体对齐到当前视口位置 (位置, 旋转), 常用于操作摄像机, 用Scenes窗口找到一个看起来比较好的视角, 选中摄像机对齐到视口, 那么该摄像机看到的就是当前Scenes视口看到的 (快速设置摄像机位置)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity游戏基础框架2 -- 缓存池模块</title>
-    <url>/unity/unity-game-base-cache-pool/</url>
-    <content><![CDATA[<h2 id="缓存池模块"><a href="#缓存池模块" class="headerlink" title="缓存池模块"></a>缓存池模块</h2><p>对于场景上需要大量创建的物体, 例如子弹, 不能一直创建新物体然后弃用, 这样会不断消耗内存, 使得GC发生频率变高</p>
-<p>缓存池放各种抽屉, 每个抽屉里存放一种资源的缓存</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"><span class="comment">// 抽屉</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PoolData</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> GameObject root_;</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;GameObject&gt; objQueue_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PoolData</span>(<span class="params"><span class="keyword">string</span> name, GameObject poolObj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        root_ = <span class="keyword">new</span> GameObject(name);</span><br><span class="line">        root_.transform.parent = poolObj.transform;</span><br><span class="line">        objQueue_ = <span class="keyword">new</span> Queue&lt;GameObject&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetObj</span>(<span class="params">UnityAction&lt;GameObject&gt; callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GameObject obj;</span><br><span class="line">        <span class="keyword">if</span> (objQueue_.Count &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            obj = objQueue_.Dequeue();</span><br><span class="line">            obj.transform.parent = <span class="literal">null</span>;</span><br><span class="line">            obj.SetActive(<span class="literal">true</span>);</span><br><span class="line">            callback?.Invoke(obj);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ResMgr.Instance.LoadAsync&lt;GameObject&gt;(root_.name, (obj) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                obj.name = root_.name;</span><br><span class="line">                callback(obj);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PushObj</span>(<span class="params">GameObject obj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        obj.SetActive(<span class="literal">false</span>);</span><br><span class="line">        obj.transform.parent = root_.transform;</span><br><span class="line">        objQueue_.Enqueue(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 缓存池</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PoolMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">PoolMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, PoolData&gt; poolDic_;</span><br><span class="line">    <span class="keyword">private</span> GameObject poolObj_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PoolMgr</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        poolDic_ = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, PoolData&gt;();</span><br><span class="line">        poolObj_ = <span class="keyword">new</span> GameObject(<span class="string">&quot;Pool&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">CheckData</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (poolObj_ == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            poolObj_ = <span class="keyword">new</span> GameObject(<span class="string">&quot;Pool&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!poolDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            poolDic_[name] = <span class="keyword">new</span> PoolData(name, poolObj_);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 获取缓存池中的对象, 若不存在则自动从Resources目录中异步加载实例化</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>资源在Resources目录中的相对路劲<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>处理资源的回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetObj</span>(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;GameObject&gt; callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        CheckData(name);</span><br><span class="line">        poolDic_[name].GetObj(callback);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 调用该方法, 将对象压入缓存池中</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>抽屉名称(Resources下的资源路径)<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;obj&quot;&gt;</span>需要压入的对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PushObj</span>(<span class="params"><span class="keyword">string</span> name, GameObject obj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        CheckData(name);</span><br><span class="line">        poolDic_[name].PushObj(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>Framework</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity中对象间的父子关系</title>
     <url>/unity/unity-object-parent/</url>
     <content><![CDATA[<ul>
@@ -2481,10 +2466,58 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity游戏基础框架1 -- 单例模块</title>
+    <url>/unity/unity-game-base-singleton/</url>
+    <content><![CDATA[<p>制作游戏, 通用框架是基础, 通过各框架模块互相配合使用, 搭建各种玩法的游戏</p>
+<p>这里不考虑多线程应用</p>
+<h2 id="单例模块"><a href="#单例模块" class="headerlink" title="单例模块"></a>单例模块</h2><h3 id="普通类单例"><a href="#普通类单例" class="headerlink" title="普通类单例"></a>普通类单例</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">public class BaseManager&lt;T&gt; where T : new()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> T instance_;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> T Instance</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance_ == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                instance_ = <span class="keyword">new</span> T();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="基于MonoBehaviour的单例"><a href="#基于MonoBehaviour的单例" class="headerlink" title="基于MonoBehaviour的单例"></a>基于MonoBehaviour的单例</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BaseMonoManager</span>&lt;<span class="title">T</span>&gt; : <span class="title">MonoBehaviour</span> <span class="keyword">where</span> <span class="title">T</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> T instance_;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> T Instance</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance_ == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                GameObject obj = <span class="keyword">new</span> GameObject();</span><br><span class="line">                DontDestroyOnLoad(obj); <span class="comment">// 让这个单例对象过场景不移除</span></span><br><span class="line">                obj.name = <span class="keyword">typeof</span>(T).Name;</span><br><span class="line">                instance_ = obj.AddComponent&lt;T&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>Framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity游戏基础框架2 -- 缓存池模块</title>
+    <url>/unity/unity-game-base-cache-pool/</url>
+    <content><![CDATA[<h2 id="缓存池模块"><a href="#缓存池模块" class="headerlink" title="缓存池模块"></a>缓存池模块</h2><p>对于场景上需要大量创建的物体, 例如子弹, 不能一直创建新物体然后弃用, 这样会不断消耗内存, 使得GC发生频率变高</p>
+<p>缓存池放各种抽屉, 每个抽屉里存放一种资源的缓存</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"><span class="comment">// 抽屉</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PoolData</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> GameObject root_;</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;GameObject&gt; objQueue_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PoolData</span>(<span class="params"><span class="keyword">string</span> name, GameObject poolObj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        root_ = <span class="keyword">new</span> GameObject(name);</span><br><span class="line">        root_.transform.parent = poolObj.transform;</span><br><span class="line">        objQueue_ = <span class="keyword">new</span> Queue&lt;GameObject&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetObj</span>(<span class="params">UnityAction&lt;GameObject&gt; callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GameObject obj;</span><br><span class="line">        <span class="keyword">if</span> (objQueue_.Count &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            obj = objQueue_.Dequeue();</span><br><span class="line">            obj.transform.parent = <span class="literal">null</span>;</span><br><span class="line">            obj.SetActive(<span class="literal">true</span>);</span><br><span class="line">            callback?.Invoke(obj);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ResMgr.Instance.LoadAsync&lt;GameObject&gt;(root_.name, (obj) =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                obj.name = root_.name;</span><br><span class="line">                callback(obj);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PushObj</span>(<span class="params">GameObject obj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        obj.SetActive(<span class="literal">false</span>);</span><br><span class="line">        obj.transform.parent = root_.transform;</span><br><span class="line">        objQueue_.Enqueue(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 缓存池</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PoolMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">PoolMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, PoolData&gt; poolDic_;</span><br><span class="line">    <span class="keyword">private</span> GameObject poolObj_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PoolMgr</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        poolDic_ = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, PoolData&gt;();</span><br><span class="line">        poolObj_ = <span class="keyword">new</span> GameObject(<span class="string">&quot;Pool&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">CheckData</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (poolObj_ == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            poolObj_ = <span class="keyword">new</span> GameObject(<span class="string">&quot;Pool&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!poolDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            poolDic_[name] = <span class="keyword">new</span> PoolData(name, poolObj_);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 获取缓存池中的对象, 若不存在则自动从Resources目录中异步加载实例化</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>资源在Resources目录中的相对路劲<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>处理资源的回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetObj</span>(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;GameObject&gt; callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        CheckData(name);</span><br><span class="line">        poolDic_[name].GetObj(callback);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 调用该方法, 将对象压入缓存池中</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>抽屉名称(Resources下的资源路径)<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;obj&quot;&gt;</span>需要压入的对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PushObj</span>(<span class="params"><span class="keyword">string</span> name, GameObject obj</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        CheckData(name);</span><br><span class="line">        poolDic_[name].PushObj(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>Framework</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Unity游戏基础框架3 -- 消息中心模块</title>
     <url>/unity/unity-game-base-message-center/</url>
     <content><![CDATA[<h2 id="事件中心模块"><a href="#事件中心模块" class="headerlink" title="事件中心模块"></a>事件中心模块</h2><p>各模块间复杂交互解耦神器, 建议全代码背诵</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MessageException</span> : <span class="title">System.Exception</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageException</span>(<span class="params"><span class="keyword">string</span> msg</span>) : <span class="title">base</span>(<span class="params">msg</span>)</span> &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MessageCenter</span> : <span class="title">BaseManager</span>&lt;<span class="title">MessageCenter</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, System.Delegate&gt; msgDic_;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageCenter</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        msgDic_ = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, System.Delegate&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddListener</span>(<span class="params"><span class="keyword">string</span> name, UnityAction listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnListening(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction)msgDic_[name] + listener;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddListener</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnListening(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction&lt;T&gt;)msgDic_[name] + listener;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveListener</span>(<span class="params"><span class="keyword">string</span> name, UnityAction listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnRemoving(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction)msgDic_[name] - listener;</span><br><span class="line">        OnRemoved(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveListener</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        OnRemoving(name, listener);</span><br><span class="line">        msgDic_[name] = (UnityAction&lt;T&gt;)msgDic_[name] - listener;</span><br><span class="line">        OnRemoved(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d != <span class="literal">null</span> &amp;&amp; d.GetType() != <span class="keyword">typeof</span>(UnityAction))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to send msg <span class="subst">&#123;name&#125;</span> as &quot;</span> +</span><br><span class="line">                    <span class="string">$&quot;UnityAction but dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            UnityAction action = d <span class="keyword">as</span> UnityAction;</span><br><span class="line">            action?.Invoke();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, T arg</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d != <span class="literal">null</span> &amp;&amp; d.GetType() != <span class="keyword">typeof</span>(UnityAction&lt;T&gt;))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to send msg <span class="subst">&#123;name&#125;</span> as &quot;</span> +</span><br><span class="line">                    <span class="string">$&quot;UnityAction but dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            UnityAction&lt;T&gt; action = d <span class="keyword">as</span> UnityAction&lt;T&gt;;</span><br><span class="line">            action?.Invoke(arg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Clear</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        msgDic_.Clear();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnListening</span>(<span class="params"><span class="keyword">string</span> name, Delegate listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            msgDic_.Add(name, <span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d != <span class="literal">null</span> &amp;&amp; d.GetType() != listener.GetType())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to add listener with type&quot;</span> +</span><br><span class="line">                    <span class="string">$&quot; <span class="subst">&#123;listener.GetType()&#125;</span>, but listeners in dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnRemoving</span>(<span class="params"><span class="keyword">string</span> name, Delegate listener</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!msgDic_.ContainsKey(name))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to remove listener&quot;</span> +</span><br><span class="line">                <span class="string">$&quot; from dic[<span class="subst">&#123;name&#125;</span>] but dic[<span class="subst">&#123;name&#125;</span>] not exist&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Delegate d = msgDic_[name];</span><br><span class="line">            <span class="keyword">if</span> (d == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to remove listener from&quot;</span> +</span><br><span class="line">                    <span class="string">$&quot; dic[<span class="subst">&#123;name&#125;</span>] but dic[<span class="subst">&#123;name&#125;</span>] is null&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (d.GetType() != listener.GetType())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MessageException(<span class="string">$&quot;Attempting to remove listener with type&quot;</span> +</span><br><span class="line">                    <span class="string">$&quot; <span class="subst">&#123;listener.GetType()&#125;</span> but listeners in dic[<span class="subst">&#123;name&#125;</span>] is <span class="subst">&#123;d.GetType()&#125;</span>&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnRemoved</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (msgDic_[name] == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            msgDic_.Remove(name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>Framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity游戏基础框架4 -- 公共Mono</title>
+    <url>/unity/unity-game-base-mono-manager/</url>
+    <content><![CDATA[<h2 id="公共Mono模块"><a href="#公共Mono模块" class="headerlink" title="公共Mono模块"></a>公共Mono模块</h2><p>让没有继承Mono的类可以开启协程或者Update更新, 统一管理Mono外需要的Update, 可以让外部普通类可以开启协程, 提供一个统一的延时执行函数</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MonoController</span> : <span class="title">BaseMonoManager</span>&lt;<span class="title">MonoController</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">event</span> UnityAction updateAction = <span class="literal">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        updateAction += action;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (updateAction != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            updateAction -= action;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        updateAction?.Invoke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MonoMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">MonoMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 将外部普通函数添加到公共Mono的Update中执行</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;action&quot;&gt;</span>需要在公共Mono的Update中执行的函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.AddUpdateAction(action);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 将Update中执行的函数移除</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;action&quot;&gt;</span>需要从公共Mono的Update移除的函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.RemoveUpdateAction(action);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 对外部普通函数开启协程</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;routine&quot;&gt;</span>协程函数返回的迭代器对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>Coroutine对象<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Coroutine <span class="title">StartCoroutine</span>(<span class="params">IEnumerator routine</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> MonoController.Instance.StartCoroutine(routine);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 停止一个携程函数</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;routine&quot;&gt;</span>携程函数返回的迭代器对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">StopCoroutine</span>(<span class="params">IEnumerator routine</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.StopCoroutine(routine);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 延迟执行函数</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;action&quot;&gt;</span>需要执行的函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;seconds&quot;&gt;</span>需要延迟的时间(秒)<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DelayCall</span>(<span class="params">UnityAction action, <span class="keyword">float</span> seconds</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.StartCoroutine(DelayCoroutine(action, seconds));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> IEnumerator <span class="title">DelayCoroutine</span>(<span class="params">UnityAction action, <span class="keyword">float</span> seconds</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">yield</span> return new <span class="title">WaitForSeconds</span>(<span class="params">seconds</span>)</span>;</span><br><span class="line">        action?.Invoke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -2501,23 +2534,6 @@
 <p>对GameObject的资源自动实例化, 对于非GameObject的资源则自动返回</p>
 <p>前面缓存池的实现都是用同步加载资源的方式, 如果碰到比较大比较耗时的资源, 同步加载可能导致游戏卡顿, 我们可以改写为异步加载</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ResMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">ResMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 同步加载资源</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span>资源类型<span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>Resources目录下的资源路径<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>对应资源<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">Load</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name</span>) <span class="keyword">where</span> T : Object</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Object obj = Resources.Load(name);</span><br><span class="line">        <span class="keyword">if</span> (obj <span class="keyword">is</span> GameObject) <span class="comment">// 如果对象是GameObject类型, 需要先实例化再返回</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> Object.Instantiate(obj) <span class="keyword">as</span> T;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">// TextAsset AudioClip 等等</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> obj <span class="keyword">as</span> T;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 异步加载资源</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span>资源类型<span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>Resources下的资源目录<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>处理资源的回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadAsync</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; callback</span>) <span class="keyword">where</span> T : Object</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoMgr.Instance.StartCoroutine(LoadAsyncCoroutine(name, callback));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> IEnumerator <span class="title">LoadAsyncCoroutine</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; callback</span>) <span class="keyword">where</span> T : Object</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        ResourceRequest req = Resources.LoadAsync(name);</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> req;</span><br><span class="line">        <span class="keyword">if</span> (req.asset <span class="keyword">is</span> GameObject)</span><br><span class="line">        &#123;</span><br><span class="line">            callback?.Invoke(Object.Instantiate(req.asset) <span class="keyword">as</span> T);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            callback?.Invoke(req.asset <span class="keyword">as</span> T);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>Framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity游戏基础框架1 -- 单例模块</title>
-    <url>/unity/unity-game-base-singleton/</url>
-    <content><![CDATA[<p>制作游戏, 通用框架是基础, 通过各框架模块互相配合使用, 搭建各种玩法的游戏</p>
-<p>这里不考虑多线程应用</p>
-<h2 id="单例模块"><a href="#单例模块" class="headerlink" title="单例模块"></a>单例模块</h2><h3 id="普通类单例"><a href="#普通类单例" class="headerlink" title="普通类单例"></a>普通类单例</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">public class BaseManager&lt;T&gt; where T : new()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> T instance_;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> T Instance</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance_ == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                instance_ = <span class="keyword">new</span> T();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="基于MonoBehaviour的单例"><a href="#基于MonoBehaviour的单例" class="headerlink" title="基于MonoBehaviour的单例"></a>基于MonoBehaviour的单例</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BaseMonoManager</span>&lt;<span class="title">T</span>&gt; : <span class="title">MonoBehaviour</span> <span class="keyword">where</span> <span class="title">T</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> T instance_;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> T Instance</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance_ == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                GameObject obj = <span class="keyword">new</span> GameObject();</span><br><span class="line">                DontDestroyOnLoad(obj); <span class="comment">// 让这个单例对象过场景不移除</span></span><br><span class="line">                obj.name = <span class="keyword">typeof</span>(T).Name;</span><br><span class="line">                instance_ = obj.AddComponent&lt;T&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Unity</category>
@@ -2558,19 +2574,151 @@
       </tags>
   </entry>
   <entry>
-    <title>Unity游戏基础框架4 -- 公共Mono</title>
-    <url>/unity/unity-game-base-mono-manager/</url>
-    <content><![CDATA[<h2 id="公共Mono模块"><a href="#公共Mono模块" class="headerlink" title="公共Mono模块"></a>公共Mono模块</h2><p>让没有继承Mono的类可以开启协程或者Update更新, 统一管理Mono外需要的Update, 可以让外部普通类可以开启协程, 提供一个统一的延时执行函数</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MonoController</span> : <span class="title">BaseMonoManager</span>&lt;<span class="title">MonoController</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">event</span> UnityAction updateAction = <span class="literal">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        updateAction += action;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (updateAction != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            updateAction -= action;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        updateAction?.Invoke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Unity中的坐标类型和坐标转换</title>
+    <url>/unity/unity-coordinate-system-and-translate/</url>
+    <content><![CDATA[<h2 id="坐标类型"><a href="#坐标类型" class="headerlink" title="坐标类型"></a>坐标类型</h2><h3 id="世界坐标"><a href="#世界坐标" class="headerlink" title="世界坐标"></a>世界坐标</h3><p>在世界坐标系中, 相对于场景中世界零点(0, 0, 0)的坐标</p>
+<p>Transform中的position属性就是世界坐标</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.position; <span class="comment">// 世界位置</span></span><br><span class="line">transform.rotation; <span class="comment">// 相对于世界坐标系的旋转 (四元数)</span></span><br><span class="line">transform.lossyScale; <span class="comment">// 相对于世界坐标系的缩放 (只读)</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MonoMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">MonoMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 将外部普通函数添加到公共Mono的Update中执行</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;action&quot;&gt;</span>需要在公共Mono的Update中执行的函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.AddUpdateAction(action);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 将Update中执行的函数移除</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;action&quot;&gt;</span>需要从公共Mono的Update移除的函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RemoveUpdateAction</span>(<span class="params">UnityAction action</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.RemoveUpdateAction(action);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 对外部普通函数开启协程</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;routine&quot;&gt;</span>协程函数返回的迭代器对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>Coroutine对象<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Coroutine <span class="title">StartCoroutine</span>(<span class="params">IEnumerator routine</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> MonoController.Instance.StartCoroutine(routine);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 停止一个携程函数</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;routine&quot;&gt;</span>携程函数返回的迭代器对象<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">StopCoroutine</span>(<span class="params">IEnumerator routine</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.StopCoroutine(routine);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 延迟执行函数</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;action&quot;&gt;</span>需要执行的函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;seconds&quot;&gt;</span>需要延迟的时间(秒)<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DelayCall</span>(<span class="params">UnityAction action, <span class="keyword">float</span> seconds</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoController.Instance.StartCoroutine(DelayCoroutine(action, seconds));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> IEnumerator <span class="title">DelayCoroutine</span>(<span class="params">UnityAction action, <span class="keyword">float</span> seconds</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">yield</span> return new <span class="title">WaitForSeconds</span>(<span class="params">seconds</span>)</span>;</span><br><span class="line">        action?.Invoke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="本地坐标"><a href="#本地坐标" class="headerlink" title="本地坐标"></a>本地坐标</h3><p>相对于父物体的位置, 旋转, 缩放</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.localPosition; <span class="comment">// 相对于父节点的位置</span></span><br><span class="line">transform.localRotation; <span class="comment">// 相对于父节点的旋转 (四元数)</span></span><br><span class="line">transform.localScale; <span class="comment">// 相对于父节点的缩放 (可读可写)</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="屏幕坐标"><a href="#屏幕坐标" class="headerlink" title="屏幕坐标"></a>屏幕坐标</h3><p>游戏窗口坐标, 窗口左下角为(0, 0), 该坐标以像素为单位</p>
+<p>常见的屏幕坐标:</p>
+<ul>
+<li><p><strong>鼠标位置</strong> <code>Input.mousePosition</code></p>
+</li>
+<li><p><strong>指针事件</strong> <code>PointerEventData</code>中的position</p>
+</li>
+<li><p><strong>绘制GUI界面使用的坐标</strong> <code>OnGui</code>中绘制控件使用的坐标</p>
+</li>
+<li><p><code>Screen.width</code> 和 <code>Screen.height</code> 获取的是当前游戏窗口的宽和高 (像素单位)</p>
+</li>
+<li><p><code>Screen.currentResolution.width</code> 和 <code>Screen.currentResolution.height</code> 获取的是当前显示器的分辨率的宽高, 与游戏窗口大小无关</p>
+</li>
+</ul>
+<h3 id="视口坐标"><a href="#视口坐标" class="headerlink" title="视口坐标"></a>视口坐标</h3><p>视口坐标, 指的是游戏窗口区域的<strong>比例单位</strong>, 左下角为(0, 0), 右上角(1.0, 1.0)</p>
+<h2 id="坐标概念和转换"><a href="#坐标概念和转换" class="headerlink" title="坐标概念和转换"></a>坐标概念和转换</h2><h3 id="transform-forward与Vector3-forward"><a href="#transform-forward与Vector3-forward" class="headerlink" title="transform.forward与Vector3.forward"></a><code>transform.forward</code>与<code>Vector3.forward</code></h3><ul>
+<li><code>transform.forward</code>是<strong>物体本地的z轴正方向的单位向量在世界坐标系中的值</strong>, 会随着物体旋转而改变</li>
+<li><code>Vector3.forward</code>是世界坐标z轴正方向的单位向量, 永远是(0, 0, 1)</li>
+</ul>
+<p>e.g. 让物体朝自己的正前方移动:</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 沿着自己正方向在世界坐标系中的向量, 以世界坐标系为参考移动</span></span><br><span class="line">transform.Translate(transform.forward, Space.World);</span><br><span class="line"><span class="comment">// 沿着自身坐标系的(0,0,1)方向移动</span></span><br><span class="line">transform.Translate(Vector3.forward, Space.Self);</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地坐标与世界坐标的转换"><a href="#本地坐标与世界坐标的转换" class="headerlink" title="本地坐标与世界坐标的转换"></a>本地坐标与世界坐标的转换</h3><h4 id="世界转本地"><a href="#世界转本地" class="headerlink" title="世界转本地"></a>世界转本地</h4><ul>
+<li><p>世界坐标点 转换 本地坐标点 (受到缩放影响, 当物体放大时, 其本地坐标的单位长度也变大了)</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.InverseTransformPoint(worldPos);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>世界坐标方向 转换 本地坐标系方向<br>向量方向不变, 原点从世界零点平移到物体原点, 并返回该向量在本地坐标系中的值</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不受缩放影响</span></span><br><span class="line">transform.InverseTransformDirection(worldDir);</span><br><span class="line"><span class="comment">// 受到缩放影响</span></span><br><span class="line">transform.InverseTransformVector(worldVec);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="本地转世界"><a href="#本地转世界" class="headerlink" title="本地转世界"></a>本地转世界</h4><ul>
+<li><p>本地坐标点转世界坐标点 (受到缩放影响)</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.TransformPoint(localPos);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地方向转世界方向</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不受缩放影响</span></span><br><span class="line">transform.TransformDirection(localDir);</span><br><span class="line"><span class="comment">// 受缩放影响</span></span><br><span class="line">transform.TransformVector(localVec);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="屏幕坐标与世界坐标转换"><a href="#屏幕坐标与世界坐标转换" class="headerlink" title="屏幕坐标与世界坐标转换"></a>屏幕坐标与世界坐标转换</h3><ul>
+<li><p>世界坐标点转为屏幕坐标点</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Vector3 screenPos = camera.WorldToScreenPoint(worldPos);</span><br></pre></td></tr></table></figure>
+<p>这里返回的是一个Vector3, 其中(x, y)是像素单位的屏幕坐标, 而z是以世界单位的 点到相机所在平面的距离 (也就是相机坐标系中, 物体的z坐标)</p>
+</li>
+<li><p>屏幕坐标转为世界坐标</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Vector3 worldPos = camera.ScreenToWorldPoint(screenPos);</span><br></pre></td></tr></table></figure>
+<p>这里传入的是一个Vector3, (x, y)是像素单位的屏幕坐标, z是世界单位的 点到相机所在平面的距离 (相机坐标系中 物体的z坐标)</p>
+</li>
+</ul>
+<h3 id="UI中的坐标"><a href="#UI中的坐标" class="headerlink" title="UI中的坐标"></a>UI中的坐标</h3><p>查阅很多资料, 发现Unity的UGUI的坐标相对不太好理解, 而且很多地方将锚框anchorMin与anchorMax是否重合分成两种情况讲, 让我有些疑惑</p>
+<p>这里查阅大量资料和动手实践, 试图找到一种解释, 让锚框无论是否为一点还是矩形框时, 其各属性都能得到统一的解释</p>
+<p><code>RectTransform</code>继承于<code>Transform</code>, 它有自己特有的一些属性, 用于表示UI对象的位置信息</p>
+<p>RectTransform中有position和localPosition和anchoredPosition是像素单位的屏幕坐标, 其它很多坐标都是比例坐标, 比如pivot, anchorMin, anchorMax. 为了方便表达, 以下<strong>使用xxxPos表示比例坐标对应的屏幕坐标</strong>, 比如pivotPos表示UI对象的轴心点实际的屏幕坐标</p>
+<p>屏幕坐标: 相对于游戏窗口左下角的像素单位坐标</p>
+<p><strong>Canvas</strong>的轴心点(pivotPos): 游戏窗口正中间(Screen.width/2, Screen.height/2)</p>
+<p>以下用<code>rect</code>表示UI对象的<code>RectTransform</code>组件对象, xxxPos表示比例坐标对应的屏幕坐标</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>说明</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>position</td>
+<td>Vector3 (z为0)</td>
+<td>等于pivotPos, 也就是轴心点的屏幕坐标(相对于屏幕左下角的像素坐标)</td>
+</tr>
+<tr>
+<td>localPosition</td>
+<td>Vector3 (z为0)</td>
+<td>UI对象的pivotPos相对于父对象pivotPos的屏幕坐标 (Canvas的轴心点为屏幕中间)</td>
+</tr>
+<tr>
+<td>pivot</td>
+<td>比例坐标 (0到1)</td>
+<td>pivotPos在UI对象矩形框的位置, (0, 0)表示左下角, (1, 1)表示右上角; <strong>同时影响锚点位置</strong></td>
+</tr>
+<tr>
+<td>rect</td>
+<td>Rect</td>
+<td>UI对象的矩形框, rect.min和rect.max是矩形框左下角和右上角相对于自身pivotPos的坐标, rect.size(UI真正大小)</td>
+</tr>
+<tr>
+<td>anchorMin</td>
+<td>比例坐标 (0到1)</td>
+<td>UI对象锚框左下角, <strong>相对于父对象矩形框的比例位置</strong></td>
+</tr>
+<tr>
+<td>anchorMax</td>
+<td>比例坐标 (0到1)</td>
+<td>锚框右上角, 相对于父对象的位置</td>
+</tr>
+<tr>
+<td>anchorPos</td>
+<td>不能直接获取</td>
+<td><strong>真正锚点位置, anchorMinPos和anchorMaxPos对pivot求插值(Lerp)获得</strong></td>
+</tr>
+<tr>
+<td>anchoredPosition</td>
+<td>Vector2</td>
+<td><strong>pivotPos相对于anchorPos的屏幕坐标</strong></td>
+</tr>
+<tr>
+<td>offsetMin</td>
+<td>Vector2</td>
+<td>UI矩形框左下角坐标 - anchorMinPos</td>
+</tr>
+<tr>
+<td>offsetMax</td>
+<td>Vector2</td>
+<td>UI矩形框右上角坐标 - anchorMaxPos</td>
+</tr>
+<tr>
+<td>sizeDelta</td>
+<td>Vector2</td>
+<td>offsetMax - offsetMin (也就是<strong>UI矩形框大小减去锚框大小</strong>), 当锚框为一点时, 它与rect.size相同, 但要区别开来</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>sizeDelta只有当锚框为一点时与rect.size相同, 所以不能把它当作UI对象的大小, UI对象大小为<code>rect.size</code></p>
+</li>
+<li><p>anchorMin, anchorMax都是相对于父对象的比例坐标</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// parent 是当前UI对象的父对象的RectTransform</span></span><br><span class="line">Vector2 parentPos = parent.position; <span class="comment">// 自动取用x和y, 忽略z</span></span><br><span class="line">Vector2 anchorMinPos = parentPos + Vector2.Lerp(parent.rect.min, parent.rect.max, anchorMin); <span class="comment">// 这里忽略了类型转换</span></span><br><span class="line">Vector2 anchorMaxPos = parentPos + Vector2.Lerp(parent.rect.min, parent.rect.max, anchorMax);</span><br><span class="line">Vector2 anchorPos = Vector2.Lerp(anchorMinPos, anchorMaxPos, pivot); <span class="comment">// anchor也使用pivot</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Unity</category>
       </categories>
       <tags>
         <tag>Unity</tag>
-        <tag>Framework</tag>
       </tags>
   </entry>
   <entry>
@@ -2791,6 +2939,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Unity中Time类的基本内容</title>
+    <url>/unity/unity-time-base/</url>
+    <content><![CDATA[<p>主要用于游戏中参与位移/计时/时间速度/时间暂停等</p>
+<h2 id="时间缩放比例"><a href="#时间缩放比例" class="headerlink" title="时间缩放比例"></a>时间缩放比例</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 时间停止</span></span><br><span class="line">Time.timeScale = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 回复正常</span></span><br><span class="line">Time.timeScale = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 2倍速</span></span><br><span class="line">Time.timeScale = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="帧间隔时间"><a href="#帧间隔时间" class="headerlink" title="帧间隔时间"></a>帧间隔时间</h2><p>帧时间: 上一帧时间 (s)</p>
+<p>帧间隔时间主要用于计算位移, 路程=时间*速度</p>
+<ul>
+<li>如果希望游戏暂停时不移动, 使用deltaTime</li>
+<li>如果希望游戏暂停时移动不受到影响, 使用unscaledDeltaTime</li>
+<li>timeScale不会影响Update的调用频率, 只会影响deltaTime的大小<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在Update中使用</span></span><br><span class="line"><span class="comment">// 受timeScale影响</span></span><br><span class="line">Time.deltaTime; <span class="comment">// 相当于unscaledDeltaTime * timeScale</span></span><br><span class="line"><span class="comment">// 不受timeScale影响</span></span><br><span class="line">Time.unscaledDeltaTime;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="游戏累计时间"><a href="#游戏累计时间" class="headerlink" title="游戏累计时间"></a>游戏累计时间</h2><p>一般只有单机游戏使用</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Time.time; <span class="comment">// 游戏开始到现在的时间</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物理帧间隔时间"><a href="#物理帧间隔时间" class="headerlink" title="物理帧间隔时间"></a>物理帧间隔时间</h2><p>物理帧时间固定, 可以在ProjectSettings中的Time中设置物理帧时间</p>
+<p>用于处理物理相关逻辑</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在FixedUpdate中使用</span></span><br><span class="line"><span class="comment">// 受到scale影响</span></span><br><span class="line">Time.fixedDeltaTime;</span><br><span class="line"><span class="comment">// 不受scale影响</span></span><br><span class="line">Time.unscaledFixedDeltaTime;</span><br></pre></td></tr></table></figure>
+
+<h2 id="帧数"><a href="#帧数" class="headerlink" title="帧数"></a>帧数</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 总帧数</span></span><br><span class="line">Time.frameCount;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo建立的个人小站</title>
     <url>/career/build-my-site-with-hexo/</url>
     <content><![CDATA[<p>折腾半天, 用Hexo + NexT建成个人小站, 真是相当美观呀, 发布到Gitee或者GitHub Page, 可以写写博客, 记点日志, 美滋滋~</p>
@@ -2839,154 +3020,6 @@
       <tags>
         <tag>Blog</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity中的坐标类型和坐标转换</title>
-    <url>/unity/unity-coordinate-system-and-translate/</url>
-    <content><![CDATA[<h2 id="坐标类型"><a href="#坐标类型" class="headerlink" title="坐标类型"></a>坐标类型</h2><h3 id="世界坐标"><a href="#世界坐标" class="headerlink" title="世界坐标"></a>世界坐标</h3><p>在世界坐标系中, 相对于场景中世界零点(0, 0, 0)的坐标</p>
-<p>Transform中的position属性就是世界坐标</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.position; <span class="comment">// 世界位置</span></span><br><span class="line">transform.rotation; <span class="comment">// 相对于世界坐标系的旋转 (四元数)</span></span><br><span class="line">transform.lossyScale; <span class="comment">// 相对于世界坐标系的缩放 (只读)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="本地坐标"><a href="#本地坐标" class="headerlink" title="本地坐标"></a>本地坐标</h3><p>相对于父物体的位置, 旋转, 缩放</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.localPosition; <span class="comment">// 相对于父节点的位置</span></span><br><span class="line">transform.localRotation; <span class="comment">// 相对于父节点的旋转 (四元数)</span></span><br><span class="line">transform.localScale; <span class="comment">// 相对于父节点的缩放 (可读可写)</span></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="屏幕坐标"><a href="#屏幕坐标" class="headerlink" title="屏幕坐标"></a>屏幕坐标</h3><p>游戏窗口坐标, 窗口左下角为(0, 0), 该坐标以像素为单位</p>
-<p>常见的屏幕坐标:</p>
-<ul>
-<li><p><strong>鼠标位置</strong> <code>Input.mousePosition</code></p>
-</li>
-<li><p><strong>指针事件</strong> <code>PointerEventData</code>中的position</p>
-</li>
-<li><p><strong>绘制GUI界面使用的坐标</strong> <code>OnGui</code>中绘制控件使用的坐标</p>
-</li>
-<li><p><code>Screen.width</code> 和 <code>Screen.height</code> 获取的是当前游戏窗口的宽和高 (像素单位)</p>
-</li>
-<li><p><code>Screen.currentResolution.width</code> 和 <code>Screen.currentResolution.height</code> 获取的是当前显示器的分辨率的宽高, 与游戏窗口大小无关</p>
-</li>
-</ul>
-<h3 id="视口坐标"><a href="#视口坐标" class="headerlink" title="视口坐标"></a>视口坐标</h3><p>视口坐标, 指的是游戏窗口区域的<strong>比例单位</strong>, 左下角为(0, 0), 右上角(1.0, 1.0)</p>
-<h2 id="坐标概念和转换"><a href="#坐标概念和转换" class="headerlink" title="坐标概念和转换"></a>坐标概念和转换</h2><h3 id="transform-forward与Vector3-forward"><a href="#transform-forward与Vector3-forward" class="headerlink" title="transform.forward与Vector3.forward"></a><code>transform.forward</code>与<code>Vector3.forward</code></h3><ul>
-<li><code>transform.forward</code>是<strong>物体本地的z轴正方向的单位向量在世界坐标系中的值</strong>, 会随着物体旋转而改变</li>
-<li><code>Vector3.forward</code>是世界坐标z轴正方向的单位向量, 永远是(0, 0, 1)</li>
-</ul>
-<p>e.g. 让物体朝自己的正前方移动:</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 沿着自己正方向在世界坐标系中的向量, 以世界坐标系为参考移动</span></span><br><span class="line">transform.Translate(transform.forward, Space.World);</span><br><span class="line"><span class="comment">// 沿着自身坐标系的(0,0,1)方向移动</span></span><br><span class="line">transform.Translate(Vector3.forward, Space.Self);</span><br></pre></td></tr></table></figure>
-
-<h3 id="本地坐标与世界坐标的转换"><a href="#本地坐标与世界坐标的转换" class="headerlink" title="本地坐标与世界坐标的转换"></a>本地坐标与世界坐标的转换</h3><h4 id="世界转本地"><a href="#世界转本地" class="headerlink" title="世界转本地"></a>世界转本地</h4><ul>
-<li><p>世界坐标点 转换 本地坐标点 (受到缩放影响, 当物体放大时, 其本地坐标的单位长度也变大了)</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.InverseTransformPoint(worldPos);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>世界坐标方向 转换 本地坐标系方向<br>向量方向不变, 原点从世界零点平移到物体原点, 并返回该向量在本地坐标系中的值</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不受缩放影响</span></span><br><span class="line">transform.InverseTransformDirection(worldDir);</span><br><span class="line"><span class="comment">// 受到缩放影响</span></span><br><span class="line">transform.InverseTransformVector(worldVec);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="本地转世界"><a href="#本地转世界" class="headerlink" title="本地转世界"></a>本地转世界</h4><ul>
-<li><p>本地坐标点转世界坐标点 (受到缩放影响)</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">transform.TransformPoint(localPos);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地方向转世界方向</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不受缩放影响</span></span><br><span class="line">transform.TransformDirection(localDir);</span><br><span class="line"><span class="comment">// 受缩放影响</span></span><br><span class="line">transform.TransformVector(localVec);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="屏幕坐标与世界坐标转换"><a href="#屏幕坐标与世界坐标转换" class="headerlink" title="屏幕坐标与世界坐标转换"></a>屏幕坐标与世界坐标转换</h3><ul>
-<li><p>世界坐标点转为屏幕坐标点</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Vector3 screenPos = camera.WorldToScreenPoint(worldPos);</span><br></pre></td></tr></table></figure>
-<p>这里返回的是一个Vector3, 其中(x, y)是像素单位的屏幕坐标, 而z是以世界单位的 点到相机所在平面的距离 (也就是相机坐标系中, 物体的z坐标)</p>
-</li>
-<li><p>屏幕坐标转为世界坐标</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Vector3 worldPos = camera.ScreenToWorldPoint(screenPos);</span><br></pre></td></tr></table></figure>
-<p>这里传入的是一个Vector3, (x, y)是像素单位的屏幕坐标, z是世界单位的 点到相机所在平面的距离 (相机坐标系中 物体的z坐标)</p>
-</li>
-</ul>
-<h3 id="UI中的坐标"><a href="#UI中的坐标" class="headerlink" title="UI中的坐标"></a>UI中的坐标</h3><p>查阅很多资料, 发现Unity的UGUI的坐标相对不太好理解, 而且很多地方将锚框anchorMin与anchorMax是否重合分成两种情况讲, 让我有些疑惑</p>
-<p>这里查阅大量资料和动手实践, 试图找到一种解释, 让锚框无论是否为一点还是矩形框时, 其各属性都能得到统一的解释</p>
-<p><code>RectTransform</code>继承于<code>Transform</code>, 它有自己特有的一些属性, 用于表示UI对象的位置信息</p>
-<p>RectTransform中有position和localPosition和anchoredPosition是像素单位的屏幕坐标, 其它很多坐标都是比例坐标, 比如pivot, anchorMin, anchorMax. 为了方便表达, 以下<strong>使用xxxPos表示比例坐标对应的屏幕坐标</strong>, 比如pivotPos表示UI对象的轴心点实际的屏幕坐标</p>
-<p>屏幕坐标: 相对于游戏窗口左下角的像素单位坐标</p>
-<p><strong>Canvas</strong>的轴心点(pivotPos): 游戏窗口正中间(Screen.width/2, Screen.height/2)</p>
-<p>以下用<code>rect</code>表示UI对象的<code>RectTransform</code>组件对象, xxxPos表示比例坐标对应的屏幕坐标</p>
-<table>
-<thead>
-<tr>
-<th>项</th>
-<th>说明</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>position</td>
-<td>Vector3 (z为0)</td>
-<td>等于pivotPos, 也就是轴心点的屏幕坐标(相对于屏幕左下角的像素坐标)</td>
-</tr>
-<tr>
-<td>localPosition</td>
-<td>Vector3 (z为0)</td>
-<td>UI对象的pivotPos相对于父对象pivotPos的屏幕坐标 (Canvas的轴心点为屏幕中间)</td>
-</tr>
-<tr>
-<td>pivot</td>
-<td>比例坐标 (0到1)</td>
-<td>pivotPos在UI对象矩形框的位置, (0, 0)表示左下角, (1, 1)表示右上角; <strong>同时影响锚点位置</strong></td>
-</tr>
-<tr>
-<td>rect</td>
-<td>Rect</td>
-<td>UI对象的矩形框, rect.min和rect.max是矩形框左下角和右上角相对于自身pivotPos的坐标, rect.size(UI真正大小)</td>
-</tr>
-<tr>
-<td>anchorMin</td>
-<td>比例坐标 (0到1)</td>
-<td>UI对象锚框左下角, <strong>相对于父对象矩形框的比例位置</strong></td>
-</tr>
-<tr>
-<td>anchorMax</td>
-<td>比例坐标 (0到1)</td>
-<td>锚框右上角, 相对于父对象的位置</td>
-</tr>
-<tr>
-<td>anchorPos</td>
-<td>不能直接获取</td>
-<td><strong>真正锚点位置, anchorMinPos和anchorMaxPos对pivot求插值(Lerp)获得</strong></td>
-</tr>
-<tr>
-<td>anchoredPosition</td>
-<td>Vector2</td>
-<td><strong>pivotPos相对于anchorPos的屏幕坐标</strong></td>
-</tr>
-<tr>
-<td>offsetMin</td>
-<td>Vector2</td>
-<td>UI矩形框左下角坐标 - anchorMinPos</td>
-</tr>
-<tr>
-<td>offsetMax</td>
-<td>Vector2</td>
-<td>UI矩形框右上角坐标 - anchorMaxPos</td>
-</tr>
-<tr>
-<td>sizeDelta</td>
-<td>Vector2</td>
-<td>offsetMax - offsetMin (也就是<strong>UI矩形框大小减去锚框大小</strong>), 当锚框为一点时, 它与rect.size相同, 但要区别开来</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>sizeDelta只有当锚框为一点时与rect.size相同, 所以不能把它当作UI对象的大小, UI对象大小为<code>rect.size</code></p>
-</li>
-<li><p>anchorMin, anchorMax都是相对于父对象的比例坐标</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">// parent 是当前UI对象的父对象的RectTransform</span></span><br><span class="line">Vector2 parentPos = parent.position; <span class="comment">// 自动取用x和y, 忽略z</span></span><br><span class="line">Vector2 anchorMinPos = parentPos + Vector2.Lerp(parent.rect.min, parent.rect.max, anchorMin); <span class="comment">// 这里忽略了类型转换</span></span><br><span class="line">Vector2 anchorMaxPos = parentPos + Vector2.Lerp(parent.rect.min, parent.rect.max, anchorMax);</span><br><span class="line">Vector2 anchorPos = Vector2.Lerp(anchorMinPos, anchorMaxPos, pivot); <span class="comment">// anchor也使用pivot</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
