@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="值与引用C#中的变量类型分为值类型和引用类型 (指针类型这里不讨论) 程序内存空间分为栈和堆 一般我们申请的变量都是在栈上的, 不过值类型的变量在栈上直接存储了变量的值, 而引用类型变量在栈上存储的是内存地址(指向堆上的实际数据) 需要注意的是, 如果值类型变量作为类的成员变量使用时, 因为类是引用类型, 其空间分配在堆中, 它的成员变量虽然是值类型但空间还是和类一样分配在堆中">
+  <meta name="description" content="获取和设置父对象12345678910&#x2F;&#x2F; 获取父对象, 如果没有父对象, 则为nulltransform.parent;&#x2F;&#x2F; 设置父对象, 如果设置为null, 则没有父对象, 在场景根目录transform.parent &#x3D; null;transform.parent &#x3D; otherObj.transform;&#x2F;&#x2F; 通过API设置父子关系 第二个参数默认为falsetransform.SetP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#的垃圾回收">
-<meta property="og:url" content="http://fetasty.github.io/csharp/csharp-gc/index.html">
+<meta property="og:title" content="Unity中的父子关系">
+<meta property="og:url" content="http://fetasty.github.io/unity/unity-transform-parent/index.html">
 <meta property="og:site_name" content="fetasty">
-<meta property="og:description" content="值与引用C#中的变量类型分为值类型和引用类型 (指针类型这里不讨论) 程序内存空间分为栈和堆 一般我们申请的变量都是在栈上的, 不过值类型的变量在栈上直接存储了变量的值, 而引用类型变量在栈上存储的是内存地址(指向堆上的实际数据) 需要注意的是, 如果值类型变量作为类的成员变量使用时, 因为类是引用类型, 其空间分配在堆中, 它的成员变量虽然是值类型但空间还是和类一样分配在堆中">
+<meta property="og:description" content="获取和设置父对象12345678910&#x2F;&#x2F; 获取父对象, 如果没有父对象, 则为nulltransform.parent;&#x2F;&#x2F; 设置父对象, 如果设置为null, 则没有父对象, 在场景根目录transform.parent &#x3D; null;transform.parent &#x3D; otherObj.transform;&#x2F;&#x2F; 通过API设置父子关系 第二个参数默认为falsetransform.SetP">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-24T01:41:19.000Z">
-<meta property="article:modified_time" content="2021-01-24T07:01:15.872Z">
+<meta property="article:published_time" content="2021-04-25T12:35:24.000Z">
+<meta property="article:modified_time" content="2021-04-26T16:05:47.166Z">
 <meta property="article:author" content="EricYe">
-<meta property="article:tag" content="C#">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fetasty.github.io/csharp/csharp-gc/">
+<link rel="canonical" href="http://fetasty.github.io/unity/unity-transform-parent/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>C#的垃圾回收 | fetasty</title>
+  <title>Unity中的父子关系 | fetasty</title>
   
 
 
@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-gc/">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-transform-parent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C#的垃圾回收
+          Unity中的父子关系
         </h1>
 
         <div class="post-meta">
@@ -218,17 +218,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-24 09:41:19 / 修改时间：15:01:15" itemprop="dateCreated datePublished" datetime="2021-01-24T09:41:19+08:00">2021-01-24</time>
+              <time title="创建时间：2021-04-25 20:35:24" itemprop="dateCreated datePublished" datetime="2021-04-25T20:35:24+08:00">2021-04-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-27 00:05:47" itemprop="dateModified" datetime="2021-04-27T00:05:47+08:00">2021-04-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
                 </span>
             </span>
 
@@ -248,8 +254,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/csharp/csharp-gc/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-gc/" itemprop="commentCount"></span>
+    <a title="valine" href="/unity/unity-transform-parent/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-transform-parent/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,67 +270,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="值与引用"><a href="#值与引用" class="headerlink" title="值与引用"></a>值与引用</h2><p>C#中的变量类型分为值类型和引用类型 (指针类型这里不讨论)</p>
-<p>程序内存空间分为栈和堆</p>
-<p>一般我们申请的变量都是在栈上的, 不过值类型的变量在栈上直接存储了变量的值, 而引用类型变量在栈上存储的是内存地址(指向堆上的实际数据)</p>
-<p>需要注意的是, 如果值类型变量作为类的成员变量使用时, 因为类是引用类型, 其空间分配在堆中, 它的成员变量虽然是值类型但空间还是和类一样分配在堆中</p>
+        <h2 id="获取和设置父对象"><a href="#获取和设置父对象" class="headerlink" title="获取和设置父对象"></a>获取和设置父对象</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取父对象, 如果没有父对象, 则为null</span></span><br><span class="line">transform.parent;</span><br><span class="line"><span class="comment">// 设置父对象, 如果设置为null, 则没有父对象, 在场景根目录</span></span><br><span class="line">transform.parent = <span class="literal">null</span>;</span><br><span class="line">transform.parent = otherObj.transform;</span><br><span class="line"><span class="comment">// 通过API设置父子关系 第二个参数默认为false</span></span><br><span class="line">transform.SetParent(<span class="literal">null</span>);</span><br><span class="line">transform.SetParent(otherTransform);</span><br><span class="line"><span class="comment">// API第二个参数: 是否保留相对父对象的 位置&amp;旋转&amp;缩放</span></span><br><span class="line">transform.SetParent(otherTransform, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>SetParent第二个参数为true, 表示保留相对父对象的Transform信息</li>
+<li>第二个参数为false, 则保留相对于世界的 Transform信息(位置&amp;旋转&amp;缩放)</li>
+</ul>
+<h2 id="分离所有子对象"><a href="#分离所有子对象" class="headerlink" title="分离所有子对象"></a>分离所有子对象</h2><p>分离后, 子对象直接到根目录下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform.DetachChildren();</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h2 id="栈与堆"><a href="#栈与堆" class="headerlink" title="栈与堆"></a>栈与堆</h2><h3 id="栈空间"><a href="#栈空间" class="headerlink" title="栈空间"></a>栈空间</h3><p>栈空间是属于每个线程独有的, 不同线程的栈互相独立互不影响, 栈空间一般比较小(1-2M), 使用是先进后出, 函数运行的执行环境(包含参数, 局部变量, 函数地址等数据的数据结构–栈帧)会存在栈顶, 栈是从高地址向低地址使用的</p>
-<p>每次发生函数调用, 都会产生一个函数的独立栈帧, 寄存器ebp指向当前栈帧的底部(高地址), 寄存器esp指向当前栈帧的顶部(低地址)</p>
-<p>注意: ebp指向当前位于系统栈最上边一个栈帧的底部, 而不是系统栈底部, 栈帧底部和栈底是不同概念</p>
-<p>栈空间中的变量不需要用户管理, 当函数执行完毕返回上一个栈帧时当前栈帧自动弹出释放空间; <strong>栈空间比较小, 但存取速度快, 数据自动管理, 不会产生内存碎片</strong></p>
-<h3 id="堆空间"><a href="#堆空间" class="headerlink" title="堆空间"></a>堆空间</h3><p>堆空间是属于进程的内存空间, 同一进程中的所有线程共享使用, 空间相对于栈空间会大很多, 一般比较大的对象比如类对象或者比较大的数组都是分配在堆空间中, <strong>堆空间的使用是运行时动态分配, 在栈中的变量只存储指向堆中实际变量的内存地址</strong></p>
-<p>堆空间比较大, 但是使用起来比栈空间要慢, 一般由用户自己管理释放(比如C/C++), 也有很多实现了垃圾回收(GC)的语言可以自动管理释放(比如Java/C#)</p>
-<h2 id="常见垃圾回收算法"><a href="#常见垃圾回收算法" class="headerlink" title="常见垃圾回收算法"></a>常见垃圾回收算法</h2><p>垃圾回收(GC, Garbage Collect), 就是遍历堆空间中所有动态分配的对象, 通过识别它们是否被引用来确定哪些对象是垃圾, 哪些对象仍要被使用</p>
-<p><strong>没有任何变量/对象引用的内容就会被识别为垃圾回收掉</strong></p>
-<p>常见的垃圾回收算法:</p>
-<ul>
-<li>引用计数<ul>
-<li>对象每次被引用时对引用次数加1, 每次引用变量被删除时引用次数减1, 当引用计数为0时删除对象</li>
-<li>(迅速, 不用标记, 计数器带来额外开销, 无法解决循环引用问题)</li>
-</ul>
-</li>
-<li>标记清除<ul>
-<li>从根出发, 遍历全部堆对象, 然后对所有可达的对象进行标记, 然后清除所有未标记对象</li>
-<li>(速度快, 容易产生内存碎片)</li>
-</ul>
-</li>
-<li>标记整理<ul>
-<li>从根出发, 标记所有可达对象, 将未标记对象清除, 对现有对象的空间合并</li>
-<li>(没有内存碎片, 合并空间时所有引用整理对象的线程都会挂起, 可能导致卡顿)</li>
-</ul>
-</li>
-<li>标记复制回收<ul>
-<li>开辟两个相等的空间, 每次只使用其中一块, 标记可达对象, 复制到另一块空间, 当复制完成后, 指向原有对象的指针指向新对象, 复制完成后释放原有空间</li>
-<li>(没有内存碎片, 效率高, 需要额外内存空间)</li>
-</ul>
-</li>
-<li>分代算法<ul>
-<li>Java中将内存分为新生代, 年老代和永久代</li>
-<li>新生代: 使用标记复制回收, 因为很多对象都是临时使用, 很快回收, 复制回收区域大小是9:1</li>
-<li>年老代: 当新生代里复制一定次数还没有被回收时则放到年老代</li>
-<li>永生代: 在年老代一定时间没有被回收则放入永生代, 使用复制整理回收</li>
-<li>(复制整理回收的效果好, 但是整理过程中发生GC, 可能卡顿)</li>
-</ul>
-</li>
-</ul>
-<h2 id="C-中的垃圾回收"><a href="#C-中的垃圾回收" class="headerlink" title="C#中的垃圾回收"></a>C#中的垃圾回收</h2><p>C#中的内存空间分为0代内存, 1代内存, 2代内存 (分代算法)</p>
-<ul>
-<li>新分配的对象放在0代内存中</li>
-<li>内存回收时, 先从根(静态字段, 方法参数等)标记所有可达对象, 不可达对象认为是垃圾</li>
-<li>复制整理 (0代-&gt;1代, 1代-&gt;2代) 执行时挂起托管代码线程</li>
-<li>大对象(83kb左右)会直接分配在第二代内存, 为了减少性能损耗, 大对象不会复制搬迁</li>
-</ul>
-<p><strong>对象在垃圾回收时被清除时才会调用其中的析构函数</strong> (不是过了作用域就自动调用)</p>
-<h3 id="垃圾生么时候回收"><a href="#垃圾生么时候回收" class="headerlink" title="垃圾生么时候回收"></a>垃圾生么时候回收</h3><ul>
-<li>0代内存满时, 自动回收0代内存, 并复制搬迁到1代内存中</li>
-<li>1代内存满时, 自动回收0代和1代内存, 1代内存内容复制搬迁到2代内存</li>
-<li>2代内存满时, 自动回收所有代内存</li>
-<li>用户主动调用<code>System.GC.Collect()</code></li>
-</ul>
-<p><strong>何时主动调用垃圾回收</strong></p>
-<p>垃圾回收不能频繁调用, 一般都是在场景加载显示Loading条时主动调用</p>
+<h2 id="获取子对象"><a href="#获取子对象" class="headerlink" title="获取子对象"></a>获取子对象</h2><p>返回的是Transform信息</p>
+<p><strong>可以查找到失活的对象</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按名称查找 只能找到直接子对象, 不能找子对象的子对象!!!</span></span><br><span class="line">transform.Find(<span class="string">&quot;SubCube&quot;</span>);</span><br><span class="line"><span class="comment">// 获取直接子对象 (失活也算数)</span></span><br><span class="line">transform.childCount; <span class="comment">// 直接子对象数量</span></span><br><span class="line">transform.GetChild(<span class="number">0</span>); <span class="comment">// 根据下标取直接子对象</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="子对象操作"><a href="#子对象操作" class="headerlink" title="子对象操作"></a>子对象操作</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断是否为某个Transform的子对象 (直接子对象)</span></span><br><span class="line">transform.IsChildOf(otherTransform);</span><br><span class="line"><span class="comment">// 得到自己作为子对象的编号</span></span><br><span class="line">tranform.GetSiblingIndex();</span><br><span class="line"><span class="comment">// 设置为第一个子对象 (层级窗口中最上面/视图窗口中在最后面)</span></span><br><span class="line">transform.SetAsFirstSibling();</span><br><span class="line"><span class="comment">// 设置为最后一个子对象</span></span><br><span class="line">transform.SetAsLastSibling();</span><br><span class="line"><span class="comment">// 设置为指定编号的子对象</span></span><br><span class="line">transform.SetSiblingIndex(<span class="number">15</span>); <span class="comment">// 为负数或者朝纲, 都设置为最后一个子对象</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -335,7 +296,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/csharp/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+              <a href="/tags/unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
           </div>
 
         
@@ -344,13 +305,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/csharp/csharp-console-function/" rel="prev" title="C#中Console类常用方法总结">
-      <i class="fa fa-chevron-left"></i> C#中Console类常用方法总结
+    <a href="/unity/unity-transform-base/" rel="prev" title="Unity中Transform的基础内容">
+      <i class="fa fa-chevron-left"></i> Unity中Transform的基础内容
     </a></div>
-      <div class="post-nav-item">
-    <a href="/csharp/csharp-indexer/" rel="next" title="C#中的索引器">
-      C#中的索引器 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -410,7 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%80%BC%E4%B8%8E%E5%BC%95%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">值与引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E4%B8%8E%E5%A0%86"><span class="nav-number">2.</span> <span class="nav-text">栈与堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.</span> <span class="nav-text">栈空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E7%A9%BA%E9%97%B4"><span class="nav-number">2.2.</span> <span class="nav-text">堆空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">常见垃圾回收算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E4%B8%AD%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="nav-number">4.</span> <span class="nav-text">C#中的垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E7%94%9F%E4%B9%88%E6%97%B6%E5%80%99%E5%9B%9E%E6%94%B6"><span class="nav-number">4.1.</span> <span class="nav-text">垃圾生么时候回收</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%88%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">获取和设置父对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%A6%BB%E6%89%80%E6%9C%89%E5%AD%90%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">分离所有子对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%90%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">获取子对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">子对象操作</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

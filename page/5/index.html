@@ -192,6 +192,184 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-gc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-gc/" class="post-title-link" itemprop="url">C#的垃圾回收</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-24 09:41:19 / 修改时间：15:01:15" itemprop="dateCreated datePublished" datetime="2021-01-24T09:41:19+08:00">2021-01-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-gc/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-gc/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="值与引用"><a href="#值与引用" class="headerlink" title="值与引用"></a>值与引用</h2><p>C#中的变量类型分为值类型和引用类型 (指针类型这里不讨论)</p>
+<p>程序内存空间分为栈和堆</p>
+<p>一般我们申请的变量都是在栈上的, 不过值类型的变量在栈上直接存储了变量的值, 而引用类型变量在栈上存储的是内存地址(指向堆上的实际数据)</p>
+<p>需要注意的是, 如果值类型变量作为类的成员变量使用时, 因为类是引用类型, 其空间分配在堆中, 它的成员变量虽然是值类型但空间还是和类一样分配在堆中</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-gc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-console-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-console-function/" class="post-title-link" itemprop="url">C#中Console类常用方法总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-23 18:00:21 / 修改时间：19:03:20" itemprop="dateCreated datePublished" datetime="2021-01-23T18:00:21+08:00">2021-01-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-console-function/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-console-function/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>学习了泰课C#入门课程后需要做一个控制台应用程序, 发现课程中使用了许多之前没有用过的控制台方法, 这里将常用的方法稍微总结一下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Console.CursorVisible = <span class="literal">false</span>;  <span class="comment">// 隐藏光标</span></span><br><span class="line">Console.Clear();                <span class="comment">// 清空控制台</span></span><br><span class="line">Console.SetWindowSize(x, y);    <span class="comment">// 设置控制台窗口大小 (窗口大小不能超过缓存区大小)</span></span><br><span class="line">Console.SetBufferSize(x, y);    <span class="comment">// 设置控制台缓存区大小 (缓存区大于窗口大小时会在窗口上出现控制拉杆)</span></span><br><span class="line">Console.SetCursorPosition(x, y);            <span class="comment">// 设置光标位置, 之后输出就从光标位置输出</span></span><br><span class="line">Console.ForegroundColor = ConsoleColor.Red; <span class="comment">// 设置前景色, 之后输出的颜色将以该颜色输出; (同样有背景色设置)</span></span><br><span class="line">Console.Title = <span class="string">&quot;My Title&quot;</span>;                 <span class="comment">// 设置控制台标题</span></span><br><span class="line"><span class="keyword">var</span> key = Console.ReadKey().Key;            <span class="comment">// 读取一个按键输入</span></span><br><span class="line">Console.ReadKey(<span class="literal">true</span>);                      <span class="comment">// 读取输入, 但控制台不显示 (可用于控制台游戏的即时输入)</span></span><br><span class="line">Console.Write(<span class="string">&quot;&quot;</span>);                          <span class="comment">// 输出字符串</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;&quot;</span>);                      <span class="comment">// 输出字符串后换行</span></span><br></pre></td></tr></table></figure>
+
+<p>常用的接口就这些, 如果还需要别的功能, 可以去Console类中去看一看, 在Visual Studio 2019中, 按住Ctrl点击Console类就可以看到类的接口</p>
+<p>要是看不懂英文注释, 可以去 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn">Microsoft中文文档</a> 搜索查看</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/cpp-buildin-macro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -993,209 +1171,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/algorithm/hash-table/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/algorithm/hash-table/" class="post-title-link" itemprop="url">哈希表</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-12 17:31:47" itemprop="dateCreated datePublished" datetime="2020-02-12T17:31:47+08:00">2020-02-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-20 22:57:42" itemprop="dateModified" datetime="2020-10-20T22:57:42+08:00">2020-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/algorithm/hash-table/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/algorithm/hash-table/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="概念和定义"><a href="#概念和定义" class="headerlink" title="概念和定义"></a>概念和定义</h2><ul>
-<li><p>简单理解: HashTable(哈希表/散列表)是存储[key, value]键值对的结构, 可以根据关键码key值直接访问对应位置value的数据结构, 可以达到$O(1)$的搜索效率, 是一种以空间换搜索速度的数据结构.</p>
-</li>
-<li><p>实现: 哈希表用数组实现, 对于给定的key, 通过特定的哈希函数计算出key的HashCode(哈希码), 再对哈希码取余得到数组下标, 数组长度保持为$2^n$可以让下标的计算简化($a%b=a&amp;(b-1)$ (其中$b=2^n$)), 因为位运算效率远高于取模运算.</p>
-</li>
-<li><p>冲突处理: 对于插入的两个键值对, 如果两个key不同, 但是计算的HashCode一样, 就需要进行冲突处理, 一般是用链表处理, Java中也有用红黑树处理冲突.</p>
-</li>
-<li><p>Hash函数: 开发者应该设计合理的Hash函数, 让不同的key计算出的HashCode尽量不相同, 减少冲突.</p>
-</li>
-<li><p>扩容: 哈希表的数组不应该填充太满, 否则冲突概率增加, 查找效率降低; 一般可以将增长因子定义为0.75, 当数组的使用率大于0.75时, 则将容量扩大一倍, 再将所有元素重新散列, 填充到新数组</p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/algorithm/hash-table/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/golang/golang-param-pass/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/golang/golang-param-pass/" class="post-title-link" itemprop="url">Go语言中的值类型/引用类型和参数传递</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-07 15:02:26" itemprop="dateCreated datePublished" datetime="2020-02-07T15:02:26+08:00">2020-02-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-20 22:57:50" itemprop="dateModified" datetime="2020-10-20T22:57:50+08:00">2020-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/golang/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/golang/golang-param-pass/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/golang/golang-param-pass/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>Go里边函数传参只有值传递一种方式</strong>(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数)</p>
-<p>刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice/map/chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递</p>
-<p>实际上, slice, map, channel都是<strong>结构体类型的值传递</strong>, 但是<strong>结构体中包含指向实际数据的指针</strong>, 所以它们是值传递, 而并非引用传递</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/golang/golang-param-pass/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1265,7 +1240,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1412,59 +1387,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
   <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>

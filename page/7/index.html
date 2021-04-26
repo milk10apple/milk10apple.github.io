@@ -192,6 +192,215 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/common-library/about-protobuf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/common-library/about-protobuf/" class="post-title-link" itemprop="url">使用protobuf3的一些注意点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 17:11:23" itemprop="dateCreated datePublished" datetime="2019-11-18T17:11:23+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 22:59:56" itemprop="dateModified" datetime="2020-10-20T22:59:56+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/common-library/" itemprop="url" rel="index"><span itemprop="name">common-library</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/common-library/about-protobuf/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/common-library/about-protobuf/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>工作中碰到需求变更, 有时需要改变传输的数据结构, C++结构体增删字段, 还要让lua客户端兼容, 非常吃力, 有时候甚至动态拼接多个结构体, 然后依靠数据长度将一个void*的数据各部分转换为不同的指针, 既复杂又危险</p>
+<p>后来为解决这个问题, 引入了Google的protobuf(为结构化数据提供自动高效灵活的支持), 这还真是个好东西, 相对于xml/json/纯结构体, 它的定义文件可读性非常好, 可以添加注释, 使用起来也灵活许多, 而且序列化之后非常小, 可以节省n多流量</p>
+<img data-src="/common-library/about-protobuf/why-not-use-xml.png" class="" title="why not use xml">
+
+<p>但是xml/json是自描述, 可读的格式, protobuf结构在序列化之后是不可读的, 需要解析后才能清晰的获取结构中的数据</p>
+<p>使用protobuf过程中碰到的问题记录一下</p>
+<h2 id="proto3与proto2的区别需要注意"><a href="#proto3与proto2的区别需要注意" class="headerlink" title="proto3与proto2的区别需要注意"></a>proto3与proto2的区别需要注意</h2><p>我们使用的proto3, 记录的都是proto3需要注意的</p>
+<h3 id="proto3必须注明版本"><a href="#proto3必须注明版本" class="headerlink" title="proto3必须注明版本"></a>proto3必须注明版本</h3><p>在第一行非空白非注释行，必须写</p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>不加这一行, 将以proto2解析</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/common-library/about-protobuf/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/cpp/win-mingw-w64-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cpp/win-mingw-w64-install/" class="post-title-link" itemprop="url">Windows下MinGW-w64安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-15 10:21:38" itemprop="dateCreated datePublished" datetime="2019-11-15T10:21:38+08:00">2019-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-20 23:00:18" itemprop="dateModified" datetime="2020-10-20T23:00:18+08:00">2020-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cpp/win-mingw-w64-install/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cpp/win-mingw-w64-install/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>很多时候都必不可少一套GCC/G++编译器</p>
+<p>这里我选择MinGW-w64 x86_64-posix-seh</p>
+<h2 id="MinGW-amp-MinGW-w64-amp-TDM-GCC"><a href="#MinGW-amp-MinGW-w64-amp-TDM-GCC" class="headerlink" title="MinGW &amp; MinGW-w64 &amp; TDM-GCC"></a>MinGW &amp; MinGW-w64 &amp; TDM-GCC</h2><p>MinGW 只有32位版本  更新较慢 LastUpdate(2018-07-13) 查看日期[2019-11-15]</p>
+<p>MinGW-w64 提供32位和64位, 更新快 LastUpdate(11hours ago) 查看日期[2019-11-15]</p>
+<p>TDM-GCC 提供32位和64位, 更新较慢 LastUpdate(2015-07-02) 查看日期[2019-11-15]</p>
+<p>MinGW-w64的64位和TDM-GCC的64位的区别, 64位的TDM-GCC既能编译64位binary，也能编译32位binary(用-m32参数), 而64位的MinGW-w64只能编译64位binary, 编译32位程序只能再用32位版本的MinGW-w64编辑</p>
+<p>看看这个维护活跃度, 还是选择MinGW-w64吧 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64">https://sourceforge.net/projects/mingw-w64</a></p>
+<h2 id="MinGW-w64选择"><a href="#MinGW-w64选择" class="headerlink" title="MinGW-w64选择"></a>MinGW-w64选择</h2><blockquote>
+<p>以下资料来源于网络, 可以作一个大概了解</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/cpp/win-mingw-w64-install/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/database/about-sqlite/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -670,7 +879,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

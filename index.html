@@ -192,6 +192,206 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-transform-parent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-transform-parent/" class="post-title-link" itemprop="url">Unity中的父子关系</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-25 20:35:24" itemprop="dateCreated datePublished" datetime="2021-04-25T20:35:24+08:00">2021-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-27 00:05:47" itemprop="dateModified" datetime="2021-04-27T00:05:47+08:00">2021-04-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-transform-parent/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-transform-parent/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="获取和设置父对象"><a href="#获取和设置父对象" class="headerlink" title="获取和设置父对象"></a>获取和设置父对象</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取父对象, 如果没有父对象, 则为null</span></span><br><span class="line">transform.parent;</span><br><span class="line"><span class="comment">// 设置父对象, 如果设置为null, 则没有父对象, 在场景根目录</span></span><br><span class="line">transform.parent = <span class="literal">null</span>;</span><br><span class="line">transform.parent = otherObj.transform;</span><br><span class="line"><span class="comment">// 通过API设置父子关系 第二个参数默认为false</span></span><br><span class="line">transform.SetParent(<span class="literal">null</span>);</span><br><span class="line">transform.SetParent(otherTransform);</span><br><span class="line"><span class="comment">// API第二个参数: 是否保留相对父对象的 位置&amp;旋转&amp;缩放</span></span><br><span class="line">transform.SetParent(otherTransform, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>SetParent第二个参数为true, 表示保留相对父对象的Transform信息</li>
+<li>第二个参数为false, 则保留相对于世界的 Transform信息(位置&amp;旋转&amp;缩放)</li>
+</ul>
+<h2 id="分离所有子对象"><a href="#分离所有子对象" class="headerlink" title="分离所有子对象"></a>分离所有子对象</h2><p>分离后, 子对象直接到根目录下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform.DetachChildren();</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/unity/unity-transform-parent/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-transform-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-transform-base/" class="post-title-link" itemprop="url">Unity中Transform的基础内容</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-23 20:19:41" itemprop="dateCreated datePublished" datetime="2021-04-23T20:19:41+08:00">2021-04-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-25 20:34:14" itemprop="dateModified" datetime="2021-04-25T20:34:14+08:00">2021-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-transform-base/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-transform-base/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>创建一个GameObject对象时, 必定附加了Transform脚本 (必不可少)</p>
+<h2 id="位置和位移"><a href="#位置和位移" class="headerlink" title="位置和位移"></a>位置和位移</h2><h3 id="Vector3基础"><a href="#Vector3基础" class="headerlink" title="Vector3基础"></a>Vector3基础</h3><p>Vector3主要表示三维坐标系中的一个点, 或者一个向量</p>
+<p>Vector3是一个struct, 值类型</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建</span></span><br><span class="line">Vector3 v = <span class="keyword">new</span> Vector3();</span><br><span class="line">v.x = <span class="number">10</span>;</span><br><span class="line">Vector3 v1 = <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">10</span>, <span class="number">5</span>);</span><br><span class="line">Vector3 v2 = <span class="keyword">new</span> Vector3(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// 运算</span></span><br><span class="line">print(v1 + v2); <span class="comment">// 12, 12, 7</span></span><br><span class="line">print(v1 - v2); <span class="comment">// 8, 8, 3</span></span><br><span class="line">print(v1 * <span class="number">10</span>);</span><br><span class="line">print(v1 / <span class="number">2</span>);</span><br><span class="line"><span class="comment">// 常用</span></span><br><span class="line">print(Vector3.zero);</span><br><span class="line">print(Vector3.one);</span><br><span class="line">print(Vector3.right);</span><br><span class="line">print(Vector3.left);</span><br><span class="line">print(Vector3.forward);</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="comment">// 常用方法</span></span><br><span class="line">Vector3.Distance(v1, v2); <span class="comment">// 计算两个点之间的距离</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/unity/unity-transform-base/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-time-base/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -961,176 +1161,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-game-base-scene-manager/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-game-base-scene-manager/" class="post-title-link" itemprop="url">Unity游戏基础框架6 -- 场景管理模块</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-27 18:54:54 / 修改时间：19:01:16" itemprop="dateCreated datePublished" datetime="2021-03-27T18:54:54+08:00">2021-03-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-game-base-scene-manager/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-game-base-scene-manager/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>场景管理模块用于统一管理场景的切换</p>
-<p>可以在场景切换前后利用事件管理模块发送 <code>场景退出</code> 和 <code>场景进入</code> 的事件, 也可以在异步加载时发出 <code>加载进度</code> 的事件</p>
-<p>需要切换的场景Scene要提前添加到BuildSettings中的场景列表中, 否则不能切换</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.SceneManagement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SceneMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">SceneMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 同步加载场景</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>场景名<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">string</span> name</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// todo 可以通知场景退出 SceneManager.GetActiveScene().name 获取当前场景名</span></span><br><span class="line">        SceneManager.LoadScene(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 异步加载场景</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>场景名<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadSceneAsync</span>(<span class="params"><span class="keyword">string</span> name, UnityAction callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoMgr.Instance.StartCoroutine(LoadSceneCoroutine(name, callback));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> IEnumerator <span class="title">LoadSceneCoroutine</span>(<span class="params"><span class="keyword">string</span> name, UnityAction callback</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        AsyncOperation ao = SceneManager.LoadSceneAsync(name);</span><br><span class="line">        <span class="keyword">while</span> (!ao.isDone)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// todo 通知加载进度 ao.progress</span></span><br><span class="line">            <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        callback?.Invoke();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-game-base-resource-load/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-game-base-resource-load/" class="post-title-link" itemprop="url">Unity游戏基础框架5 -- 资源加载</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-26 21:32:28 / 修改时间：21:40:23" itemprop="dateCreated datePublished" datetime="2021-03-26T21:32:28+08:00">2021-03-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-game-base-resource-load/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-game-base-resource-load/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>资源加载模块提供同步和异步加载资源的接口</p>
-<p>对GameObject的资源自动实例化, 对于非GameObject的资源则自动返回</p>
-<p>前面缓存池的实现都是用同步加载资源的方式, 如果碰到比较大比较耗时的资源, 同步加载可能导致游戏卡顿, 我们可以改写为异步加载</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.Events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ResMgr</span> : <span class="title">BaseManager</span>&lt;<span class="title">ResMgr</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 同步加载资源</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span>资源类型<span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>Resources目录下的资源路径<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>对应资源<span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">Load</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name</span>) <span class="keyword">where</span> T : Object</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Object obj = Resources.Load(name);</span><br><span class="line">        <span class="keyword">if</span> (obj <span class="keyword">is</span> GameObject) <span class="comment">// 如果对象是GameObject类型, 需要先实例化再返回</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> Object.Instantiate(obj) <span class="keyword">as</span> T;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">// TextAsset AudioClip 等等</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> obj <span class="keyword">as</span> T;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 异步加载资源</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;typeparam name=&quot;T&quot;&gt;</span>资源类型<span class="doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;name&quot;&gt;</span>Resources下的资源目录<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;callback&quot;&gt;</span>处理资源的回调函数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LoadAsync</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; callback</span>) <span class="keyword">where</span> T : Object</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        MonoMgr.Instance.StartCoroutine(LoadAsyncCoroutine(name, callback));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> IEnumerator <span class="title">LoadAsyncCoroutine</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> name, UnityAction&lt;T&gt; callback</span>) <span class="keyword">where</span> T : Object</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        ResourceRequest req = Resources.LoadAsync(name);</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> req;</span><br><span class="line">        <span class="keyword">if</span> (req.asset <span class="keyword">is</span> GameObject)</span><br><span class="line">        &#123;</span><br><span class="line">            callback?.Invoke(Object.Instantiate(req.asset) <span class="keyword">as</span> T);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            callback?.Invoke(req.asset <span class="keyword">as</span> T);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1200,7 +1230,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
