@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="什么是协变逆变主要用于泛型重载之间相互装载时使用 基本原理就是子类对象可以作为父类使用 只有泛型接口和泛型委托能使用 协变和逆变是用来修饰泛型类型的  协变: out 只能用于返回值  父类泛型委托装子类泛型委托对象 逆变: in 只能用于参数     子类泛型委托装父类泛型委托对象  作用返回值和参数 用out修饰的泛型只能作为返回值类型 用in修饰的泛型只能作为参数类型  1234delega">
+  <meta name="description" content="Camera上可编辑的参数 Clear Flags 如何清除背景 skybox 天空盒 (3D天空效果) 3D游戏使用 Solid Color 颜色填充 (背景为纯色) 2D游戏使用 Depth Only 只画该层, 背景透明 多个相机叠加渲染 Don’t Clear 不移除, 覆盖渲染 (极少使用) Game窗口右键选项(总是清空上一帧去掉后可以看到效果)   Culling Mask 选择渲染">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#中的协变和逆变">
-<meta property="og:url" content="http://fetasty.github.io/csharp/csharp-covariance-and-inverter/index.html">
+<meta property="og:title" content="Unity中的Camera内容">
+<meta property="og:url" content="http://fetasty.github.io/unity/unity-camera-base/index.html">
 <meta property="og:site_name" content="fetasty">
-<meta property="og:description" content="什么是协变逆变主要用于泛型重载之间相互装载时使用 基本原理就是子类对象可以作为父类使用 只有泛型接口和泛型委托能使用 协变和逆变是用来修饰泛型类型的  协变: out 只能用于返回值  父类泛型委托装子类泛型委托对象 逆变: in 只能用于参数     子类泛型委托装父类泛型委托对象  作用返回值和参数 用out修饰的泛型只能作为返回值类型 用in修饰的泛型只能作为参数类型  1234delega">
+<meta property="og:description" content="Camera上可编辑的参数 Clear Flags 如何清除背景 skybox 天空盒 (3D天空效果) 3D游戏使用 Solid Color 颜色填充 (背景为纯色) 2D游戏使用 Depth Only 只画该层, 背景透明 多个相机叠加渲染 Don’t Clear 不移除, 覆盖渲染 (极少使用) Game窗口右键选项(总是清空上一帧去掉后可以看到效果)   Culling Mask 选择渲染">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-01T14:56:20.000Z">
-<meta property="article:modified_time" content="2021-03-02T14:24:18.346Z">
+<meta property="article:published_time" content="2021-04-29T11:05:05.000Z">
+<meta property="article:modified_time" content="2021-05-01T02:30:23.361Z">
 <meta property="article:author" content="EricYe">
-<meta property="article:tag" content="C#">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://fetasty.github.io/csharp/csharp-covariance-and-inverter/">
+<link rel="canonical" href="http://fetasty.github.io/unity/unity-camera-base/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>C#中的协变和逆变 | fetasty</title>
+  <title>Unity中的Camera内容 | fetasty</title>
   
 
 
@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-covariance-and-inverter/">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-camera-base/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C#中的协变和逆变
+          Unity中的Camera内容
         </h1>
 
         <div class="post-meta">
@@ -219,14 +219,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-01 22:56:20" itemprop="dateCreated datePublished" datetime="2021-03-01T22:56:20+08:00">2021-03-01</time>
+              <time title="创建时间：2021-04-29 19:05:05" itemprop="dateCreated datePublished" datetime="2021-04-29T19:05:05+08:00">2021-04-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-02 22:24:18" itemprop="dateModified" datetime="2021-03-02T22:24:18+08:00">2021-03-02</time>
+                <time title="修改时间：2021-05-01 10:30:23" itemprop="dateModified" datetime="2021-05-01T10:30:23+08:00">2021-05-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -234,7 +234,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
                 </span>
             </span>
 
@@ -254,8 +254,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/csharp/csharp-covariance-and-inverter/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-covariance-and-inverter/" itemprop="commentCount"></span>
+    <a title="valine" href="/unity/unity-camera-base/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-camera-base/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -270,24 +270,85 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="什么是协变逆变"><a href="#什么是协变逆变" class="headerlink" title="什么是协变逆变"></a>什么是协变逆变</h2><p><strong>主要用于泛型重载之间相互装载时使用</strong></p>
-<p>基本原理就是<strong>子类对象可以作为父类使用</strong></p>
-<p>只有<strong>泛型接口</strong>和<strong>泛型委托</strong>能使用</p>
-<p>协变和逆变是用来修饰泛型类型的</p>
-<ul>
-<li>协变: <code>out</code> 只能用于返回值  父类泛型委托装子类泛型委托对象</li>
-<li>逆变: <code>in</code> 只能用于参数     子类泛型委托装父类泛型委托对象</li>
+        <h2 id="Camera上可编辑的参数"><a href="#Camera上可编辑的参数" class="headerlink" title="Camera上可编辑的参数"></a>Camera上可编辑的参数</h2><ul>
+<li><strong>Clear Flags</strong> 如何清除背景<ul>
+<li>skybox 天空盒 (3D天空效果) 3D游戏使用</li>
+<li>Solid Color 颜色填充 (背景为纯色) 2D游戏使用</li>
+<li>Depth Only 只画该层, 背景透明 多个相机叠加渲染</li>
+<li>Don’t Clear 不移除, 覆盖渲染 (极少使用) Game窗口右键选项(总是清空上一帧去掉后可以看到效果)</li>
 </ul>
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><h3 id="返回值和参数"><a href="#返回值和参数" class="headerlink" title="返回值和参数"></a>返回值和参数</h3><ol>
-<li>用<code>out</code>修饰的泛型只能作为返回值类型</li>
-<li>用<code>in</code>修饰的泛型只能作为参数类型</li>
+</li>
+<li><strong>Culling Mask</strong> 选择渲染部分层级, 可以指定只渲染对应层级, 很常用</li>
+<li><strong>Projection</strong> 透视方式<ul>
+<li>Perspective 透视模式 (正常视角, 近大远小)<ul>
+<li>Field of View 摄像机视口角度, 会改变视口大小和焦段, 一般60不改</li>
+<li>FOV Axis 上面的角度按照水平还是垂直方向计算 一般不改</li>
+<li>Physical Camera 真实摄像机开关 打开后可以像真实相机一样调整参数, 专业用法<ul>
+<li>Focal Length 焦距</li>
+<li>Sensor Type 传感器类型</li>
+<li>Sensor Size 传感器尺寸</li>
+<li>Lens Shift 透镜位移</li>
+<li>Gate Fit 闸门配合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Orthographic 正交模式 (一般用于2D游戏制作)<ul>
+<li>Size 摄制范围</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Clipping Planes</strong> 裁剪平面距离 (裁剪范围内可见, 有可能模型被裁剪一半)<ul>
+<li>Near 近距离裁剪距离, 物体距离相机小于该距离则不可见</li>
+<li>Far 远距裁剪距离, 物体距离相机大于该距离则不可见</li>
+</ul>
+</li>
+<li>Viewport Rect 主要用于多摄像机游戏, 设置摄像机的渲染范围<ul>
+<li>x和y是渲染起点, w和h是宽和高 (都是0到1, (0, 0)表示窗口左下角)</li>
+</ul>
+</li>
+<li><strong>Depth</strong> 渲染顺序上的深度 (深度高的相机越后渲染, 深度高的相机会覆盖深度低的相机画面) 需要配合多个相机和<code>Depth Only</code>配合使用<ul>
+<li>深度最低的相机渲染背景和基本画面</li>
+<li>深度高的相机选择渲染某个特殊层, 并且选择DepthOnly(背景透明), 那么就可以叠加显示</li>
+</ul>
+</li>
+<li>Redering path 渲染路径 (默认使用渲染设置)</li>
+<li><strong>Target Texture</strong> 可以把摄像机画面渲染到一张图上 (默认渲染到游戏窗口)<ul>
+<li>Project上右键新建<code>Render Texture</code></li>
+<li>相机渲染中的<code>Target Texture</code>选择新建的Texture, 那么该相机的画面就渲染在这个Texture中</li>
+<li>小地图: 俯视摄像机, Texture做小地图</li>
+</ul>
+</li>
+<li><strong>Occlusion Culling</strong> 是否启用剔除遮挡, 用于性能优化<ul>
+<li>被完全遮挡的模型是否渲染</li>
+</ul>
+</li>
+<li>Allow HDR 是否允许高动态范围渲染 (默认使用渲染设置)</li>
+<li>Allow MSAA 是否允许抗锯齿 (默认使用渲染设置)</li>
+<li>Allow Dynamic Resolution 是否允许动态分辨率呈现</li>
+<li>Target Display 该相机显示在那个显示器, 主要用于开发有多个屏幕的平台游戏 (Game窗口可以切换显示的Display) 最多支持8个</li>
+<li>Target Eye 制作VR相关</li>
+</ul>
+<p>在ProjectSettings中可以更改渲染设置</p>
+<a id="more"></a>
+
+<h2 id="Camera代码相关"><a href="#Camera代码相关" class="headerlink" title="Camera代码相关"></a>Camera代码相关</h2><h3 id="重要静态成员"><a href="#重要静态成员" class="headerlink" title="重要静态成员"></a>重要静态成员</h3><ol>
+<li>获取摄像机 最基本的就是拖拽方式<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 快速获取主摄像机</span></span><br><span class="line">Camera.main;</span><br><span class="line"><span class="comment">// 获取摄像机数量</span></span><br><span class="line">Camera.allCamerasCount;</span><br><span class="line"><span class="comment">// 得到所有摄像机</span></span><br><span class="line">Camera[] allCameras = Camera.allCameras;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">TestOut</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>; <span class="comment">// T只能作为返回值类型</span></span><br><span class="line"><span class="comment">// delegate void TestOut&lt;out T&gt;(T v); // 报错, out修饰的类型不能作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TestIn</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T t</span>)</span>; <span class="comment">// T只能作为参数类型</span></span><br><span class="line"><span class="comment">// 同样, in修饰的类型不能作为返回值类型</span></span><br></pre></td></tr></table></figure>
+<p>获取<code>Camera.main</code>一定要求场景中有一个摄像机的Tag是<code>MainCamera</code>, 一般只设置一个主摄像机</p>
+<ol start="2">
+<li>渲染相关委托<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 摄像机遮挡剔除之前处理的委托函数</span></span><br><span class="line">Camera.onPreCull += (c) =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 摄像机渲染前处理的委托</span></span><br><span class="line">Camera.onPreRender += (c) =&gt; &#123;&#125;;</span><br><span class="line"><span class="comment">// 摄像机 渲染后 处理的委托</span></span><br><span class="line">Camera.onPostRender += (c) =&gt; &#123;&#125;;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">Test</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">T <span class="title">TestFun</span>(<span class="params"></span>)</span>; <span class="comment">// T作为返回值可以, 作为参数不行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="重要成员"><a href="#重要成员" class="headerlink" title="重要成员"></a>重要成员</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 界面上的参数都可以通过代码访问设置</span></span><br><span class="line">Camera.main.depth = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 2. 世界坐标转换屏幕坐标 转换后的x和y是以屏幕左下角为原点的像素坐标(屏幕坐标), z表示物体距离摄像机的z轴距离(世界单位)</span></span><br><span class="line">Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);</span><br><span class="line"><span class="comment">// 3. 屏幕坐标转换世界坐标 传入的Vector3的x和y是屏幕坐标, z为距离相机在z方向上的距离</span></span><br><span class="line">Vector3 pos = Input.mousePosition;</span><br><span class="line">pos.z = <span class="number">10</span>; <span class="comment">// z方向距离相机10个世界单位, 若z为0, 表示计算的世界坐标和相机重合了, 没有意义</span></span><br><span class="line">Camera.main.ScreenToWorldPoint(pos);</span><br></pre></td></tr></table></figure>
 
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>父类总是能被子类替代</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Base</span> &#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">A</span> : <span class="title">Base</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">Test</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; ta = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line"><span class="comment">// Test&lt;Base&gt; tb = ta; // 这里会报错, 虽然返回的A对象其实可以作为Base使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">TestOut</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; toa = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line">Test&lt;Base&gt; tob = toa; <span class="comment">// 这里不会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">Test&lt;Base&gt; tb = (<span class="keyword">value</span>) =&gt; &#123;&#125;; <span class="comment">// value是Base类型</span></span><br><span class="line"><span class="comment">// Test&lt;A&gt; ta = tb; // 报错, 虽然传入的A参数可以作为Base传给value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TestIn</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">TestIn&lt;Base&gt; tib = (<span class="keyword">value</span>) =&gt; &#123;&#125;;</span><br><span class="line">TestIn&lt;A&gt; tia = tib; <span class="comment">// 不会报错</span></span><br><span class="line"></span><br><span class="line">tia(<span class="keyword">new</span> A());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>WorldToScreenPoint可以用于做血条, 根据z轴大小得到距离, 对血条UI进行缩放</li>
+</ul>
 
     </div>
 
@@ -298,7 +359,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/csharp/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+              <a href="/tags/unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
           </div>
 
         
@@ -307,12 +368,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/csharp/csharp-anonymous-func/" rel="prev" title="C#中的匿名函数和lambda表达式">
-      <i class="fa fa-chevron-left"></i> C#中的匿名函数和lambda表达式
+    <a href="/unity/unity-screen-base/" rel="prev" title="Unity中Screen类中的内容">
+      <i class="fa fa-chevron-left"></i> Unity中Screen类中的内容
     </a></div>
       <div class="post-nav-item">
-    <a href="/csharp/csharp-multi-threads/" rel="next" title="C#中的多线程">
-      C#中的多线程 <i class="fa fa-chevron-right"></i>
+    <a href="/unity/unity-light-system-base/" rel="next" title="Unity中光源组件基础">
+      Unity中光源组件基础 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -373,7 +434,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%8F%E5%8F%98%E9%80%86%E5%8F%98"><span class="nav-number">1.</span> <span class="nav-text">什么是协变逆变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E5%92%8C%E5%8F%82%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">返回值和参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">原理</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Camera%E4%B8%8A%E5%8F%AF%E7%BC%96%E8%BE%91%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">Camera上可编辑的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Camera%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3"><span class="nav-number">2.</span> <span class="nav-text">Camera代码相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">2.1.</span> <span class="nav-text">重要静态成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E6%88%90%E5%91%98"><span class="nav-number">2.2.</span> <span class="nav-text">重要成员</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
