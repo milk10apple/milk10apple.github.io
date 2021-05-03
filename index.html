@@ -192,6 +192,696 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-audio-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-audio-system/" class="post-title-link" itemprop="url">Unity的音效系统</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-03 18:32:45 / 修改时间：19:51:34" itemprop="dateCreated datePublished" datetime="2021-05-03T18:32:45+08:00">2021-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-audio-system/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-audio-system/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="音效文件导入"><a href="#音效文件导入" class="headerlink" title="音效文件导入"></a>音效文件导入</h2><h3 id="常用音频格式"><a href="#常用音频格式" class="headerlink" title="常用音频格式"></a>常用音频格式</h3><p>Unity中支持的音频格式:</p>
+<p>wav mp3 ogg aiff</p>
+<h3 id="音频文件选项"><a href="#音频文件选项" class="headerlink" title="音频文件选项"></a>音频文件选项</h3><p>预览面板三个按钮(播放, 选中时自动播放, 循环播放)</p>
+<ul>
+<li>Force To Mono 多声道转为单声道 (一般不勾选)<ul>
+<li>Normalize 强制为单声道时, 混合过程中被标准化</li>
+</ul>
+</li>
+<li><strong>Load In Background</strong> 在后台加载, 不阻塞主线程</li>
+<li>Ambisonic 立体声混响 (非常适合360度视频和XR应用程序) 如果音频文件包含立体混响声编码的音频, 请启用此选项</li>
+<li><strong>Load Type</strong> 加载类型<ul>
+<li>Decompress On Load 不压缩模式存在内存, 加载快, 但占用内存高 (适用于小音效)</li>
+<li>Compress In Memory 压缩形式存在内存, 加载慢, 内存小 (仅适用于较大的音效文件)</li>
+<li>Streaming 以流形式存在, 使用时编码, 内存占用最小, cpu消耗高 (性能换内存)</li>
+</ul>
+</li>
+<li><strong>Preload Audio Data</strong> 预加载音频 (一般勾选)<ul>
+<li>勾选后, 进入场景就加载, 不勾选则第一次使用时才加载</li>
+</ul>
+</li>
+<li>Compression Format 压缩方式<ul>
+<li>PCM 音频以最高质量存储, 背景音效</li>
+<li>Vorbis 相对PCM压缩的更小, 根据质量决定</li>
+<li>ADPCM 包含噪音, 会被多次播放的声音, 如碰撞声, 打击音效</li>
+</ul>
+</li>
+<li>Quality 音频质量 确定要应用于压缩剪辑的压缩量<ul>
+<li>不适用于PCM/ADPCM/HEVAG格式, 只适用于Vorbis</li>
+</ul>
+</li>
+<li>Sample Rate Setting PCM和ADPCM压缩格式允许自动优化或手动降低采样率<ul>
+<li>Preserve Sample Rate 保持采样率不变 (默认值)</li>
+<li>Optimize Sample Rate 根据分析的最高频率内容自动优化采样率</li>
+<li>Override Sample Rate 允许手动覆盖采样率, 可有效地将其用于丢弃频率内容</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/unity/unity-audio-system/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-physical-system-rigidbody-add-force/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-physical-system-rigidbody-add-force/" class="post-title-link" itemprop="url">Unity物理系统--对刚体加力</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-03 16:17:03 / 修改时间：16:51:06" itemprop="dateCreated datePublished" datetime="2021-05-03T16:17:03+08:00">2021-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-physical-system-rigidbody-add-force/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-physical-system-rigidbody-add-force/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="刚体自带的添加力的方法"><a href="#刚体自带的添加力的方法" class="headerlink" title="刚体自带的添加力的方法"></a>刚体自带的添加力的方法</h2><p>给刚体加力的目标就是, 让刚体有一个加速度, 朝某个方向改变速度</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rig = GetComponent&lt;Rigidbody&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="添加力"><a href="#添加力" class="headerlink" title="添加力"></a>添加力</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相对于世界坐标</span></span><br><span class="line">rig.AddForce(Vector3.forward * <span class="number">10</span>); <span class="comment">// 加力一帧时间</span></span><br><span class="line"><span class="comment">// 相对于本地坐标</span></span><br><span class="line">rig.AddRelativeForce(Vector3.forward * <span class="number">10</span>);</span><br><span class="line"><span class="comment">// 与上面的等价</span></span><br><span class="line">rig.AddForce(transform.forward * <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加扭矩力"><a href="#添加扭矩力" class="headerlink" title="添加扭矩力"></a>添加扭矩力</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相对于世界坐标系</span></span><br><span class="line">rig.AddTorque(Vector3.up * <span class="number">10</span>);</span><br><span class="line"><span class="comment">// 相对于本地坐标系</span></span><br><span class="line">rig.AddRelativeTorque(Vector3.up * <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="直接改变速度-手动给一个加速度"><a href="#直接改变速度-手动给一个加速度" class="headerlink" title="直接改变速度 (手动给一个加速度)"></a>直接改变速度 (手动给一个加速度)</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是相对于世界坐标系</span></span><br><span class="line">rig.velocity += Vector3.forward * <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/unity/unity-physical-system-rigidbody-add-force/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-physical-system-collision-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-physical-system-collision-function/" class="post-title-link" itemprop="url">Unity物理系统--碰撞检测函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-03 14:31:39 / 修改时间：14:58:03" itemprop="dateCreated datePublished" datetime="2021-05-03T14:31:39+08:00">2021-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-physical-system-collision-function/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-physical-system-collision-function/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>回顾:</p>
+<ol>
+<li>产生碰撞条件 - 至少1个刚体, 和2个碰撞器</li>
+<li>两个物体碰撞时的不同效果 - 物理材质, 摩擦力和反弹力</li>
+<li>触发器作用 - 两个物体碰撞没有物理效果, 只触发对应的触发器函数</li>
+</ol>
+<p>碰撞和触发函数属于特殊的生命周期函数, 也是通过反射调用, 触发响应频率和物理帧息息相关</p>
+<h2 id="物理碰撞检测响应函数"><a href="#物理碰撞检测响应函数" class="headerlink" title="物理碰撞检测响应函数"></a>物理碰撞检测响应函数</h2><p>OnCollisionxxx都是产生物理效果的碰撞</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 碰撞刚开始接触时</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnCollisionEnter</span>(<span class="params">Collision collision</span>)</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 碰撞结束分离时</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnCollisionExit</span>(<span class="params">Collision collision</span>)</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 当碰撞物体持续接触时</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnCollisionStay</span>(<span class="params">Collision collision</span>)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数Collision包含了碰到自己的对象的相关信息:</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 碰撞对象的碰撞器</span></span><br><span class="line">collision.collider;</span><br><span class="line"><span class="comment">// 2. 碰撞对象的依附对象</span></span><br><span class="line">collision.gameObject;</span><br><span class="line"><span class="comment">// 3. 碰撞对象的依附对象的位置信息</span></span><br><span class="line">collision.transform;</span><br><span class="line">collision.transform.GetComponent&lt;T&gt;(); <span class="comment">// 获取碰撞对象的脚本</span></span><br><span class="line"><span class="comment">// 4. 碰撞位置 碰撞点</span></span><br><span class="line">collision.contactCount; <span class="comment">// 接触点个数</span></span><br><span class="line">ContactPoint[] points = collision.contacts; <span class="comment">// 接触点</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="触发器响应函数"><a href="#触发器响应函数" class="headerlink" title="触发器响应函数"></a>触发器响应函数</h2><p>勾选Is Trigger后的触发函数</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两个物体刚接触时</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnTriggerEnter</span>(<span class="params">Collider other</span>)</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 当接触状态结束时</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnTriggerExit</span>(<span class="params">Collider other</span>)</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 当两个物体一直接触时</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnTriggerStay</span>(<span class="params">Collider other</span>)</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="要明确什么时候会响应函数"><a href="#要明确什么时候会响应函数" class="headerlink" title="要明确什么时候会响应函数"></a>要明确什么时候会响应函数</h2><ol>
+<li>只要挂载的对象能和别的物体产生碰撞或者触发, 那么对应的这些函数就能够被触发</li>
+<li>一般不是几个函数都需要, 只根据需要写就行</li>
+<li>如果是一个组合物体(父对象具有刚体, 但是碰撞器都在子物体上), 在子物体上挂载脚本检测碰撞是不行的, 必须挂载到这个物体的父对象上才能响应</li>
+</ol>
+<h2 id="碰撞和触发器函数都可以写成虚函数在子类中实现"><a href="#碰撞和触发器函数都可以写成虚函数在子类中实现" class="headerlink" title="碰撞和触发器函数都可以写成虚函数在子类中实现"></a>碰撞和触发器函数都可以写成虚函数在子类中实现</h2><p>一般将碰撞/触发函数写成private或者protected</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-physical-system-physic-material/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-physical-system-physic-material/" class="post-title-link" itemprop="url">Unity物理系统--物理材质</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-03 14:18:16 / 修改时间：14:30:13" itemprop="dateCreated datePublished" datetime="2021-05-03T14:18:16+08:00">2021-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-physical-system-physic-material/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-physical-system-physic-material/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="创建与应用"><a href="#创建与应用" class="headerlink" title="创建与应用"></a>创建与应用</h2><p>右键创建-&gt;物理材质(Physic Material)</p>
+<p>在Collider的材质选项中, 选择传概念的物理材质</p>
+<h2 id="物理材质参数"><a href="#物理材质参数" class="headerlink" title="物理材质参数"></a>物理材质参数</h2><h3 id="Dynamic-Friction-在移动时的摩擦力"><a href="#Dynamic-Friction-在移动时的摩擦力" class="headerlink" title="Dynamic Friction 在移动时的摩擦力"></a>Dynamic Friction 在移动时的摩擦力</h3><p>通常为0到1之间的值, 值为0就会像冰一样, 值为1将使运动的对象迅速静止 (除非用很大的力推动对象)</p>
+<h3 id="Static-Friction-静止时的摩擦力"><a href="#Static-Friction-静止时的摩擦力" class="headerlink" title="Static Friction 静止时的摩擦力"></a>Static Friction 静止时的摩擦力</h3><p>通常为0到1之间, 值为0像冰面, 值为1将导致很难让对象移动</p>
+<h3 id="Bounciness-弹性"><a href="#Bounciness-弹性" class="headerlink" title="Bounciness 弹性"></a>Bounciness 弹性</h3><p>值为0将不会反弹, 值为1将在反弹时不产生任何能量损失</p>
+<h3 id="Friction-Combine-两个碰撞对象的摩擦力组合方式"><a href="#Friction-Combine-两个碰撞对象的摩擦力组合方式" class="headerlink" title="Friction Combine 两个碰撞对象的摩擦力组合方式"></a>Friction Combine 两个碰撞对象的摩擦力组合方式</h3><p>碰撞的两个物体, 可能拥有两个不同的物理材质, 以下就是计算不同物理材质之间实际摩擦力的方式</p>
+<ul>
+<li>Average 两个摩擦值求平均值 (默认值)</li>
+<li>Minimum 使用两个值中的最小值</li>
+<li>Maximum 使用两个值中的最大值</li>
+<li>Multiply 两个摩擦值相乘</li>
+</ul>
+<h3 id="Bounce-Combine-两个碰撞对象的弹性组合方式"><a href="#Bounce-Combine-两个碰撞对象的弹性组合方式" class="headerlink" title="Bounce Combine 两个碰撞对象的弹性组合方式"></a>Bounce Combine 两个碰撞对象的弹性组合方式</h3><p>模式与Friction Combine模式相同</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-physical-system-collider/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-physical-system-collider/" class="post-title-link" itemprop="url">Unity物理系统--碰撞器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-03 10:44:41 / 修改时间：14:16:09" itemprop="dateCreated datePublished" datetime="2021-05-03T10:44:41+08:00">2021-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-physical-system-collider/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-physical-system-collider/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>碰撞产生必要条件: 两个物体都有碰撞器(Collider), 至少一个物体有刚体(Rigidbody)</p>
+<p>碰撞器表示物体的体积(形状), 刚体利用体积进行碰撞计算, 模拟真实的碰撞效果, 产生力的作用</p>
+<h2 id="3D碰撞器种类"><a href="#3D碰撞器种类" class="headerlink" title="3D碰撞器种类"></a>3D碰撞器种类</h2><h3 id="性能高-较为常用"><a href="#性能高-较为常用" class="headerlink" title="性能高 较为常用"></a>性能高 较为常用</h3><ul>
+<li>BoxCollider 盒状</li>
+<li>SphereCollider 球状</li>
+<li>CapsuleCollider 胶囊</li>
+</ul>
+<h3 id="准确性高-性能低-使用少"><a href="#准确性高-性能低-使用少" class="headerlink" title="准确性高 性能低 使用少"></a>准确性高 性能低 使用少</h3><ul>
+<li>网格</li>
+<li>轮胎</li>
+<li>地形</li>
+</ul>
+<h2 id="共同参数"><a href="#共同参数" class="headerlink" title="共同参数"></a>共同参数</h2><h3 id="Is-Trigger-是否为触发器"><a href="#Is-Trigger-是否为触发器" class="headerlink" title="Is Trigger 是否为触发器"></a>Is Trigger 是否为触发器</h3><p>如果启用此属性, 则该碰撞体将用于触发事件, 并被物理引擎忽略</p>
+<p>主要用于进行没有物理效果的碰撞检测</p>
+<h3 id="Material-物理材质"><a href="#Material-物理材质" class="headerlink" title="Material 物理材质"></a>Material 物理材质</h3><p>可以确定碰撞体和其它对象碰撞时的交互(表现)方式</p>
+<p>例如: 橡胶球, 冰面</p>
+<h3 id="Center"><a href="#Center" class="headerlink" title="Center"></a>Center</h3><p>碰撞体体积的位置偏移</p>
+<h2 id="常用碰撞器"><a href="#常用碰撞器" class="headerlink" title="常用碰撞器"></a>常用碰撞器</h2><h3 id="BoxCollider-盒状碰撞器"><a href="#BoxCollider-盒状碰撞器" class="headerlink" title="BoxCollider 盒状碰撞器"></a>BoxCollider 盒状碰撞器</h3><ul>
+<li>Size 碰撞体在xyz方向上的大小</li>
+</ul>
+<h3 id="SphereCollider-球状碰撞器"><a href="#SphereCollider-球状碰撞器" class="headerlink" title="SphereCollider 球状碰撞器"></a>SphereCollider 球状碰撞器</h3><ul>
+<li>Radius 球状碰撞体的半径大小</li>
+</ul>
+<h3 id="CapsuleCollider-胶囊碰撞体"><a href="#CapsuleCollider-胶囊碰撞体" class="headerlink" title="CapsuleCollider 胶囊碰撞体"></a>CapsuleCollider 胶囊碰撞体</h3><ul>
+<li>Radius 胶囊提半径</li>
+<li>Height 胶囊提高度</li>
+<li>Direction 胶囊提轴向方向</li>
+</ul>
+<h2 id="异性物体使用多种碰撞器组合"><a href="#异性物体使用多种碰撞器组合" class="headerlink" title="异性物体使用多种碰撞器组合"></a>异性物体使用多种碰撞器组合</h2><p><strong>刚体对象的子对象碰撞器参与碰撞检测</strong></p>
+<h2 id="不常用碰撞器"><a href="#不常用碰撞器" class="headerlink" title="不常用碰撞器"></a>不常用碰撞器</h2><ul>
+<li>MeshCollider 网格碰撞器 (性能消耗高)<ul>
+<li>Convex <strong>如果带有MeshCollider的物体需要使用刚体, 那么必须勾选Convex</strong> 启用该选项, 该MeshCollider将与其它MeshCollider发生碰撞, Convex Mesh Collider最多255个三角形</li>
+<li>Cooking Options 启用或禁用影响物理引擎对网格处理方式的网格烹制选项 (不常用)<ul>
+<li>None 禁用所有Cooking Options</li>
+<li>Everything 启用所有Cooking Options</li>
+<li>Cook for Faster Simulation 使物理引擎烹制网格以加快模拟速度, 启用该设置后, 会运行一些额外步骤, 以保证生成的网格在运行时的性能最佳, 但是它会影响物理物理查询和接触生成的性能; 禁用此设置后, 物理引擎会使用更快的烹制速度, 并尽可能快速生成结果. 因此, 烹制的MeshCollider可能不是最佳的</li>
+<li>Enable Mesh Cleaning 使用物理引擎清理网格, 启用此设置后, 烹制过程会常识消除网格的退化三角形以及其它的几何瑕疵, 此过程生成的网格更适合在碰撞检测中使用, 往往可生成更准确的击中点</li>
+<li>Weld Colocated Vertices 使物理引擎在网格中删除相等的顶点, 启用此设置后, 物理引擎将合并具有相同位置的顶点, 这对于运动时发生的碰撞反馈十分重要</li>
+</ul>
+</li>
+<li>Mesh 设置碰撞器的网格</li>
+</ul>
+</li>
+<li>WheelCollider 环形碰撞器 (一般只用于赛车)<ul>
+<li>添加WheelCollider看不到绿色提示</li>
+<li>创建一个空物体Car</li>
+<li>在其中创建车身, 轮胎, 对轮胎添加WheelCollider</li>
+<li>给根物体添加刚体, 轮胎的碰撞器就会显示出来了</li>
+<li>‘车子’拖到空中, 会被直接弹飞, 是因为质量太小, 刚体质量改成1500(kg)即可</li>
+<li>创建车子简单点就是车身加4个轮胎碰撞器</li>
+</ul>
+</li>
+<li>TerrainCollider 地形碰撞器 (性能消耗大, Unity自带地形本来就性能不好, 一般很少使用)<ul>
+<li>Terrain Data 地形数据</li>
+<li>Enable Tree Collider 选中时, 启用树的碰撞</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-physical-system-rigid-body/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-physical-system-rigid-body/" class="post-title-link" itemprop="url">Unity物理系统--刚体</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-02 13:11:13 / 修改时间：16:42:37" itemprop="dateCreated datePublished" datetime="2021-05-02T13:11:13+08:00">2021-05-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-physical-system-rigid-body/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-physical-system-rigid-body/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>碰撞产生的必要条件: <strong>两个物体都有碰撞器, 至少一个物体有刚体</strong></p>
+<p>碰撞器(Collider): 用于表示一个物体的体积</p>
+<p>刚体(Rigidbody): 让物体能够受到力的作用</p>
+<h2 id="Rigidbody组件信息"><a href="#Rigidbody组件信息" class="headerlink" title="Rigidbody组件信息"></a>Rigidbody组件信息</h2><h3 id="Mass-质量"><a href="#Mass-质量" class="headerlink" title="Mass 质量"></a>Mass 质量</h3><p>默认为千克, 质量越大惯性越大</p>
+<p>质量比较大的时候, 不容易改变当前状态, 越不容易被别的物体/力推动</p>
+<h3 id="Drag-空气阻力"><a href="#Drag-空气阻力" class="headerlink" title="Drag 空气阻力"></a>Drag 空气阻力</h3><p>根据力移动对象时, 影响对象的空气阻力大小, 0表示没有空气阻力</p>
+<h3 id="Angular-Drag-扭矩阻力"><a href="#Angular-Drag-扭矩阻力" class="headerlink" title="Angular Drag 扭矩阻力"></a>Angular Drag 扭矩阻力</h3><p>扭矩阻力, 物体旋转时受到的阻力大小</p>
+<h3 id="Use-Gravity-使用重力"><a href="#Use-Gravity-使用重力" class="headerlink" title="Use Gravity 使用重力"></a>Use Gravity 使用重力</h3><p>是否受重力影响</p>
+<h3 id="Is-Kinematic-运动学选项"><a href="#Is-Kinematic-运动学选项" class="headerlink" title="Is Kinematic 运动学选项"></a>Is Kinematic 运动学选项</h3><p>运动学选项 (就像让原本的刚体失效了)</p>
+<p>如果启用此选项, 则对象不会被物理引擎驱动, 只能通过Transform对其进行操作, 对于移动的平台, 或者要动画化附加了HingeJoint的刚体, 此属性将非常有用</p>
+<h3 id="Interpolate-插值运算"><a href="#Interpolate-插值运算" class="headerlink" title="Interpolate 插值运算"></a>Interpolate 插值运算</h3><p>让刚体物体移动更加平滑</p>
+<ul>
+<li>None 不应用插值运算</li>
+<li>Interpolate 根据前一帧的变换来平滑变换</li>
+<li>Extrapolate 差值运算, 根据下一帧的估计变换来平滑变换</li>
+</ul>
+<p>ProjectSettings 中 Time选项中可以设置物理帧时间</p>
+<p>当物理帧时间变长时, 如果不运用插值运算, 则物体的运动将是跳跃式(可以将物理帧改为1秒看效果)</p>
+<p>所以当需要将物理帧时间加长时, 插值运算将非常有用, 它可以让物体的运动变得平滑</p>
+<p>一般根据具体情况选择算法, 但是当物理帧时间比较长的时候, 建议使用根据前一帧的算法(Interpolate)</p>
+<h3 id="Collision-Detection-碰撞检测模式-重要"><a href="#Collision-Detection-碰撞检测模式-重要" class="headerlink" title="Collision Detection 碰撞检测模式 (重要)"></a>Collision Detection 碰撞检测模式 (重要)</h3><p><strong>用于防止快速移动的对象穿过其它对象而不检测碰撞</strong></p>
+<p>例如: 高速的子弹穿过薄板, 可能会因为子弹速度非常快, 上一帧在木板前(未碰到), 下一帧穿过木板在木板后(未碰到), 就会检测不到子弹与木板的碰撞 因为默认使用的是离散检测(每帧检测)</p>
+<ul>
+<li>Discrete 离散检测 (默认值)</li>
+</ul>
+<p>对场景中的所有其它碰撞体使用离散碰撞检测, 其它碰撞体在测试碰撞时会使用离散碰撞检测, 用于正常碰撞</p>
+<ul>
+<li>Continuous 连续检测<ul>
+<li>对动态碰撞体 (具有刚体) 使用离散碰撞检测</li>
+<li>并对静态碰撞体(没有刚体) 使用连续碰撞检测</li>
+<li>设置为连续动态检测 (Continuous Dynamic) 的刚体在测试与该刚体的碰撞时使用连续碰撞检测 (此属性对物理性能有很大影响, 如果没有快速对象碰撞的问题, 应该将其保留为Discrete设置)</li>
+<li>其它的刚体将使用离散碰撞检测</li>
+</ul>
+</li>
+<li>Continuous Dynamic (连续动态检测) 性能消耗高<ul>
+<li>对设置为连续(Continuous)和连续动态(Continuous Dynamic)碰撞的游戏对象使用连续碰撞检测</li>
+<li>对静态碰撞体(没有刚体)使用连续碰撞检测</li>
+</ul>
+</li>
+<li>Continuous Speculative (连续推测检测)<ul>
+<li>对刚体和碰撞体使用推测行连续碰撞检测, 该方法通常比连续碰撞检测的成本更低</li>
+</ul>
+</li>
+</ul>
+<p>一般使用的时候直接看图使用即可, 除非需要检测高速移动物体的碰撞检测, 否则一般保持为离散检测, 节约性能 (性能消耗越高, 检测越准确)</p>
+<img data-src="/unity/unity-physical-system-rigid-body/collision.png" class="">
+
+<h3 id="Constraints-约束"><a href="#Constraints-约束" class="headerlink" title="Constraints 约束"></a>Constraints 约束</h3><p>对刚体运动的约束</p>
+<ul>
+<li>Freeze Position 有选择的停止刚体沿某个轴运动</li>
+<li>Freeze Rotation 有选择的停止刚体绕某个轴的旋转</li>
+</ul>
+<h3 id="info-调试参数"><a href="#info-调试参数" class="headerlink" title="info 调试参数"></a>info 调试参数</h3><p>可以实时查看刚体上的物理信息</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-light-system-base/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -744,605 +1434,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-transform-parent/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-transform-parent/" class="post-title-link" itemprop="url">Unity中的父子关系</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-25 20:35:24" itemprop="dateCreated datePublished" datetime="2021-04-25T20:35:24+08:00">2021-04-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-28 23:54:45" itemprop="dateModified" datetime="2021-04-28T23:54:45+08:00">2021-04-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-transform-parent/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-transform-parent/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="获取和设置父对象"><a href="#获取和设置父对象" class="headerlink" title="获取和设置父对象"></a>获取和设置父对象</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取父对象, 如果没有父对象, 则为null</span></span><br><span class="line">transform.parent;</span><br><span class="line"><span class="comment">// 设置父对象, 如果设置为null, 则没有父对象, 在场景根目录</span></span><br><span class="line">transform.parent = <span class="literal">null</span>;</span><br><span class="line">transform.parent = otherObj.transform;</span><br><span class="line"><span class="comment">// 通过API设置父子关系 第二个参数默认为false</span></span><br><span class="line">transform.SetParent(<span class="literal">null</span>);</span><br><span class="line">transform.SetParent(otherTransform);</span><br><span class="line"><span class="comment">// API第二个参数: 是否保留相对世界坐标系的 位置&amp;旋转&amp;缩放</span></span><br><span class="line">transform.SetParent(otherTransform, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>SetParent第二个参数为true, 则修改相对于父级的位置&amp;旋转&amp;缩放, 使得对象保持原有的世界空间位置&amp;旋转&amp;缩放</li>
-<li>第二个参数为false, 则物体修改父级后相对于新父级的位置&amp;旋转&amp;缩放 与物体相对于原来父级的位置&amp;旋转&amp;缩放 保持一致</li>
-</ul>
-<h2 id="分离所有子对象"><a href="#分离所有子对象" class="headerlink" title="分离所有子对象"></a>分离所有子对象</h2><p>分离后, 子对象直接到根目录下</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform.DetachChildren();</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/unity/unity-transform-parent/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-transform-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-transform-base/" class="post-title-link" itemprop="url">Unity中Transform的基础内容</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-23 20:19:41" itemprop="dateCreated datePublished" datetime="2021-04-23T20:19:41+08:00">2021-04-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-25 20:34:14" itemprop="dateModified" datetime="2021-04-25T20:34:14+08:00">2021-04-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-transform-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-transform-base/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>创建一个GameObject对象时, 必定附加了Transform脚本 (必不可少)</p>
-<h2 id="位置和位移"><a href="#位置和位移" class="headerlink" title="位置和位移"></a>位置和位移</h2><h3 id="Vector3基础"><a href="#Vector3基础" class="headerlink" title="Vector3基础"></a>Vector3基础</h3><p>Vector3主要表示三维坐标系中的一个点, 或者一个向量</p>
-<p>Vector3是一个struct, 值类型</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建</span></span><br><span class="line">Vector3 v = <span class="keyword">new</span> Vector3();</span><br><span class="line">v.x = <span class="number">10</span>;</span><br><span class="line">Vector3 v1 = <span class="keyword">new</span> Vector3(<span class="number">10</span>, <span class="number">10</span>, <span class="number">5</span>);</span><br><span class="line">Vector3 v2 = <span class="keyword">new</span> Vector3(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// 运算</span></span><br><span class="line">print(v1 + v2); <span class="comment">// 12, 12, 7</span></span><br><span class="line">print(v1 - v2); <span class="comment">// 8, 8, 3</span></span><br><span class="line">print(v1 * <span class="number">10</span>);</span><br><span class="line">print(v1 / <span class="number">2</span>);</span><br><span class="line"><span class="comment">// 常用</span></span><br><span class="line">print(Vector3.zero);</span><br><span class="line">print(Vector3.one);</span><br><span class="line">print(Vector3.right);</span><br><span class="line">print(Vector3.left);</span><br><span class="line">print(Vector3.forward);</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="comment">// 常用方法</span></span><br><span class="line">Vector3.Distance(v1, v2); <span class="comment">// 计算两个点之间的距离</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/unity/unity-transform-base/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-time-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-time-base/" class="post-title-link" itemprop="url">Unity中Time类的基本内容</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-22 23:48:39" itemprop="dateCreated datePublished" datetime="2021-04-22T23:48:39+08:00">2021-04-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-23 00:04:31" itemprop="dateModified" datetime="2021-04-23T00:04:31+08:00">2021-04-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-time-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-time-base/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>主要用于游戏中参与位移/计时/时间速度/时间暂停等</p>
-<h2 id="时间缩放比例"><a href="#时间缩放比例" class="headerlink" title="时间缩放比例"></a>时间缩放比例</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 时间停止</span></span><br><span class="line">Time.timeScale = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 回复正常</span></span><br><span class="line">Time.timeScale = <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 2倍速</span></span><br><span class="line">Time.timeScale = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="帧间隔时间"><a href="#帧间隔时间" class="headerlink" title="帧间隔时间"></a>帧间隔时间</h2><p>帧时间: 上一帧时间 (s)</p>
-<p>帧间隔时间主要用于计算位移, 路程=时间*速度</p>
-<ul>
-<li>如果希望游戏暂停时不移动, 使用deltaTime</li>
-<li>如果希望游戏暂停时移动不受到影响, 使用unscaledDeltaTime</li>
-<li>timeScale不会影响Update的调用频率, 只会影响deltaTime的大小<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在Update中使用</span></span><br><span class="line"><span class="comment">// 受timeScale影响</span></span><br><span class="line">Time.deltaTime; <span class="comment">// 相当于unscaledDeltaTime * timeScale</span></span><br><span class="line"><span class="comment">// 不受timeScale影响</span></span><br><span class="line">Time.unscaledDeltaTime;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/unity/unity-time-base/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-gameobject-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-gameobject-base/" class="post-title-link" itemprop="url">Unity中GameObject的基础内容</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-22 23:02:34 / 修改时间：23:47:09" itemprop="dateCreated datePublished" datetime="2021-04-22T23:02:34+08:00">2021-04-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-gameobject-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-gameobject-base/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>GameObject就是游戏对象, 场景上的每一个对象都是一个GameObject, 一个prefab预制体也是一个GameObject对象, 而Transform, Button, 或者自定义的MonoBehaviour脚本, 都是需要依附于GameObject而存在</p>
-<p>给GameObject挂载一个脚本, 就是创建了一个该脚本的实例, 并与GameObject绑定</p>
-<h2 id="GameObject中的成员变量"><a href="#GameObject中的成员变量" class="headerlink" title="GameObject中的成员变量"></a>GameObject中的成员变量</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gameObject.name; <span class="comment">// 获取/修改名字, 也就是层级窗口中的名字</span></span><br><span class="line">gameObject.activeSelf; <span class="comment">// 获取/修改 游戏对象本身是否激活</span></span><br><span class="line">gameObject.isStatic; <span class="comment">// 获取/修改 游戏对象是否是静态对象</span></span><br><span class="line">gameObject.layer; <span class="comment">// int 层级</span></span><br><span class="line">gameObject.tag; <span class="comment">// string 标签</span></span><br><span class="line">gameObject.transform;</span><br></pre></td></tr></table></figure>
-
-<h2 id="GameObject中的静态方法"><a href="#GameObject中的静态方法" class="headerlink" title="GameObject中的静态方法"></a>GameObject中的静态方法</h2><h3 id="创建基础几何体"><a href="#创建基础几何体" class="headerlink" title="创建基础几何体"></a>创建基础几何体</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建自带几何体</span></span><br><span class="line">GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);</span><br><span class="line">cube.name = <span class="string">&quot;MyCube&quot;</span>;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/unity/unity-gameobject-base/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-mono-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-mono-base/" class="post-title-link" itemprop="url">Unity中MonoBehaviour的基础内容</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-21 23:19:17 / 修改时间：23:41:39" itemprop="dateCreated datePublished" datetime="2021-04-21T23:19:17+08:00">2021-04-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-mono-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-mono-base/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学习最好的方法, 就是进入这个类, 依次看一下, 不懂的再查查文档</p>
-<h2 id="重要成员"><a href="#重要成员" class="headerlink" title="重要成员"></a>重要成员</h2><ul>
-<li><code>gameObject</code> 依附的GameObject</li>
-<li><code>transform</code> 依附的GameObject的transform信息 (位置旋转缩放)</li>
-<li><code>enabled</code> 获取/控制该脚本是否激活 (脚本左上角的勾选)</li>
-</ul>
-<h2 id="重要方法"><a href="#重要方法" class="headerlink" title="重要方法"></a>重要方法</h2><p>一般不会在同一个对象挂载多个相同对象</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 获取依附GameObject上的单个脚本 (没有对应脚本则返回null)</span></span><br><span class="line">ComponentType component = GetComponent&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 2. 得到自己挂载的多个脚本</span></span><br><span class="line">ComponentType[] arr = GetComponents&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 3. 得到子对象挂载的脚本 (同时会寻找自身) 递归子对象</span></span><br><span class="line">ComponentType component = GetComponentInChildren&lt;ComponentType&gt;(); <span class="comment">// 相当于传入参数false, 子对象失活不会找到对应脚本</span></span><br><span class="line">GetComponentInChildren&lt;ComponentType&gt;(<span class="literal">true</span>); <span class="comment">// 即使子对象失活了也会找到对应脚本</span></span><br><span class="line">GetComponentsInChildren&lt;ComponentType&gt;(<span class="literal">true</span>); <span class="comment">// 查找所有</span></span><br><span class="line"><span class="comment">// 4. 得到父对象挂载的脚本 (同时会寻找自身) 递归父对象</span></span><br><span class="line">GetComponentInParent&lt;ComponentType&gt;(); <span class="comment">// 不可以传参</span></span><br><span class="line">GetComponentsInParent&lt;ComponentType&gt;();</span><br><span class="line"><span class="comment">// 5. 尝试 (和上面的直接获取后判空差不多)</span></span><br><span class="line">ComponentType component;</span><br><span class="line"><span class="keyword">if</span> (TryGetComponent&lt;ComponentType&gt;(<span class="keyword">out</span> component)) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
-
-<p>重点: <strong>注意GetComponentInChildren的参数, 默认情况下不会查找失活的子对象的脚本</strong></p>
-<p>以上的<code>GetComponentsxxx</code>都可以传入一个list参数, 用以代替返回数组的函数</p>
-<p>得到脚本就可以得到脚本相关的对象所有相关信息</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-inspector-field/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-inspector-field/" class="post-title-link" itemprop="url">Unity中Inspector窗口中的可编辑变量</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-18 23:52:05" itemprop="dateCreated datePublished" datetime="2021-04-18T23:52:05+08:00">2021-04-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-19 00:30:22" itemprop="dateModified" datetime="2021-04-19T00:30:22+08:00">2021-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-inspector-field/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-inspector-field/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Inspector显示的可编辑内容就是MonoBehaviour脚本的成员变量</p>
-<h2 id="private和protected变量"><a href="#private和protected变量" class="headerlink" title="private和protected变量"></a>private和protected变量</h2><h3 id="private和protected默认不显示"><a href="#private和protected默认不显示" class="headerlink" title="private和protected默认不显示"></a>private和protected默认不显示</h3><p>默认情况下, private和protected变量是不会显示在Inspector窗口中的</p>
-<h3 id="显示private和protected"><a href="#显示private和protected" class="headerlink" title="显示private和protected"></a>显示private和protected</h3><p>但是, 可以加上序列化字段特性<code>[SerializeField]</code>, 让private或protected成员变量也可以显示在Inspector窗口中</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">SerializeField</span>]</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> num;</span><br></pre></td></tr></table></figure>
-
-<p>所谓序列化就是把一个对象保存到文件或者数据库字段中</p>
-<h2 id="public变量"><a href="#public变量" class="headerlink" title="public变量"></a>public变量</h2><h3 id="public默认显示"><a href="#public默认显示" class="headerlink" title="public默认显示"></a>public默认显示</h3><p>public变量默认显示在Inspector窗口中</p>
-<h3 id="public不显示"><a href="#public不显示" class="headerlink" title="public不显示"></a>public不显示</h3><p>加上字段特性<code>[HideInInspector]</code>, 可以让原本会显示在Inspector窗口中的public变量不显示</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">HideInInspector</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> num;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/unity/unity-inspector-field/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1408,7 +1503,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

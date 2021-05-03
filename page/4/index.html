@@ -192,6 +192,644 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-value-and-class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-value-and-class/" class="post-title-link" itemprop="url">C#中值类型与引用类型深入理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-07 10:34:04 / 修改时间：12:55:28" itemprop="dateCreated datePublished" datetime="2021-03-07T10:34:04+08:00">2021-03-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-value-and-class/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-value-and-class/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>值类型和引用类型的本质区别是, 值的具体内容存储在栈内存上, 而引用类型变量只在栈上存储一个地址, 具体内容存储在堆上</p>
+<h3 id="如何判断值类型与引用类型"><a href="#如何判断值类型与引用类型" class="headerlink" title="如何判断值类型与引用类型"></a>如何判断值类型与引用类型</h3><p>F12跟进去看, <code>class</code>为引用, <code>struct</code>为值</p>
+<h3 id="语句块"><a href="#语句块" class="headerlink" title="语句块"></a>语句块</h3><ul>
+<li><p>命名空间</p>
+</li>
+<li><p>类, 接口, 结构体</p>
+</li>
+<li><p>函数, 属性, 索引器, 运算符重载</p>
+</li>
+<li><p>条件分支, 循环</p>
+</li>
+<li><p>上层语句块: 类, 结构体</p>
+</li>
+<li><p>中层语句块: 函数</p>
+</li>
+<li><p>底层语句块: 条件分支, 循环</p>
+</li>
+</ul>
+<p>上层语句块声明成员变量, 中底层语句块声明临时变量</p>
+<h3 id="变量的生命周期"><a href="#变量的生命周期" class="headerlink" title="变量的生命周期"></a>变量的生命周期</h3><p>编程时大部分是临时变量, 语句块执行结束时, 没有被记录的对象编程垃圾, 此时值类型将被系统自动回收(栈弹出), 引用类型: 栈上的引用地址的变量被系统自动回收(栈弹出), 堆中的具体内容将在下次GC时回收</p>
+<p>如果想要变量不被回收, 不变成垃圾, 必须将它记录下来</p>
+<ul>
+<li>在更高层的作用域中记录</li>
+<li>使用静态全局变量记录</li>
+</ul>
+<p>作用域提升</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-value-and-class/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-special/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-special/" class="post-title-link" itemprop="url">C#中的特殊语法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-07 09:59:24 / 修改时间：10:29:01" itemprop="dateCreated datePublished" datetime="2021-03-07T09:59:24+08:00">2021-03-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-special/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-special/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="var隐式类型"><a href="#var隐式类型" class="headerlink" title="var隐式类型"></a>var隐式类型</h3><p>var可以表示任意类型的临时变量 (自动推导类型), 可以用于简化复杂类型, 但是尽量不要影响代码的理解</p>
+<ul>
+<li>var不能作为类的成员, 只能用于临时变量中, 也就是语句块中</li>
+<li>var变量必须初始化</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> s = <span class="string">&quot;111&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> Test();</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置对象初始值"><a href="#设置对象初始值" class="headerlink" title="设置对象初始值"></a>设置对象初始值</h3><p>实例化对象时, 可以直接写大括号的形式初始化公共成员变量和属性</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> money;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> sex;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person p = <span class="keyword">new</span> Person() &#123; sex = <span class="literal">true</span>, Age = <span class="number">18</span>, Name = <span class="string">&quot;Alice&quot;</span>&#125;;</span><br><span class="line">Person p2 = <span class="keyword">new</span> Person &#123; Age = <span class="number">18</span> &#125;; <span class="comment">// 无参数时括号可以不写, 变量可以部分初始化</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置集合的初始值"><a href="#设置集合的初始值" class="headerlink" title="设置集合的初始值"></a>设置集合的初始值</h3><p>申明集合对象时, 可以通过大括号, 直接初始化内部属性</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> &#125;;</span><br><span class="line">List&lt;<span class="keyword">int</span>&gt; list = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt;() &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line">List&lt;Person&gt; listPerson = <span class="keyword">new</span> List&lt;Person&gt;() &#123;</span><br><span class="line">    <span class="keyword">new</span> Person(),</span><br><span class="line">    <span class="keyword">new</span> Person() &#123; Age = <span class="number">10</span> &#125;,</span><br><span class="line">    <span class="keyword">new</span> Person() &#123; Name = <span class="string">&quot;Alice&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Dictionary&lt;<span class="keyword">int</span>, <span class="keyword">string</span>&gt; dic = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">int</span>, <span class="keyword">string</span>&gt;() &#123;</span><br><span class="line">    &#123; <span class="number">1</span>, <span class="string">&quot;111&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="number">2</span>, <span class="string">&quot;222&quot;</span> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="匿名类型"><a href="#匿名类型" class="headerlink" title="匿名类型"></a>匿名类型</h3><p>var变量可以声明为自定义的匿名类型 (不建议使用)</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只能有变量类型, 不能再定义某个属性为匿名函数或者lambda表达式</span></span><br><span class="line"><span class="keyword">var</span> v = <span class="keyword">new</span> &#123; age = <span class="number">10</span>, money = <span class="number">11</span>, name = <span class="string">&quot;Alice&quot;</span> &#125;</span><br><span class="line">Console.WriteLine(v.age);</span><br><span class="line">Console.WriteLine(v.name);</span><br></pre></td></tr></table></figure>
+
+<h3 id="可空类型"><a href="#可空类型" class="headerlink" title="可空类型"></a>可空类型</h3><ul>
+<li>值类型本来不可以为null, 但是在值类型后面加<code>?</code>, 则变量成为可空类型, 可以赋值为null</li>
+<li>可空类型其本质是 <code>Nullable&lt;&gt;</code> 的泛型类型, 是语法糖</li>
+<li>可以通过 <code>HasValue</code> 判断可空类型是否不为null<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// int c = null; // 报错</span></span><br><span class="line"><span class="keyword">int</span>? c = <span class="literal">null</span>;</span><br><span class="line"><span class="comment">// 判断是否为空</span></span><br><span class="line"><span class="keyword">if</span> (c.HasValue)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(c);</span><br><span class="line">    Console.WriteLine(c.Value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>安全获取可空类型值</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>? <span class="keyword">value</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="comment">// 如果为空则返回类型默认值</span></span><br><span class="line">Console.WriteLine(<span class="keyword">value</span>.GetValueOrDefault());</span><br><span class="line"><span class="comment">// 也可以指定一个默认值</span></span><br><span class="line">Console.WriteLine(<span class="keyword">value</span>.GetValueOrDefault(<span class="number">100</span>)); <span class="comment">// 并不会改变value的原值</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引用类型的使用 (自动判空)</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> o = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span> (o != <span class="literal">null</span>)</span><br><span class="line">&#123;</span><br><span class="line">    o.ToString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//语法糖, 自动判断null, 如果是null, 就不会执行后面的方法</span></span><br><span class="line">o?.ToString();</span><br><span class="line">Console.WriteLine(o?.ToString()); <span class="comment">// 返回null, 无打印, 不报错</span></span><br><span class="line"><span class="keyword">int</span>[] arr = <span class="literal">null</span>;</span><br><span class="line">Console.WriteLine(arr?[<span class="number">0</span>]);</span><br><span class="line">Action action = <span class="literal">null</span>;</span><br><span class="line">action?.Invoke();</span><br></pre></td></tr></table></figure>
+
+<h3 id="空合并操作"><a href="#空合并操作" class="headerlink" title="空合并操作 ??"></a>空合并操作 <code>??</code></h3><p>语法: <code>左边</code> ?? <code>右边</code></p>
+<p>如果左边为null就返回右边值, 否则返回左边值</p>
+<p>只要是<strong>可以为null的类型</strong>都能使用</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>? num = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">int</span> i = num == <span class="literal">null</span> ? <span class="number">100</span> : num.Value;</span><br><span class="line">i = num ?? <span class="number">100</span>; <span class="comment">// 等价于上面的三位运算</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">string</span> str = <span class="literal">null</span>;</span><br><span class="line">str = str ?? <span class="string">&quot;111&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="内插字符串"><a href="#内插字符串" class="headerlink" title="内插字符串"></a>内插字符串</h3><p>关键字<code>$</code>, 用于构造字符串</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> name = <span class="string">&quot;Alice&quot;</span>;</span><br><span class="line"><span class="keyword">int</span> age = <span class="number">18</span>;</span><br><span class="line">Console.WriteLine(<span class="string">$&quot;她的名字是<span class="subst">&#123;name&#125;</span>, 年龄: <span class="subst">&#123;age&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="单句逻辑简单写法"><a href="#单句逻辑简单写法" class="headerlink" title="单句逻辑简单写法"></a>单句逻辑简单写法</h3><p>只有一句逻辑时可以省略大括号简写</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123;</span><br><span class="line">        <span class="keyword">get</span> =&gt; <span class="string">&quot;Alice&quot;</span>;</span><br><span class="line">        <span class="keyword">set</span> =&gt; name = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Add</span>(<span class="params"><span class="keyword">int</span> x, <span class="keyword">int</span> y</span>)</span> =&gt; x + y;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speek</span>(<span class="params"><span class="keyword">string</span> str</span>)</span> =&gt; Console.WriteLine(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-iterator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-iterator/" class="post-title-link" itemprop="url">C#中的迭代器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-06 14:42:51 / 修改时间：18:46:35" itemprop="dateCreated datePublished" datetime="2021-03-06T14:42:51+08:00">2021-03-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-iterator/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-iterator/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="迭代器概念"><a href="#迭代器概念" class="headerlink" title="迭代器概念"></a>迭代器概念</h2><h3 id="迭代器是什么"><a href="#迭代器是什么" class="headerlink" title="迭代器是什么"></a>迭代器是什么</h3><p>迭代器 (Iterator) 有时又称为光标(cursor)</p>
+<p>是程序设计的一种软件设计模式</p>
+<p>迭代器模式: 提供一个方法顺序访问一个集合对象中的各个元素, 而又不暴露其内部的标识</p>
+<p>从表现效果上看是可以在容器对象(例如链表或者数组)上遍历访问的接口</p>
+<p>可以使用 <code>foreach</code> 遍历的类都是实现了迭代器的</p>
+<h2 id="标准迭代器的实现方法"><a href="#标准迭代器的实现方法" class="headerlink" title="标准迭代器的实现方法"></a>标准迭代器的实现方法</h2><p>关键接口: <code>IEnumerator</code>, <code>IEnumerable</code></p>
+<p>命令空间: <code>using System.Collections</code></p>
+<p>可以通过同时继承<code>IEnumerable</code>和<code>IEnumerator</code>实现其中的方法</p>
+<p><strong>想要在foreach中使用的类型, 必须实现<code>public IEunmerator GetEnumerator()</code>方法</strong>, 一般通过实现<code>IEnumerable</code>接口来实现方法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">CustomList</span> : <span class="title">IEnumerable</span>, <span class="title">IEnumerator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] list;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> position;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CustomList</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span> &#125;;</span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerable</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Reset(); <span class="comment">// 重置光标一般在获取迭代器时调用一次</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// IEnumerator</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">object</span> Current =&gt; list[position];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 移动光标</span></span><br><span class="line">        ++position;</span><br><span class="line">        <span class="keyword">return</span> position &lt; list.Length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 重置光标</span></span><br><span class="line">        position = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-iterator/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-reflect/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-reflect/" class="post-title-link" itemprop="url">C#反射</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-04 22:09:32" itemprop="dateCreated datePublished" datetime="2021-03-04T22:09:32+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-06 13:56:22" itemprop="dateModified" datetime="2021-03-06T13:56:22+08:00">2021-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-reflect/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-reflect/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="基础认识"><a href="#基础认识" class="headerlink" title="基础认识"></a>基础认识</h2><h3 id="程序集"><a href="#程序集" class="headerlink" title="程序集"></a>程序集</h3><p>程序集是编译器编译得到的一个产物</p>
+<p>我们写的一个代码集合编译成一个程序集可以方便的提供给他人使用</p>
+<p>在Windows系统中, 一般是后缀为<code>.dll</code>或者<code>.exe</code>的格式</p>
+<h3 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h3><p>元数据就是用来描述数据的数据</p>
+<p>程序中的类, 类中的函数, 变量等信息就是程序的元数据</p>
+<p>有关程序以及类型的数据被称为元数据, 保存在程序集中</p>
+<h3 id="反射概念"><a href="#反射概念" class="headerlink" title="反射概念"></a>反射概念</h3><p>程序在运行时可以查看其它程序集或者自身的元数据, 这种行为叫做反射</p>
+<p>反射可以在程序编译后获得信息, 提高了程序的扩展性和灵活性</p>
+<ul>
+<li>运行时得到元数据, 以及元数据特性</li>
+<li>运行时实例化对象, 操作对象</li>
+<li>运行时创建对象, 执行对象的操作</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-reflect/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-precompile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-precompile/" class="post-title-link" itemprop="url">C#中的预编译指令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-04 21:56:18 / 修改时间：22:07:51" itemprop="dateCreated datePublished" datetime="2021-03-04T21:56:18+08:00">2021-03-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-precompile/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-precompile/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>预处理器指令可以在代码编译之前进行一些逻辑处理, 一般用于平台或者版本的判断</p>
+<h3 id="代码折叠-region"><a href="#代码折叠-region" class="headerlink" title="代码折叠 region"></a>代码折叠 region</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 知识点一</span></span><br><span class="line"><span class="comment">// 这是C#专有的预编译指令, 可以让一段代码可以折叠起来</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;这里是知识点一&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="符号定义-amp-条件编译"><a href="#符号定义-amp-条件编译" class="headerlink" title="符号定义 &amp; 条件编译"></a>符号定义 &amp; 条件编译</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Unity5 // 定义符号</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> Unity5 // 取消定义符号</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Unity2019</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Unity2019版本&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line"><span class="comment">// 可以通过 &amp;&amp; 和 || 进行多种逻辑判断</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> Unity2017 &amp;&amp; IOS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="警告与错误"><a href="#警告与错误" class="headerlink" title="警告与错误"></a>警告与错误</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> Unity2017</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">warning</span> 版本较低</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="comment">// #error 如果生效, 则直接产生错误, 不允许编译</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">error</span> 这个版本不支持</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-multi-threads/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-multi-threads/" class="post-title-link" itemprop="url">C#中的多线程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-02 22:26:50" itemprop="dateCreated datePublished" datetime="2021-03-02T22:26:50+08:00">2021-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-06 17:39:18" itemprop="dateModified" datetime="2021-03-06T17:39:18+08:00">2021-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-multi-threads/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-multi-threads/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程是操作系统进行资源分配和调度的基本单位</p>
+<p>进程之间独立运行, 具有独立的内存空间, 进程间也可以相互访问</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程是操作系统调度的最小单位</p>
+<p>线程包含在进程之中, 是进程中的实际运作单位</p>
+<p>一个进程中可以并发执行多个线程</p>
+<h2 id="多线程使用"><a href="#多线程使用" class="headerlink" title="多线程使用"></a>多线程使用</h2><ul>
+<li>线程执行的代码需要封装到一个静态static函数之中</li>
+<li>线程的启动 <code>t.Start()</code></li>
+<li>设置后台线程:<br>主线程结束时, 整个程序也就结束了, 即使还有还有后台线程, 后台线程不会防止应用程序被终止掉, 如果不设置为后台线程, 可能导致进程无法正常关闭(默认开启的为前台线程); (一般来说, 我们应该优雅的关闭所有线程, 而不是强制退出)</li>
+<li>关闭线程<ul>
+<li>非循环的线程, 不用刻意去关闭, 等自然运行完毕即可</li>
+<li>死循环线程, 可以设置运行标志位, 循环判断标志位退出</li>
+<li>通过线程提供的方法关闭 <code>t.Abort()</code> .Net core会报错 (不推荐)</li>
+</ul>
+</li>
+<li>线程休眠<br>休眠函数在哪个线程中执行, 则休眠哪个线程, 单位为毫秒数<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread.Sleep(<span class="number">1000</span>); <span class="comment">// 休眠1s</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/csharp-multi-threads/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-covariance-and-inverter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -632,632 +1270,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/design-patterns/principles-of-OO/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/design-patterns/principles-of-OO/" class="post-title-link" itemprop="url">面向对象七大原则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-27 16:53:51" itemprop="dateCreated datePublished" datetime="2021-02-27T16:53:51+08:00">2021-02-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-28 14:07:58" itemprop="dateModified" datetime="2021-02-28T14:07:58+08:00">2021-02-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/design-patterns/" itemprop="url" rel="index"><span itemprop="name">DesignPatterns</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/design-patterns/principles-of-OO/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/design-patterns/principles-of-OO/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>总体目标: 高内聚, 低耦合; 减少模块间交互复杂度</p>
-<h2 id="七大原则"><a href="#七大原则" class="headerlink" title="七大原则"></a>七大原则</h2><h3 id="单一职责"><a href="#单一职责" class="headerlink" title="单一职责"></a>单一职责</h3><p><strong>一个类只处理自己应该处理的内容, 不能啥都写在一起</strong></p>
-<p>类被修改的几率很大, 因此一个类只应该专注于一件事情</p>
-<p>不同的类负责不同的事情, 避免超大类, 导致修改时”牵一发而动全身”</p>
-<h3 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h3><p><strong>对拓展开放, 对修改关闭</strong></p>
-<p>模块的行为可以被拓展, 而模块的源码应该尽量少的修改</p>
-<p>继承就是最典型的开闭原则的体现, 不修改父类源码, 但可以通过添加新的子类扩展父类</p>
-<h3 id="里氏替换"><a href="#里氏替换" class="headerlink" title="里氏替换"></a>里氏替换</h3><p><strong>父类容器装子类</strong></p>
-<p>任何需要父类对象的地方, 都可以使用子类对象代替</p>
-<p>可以统一接口, 不用关心具体是什么类, 也就是多态的应用</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/design-patterns/principles-of-OO/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/UML/uml-class-diagram/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/UML/uml-class-diagram/" class="post-title-link" itemprop="url">UML类图</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-27 14:36:22 / 修改时间：16:41:28" itemprop="dateCreated datePublished" datetime="2021-02-27T14:36:22+08:00">2021-02-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UML/" itemprop="url" rel="index"><span itemprop="name">UML</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/UML/uml-class-diagram/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/UML/uml-class-diagram/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>UML类图的几种关系总是忘记, 在这里再总结一下常用的几种画法, 对于不常用的聚合和组合关系这里就不讨论了, 记不住用的也少</p>
-<p>一般来说常用的类图关系就以下几种: <strong>依赖</strong>, <strong>泛化</strong>, <strong>实现</strong>, <strong>关联</strong></p>
-<img data-src="/UML/uml-class-diagram/uml.png" class="">
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/UML/uml-class-diagram/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-class-and-struct/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-class-and-struct/" class="post-title-link" itemprop="url">C#中的结构体和类的区别</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-21 23:29:28 / 修改时间：23:44:50" itemprop="dateCreated datePublished" datetime="2021-02-21T23:29:28+08:00">2021-02-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-class-and-struct/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-class-and-struct/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="区别之处"><a href="#区别之处" class="headerlink" title="区别之处"></a>区别之处</h2><ul>
-<li>结构体是值类型, 类是引用类型</li>
-<li>结构体存在栈上, 类存在堆中</li>
-<li>结构体成员不能使用protected访问修饰符 (结构体具备封装特性, 但不具备继承和多态的特性)</li>
-<li>结构体成员变量申明不能指定默认初始值, 但类可以</li>
-<li>结构体不能申明无参构造函数, 而类可以</li>
-<li>结构体申明有参构造函数之后, 默认的无参构造函数不会被顶掉</li>
-<li>结构体不能申明析构函数</li>
-<li>结构体不能被继承</li>
-<li>结构体需要在构造函数中初始化所有成员变量, 类随意</li>
-<li>结构体不能被static修饰(不存在静态结构体), 而类可以</li>
-<li>结构体不能在自己内部申明自身类型的变量(循环初始化), 而类可以 (值类型变量在栈上存储的是本身, 引用类型变量在栈上存储的是引用, 可以为null)</li>
-</ul>
-<h2 id="结构体特别之处"><a href="#结构体特别之处" class="headerlink" title="结构体特别之处"></a>结构体特别之处</h2><ul>
-<li>结构体可以实现接口</li>
-</ul>
-<h2 id="如何选择结构体和类"><a href="#如何选择结构体和类" class="headerlink" title="如何选择结构体和类"></a>如何选择结构体和类</h2><ul>
-<li>想要使用继承和多态直接使用类</li>
-<li>对象是数据集合时, 优先考虑结构体, 比如位置坐标等</li>
-<li>从值类型和引用类型赋值时的区别上考虑<ul>
-<li>比如经常赋值传递的对象, 改变赋值对象时不希望原对象跟着变化, 就使用结构体, 比如坐标旋转等</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-object/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-object/" class="post-title-link" itemprop="url">C#中的万物之父object</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-21 21:10:40 / 修改时间：21:31:28" itemprop="dateCreated datePublished" datetime="2021-02-21T21:10:40+08:00">2021-02-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-object/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-object/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="object中的静态方法"><a href="#object中的静态方法" class="headerlink" title="object中的静态方法"></a>object中的静态方法</h2><h3 id="static-Equals"><a href="#static-Equals" class="headerlink" title="static Equals"></a>static Equals</h3><ul>
-<li>判断两个对象是否相等</li>
-<li>最终判断权交给左边的对象的Equals方法</li>
-<li>不管值类型引用类型都会按照左侧对象的Equals方法比较</li>
-</ul>
-<h3 id="static-ReferenceEquals"><a href="#static-ReferenceEquals" class="headerlink" title="static ReferenceEquals"></a>static ReferenceEquals</h3><ul>
-<li>比较两个对象是否是相同的引用, 用于比较引用类型对象</li>
-<li>值类型对象返回值始终都是false</li>
-</ul>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(<span class="keyword">object</span>.ReferenceEquals(<span class="number">1</span>, <span class="number">1</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<h2 id="object中的成员方法"><a href="#object中的成员方法" class="headerlink" title="object中的成员方法"></a>object中的成员方法</h2><h3 id="GetType"><a href="#GetType" class="headerlink" title="GetType"></a>GetType</h3><p>在反射中是非常重要的方法, 返回Type类对象, 表示对象运行时的类型, 结合反射相关知识可以做很多对象操作</p>
-<h3 id="MemberwiseClone-protected"><a href="#MemberwiseClone-protected" class="headerlink" title="MemberwiseClone (protected)"></a>MemberwiseClone (protected)</h3><p>该方法用于获取对象的浅拷贝对象, 会返回一个新对象, 但是新对象中的引用变量会和老对象指向同一位置</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Test <span class="title">Clone</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> MemberwiseClone() <span class="keyword">as</span> Test;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="object中的虚方法"><a href="#object中的虚方法" class="headerlink" title="object中的虚方法"></a>object中的虚方法</h2><h3 id="virtual-Equals"><a href="#virtual-Equals" class="headerlink" title="virtual Equals"></a>virtual Equals</h3><p>和object中的静态方法不同, 这是个成员方法</p>
-<ul>
-<li>默认的实现还是比较两者是否为同一个引用, 相当于ReferenceEquals</li>
-<li>微软在所有值类型基类<code>System.ValueType</code>中重写了该方法, 用来比较值相等</li>
-<li>我们可以重写该方法, 定义自己的相等比较规则</li>
-</ul>
-<h3 id="virtual-GetHashCode"><a href="#virtual-GetHashCode" class="headerlink" title="virtual GetHashCode"></a>virtual GetHashCode</h3><p>获取对象的哈希值, 由算法计算出, 表示对象的唯一编码</p>
-<h3 id="virtual-ToString"><a href="#virtual-ToString" class="headerlink" title="virtual ToString"></a>virtual ToString</h3><p>该方法返回当前对象表示的字符串, 可以重写该方法定义自己的对象转字符串规则, 当我们直接打印该对象时, 默认使用的就是ToString返回值</p>
-<p>默认的ToString返回类的完整类型名</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-abstract-class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-abstract-class/" class="post-title-link" itemprop="url">C#中的抽象类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-21 20:58:03 / 修改时间：21:08:50" itemprop="dateCreated datePublished" datetime="2021-02-21T20:58:03+08:00">2021-02-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-abstract-class/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-abstract-class/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><ul>
-<li>抽象类使用关键字<code>abstract</code>修饰</li>
-<li>不能被实例化</li>
-<li>可以包含抽象方法</li>
-<li>继承抽象类的非抽象类必须重写其中的其他抽象方法</li>
-</ul>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Thing</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> name; <span class="comment">// 抽象类可以有正常成员</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="抽象函数"><a href="#抽象函数" class="headerlink" title="抽象函数"></a>抽象函数</h2><ul>
-<li>使用<code>abstract</code>修饰的方法</li>
-<li>只能在抽象类中申明</li>
-<li>没有方法体</li>
-<li>不能是私有的 (public/protected)</li>
-<li>继承后必须使用<code>override</code>实现</li>
-</ul>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Fruits</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Bad</span>(<span class="params"></span>)</span>; <span class="comment">// 抽象方法(纯虚方法)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Apple</span> : <span class="title">Fruits</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Bad</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>抽象方法与虚方法(virtual)的区别:</p>
-<ul>
-<li>虚方法可以选择是否写逻辑, 抽象方法没有方法体</li>
-<li>虚方法在子类中可以选择重写; 但抽象方法在子类中必须实现</li>
-<li>虚方法可以在子类中使用<code>base</code>调用</li>
-</ul>
-<h2 id="如何选择普通类还是抽象类"><a href="#如何选择普通类还是抽象类" class="headerlink" title="如何选择普通类还是抽象类"></a>如何选择普通类还是抽象类</h2><ul>
-<li>不希望实例化的类, 相对比较抽象的类</li>
-<li>父类中的行为不太需要被实现, 只希望子类定义具体的规则</li>
-</ul>
-<p>抽象类主要在系统整体框架设计时使用</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-interface/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-interface/" class="post-title-link" itemprop="url">C#中的接口</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-21 12:12:38 / 修改时间：20:57:24" itemprop="dateCreated datePublished" datetime="2021-02-21T12:12:38+08:00">2021-02-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-interface/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-interface/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="接口申明"><a href="#接口申明" class="headerlink" title="接口申明"></a>接口申明</h2><p><strong>接口是抽象行为的”基类”</strong>, 接口命名规范是大写I开头并且使用大驼峰(帕斯卡命名)</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IFly</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span>; <span class="comment">// 方法</span></span><br><span class="line">    <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 未实现的属性(不是自动属性)</span></span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>; &#125; <span class="comment">// 索引器</span></span><br><span class="line">    <span class="keyword">event</span> Action DoSomething; <span class="comment">// 事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>不包含成员变量</li>
-<li>只能包含<strong>方法, 属性, 索引器, 事件</strong></li>
-<li><strong>成员不能被实现</strong></li>
-<li>成员可以不用写访问修饰符, 不能是私有的</li>
-<li>接口不能继承类, 但是可以继承另一个接口 (行为合并)</li>
-<li>实现接口方法时可以添加virtual关键字, 让子类可以重写</li>
-</ol>
-<h2 id="接口的使用规范"><a href="#接口的使用规范" class="headerlink" title="接口的使用规范"></a>接口的使用规范</h2><p>接口用来继承</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Animal</span> : <span class="title">IFLy</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 实现接口, 但是允许子类重写</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 自动属性, 实现接口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>&#123; <span class="keyword">return</span> <span class="number">0</span>; &#125;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> Action DoSomething;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>类可以继承多个接口</li>
-<li>类继承接口后必须实现接口中所有成员</li>
-</ol>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
-<li>接口是用来继承的</li>
-<li>接口不能被直接实例化, 但是可以作为容器存储对象(里氏替换/多态)</li>
-</ol>
-<p>接口可以继承接口, 但接口不需要去实现, 当类继承后自己实现所有内容</p>
-<h2 id="显式实现接口"><a href="#显式实现接口" class="headerlink" title="显式实现接口"></a>显式实现接口</h2><p>当一个类继承两个接口, 但是接口中存在两个同名方法时, 如果该方法需要针对两个接口分别实现, 则需要使用显式实现</p>
-<p>注意: 显式实现接口时不能写访问修饰符</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title">ISuperAtk</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Atk</span>(<span class="params"></span>)</span> &#123;&#125; <span class="comment">// 两个接口同一个实现方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是一般来说, 两个接口代表的不应该是同一个行为表现</p>
-<p>下面是显式分别实现的方法</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="comment">// 显式实现接口不能写访问修饰符</span></span><br><span class="line">    <span class="keyword">void</span> IAtk.Atk() &#123;&#125;</span><br><span class="line">    <span class="keyword">void</span> ISuperAtk.Atk() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Player p = <span class="keyword">new</span> Player();</span><br><span class="line"><span class="comment">// 无法直接用父类调用Atk方法</span></span><br><span class="line">(p <span class="keyword">as</span> IAtk).Atk();</span><br><span class="line">(p <span class="keyword">as</span> ISuperAtk).Atk();</span><br><span class="line"><span class="comment">// 但是也可以在Player类中实现一个自己的Atk方法, 自己实现的Atk方法与显式实现接口中的方法无关</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1323,7 +1339,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
