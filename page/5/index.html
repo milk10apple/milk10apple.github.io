@@ -192,6 +192,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-generic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/csharp-generic/" class="post-title-link" itemprop="url">C#中的泛型和泛型约束</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-28 14:33:43 / 修改时间：15:24:41" itemprop="dateCreated datePublished" datetime="2021-02-28T14:33:43+08:00">2021-02-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/csharp-generic/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-generic/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型实现了类型参数化, 达到代码复用目的</p>
+<p>泛型相当于类型占位符</p>
+<h3 id="泛型类和泛型接口"><a href="#泛型类和泛型接口" class="headerlink" title="泛型类和泛型接口"></a>泛型类和泛型接口</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">TestClass</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>,<span class="title">K</span>,<span class="title">M</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T v1;</span><br><span class="line">    <span class="keyword">public</span> K v2;</span><br><span class="line">    <span class="keyword">public</span> M v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">ITest</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    T Value &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Test</span> : <span class="title">ITest</span>&lt;<span class="title">int</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> v;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span> =&gt; v; <span class="keyword">set</span> &#123; v = <span class="keyword">value</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span>(<span class="keyword">int</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="keyword">default</span>(<span class="keyword">string</span>); <span class="comment">// null</span></span><br><span class="line"><span class="keyword">default</span>(T); <span class="comment">// 获得泛型类型的默认值</span></span><br></pre></td></tr></table></figure>
+
+<p>普通类中的泛型方法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params">T <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="keyword">value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">// 用泛型类型做一些逻辑判断</span></span><br><span class="line">        T t = <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">TestFun</span>&lt;<span class="title">T</span>&gt;(<span class="params"><span class="keyword">string</span> v</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">default</span>(T);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">T</span>,<span class="title">K</span>&gt;(<span class="params">T v1, K v2</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>泛型类中的泛型方法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params">T t</span>)</span> &#123;&#125; <span class="comment">// 不是泛型类, 因为类型变量是属于类的</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K v</span>)</span> &#123;&#125; <span class="comment">// 与类的泛型变量不同</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">Test&lt;<span class="keyword">int</span>&gt; t = <span class="keyword">new</span> Test&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">t.TestFun(<span class="number">10</span>); <span class="comment">// 使用非泛型方法</span></span><br><span class="line">t.TestFun&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>); <span class="comment">// 使用泛型方法</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型的作用"><a href="#泛型的作用" class="headerlink" title="泛型的作用"></a>泛型的作用</h2><ol>
+<li>不同类型对象的相同逻辑处理可以选择泛型</li>
+<li>泛型可以一定程度避免装箱拆箱</li>
+<li>不确定泛型类型时, 想获取默认值, 可以使用<code>default(占位符)</code></li>
+</ol>
+<h2 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h2><p>让泛型的类型有一定约束</p>
+<h3 id="泛型约束类型"><a href="#泛型约束类型" class="headerlink" title="泛型约束类型"></a>泛型约束类型</h3><p>关键字 <code>where</code></p>
+<ol>
+<li>值类型                   <code>where T:struct</code></li>
+<li>引用类型                 <code>where T:class</code></li>
+<li>存在无参公共构造函数      <code>where T:new()</code></li>
+<li>某个类本身或者其派生类    <code>where T:类名</code></li>
+<li>某个接口的派生类型        <code>where T:接口名</code></li>
+<li>另一个泛型类型本身或者派生类型 <code>where T:V</code></li>
+</ol>
+<p>上面的4,5,6类似, 要求泛型是后面的类型或其子类</p>
+<h3 id="泛型约束使用"><a href="#泛型约束使用" class="headerlink" title="泛型约束使用"></a>泛型约束使用</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt; <span class="keyword">where</span> <span class="title">T</span> : <span class="title">struct</span> <span class="comment">// T只允许是值类型</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestFun</span>&lt;<span class="title">K</span>&gt;(<span class="params">K <span class="keyword">value</span></span>) <span class="keyword">where</span> K : <span class="title">new</span>(<span class="params"></span>) <span class="comment">// K必须有公共的无参构造函数</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun1</span>&lt;<span class="title">M</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> M : class <span class="comment">// M必须是引用类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Fun2</span>&lt;<span class="title">P</span>&gt;(<span class="params"></span>) <span class="keyword">where</span> P : GameObject <span class="comment">// P必须是GameObject或者其子类类型</span></span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型约束组合使用"><a href="#泛型约束组合使用" class="headerlink" title="泛型约束组合使用"></a>泛型约束组合使用</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Test&lt;T, K&gt; where T : class , new() where K : struct</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/design-patterns/principles-of-OO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1097,99 +1211,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/csharp-indexer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/csharp/csharp-indexer/" class="post-title-link" itemprop="url">C#中的索引器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-24 15:09:16 / 修改时间：15:26:43" itemprop="dateCreated datePublished" datetime="2021-01-24T15:09:16+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/csharp/csharp-indexer/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/csharp/csharp-indexer/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>索引器可以让C#对象像数组一样通过索引访问其中的元素</p>
-<p><strong>索引器定义</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyList</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> T[] dataArr;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">return</span> dataArr[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; dataArr = <span class="keyword">new</span> T[<span class="number">10</span>]; &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">            dataArr[index] = <span class="keyword">value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用索引器</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MyList类中省略了具体实现, 这里只表示使用方法</span></span><br><span class="line">MyList&lt;<span class="keyword">int</span>&gt; mList = <span class="keyword">new</span> MyList&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">mList[<span class="number">0</span>] = <span class="number">99</span>;</span><br><span class="line">Console.WriteLine(mList[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-
-<p><strong>索引器可以重载</strong></p>
-<p><strong>索引器可以只有get或者只有set</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">string</span> key, <span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="comment">// code</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1259,7 +1280,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">76</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
