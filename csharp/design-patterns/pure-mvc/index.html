@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="MVC是一种很好的设计框架, 可以解耦数据(Model)&#x2F;视图(View)和业务逻辑(Controller)之间的耦合 PureMVC是一个通用的MVC框架, 运用多种设计模式, 将数据&#x2F;视图和业务解耦, 这里先看看官方给的图   不要被图吓到, 其实这个框架结构还是很清晰的 官方提供了PureMVC的中文PDF文档 下面大致了解以下该框架">
+  <meta name="description" content="MVC是一种很好的设计框架, 可以解耦数据(Model)&#x2F;视图(View)和业务逻辑(Controller)之间的耦合 PureMVC是一个通用的MVC框架, 运用多种设计模式, 将数据&#x2F;视图和业务解耦, 这里先看看官方给的图   不要被图吓到, 其实这个框架结构还是很清晰的 官方提供了PureMVC的中文PDF文档">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVC框架--PureMVC">
 <meta property="og:url" content="http://fetasty.github.io/csharp/design-patterns/pure-mvc/index.html">
 <meta property="og:site_name" content="fetasty">
-<meta property="og:description" content="MVC是一种很好的设计框架, 可以解耦数据(Model)&#x2F;视图(View)和业务逻辑(Controller)之间的耦合 PureMVC是一个通用的MVC框架, 运用多种设计模式, 将数据&#x2F;视图和业务解耦, 这里先看看官方给的图   不要被图吓到, 其实这个框架结构还是很清晰的 官方提供了PureMVC的中文PDF文档 下面大致了解以下该框架">
+<meta property="og:description" content="MVC是一种很好的设计框架, 可以解耦数据(Model)&#x2F;视图(View)和业务逻辑(Controller)之间的耦合 PureMVC是一个通用的MVC框架, 运用多种设计模式, 将数据&#x2F;视图和业务解耦, 这里先看看官方给的图   不要被图吓到, 其实这个框架结构还是很清晰的 官方提供了PureMVC的中文PDF文档">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://fetasty.github.io/csharp/design-patterns/pure-mvc/puremvc.png">
 <meta property="og:image" content="http://fetasty.github.io/csharp/design-patterns/pure-mvc/mvc.gif">
 <meta property="article:published_time" content="2021-05-04T13:46:45.000Z">
-<meta property="article:modified_time" content="2021-05-06T08:33:19.913Z">
+<meta property="article:modified_time" content="2021-05-06T08:39:51.786Z">
 <meta property="article:author" content="EricYe">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="DesignPatterns">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-06 16:33:19" itemprop="dateModified" datetime="2021-05-06T16:33:19+08:00">2021-05-06</time>
+                <time title="修改时间：2021-05-06 16:39:51" itemprop="dateModified" datetime="2021-05-06T16:39:51+08:00">2021-05-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,7 +286,6 @@
 
 <p>不要被图吓到, 其实这个框架结构还是很清晰的</p>
 <p>官方提供了<a target="_blank" rel="noopener" href="http://puremvc.org/docs/PureMVC_IIBP_Chinese.pdf">PureMVC的中文PDF文档</a></p>
-<p>下面大致了解以下该框架</p>
 <a id="more"></a>
 
 <h2 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h2><p>PureMVC中的Model/View/Controller都是单例类</p>
