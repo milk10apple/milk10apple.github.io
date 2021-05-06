@@ -192,6 +192,485 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-scenemanager-sceneload-event/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-scenemanager-sceneload-event/" class="post-title-link" itemprop="url">Unity中SceneManager场景切换和相关事件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-06 15:09:47 / 修改时间：16:34:07" itemprop="dateCreated datePublished" datetime="2021-05-06T15:09:47+08:00">2021-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-scenemanager-sceneload-event/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-scenemanager-sceneload-event/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="SceneManager-LoadScene是半异步"><a href="#SceneManager-LoadScene是半异步" class="headerlink" title="SceneManager.LoadScene是半异步"></a>SceneManager.LoadScene是半异步</h2><p>学习Unity时发现一个问题, 看下面一段代码</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> loadScene = notification.Body.ToString();</span><br><span class="line">Debug.Log(<span class="string">$&quot;调用LoadScene前, 当前活动场景: <span class="subst">&#123;SceneManager.GetActiveScene().name&#125;</span>&quot;</span>);</span><br><span class="line">SceneManager.LoadScene(loadScene);</span><br><span class="line">Debug.Log(<span class="string">$&quot;调用LoadScene后, 当前活动场景: <span class="subst">&#123;SceneManager.GetActiveScene().name&#125;</span>&quot;</span>);</span><br><span class="line">SendNotification(Consts.N_SceneLoaded, <span class="keyword">new</span> SceneLoadedArg()</span><br><span class="line">&#123;</span><br><span class="line">    LastScene = curScene,</span><br><span class="line">    LoadScene = loadScene</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>原本以为LoadScene是调用时同步执行, 结果打印结果如下</p>
+<img data-src="/unity/unity-scenemanager-sceneload-event/result.png" class="">
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/unity/unity-scenemanager-sceneload-event/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/csharp/design-patterns/pure-mvc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/csharp/design-patterns/pure-mvc/" class="post-title-link" itemprop="url">MVC框架--PureMVC</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-04 21:46:45" itemprop="dateCreated datePublished" datetime="2021-05-04T21:46:45+08:00">2021-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-06 16:33:19" itemprop="dateModified" datetime="2021-05-06T16:33:19+08:00">2021-05-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csharp/design-patterns/" itemprop="url" rel="index"><span itemprop="name">DesignPatterns</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/csharp/design-patterns/pure-mvc/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/csharp/design-patterns/pure-mvc/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MVC是一种很好的设计框架, 可以解耦数据(Model)/视图(View)和业务逻辑(Controller)之间的耦合</p>
+<p>PureMVC是一个通用的MVC框架, 运用多种设计模式, 将数据/视图和业务解耦, 这里先看看官方给的图</p>
+<img data-src="/csharp/design-patterns/pure-mvc/puremvc.png" class="">
+
+<p>不要被图吓到, 其实这个框架结构还是很清晰的</p>
+<p>官方提供了<a target="_blank" rel="noopener" href="http://puremvc.org/docs/PureMVC_IIBP_Chinese.pdf">PureMVC的中文PDF文档</a></p>
+<p>下面大致了解以下该框架</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/csharp/design-patterns/pure-mvc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-random-and-delegate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-random-and-delegate/" class="post-title-link" itemprop="url">Unity中的随机数和自带委托</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-04 13:14:27" itemprop="dateCreated datePublished" datetime="2021-05-04T13:14:27+08:00">2021-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-06 16:33:43" itemprop="dateModified" datetime="2021-05-06T16:33:43+08:00">2021-05-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-random-and-delegate/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-random-and-delegate/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UnityEngine.Random; <span class="comment">// 区别于System.Random</span></span><br><span class="line"><span class="keyword">int</span> randNum = Random.Range(<span class="number">0</span>, <span class="number">100</span>); <span class="comment">// [0, 100) 也就是生成结果不包括100</span></span><br><span class="line"><span class="keyword">float</span> randf = Random.Range(<span class="number">1.1f</span>, <span class="number">99.9f</span>); <span class="comment">// float 左右都包含</span></span><br></pre></td></tr></table></figure>
+
+<p>一般Unity中就使用UnityEngine.Random类, 如果非要使用C#中的Random类, 可以用命名空间限定</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Random r = <span class="keyword">new</span> System.Random();</span><br><span class="line">r.Next(<span class="number">0</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/unity/unity-random-and-delegate/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-hide-and-lock-mouse-and-change-mouse-icon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-hide-and-lock-mouse-and-change-mouse-icon/" class="post-title-link" itemprop="url">Unity知识点--隐藏/锁定鼠标和更改鼠标图标</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-04 13:03:47 / 修改时间：13:13:28" itemprop="dateCreated datePublished" datetime="2021-05-04T13:03:47+08:00">2021-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-hide-and-lock-mouse-and-change-mouse-icon/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-hide-and-lock-mouse-and-change-mouse-icon/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="隐藏鼠标"><a href="#隐藏鼠标" class="headerlink" title="隐藏鼠标"></a>隐藏鼠标</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cursor.visible = <span class="literal">true</span>; <span class="comment">// 隐藏鼠标</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="锁定鼠标"><a href="#锁定鼠标" class="headerlink" title="锁定鼠标"></a>锁定鼠标</h2><p>编辑模式下, 鼠标锁定后按下ESC可以退出锁定模式</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// None 无锁定</span></span><br><span class="line"><span class="comment">// Locked 锁定在窗口中心点 (不仅会被锁定, 还会隐藏)</span></span><br><span class="line"><span class="comment">// Confined 锁定在窗口范围内</span></span><br><span class="line">Cursor.lockState = CursorLockMode.Locked;</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置鼠标图标"><a href="#设置鼠标图标" class="headerlink" title="设置鼠标图标"></a>设置鼠标图标</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数1 Texture2D: 光标图片</span></span><br><span class="line"><span class="comment">// 参数2 Vector2: 偏移位置, 相对于图片左上角</span></span><br><span class="line"><span class="comment">// 参数3 CursorMode: 平台支持的光标模式 (硬件或软件), 一般自动</span></span><br><span class="line">Cursor.SetCursor(tex, Vector2.zero, CursorMode.Auto);</span><br></pre></td></tr></table></figure>
+
+<p>如果发现鼠标图标变形了, 可能因为图片的宽高不一样导致</p>
+<p>如果导入的图片不是透明的, 需要在资源属性窗口的Texture Type选项中选择为Cursor; 最好作为光标使用的图片资源都选择类型为Cursor</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-scene-change-and-application-exit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/unity/unity-scene-change-and-application-exit/" class="post-title-link" itemprop="url">Unity知识点--场景切换和游戏退出</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-04 12:49:14 / 修改时间：13:02:51" itemprop="dateCreated datePublished" datetime="2021-05-04T12:49:14+08:00">2021-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/unity/unity-scene-change-and-application-exit/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-scene-change-and-application-exit/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="场景切换"><a href="#场景切换" class="headerlink" title="场景切换"></a>场景切换</h2><p>注意: <strong>需要使用的场景Scene必须先在BuildSettings中添加到场景列表, 进入游戏的第一个场景必须是列表中的第1个(序号0)</strong></p>
+<p>如果Scene未添加到BuildSettings列表中, 切换时会直接报错</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine.SceneManagement; <span class="comment">// SceneManager在该命名空间</span></span><br><span class="line"><span class="comment">// 需要切换的场景必须添加到BuildSettings场景列表中</span></span><br><span class="line">SceneManager.LoadScene(<span class="string">&quot;Scene2&quot;</span>); <span class="comment">// 传入场景名, 还有许多其他重载</span></span><br></pre></td></tr></table></figure>
+
+<p>SceneManager中还提供了获取场景数量, 当前场景, 异步切换场景等, 可以进入类中自行查看</p>
+<p>老版本中可能使用</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application.LoadLevel(<span class="string">&quot;Scene2&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>这个方法已经过时, 但是看到了应该了解</p>
+<h2 id="游戏退出"><a href="#游戏退出" class="headerlink" title="游戏退出"></a>游戏退出</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 执行这句代码退出游戏, 但是UnityEditor编辑模式下不会起作用</span></span><br><span class="line">Application.Quit();</span><br></pre></td></tr></table></figure>
+
+<p>可以使用平台相关的宏来让游戏正常退出</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></span><br><span class="line">    UnityEditor.EditorApplication.isPlaying = <span class="literal">false</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    Application.Quit();</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 编辑器暂停</span></span><br><span class="line">UnityEditor.EditorApplication.isPaused = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/csharp-null-condition-operator-in-unity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -712,732 +1191,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-physical-system-collider/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-physical-system-collider/" class="post-title-link" itemprop="url">Unity物理系统--碰撞器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-03 10:44:41 / 修改时间：14:16:09" itemprop="dateCreated datePublished" datetime="2021-05-03T10:44:41+08:00">2021-05-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-physical-system-collider/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-physical-system-collider/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>碰撞产生必要条件: 两个物体都有碰撞器(Collider), 至少一个物体有刚体(Rigidbody)</p>
-<p>碰撞器表示物体的体积(形状), 刚体利用体积进行碰撞计算, 模拟真实的碰撞效果, 产生力的作用</p>
-<h2 id="3D碰撞器种类"><a href="#3D碰撞器种类" class="headerlink" title="3D碰撞器种类"></a>3D碰撞器种类</h2><h3 id="性能高-较为常用"><a href="#性能高-较为常用" class="headerlink" title="性能高 较为常用"></a>性能高 较为常用</h3><ul>
-<li>BoxCollider 盒状</li>
-<li>SphereCollider 球状</li>
-<li>CapsuleCollider 胶囊</li>
-</ul>
-<h3 id="准确性高-性能低-使用少"><a href="#准确性高-性能低-使用少" class="headerlink" title="准确性高 性能低 使用少"></a>准确性高 性能低 使用少</h3><ul>
-<li>网格</li>
-<li>轮胎</li>
-<li>地形</li>
-</ul>
-<h2 id="共同参数"><a href="#共同参数" class="headerlink" title="共同参数"></a>共同参数</h2><h3 id="Is-Trigger-是否为触发器"><a href="#Is-Trigger-是否为触发器" class="headerlink" title="Is Trigger 是否为触发器"></a>Is Trigger 是否为触发器</h3><p>如果启用此属性, 则该碰撞体将用于触发事件, 并被物理引擎忽略</p>
-<p>主要用于进行没有物理效果的碰撞检测</p>
-<h3 id="Material-物理材质"><a href="#Material-物理材质" class="headerlink" title="Material 物理材质"></a>Material 物理材质</h3><p>可以确定碰撞体和其它对象碰撞时的交互(表现)方式</p>
-<p>例如: 橡胶球, 冰面</p>
-<h3 id="Center"><a href="#Center" class="headerlink" title="Center"></a>Center</h3><p>碰撞体体积的位置偏移</p>
-<h2 id="常用碰撞器"><a href="#常用碰撞器" class="headerlink" title="常用碰撞器"></a>常用碰撞器</h2><h3 id="BoxCollider-盒状碰撞器"><a href="#BoxCollider-盒状碰撞器" class="headerlink" title="BoxCollider 盒状碰撞器"></a>BoxCollider 盒状碰撞器</h3><ul>
-<li>Size 碰撞体在xyz方向上的大小</li>
-</ul>
-<h3 id="SphereCollider-球状碰撞器"><a href="#SphereCollider-球状碰撞器" class="headerlink" title="SphereCollider 球状碰撞器"></a>SphereCollider 球状碰撞器</h3><ul>
-<li>Radius 球状碰撞体的半径大小</li>
-</ul>
-<h3 id="CapsuleCollider-胶囊碰撞体"><a href="#CapsuleCollider-胶囊碰撞体" class="headerlink" title="CapsuleCollider 胶囊碰撞体"></a>CapsuleCollider 胶囊碰撞体</h3><ul>
-<li>Radius 胶囊提半径</li>
-<li>Height 胶囊提高度</li>
-<li>Direction 胶囊提轴向方向</li>
-</ul>
-<h2 id="异性物体使用多种碰撞器组合"><a href="#异性物体使用多种碰撞器组合" class="headerlink" title="异性物体使用多种碰撞器组合"></a>异性物体使用多种碰撞器组合</h2><p><strong>刚体对象的子对象碰撞器参与碰撞检测</strong></p>
-<h2 id="不常用碰撞器"><a href="#不常用碰撞器" class="headerlink" title="不常用碰撞器"></a>不常用碰撞器</h2><ul>
-<li>MeshCollider 网格碰撞器 (性能消耗高)<ul>
-<li>Convex <strong>如果带有MeshCollider的物体需要使用刚体, 那么必须勾选Convex</strong> 启用该选项, 该MeshCollider将与其它MeshCollider发生碰撞, Convex Mesh Collider最多255个三角形</li>
-<li>Cooking Options 启用或禁用影响物理引擎对网格处理方式的网格烹制选项 (不常用)<ul>
-<li>None 禁用所有Cooking Options</li>
-<li>Everything 启用所有Cooking Options</li>
-<li>Cook for Faster Simulation 使物理引擎烹制网格以加快模拟速度, 启用该设置后, 会运行一些额外步骤, 以保证生成的网格在运行时的性能最佳, 但是它会影响物理物理查询和接触生成的性能; 禁用此设置后, 物理引擎会使用更快的烹制速度, 并尽可能快速生成结果. 因此, 烹制的MeshCollider可能不是最佳的</li>
-<li>Enable Mesh Cleaning 使用物理引擎清理网格, 启用此设置后, 烹制过程会常识消除网格的退化三角形以及其它的几何瑕疵, 此过程生成的网格更适合在碰撞检测中使用, 往往可生成更准确的击中点</li>
-<li>Weld Colocated Vertices 使物理引擎在网格中删除相等的顶点, 启用此设置后, 物理引擎将合并具有相同位置的顶点, 这对于运动时发生的碰撞反馈十分重要</li>
-</ul>
-</li>
-<li>Mesh 设置碰撞器的网格</li>
-</ul>
-</li>
-<li>WheelCollider 环形碰撞器 (一般只用于赛车)<ul>
-<li>添加WheelCollider看不到绿色提示</li>
-<li>创建一个空物体Car</li>
-<li>在其中创建车身, 轮胎, 对轮胎添加WheelCollider</li>
-<li>给根物体添加刚体, 轮胎的碰撞器就会显示出来了</li>
-<li>‘车子’拖到空中, 会被直接弹飞, 是因为质量太小, 刚体质量改成1500(kg)即可</li>
-<li>创建车子简单点就是车身加4个轮胎碰撞器</li>
-</ul>
-</li>
-<li>TerrainCollider 地形碰撞器 (性能消耗大, Unity自带地形本来就性能不好, 一般很少使用)<ul>
-<li>Terrain Data 地形数据</li>
-<li>Enable Tree Collider 选中时, 启用树的碰撞</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-physical-system-rigid-body/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-physical-system-rigid-body/" class="post-title-link" itemprop="url">Unity物理系统--刚体</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-02 13:11:13 / 修改时间：16:42:37" itemprop="dateCreated datePublished" datetime="2021-05-02T13:11:13+08:00">2021-05-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-physical-system-rigid-body/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-physical-system-rigid-body/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>碰撞产生的必要条件: <strong>两个物体都有碰撞器, 至少一个物体有刚体</strong></p>
-<p>碰撞器(Collider): 用于表示一个物体的体积</p>
-<p>刚体(Rigidbody): 让物体能够受到力的作用</p>
-<h2 id="Rigidbody组件信息"><a href="#Rigidbody组件信息" class="headerlink" title="Rigidbody组件信息"></a>Rigidbody组件信息</h2><h3 id="Mass-质量"><a href="#Mass-质量" class="headerlink" title="Mass 质量"></a>Mass 质量</h3><p>默认为千克, 质量越大惯性越大</p>
-<p>质量比较大的时候, 不容易改变当前状态, 越不容易被别的物体/力推动</p>
-<h3 id="Drag-空气阻力"><a href="#Drag-空气阻力" class="headerlink" title="Drag 空气阻力"></a>Drag 空气阻力</h3><p>根据力移动对象时, 影响对象的空气阻力大小, 0表示没有空气阻力</p>
-<h3 id="Angular-Drag-扭矩阻力"><a href="#Angular-Drag-扭矩阻力" class="headerlink" title="Angular Drag 扭矩阻力"></a>Angular Drag 扭矩阻力</h3><p>扭矩阻力, 物体旋转时受到的阻力大小</p>
-<h3 id="Use-Gravity-使用重力"><a href="#Use-Gravity-使用重力" class="headerlink" title="Use Gravity 使用重力"></a>Use Gravity 使用重力</h3><p>是否受重力影响</p>
-<h3 id="Is-Kinematic-运动学选项"><a href="#Is-Kinematic-运动学选项" class="headerlink" title="Is Kinematic 运动学选项"></a>Is Kinematic 运动学选项</h3><p>运动学选项 (就像让原本的刚体失效了)</p>
-<p>如果启用此选项, 则对象不会被物理引擎驱动, 只能通过Transform对其进行操作, 对于移动的平台, 或者要动画化附加了HingeJoint的刚体, 此属性将非常有用</p>
-<h3 id="Interpolate-插值运算"><a href="#Interpolate-插值运算" class="headerlink" title="Interpolate 插值运算"></a>Interpolate 插值运算</h3><p>让刚体物体移动更加平滑</p>
-<ul>
-<li>None 不应用插值运算</li>
-<li>Interpolate 根据前一帧的变换来平滑变换</li>
-<li>Extrapolate 差值运算, 根据下一帧的估计变换来平滑变换</li>
-</ul>
-<p>ProjectSettings 中 Time选项中可以设置物理帧时间</p>
-<p>当物理帧时间变长时, 如果不运用插值运算, 则物体的运动将是跳跃式(可以将物理帧改为1秒看效果)</p>
-<p>所以当需要将物理帧时间加长时, 插值运算将非常有用, 它可以让物体的运动变得平滑</p>
-<p>一般根据具体情况选择算法, 但是当物理帧时间比较长的时候, 建议使用根据前一帧的算法(Interpolate)</p>
-<h3 id="Collision-Detection-碰撞检测模式-重要"><a href="#Collision-Detection-碰撞检测模式-重要" class="headerlink" title="Collision Detection 碰撞检测模式 (重要)"></a>Collision Detection 碰撞检测模式 (重要)</h3><p><strong>用于防止快速移动的对象穿过其它对象而不检测碰撞</strong></p>
-<p>例如: 高速的子弹穿过薄板, 可能会因为子弹速度非常快, 上一帧在木板前(未碰到), 下一帧穿过木板在木板后(未碰到), 就会检测不到子弹与木板的碰撞 因为默认使用的是离散检测(每帧检测)</p>
-<ul>
-<li>Discrete 离散检测 (默认值)</li>
-</ul>
-<p>对场景中的所有其它碰撞体使用离散碰撞检测, 其它碰撞体在测试碰撞时会使用离散碰撞检测, 用于正常碰撞</p>
-<ul>
-<li>Continuous 连续检测<ul>
-<li>对动态碰撞体 (具有刚体) 使用离散碰撞检测</li>
-<li>并对静态碰撞体(没有刚体) 使用连续碰撞检测</li>
-<li>设置为连续动态检测 (Continuous Dynamic) 的刚体在测试与该刚体的碰撞时使用连续碰撞检测 (此属性对物理性能有很大影响, 如果没有快速对象碰撞的问题, 应该将其保留为Discrete设置)</li>
-<li>其它的刚体将使用离散碰撞检测</li>
-</ul>
-</li>
-<li>Continuous Dynamic (连续动态检测) 性能消耗高<ul>
-<li>对设置为连续(Continuous)和连续动态(Continuous Dynamic)碰撞的游戏对象使用连续碰撞检测</li>
-<li>对静态碰撞体(没有刚体)使用连续碰撞检测</li>
-</ul>
-</li>
-<li>Continuous Speculative (连续推测检测)<ul>
-<li>对刚体和碰撞体使用推测行连续碰撞检测, 该方法通常比连续碰撞检测的成本更低</li>
-</ul>
-</li>
-</ul>
-<p>一般使用的时候直接看图使用即可, 除非需要检测高速移动物体的碰撞检测, 否则一般保持为离散检测, 节约性能 (性能消耗越高, 检测越准确)</p>
-<img data-src="/unity/unity-physical-system-rigid-body/collision.png" class="">
-
-<h3 id="Constraints-约束"><a href="#Constraints-约束" class="headerlink" title="Constraints 约束"></a>Constraints 约束</h3><p>对刚体运动的约束</p>
-<ul>
-<li>Freeze Position 有选择的停止刚体沿某个轴运动</li>
-<li>Freeze Rotation 有选择的停止刚体绕某个轴的旋转</li>
-</ul>
-<h3 id="info-调试参数"><a href="#info-调试参数" class="headerlink" title="info 调试参数"></a>info 调试参数</h3><p>可以实时查看刚体上的物理信息</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-light-system-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-light-system-base/" class="post-title-link" itemprop="url">Unity中光源组件基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-01 10:48:21 / 修改时间：20:57:53" itemprop="dateCreated datePublished" datetime="2021-05-01T10:48:21+08:00">2021-05-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-light-system-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-light-system-base/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>下载标准资源包, 可以在package manager中搜索StandardAssets, 导入需要的内容 (这里用Effects/Lightxxx中的资源)</p>
-<p>学习组件, 可以点击组件右上角的问号, 查看相应文档</p>
-<h2 id="面板参数"><a href="#面板参数" class="headerlink" title="面板参数"></a>面板参数</h2><ul>
-<li><strong>Type</strong> 光源类型<ul>
-<li>Spot 聚光灯<ul>
-<li>Range 发光范围, 值越大, 光越亮, 距离越远</li>
-<li>Spot Angle 光锥角度</li>
-</ul>
-</li>
-<li>Directional 方向光</li>
-<li>Point 点光源<ul>
-<li>Range 发光范围</li>
-</ul>
-</li>
-<li>Area 面光源 (仅烘焙可用, 上面三个为实时光照)</li>
-</ul>
-</li>
-<li><strong>Color</strong> 光的颜色</li>
-<li><strong>Mode</strong> 光源模式<ul>
-<li>Realtime 实时光源, 每帧实时计算, 效果好, 性能开销大</li>
-<li>Baked 烘焙光源, 事先计算好, 无动态变化</li>
-<li>Mixed 混合计算, 预先计算+实时运算</li>
-</ul>
-</li>
-<li><strong>Intensity</strong> 光照强度</li>
-<li>Indirect Multiplier 改变间接光强度<ul>
-<li>低于1, 每次光反弹会更暗</li>
-<li>大于1, 每次光反弹会更亮</li>
-</ul>
-</li>
-<li><strong>Shadow Type</strong><ul>
-<li>NoShadows 无阴影</li>
-<li>HardShadows 生硬阴影 (有锯齿)</li>
-<li>SoftShadows 柔软阴影 (有性能消耗)</li>
-</ul>
-</li>
-<li>RealtimeShadows<ul>
-<li>Strength 阴影暗度 0-1, 越大越暗</li>
-<li>Resolution 阴影贴图渲染分辨率, 越高越逼真 (默认使用质量设置)</li>
-<li>Bias 阴影推离光源的距离 (阴影计算, 一般不用)</li>
-<li>Normal Bias 阴影投射面沿法线收缩距离 (一般不用)</li>
-<li>Near Panel 渲染阴影的近裁剪面 (一般不用)</li>
-</ul>
-</li>
-<li><strong>Cookie</strong> 投影遮罩 (一般用于聚光灯)<ul>
-<li>拖拽一张贴图(黑白图, 白色有光)到Cookie, 可以让光呈现特殊形状</li>
-</ul>
-</li>
-<li>Cookie Size (不常用, 只在方向光中设置Cookie才能用, 但是方向光一般不用Cookie)</li>
-<li><strong>Draw Halo</strong> 球形光晕效果 (蜡烛/太阳)</li>
-<li><strong>Flare</strong> 耀斑 (一般用于方向光等强光)<ul>
-<li><strong>如果想要在游戏视图看到耀斑, 需要在摄像机上加一个FlareLayer脚本</strong></li>
-</ul>
-</li>
-<li>Render Mode 渲染模式<ul>
-<li>Auto 运行时确定</li>
-<li>Important 以像素为单位进行渲染, 逼真, 消耗大</li>
-<li>Not Important 以快速模式进行渲染</li>
-</ul>
-</li>
-<li><strong>Culling Mask</strong> 选择哪些层受到光照影响</li>
-</ul>
-<h2 id="代码控制"><a href="#代码控制" class="headerlink" title="代码控制"></a>代码控制</h2><p>Light中一般都是成员</p>
-<p>Light面板中的内容都可以通过代码获取修改, 可以进入类中看看</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 光源强度</span></span><br><span class="line">light.intensity = <span class="number">0.5f</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="光相关面板"><a href="#光相关面板" class="headerlink" title="光相关面板"></a>光相关面板</h2><h3 id="Lighting-Settings"><a href="#Lighting-Settings" class="headerlink" title="Lighting Settings"></a>Lighting Settings</h3><p>Window/Rendering/Lighting Settings</p>
-<ul>
-<li><p>Environment 环境相关设置</p>
-<ul>
-<li>Skybox Material 天空盒材质, 可改变天空云朵 (需要特殊材质)</li>
-<li>Sun Source 太阳来源 (不设置默认使用场景中最亮的方向光代表太阳)</li>
-<li>Environment Lighting 环境光设置<ul>
-<li>Source 环境光光源颜色 (一般用天空盒即可)<ul>
-<li>Skybox 天空盒材质作为环境光颜色</li>
-<li>Gradient 可以为天空/地平线/地面单独选择颜色和他们之间混合</li>
-</ul>
-</li>
-<li>Intensity Mutiplier 环境光亮度 (在洞穴才能看到效果)</li>
-<li>Ambient Mode 全局光照模式 (只有启用了实时全局和全局烘焙时才有用)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>OtherSettings 其它设置</p>
-<ul>
-<li>Fog 雾开关 (手游中一般不会开雾)<ul>
-<li>Color 雾的颜色</li>
-<li>Mode 雾计算模式<ul>
-<li>Linear 随距离线性增加<ul>
-<li>Start 距离摄像机多远开始有雾</li>
-<li>End 距离摄像机多远完全遮挡</li>
-</ul>
-</li>
-<li>Exponential 随距离指数增加<ul>
-<li>Density 强度</li>
-</ul>
-</li>
-<li>Exponential Qquare 随距离比指数更快的增加<ul>
-<li>Density 强度</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Halo Texture 光源周围光晕的纹理</p>
-</li>
-<li><p>Halo Strength 光晕可见性</p>
-</li>
-<li><p>Flare Fade Speed 耀斑淡出时间 (最初出现之后淡出的时间)</p>
-</li>
-<li><p>Flare Strength 耀斑可见性</p>
-</li>
-<li><p>Spot Cookie 探照灯默认裁剪形状 (影响所有探照灯)</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-camera-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-camera-base/" class="post-title-link" itemprop="url">Unity中的Camera内容</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-29 19:05:05" itemprop="dateCreated datePublished" datetime="2021-04-29T19:05:05+08:00">2021-04-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-01 10:30:23" itemprop="dateModified" datetime="2021-05-01T10:30:23+08:00">2021-05-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-camera-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-camera-base/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Camera上可编辑的参数"><a href="#Camera上可编辑的参数" class="headerlink" title="Camera上可编辑的参数"></a>Camera上可编辑的参数</h2><ul>
-<li><strong>Clear Flags</strong> 如何清除背景<ul>
-<li>skybox 天空盒 (3D天空效果) 3D游戏使用</li>
-<li>Solid Color 颜色填充 (背景为纯色) 2D游戏使用</li>
-<li>Depth Only 只画该层, 背景透明 多个相机叠加渲染</li>
-<li>Don’t Clear 不移除, 覆盖渲染 (极少使用) Game窗口右键选项(总是清空上一帧去掉后可以看到效果)</li>
-</ul>
-</li>
-<li><strong>Culling Mask</strong> 选择渲染部分层级, 可以指定只渲染对应层级, 很常用</li>
-<li><strong>Projection</strong> 透视方式<ul>
-<li>Perspective 透视模式 (正常视角, 近大远小)<ul>
-<li>Field of View 摄像机视口角度, 会改变视口大小和焦段, 一般60不改</li>
-<li>FOV Axis 上面的角度按照水平还是垂直方向计算 一般不改</li>
-<li>Physical Camera 真实摄像机开关 打开后可以像真实相机一样调整参数, 专业用法<ul>
-<li>Focal Length 焦距</li>
-<li>Sensor Type 传感器类型</li>
-<li>Sensor Size 传感器尺寸</li>
-<li>Lens Shift 透镜位移</li>
-<li>Gate Fit 闸门配合</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Orthographic 正交模式 (一般用于2D游戏制作)<ul>
-<li>Size 摄制范围</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>Clipping Planes</strong> 裁剪平面距离 (裁剪范围内可见, 有可能模型被裁剪一半)<ul>
-<li>Near 近距离裁剪距离, 物体距离相机小于该距离则不可见</li>
-<li>Far 远距裁剪距离, 物体距离相机大于该距离则不可见</li>
-</ul>
-</li>
-<li>Viewport Rect 主要用于多摄像机游戏, 设置摄像机的渲染范围<ul>
-<li>x和y是渲染起点, w和h是宽和高 (都是0到1, (0, 0)表示窗口左下角)</li>
-</ul>
-</li>
-<li><strong>Depth</strong> 渲染顺序上的深度 (深度高的相机越后渲染, 深度高的相机会覆盖深度低的相机画面) 需要配合多个相机和<code>Depth Only</code>配合使用<ul>
-<li>深度最低的相机渲染背景和基本画面</li>
-<li>深度高的相机选择渲染某个特殊层, 并且选择DepthOnly(背景透明), 那么就可以叠加显示</li>
-</ul>
-</li>
-<li>Redering path 渲染路径 (默认使用渲染设置)</li>
-<li><strong>Target Texture</strong> 可以把摄像机画面渲染到一张图上 (默认渲染到游戏窗口)<ul>
-<li>Project上右键新建<code>Render Texture</code></li>
-<li>相机渲染中的<code>Target Texture</code>选择新建的Texture, 那么该相机的画面就渲染在这个Texture中</li>
-<li>小地图: 俯视摄像机, Texture做小地图</li>
-</ul>
-</li>
-<li><strong>Occlusion Culling</strong> 是否启用剔除遮挡, 用于性能优化<ul>
-<li>被完全遮挡的模型是否渲染</li>
-</ul>
-</li>
-<li>Allow HDR 是否允许高动态范围渲染 (默认使用渲染设置)</li>
-<li>Allow MSAA 是否允许抗锯齿 (默认使用渲染设置)</li>
-<li>Allow Dynamic Resolution 是否允许动态分辨率呈现</li>
-<li>Target Display 该相机显示在那个显示器, 主要用于开发有多个屏幕的平台游戏 (Game窗口可以切换显示的Display) 最多支持8个</li>
-<li>Target Eye 制作VR相关</li>
-</ul>
-<p>在ProjectSettings中可以更改渲染设置</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/unity/unity-camera-base/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/unity/unity-screen-base/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EricYe">
-      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fetasty">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unity/unity-screen-base/" class="post-title-link" itemprop="url">Unity中Screen类中的内容</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-04-28 23:26:53 / 修改时间：23:38:38" itemprop="dateCreated datePublished" datetime="2021-04-28T23:26:53+08:00">2021-04-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/unity/unity-screen-base/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/unity/unity-screen-base/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Screen提供屏幕相关内容</p>
-<h2 id="静态属性"><a href="#静态属性" class="headerlink" title="静态属性"></a>静态属性</h2><h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 是一个表示当前屏幕(显示器, 而不是游戏窗口)分辨率的结构体 有宽高和刷新频率</span></span><br><span class="line">Resolution r = Screen.currentResolution;</span><br><span class="line">print(r.with);</span><br><span class="line">print(r.height);</span><br><span class="line"><span class="comment">// 当前游戏窗口大小 (一般使用这个大小)</span></span><br><span class="line">print(Screen.width);</span><br><span class="line">print(Screen.height);</span><br><span class="line"><span class="comment">// 屏幕休眠模式</span></span><br><span class="line">Screen.sleepTimeout = SleepTimeout.NeverSleep;</span><br></pre></td></tr></table></figure>
-
-<h3 id="不常用"><a href="#不常用" class="headerlink" title="不常用"></a>不常用</h3><p>全屏相关</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 运行时是否全屏模式</span></span><br><span class="line">Screen.fullScreen = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 设置全屏模式为 窗口模式 (还有独占全屏/全屏窗口/最大化窗口)</span></span><br><span class="line">Screen.fullScreenMode = FullScreenMode.Windowed;</span><br></pre></td></tr></table></figure>
-
-<p>移动设备屏幕旋转相关</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 允许自动旋转为左横向 Home在左</span></span><br><span class="line">Screen.autorotateToLandscapeLeft = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 允许自动旋转为右横向 Home在右</span></span><br><span class="line">Screen.autorotateToLandscapeRight = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 允许自动旋转为纵向 Home在下</span></span><br><span class="line">Screen.autorotateToPortrait = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 允许自动旋转为倒着 Home在上</span></span><br><span class="line">Screen.autorotateToPortraitUpsideDown = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定屏幕显示方向</span></span><br><span class="line">Screen.orientation = ScreenOrientation.Landscape; <span class="comment">// 横屏</span></span><br></pre></td></tr></table></figure>
-
-<p>上述内容一般不会直接用代码设置, 而是打包时统一配置</p>
-<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置分辨率 (移动设备不使用)</span></span><br><span class="line">Screen.SetResolution(<span class="number">1920</span>, <span class="number">1080</span>, <span class="literal">false</span>); <span class="comment">// 最后是是否全屏</span></span><br></pre></td></tr></table></figure>
-
-<p>其它内容可以进入类中查看</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1503,20 +1260,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
