@@ -35,12 +35,12 @@
   </entry>
   <entry>
     <title>在VS Code下使用Go插件安装失败问题</title>
-    <url>/golang/golang-with-vscode/</url>
+    <url>/programming-language/golang/golang-with-vscode/</url>
     <content><![CDATA[<p>对比了几个Golang IDE, 还是VS Code最轻量好用, 但是使用时会提示一堆插件安装失败, 记录一下问题</p>
 <p>环境: Win10, VS Code, go1.13.4.windows-amd64</p>
 <h2 id="安装Go语言环境"><a href="#安装Go语言环境" class="headerlink" title="安装Go语言环境"></a>安装Go语言环境</h2><p>在<a href="https://golang.google.cn/">官方网站</a>下载安装</p>
 <h2 id="VSC安装Go扩展"><a href="#VSC安装Go扩展" class="headerlink" title="VSC安装Go扩展"></a>VSC安装Go扩展</h2><p>VS Code扩展栏搜索<code>Go</code>进行安装</p>
-<img data-src="/golang/golang-with-vscode/go-vsc-ext.png" class="" title="插件主页">
+<img data-src="/programming-language/golang/golang-with-vscode/go-vsc-ext.png" class="" title="插件主页">
 
 <p>这一步比较简单, 一般没有问题, 安装好后编写Go源文件, 提示需要安装一些代码提示工具</p>
 <p>在VSC下方状态栏显示有<code>Analysis Tools Missing</code>, 点击该提示, 点击”install”, 出现安装失败提示:</p>
@@ -80,9 +80,10 @@
 <p>最后一直提示缺少个<code>gocode-gomod</code>我的天, 然后又把<code>github.com/stamblerre/gocode</code>安装后到GOPATH下的bin目录下<br>并把<code>gocode.exe</code>改名为<code>gocode-gomod.exe</code>, 再安装一下上面的gocode(github.com/mdempsky/gocode)</p>
 <p>重新加载VS Code, 没有提示<code>Analysis Tools Missing</code>了, 但提示需要Update, 我这里没有梯子就不升级了, 已经能用了</p>
 <p>要是一开始就知道有方法1, 就不会绕到这里了-_-</p>
-<img data-src="/golang/golang-with-vscode/install-success.png" class="" title="安装成功">
+<img data-src="/programming-language/golang/golang-with-vscode/install-success.png" class="" title="安装成功">
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>Go</category>
       </categories>
       <tags>
@@ -208,7 +209,7 @@
   </entry>
   <entry>
     <title>Windows下MinGW-w64安装</title>
-    <url>/cpp/win-mingw-w64-install/</url>
+    <url>/programming-language/cpp/win-mingw-w64-install/</url>
     <content><![CDATA[<p>很多时候都必不可少一套GCC/G++编译器</p>
 <p>这里我选择MinGW-w64 x86_64-posix-seh</p>
 <h2 id="MinGW-amp-MinGW-w64-amp-TDM-GCC"><a href="#MinGW-amp-MinGW-w64-amp-TDM-GCC" class="headerlink" title="MinGW &amp; MinGW-w64 &amp; TDM-GCC"></a>MinGW &amp; MinGW-w64 &amp; TDM-GCC</h2><p>MinGW 只有32位版本  更新较慢 LastUpdate(2018-07-13) 查看日期[2019-11-15]</p>
@@ -253,6 +254,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C++</category>
       </categories>
       <tags>
@@ -320,7 +322,7 @@
   </entry>
   <entry>
     <title>VS Code中使用CMake编译调试C++</title>
-    <url>/cpp/vscode-cmake-cpp/</url>
+    <url>/programming-language/cpp/vscode-cmake-cpp/</url>
     <content><![CDATA[<p>适用于Windows系统</p>
 <h2 id="VS-Code的C-环境"><a href="#VS-Code的C-环境" class="headerlink" title="VS Code的C++环境"></a>VS Code的C++环境</h2><ul>
 <li><p><a href="https://fetasty.github.io/cpp/win-mingw-w64-install/">安装MingGW</a></p>
@@ -392,6 +394,7 @@
 <p><a href="https://www.hahack.com/codes/cmake/#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9">CMake入门实战教程</a></p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C++</category>
       </categories>
       <tags>
@@ -402,7 +405,7 @@
   </entry>
   <entry>
     <title>g++生成可执行文件过程简介</title>
-    <url>/cpp/gxx-generate-process/</url>
+    <url>/programming-language/cpp/gxx-generate-process/</url>
     <content><![CDATA[<p>g++生成可执行文件有四个步骤</p>
 <h2 id="四个步骤"><a href="#四个步骤" class="headerlink" title="四个步骤"></a>四个步骤</h2><ul>
 <li><p>预处理: 处理条件编译, 头文件展开, 宏展开 (生成<code>.i</code>文件)</p>
@@ -432,6 +435,7 @@
 <p>执行预处理&amp;编译&amp;汇编&amp;链接, 生成可执行文件</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C++</category>
       </categories>
       <tags>
@@ -473,7 +477,7 @@
   </entry>
   <entry>
     <title>C++中的静态链接库和动态链接库区别</title>
-    <url>/cpp/staticlib-sharedlib-in-cpp/</url>
+    <url>/programming-language/cpp/staticlib-sharedlib-in-cpp/</url>
     <content><![CDATA[<p>稍加总结</p>
 <h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p><strong>静态链接库</strong>是在编译最后一步(链接阶段), 一起打包到可执行文件中</p>
 <p><strong>动态链接库</strong>在编译生成阶段没有动作, 而是在程序运行时加载, 加载发生在运行时期, 库文件与执行文件分开, 执行文件依赖于库文件 (不同平台上的动态加载方式并不相同)</p>
@@ -520,6 +524,7 @@
 <p>参考资料: <a href="https://blog.csdn.net/a369189453/article/details/81124685">https://blog.csdn.net/a369189453/article/details/81124685</a></p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C++</category>
       </categories>
       <tags>
@@ -765,57 +770,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Go语言中的值类型/引用类型和参数传递</title>
-    <url>/golang/golang-param-pass/</url>
-    <content><![CDATA[<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>Go里边函数传参只有值传递一种方式</strong>(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数)</p>
-<p>刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice/map/chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递</p>
-<p>实际上, slice, map, channel都是<strong>结构体类型的值传递</strong>, 但是<strong>结构体中包含指向实际数据的指针</strong>, 所以它们是值传递, 而并非引用传递</p>
-<a id="more"></a>
-
-<h2 id="引用的类型"><a href="#引用的类型" class="headerlink" title="引用的类型"></a>引用的类型</h2><p>Go语言中的slice, map, channel都是引用类型, 这个引用和Python相似, 和C++不同</p>
-<h3 id="C-中的引用"><a href="#C-中的引用" class="headerlink" title="C++中的引用"></a>C++中的引用</h3><p>C语言中没有引用类型, 但C++中实现了引用类型, 这个引用是编译器通过指针实现的, 让引用用起来像”别名”</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span>&amp; b)</span> </span>&#123; <span class="comment">// b为引用, 编译后其实是用指针实现</span></span><br><span class="line">    b = <span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line">change(a);</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a; <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
-
-<p>上面的代码中, 如果编译后进行反编译查看汇编代码, 会发现底层是将int变量地址(int*)作为参数传递, C++中的引用是编译器通过指针实现, 是编译器实现的一个语法糖</p>
-<h3 id="Go和Python中的引用"><a href="#Go和Python中的引用" class="headerlink" title="Go和Python中的引用"></a>Go和Python中的引用</h3><p>Go和Python中的引用其实是struct中包含指针, 当赋值/传递参数时, 会发生struct的复制, struct中的指针被一起复制, 主要数据没有发生复制, 两个struct中的指针指向同一块内存, 用起来和”引用”一样</p>
-<p>底层实现我也没有深入研究, 这里看看Go语言的slice结构(<a href="https://github.com/golang/go/blob/master/src/runtime/slice.go">slice源码</a>), 就能理解了</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// slice</span></span><br><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span> &#123;</span><br><span class="line">    array unsafe.Pointer</span><br><span class="line">    <span class="built_in">len</span> <span class="keyword">int</span></span><br><span class="line">    <span class="built_in">cap</span> <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>slice其实是一个包含指针的结构体, 现在说Go语言中只有值传递就很好理解了, 当传递一个slice参数, 其实是结构体的值传递, 结构体中的指针指向同一内存区域, 所以函数中的数据操作也会影响函数外的slice值</p>
-<h2 id="Go语言中的常见引用类型和值类型"><a href="#Go语言中的常见引用类型和值类型" class="headerlink" title="Go语言中的常见引用类型和值类型"></a>Go语言中的常见引用类型和值类型</h2><h3 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h3><p>值类型进行赋值/参数传递时, 实际时将内存中的值进行了拷贝, <strong>数据/结构体是值类型也进行了拷贝</strong></p>
-<ul>
-<li><p>int, float, bool, string 等基本类型</p>
-</li>
-<li><p>数组, 结构体</p>
-</li>
-<li><p>指针</p>
-</li>
-</ul>
-<p>再次提醒, Go中的string/数组是值类型, 赋值时进行了拷贝, 拷贝后的变量修改不会影响原变量的值, 这和C++中的完全不同, 如果你和我一样之前是使用C++语言, 这里要特别注意</p>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>记住Go语言中的引用类型其实是包含指针的struct, 该struct还是值类型</p>
-<ul>
-<li>slice, map, chan等</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">a := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//数组</span></span><br><span class="line">b := a</span><br><span class="line">b[<span class="number">0</span>] = <span class="number">99</span>;</span><br><span class="line">fmt.Println(a) <span class="comment">//[1 2 3 4 5]</span></span><br><span class="line">fmt.Println(b) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">c := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//slice, 这里想一下slice的struct结构</span></span><br><span class="line">d := c</span><br><span class="line">d[<span class="number">0</span>] = <span class="number">99</span></span><br><span class="line">fmt.Println(c) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">fmt.Println(d) <span class="comment">//[99 2 3 4 5]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="指针接收者"><a href="#指针接收者" class="headerlink" title="指针接收者"></a>指针接收者</h2><p>Go语言如果需要在函数中修改传入的实际参数的变量值, 应该使用指针接收者</p>
-<p>也就是说对于<code>func (a *T) test() &#123;&#125;</code>, 函数接收者可以是T类型, 并且函数中对a的修改会影响函数外的变量值</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test1</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">100</span></span><br><span class="line">    a.y = <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">99</span></span><br><span class="line">    a.y = <span class="number">99</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    v := T&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;</span></span><br><span class="line">    v.test1()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;, 接收者传入是以值传递, struct复制</span></span><br><span class="line">    v.test2()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;99 99&#125;, 接收者传入是指针值传递, 指针复制</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于需要指针函数的函数, 则只能接受指针类型参数;<br>而接收者类型为指针时, 接收者可以是指针也可以是值, 传入值参数自动解释为指针(&amp;v);<br>接收者类型为值类型时, 接收者可以是值也可以是指针, 传入指针类型自动解释为值类型(*p).</p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test1</span><span class="params">(a *T)</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">1</span></span><br><span class="line">    a.y = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">2</span></span><br><span class="line">    a.y = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test3</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">3</span></span><br><span class="line">    a.y = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	v := T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">	p := &amp;v</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">	test1(p)</span><br><span class="line">	<span class="comment">// test1(v) //编译出错</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;1 1&#125;</span></span><br><span class="line">	p.test2()</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">	v = T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">	v.test2()      <span class="comment">//自动解释为(&amp;v).test2()</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">	v.test3()</span><br><span class="line">	p.test3()      <span class="comment">//自动解释为(*p).test3()</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考资料:</p>
-<p><a href="https://zhuanlan.zhihu.com/p/84580859">一文理清 Go 引用的常见疑惑</a></p>
-<p><a href="https://www.cnblogs.com/hoodlum1980/archive/2012/06/19/2554270.html">C++中引用的底层实现</a></p>
-]]></content>
-      <categories>
-        <category>Go</category>
-      </categories>
-      <tags>
-        <tag>Go</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>哈希表</title>
     <url>/algorithm/hash-table/</url>
     <content><![CDATA[<h2 id="概念和定义"><a href="#概念和定义" class="headerlink" title="概念和定义"></a>概念和定义</h2><ul>
@@ -862,6 +816,58 @@
       <tags>
         <tag>algorithm</tag>
         <tag>Hash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Go语言中的值类型/引用类型和参数传递</title>
+    <url>/programming-language/golang/golang-param-pass/</url>
+    <content><![CDATA[<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>Go里边函数传参只有值传递一种方式</strong>(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数)</p>
+<p>刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice/map/chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递</p>
+<p>实际上, slice, map, channel都是<strong>结构体类型的值传递</strong>, 但是<strong>结构体中包含指向实际数据的指针</strong>, 所以它们是值传递, 而并非引用传递</p>
+<a id="more"></a>
+
+<h2 id="引用的类型"><a href="#引用的类型" class="headerlink" title="引用的类型"></a>引用的类型</h2><p>Go语言中的slice, map, channel都是引用类型, 这个引用和Python相似, 和C++不同</p>
+<h3 id="C-中的引用"><a href="#C-中的引用" class="headerlink" title="C++中的引用"></a>C++中的引用</h3><p>C语言中没有引用类型, 但C++中实现了引用类型, 这个引用是编译器通过指针实现的, 让引用用起来像”别名”</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span>&amp; b)</span> </span>&#123; <span class="comment">// b为引用, 编译后其实是用指针实现</span></span><br><span class="line">    b = <span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line">change(a);</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a; <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中, 如果编译后进行反编译查看汇编代码, 会发现底层是将int变量地址(int*)作为参数传递, C++中的引用是编译器通过指针实现, 是编译器实现的一个语法糖</p>
+<h3 id="Go和Python中的引用"><a href="#Go和Python中的引用" class="headerlink" title="Go和Python中的引用"></a>Go和Python中的引用</h3><p>Go和Python中的引用其实是struct中包含指针, 当赋值/传递参数时, 会发生struct的复制, struct中的指针被一起复制, 主要数据没有发生复制, 两个struct中的指针指向同一块内存, 用起来和”引用”一样</p>
+<p>底层实现我也没有深入研究, 这里看看Go语言的slice结构(<a href="https://github.com/golang/go/blob/master/src/runtime/slice.go">slice源码</a>), 就能理解了</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// slice</span></span><br><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span> &#123;</span><br><span class="line">    array unsafe.Pointer</span><br><span class="line">    <span class="built_in">len</span> <span class="keyword">int</span></span><br><span class="line">    <span class="built_in">cap</span> <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>slice其实是一个包含指针的结构体, 现在说Go语言中只有值传递就很好理解了, 当传递一个slice参数, 其实是结构体的值传递, 结构体中的指针指向同一内存区域, 所以函数中的数据操作也会影响函数外的slice值</p>
+<h2 id="Go语言中的常见引用类型和值类型"><a href="#Go语言中的常见引用类型和值类型" class="headerlink" title="Go语言中的常见引用类型和值类型"></a>Go语言中的常见引用类型和值类型</h2><h3 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h3><p>值类型进行赋值/参数传递时, 实际时将内存中的值进行了拷贝, <strong>数据/结构体是值类型也进行了拷贝</strong></p>
+<ul>
+<li><p>int, float, bool, string 等基本类型</p>
+</li>
+<li><p>数组, 结构体</p>
+</li>
+<li><p>指针</p>
+</li>
+</ul>
+<p>再次提醒, Go中的string/数组是值类型, 赋值时进行了拷贝, 拷贝后的变量修改不会影响原变量的值, 这和C++中的完全不同, 如果你和我一样之前是使用C++语言, 这里要特别注意</p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>记住Go语言中的引用类型其实是包含指针的struct, 该struct还是值类型</p>
+<ul>
+<li>slice, map, chan等</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">a := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//数组</span></span><br><span class="line">b := a</span><br><span class="line">b[<span class="number">0</span>] = <span class="number">99</span>;</span><br><span class="line">fmt.Println(a) <span class="comment">//[1 2 3 4 5]</span></span><br><span class="line">fmt.Println(b) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">c := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//slice, 这里想一下slice的struct结构</span></span><br><span class="line">d := c</span><br><span class="line">d[<span class="number">0</span>] = <span class="number">99</span></span><br><span class="line">fmt.Println(c) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">fmt.Println(d) <span class="comment">//[99 2 3 4 5]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="指针接收者"><a href="#指针接收者" class="headerlink" title="指针接收者"></a>指针接收者</h2><p>Go语言如果需要在函数中修改传入的实际参数的变量值, 应该使用指针接收者</p>
+<p>也就是说对于<code>func (a *T) test() &#123;&#125;</code>, 函数接收者可以是T类型, 并且函数中对a的修改会影响函数外的变量值</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test1</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">100</span></span><br><span class="line">    a.y = <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">99</span></span><br><span class="line">    a.y = <span class="number">99</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    v := T&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;</span></span><br><span class="line">    v.test1()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;, 接收者传入是以值传递, struct复制</span></span><br><span class="line">    v.test2()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;99 99&#125;, 接收者传入是指针值传递, 指针复制</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于需要指针函数的函数, 则只能接受指针类型参数;<br>而接收者类型为指针时, 接收者可以是指针也可以是值, 传入值参数自动解释为指针(&amp;v);<br>接收者类型为值类型时, 接收者可以是值也可以是指针, 传入指针类型自动解释为值类型(*p).</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test1</span><span class="params">(a *T)</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">1</span></span><br><span class="line">    a.y = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">2</span></span><br><span class="line">    a.y = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test3</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">3</span></span><br><span class="line">    a.y = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	v := T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">	p := &amp;v</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">	test1(p)</span><br><span class="line">	<span class="comment">// test1(v) //编译出错</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;1 1&#125;</span></span><br><span class="line">	p.test2()</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">	v = T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">	v.test2()      <span class="comment">//自动解释为(&amp;v).test2()</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">	v.test3()</span><br><span class="line">	p.test3()      <span class="comment">//自动解释为(*p).test3()</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考资料:</p>
+<p><a href="https://zhuanlan.zhihu.com/p/84580859">一文理清 Go 引用的常见疑惑</a></p>
+<p><a href="https://www.cnblogs.com/hoodlum1980/archive/2012/06/19/2554270.html">C++中引用的底层实现</a></p>
+]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>Go</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -1187,7 +1193,7 @@
   </entry>
   <entry>
     <title>Python中的logging使用</title>
-    <url>/python/python-logging/</url>
+    <url>/programming-language/python/python-logging/</url>
     <content><![CDATA[<p>正式项目中, 我们不能一直使用print打印日志, 有时候需要将日志输出到文件, 或者控制日志等级, 在调试时打印所有等级日志, 在正式发布版本中不打印Debug和Info等级日志, 就需要用到日志模块, 这里介绍Python自带的logging模块</p>
 <p>logging模块线程安全</p>
 <a id="more"></a>
@@ -1357,6 +1363,7 @@
 </tbody></table>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>Python</category>
       </categories>
       <tags>
@@ -1367,7 +1374,7 @@
   </entry>
   <entry>
     <title>C#中的事件与委托实例的区别</title>
-    <url>/csharp/csharp-event-and-delegate/</url>
+    <url>/programming-language/csharp/csharp-event-and-delegate/</url>
     <content><![CDATA[<p>区别概括为两点:</p>
 <ol>
 <li><p>允许的操作: 事件只允许通过 <code>+=</code> 和 <code>-=</code> 来订阅和取消订阅; 但是委托实例除了<code>+=</code>和<code>-=</code>, 还可以使用<code>=</code>直接赋值操作</p>
@@ -1403,6 +1410,7 @@
 <p>一般来说, 委托实例用于形参, 传递函数; 而事件则用于订阅/取消订阅的场景, 以避免直接覆盖或者在外部调用(触发)的混乱用法.</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1412,7 +1420,7 @@
   </entry>
   <entry>
     <title>C++中的内置宏定义</title>
-    <url>/cpp/cpp-buildin-macro/</url>
+    <url>/programming-language/cpp/cpp-buildin-macro/</url>
     <content><![CDATA[<p>在一些日志库中看到代码中使用了 <code>__FILE__</code> <code>__LINE__</code> (文件名, 行号)这样的宏定义, 好奇C++中到底提供了哪些可以使用的内置宏定义呢</p>
 <p>在网上查了一些资料, 这里稍作总结</p>
 <p>在C++的<a href="https://zh.cppreference.com/w/cpp/preprocessor/replace">文本替换宏</a>文档中, 可以看到有一些宏预定义在每一个翻译单元中(一定可用). 然而有的宏定义不一定存在, 可能与具体的实现, 编译器, 系统都有关系</p>
@@ -1441,6 +1449,7 @@
 </ul>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C++</category>
       </categories>
       <tags>
@@ -1449,7 +1458,7 @@
   </entry>
   <entry>
     <title>C#中Console类常用方法总结</title>
-    <url>/csharp/csharp-console-function/</url>
+    <url>/programming-language/csharp/csharp-console-function/</url>
     <content><![CDATA[<p>学习了泰课C#入门课程后需要做一个控制台应用程序, 发现课程中使用了许多之前没有用过的控制台方法, 这里将常用的方法稍微总结一下</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Console.CursorVisible = <span class="literal">false</span>;  <span class="comment">// 隐藏光标</span></span><br><span class="line">Console.Clear();                <span class="comment">// 清空控制台</span></span><br><span class="line">Console.SetWindowSize(x, y);    <span class="comment">// 设置控制台窗口大小 (窗口大小不能超过缓存区大小)</span></span><br><span class="line">Console.SetBufferSize(x, y);    <span class="comment">// 设置控制台缓存区大小 (缓存区大于窗口大小时会在窗口上出现控制拉杆)</span></span><br><span class="line">Console.SetCursorPosition(x, y);            <span class="comment">// 设置光标位置, 之后输出就从光标位置输出</span></span><br><span class="line">Console.ForegroundColor = ConsoleColor.Red; <span class="comment">// 设置前景色, 之后输出的颜色将以该颜色输出; (同样有背景色设置)</span></span><br><span class="line">Console.Title = <span class="string">&quot;My Title&quot;</span>;                 <span class="comment">// 设置控制台标题</span></span><br><span class="line"><span class="keyword">var</span> key = Console.ReadKey().Key;            <span class="comment">// 读取一个按键输入</span></span><br><span class="line">Console.ReadKey(<span class="literal">true</span>);                      <span class="comment">// 读取输入, 但控制台不显示 (可用于控制台游戏的即时输入)</span></span><br><span class="line">Console.Write(<span class="string">&quot;&quot;</span>);                          <span class="comment">// 输出字符串</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;&quot;</span>);                      <span class="comment">// 输出字符串后换行</span></span><br></pre></td></tr></table></figure>
 
@@ -1457,6 +1466,7 @@
 <p>要是看不懂英文注释, 可以去 <a href="https://docs.microsoft.com/zh-cn">Microsoft中文文档</a> 搜索查看</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1465,7 +1475,7 @@
   </entry>
   <entry>
     <title>C#中的扩展方法</title>
-    <url>/csharp/csharp-extend-method/</url>
+    <url>/programming-language/csharp/csharp-extend-method/</url>
     <content><![CDATA[<p>扩展方法可以为现有的非静态和变量类型添加新方法</p>
 <p>可以动态扩展方法, 不需要改写原来的类代码或者继承来添加方法, 也可以为其他程序集中别人封装的类添加自己需要的额外方法</p>
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
@@ -1482,6 +1492,7 @@
 </ul>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1490,7 +1501,7 @@
   </entry>
   <entry>
     <title>C#的垃圾回收</title>
-    <url>/csharp/csharp-gc/</url>
+    <url>/programming-language/csharp/csharp-gc/</url>
     <content><![CDATA[<h2 id="值与引用"><a href="#值与引用" class="headerlink" title="值与引用"></a>值与引用</h2><p>C#中的变量类型分为值类型和引用类型 (指针类型这里不讨论)</p>
 <p>程序内存空间分为栈和堆</p>
 <p>一般我们申请的变量都是在栈上的, 不过值类型的变量在栈上直接存储了变量的值, 而引用类型变量在栈上存储的是内存地址(指向堆上的实际数据)</p>
@@ -1554,6 +1565,7 @@
 <p>垃圾回收不能频繁调用, 一般都是在场景加载显示Loading条时主动调用</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1562,7 +1574,7 @@
   </entry>
   <entry>
     <title>C#中的索引器</title>
-    <url>/csharp/csharp-indexer/</url>
+    <url>/programming-language/csharp/csharp-indexer/</url>
     <content><![CDATA[<p>索引器可以让C#对象像数组一样通过索引访问其中的元素</p>
 <p><strong>索引器定义</strong></p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">MyList</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> T[] dataArr;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span> <span class="keyword">default</span>(T); &#125;</span><br><span class="line">            <span class="keyword">return</span> dataArr[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataArr == <span class="literal">null</span>) &#123; dataArr = <span class="keyword">new</span> T[<span class="number">10</span>]; &#125;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= dataArr.Length) &#123; <span class="keyword">return</span>; &#125;</span><br><span class="line">            dataArr[index] = <span class="keyword">value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1577,6 +1589,7 @@
 
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1585,7 +1598,7 @@
   </entry>
   <entry>
     <title>C# 中的运算符重载</title>
-    <url>/csharp/csharp-override-operator/</url>
+    <url>/programming-language/csharp/csharp-override-operator/</url>
     <content><![CDATA[<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Point</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Point <span class="keyword">operator</span> +(Point p1, Point p2)</span><br><span class="line">    &#123;</span><br><span class="line">        Point p = <span class="keyword">new</span> Point();</span><br><span class="line">        p.x = p1.x + p2.x;</span><br><span class="line">        p.y = p1.y + p2.y;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>注意:</p>
@@ -1605,6 +1618,7 @@
 </ul>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1613,7 +1627,7 @@
   </entry>
   <entry>
     <title>C#中的抽象类</title>
-    <url>/csharp/csharp-abstract-class/</url>
+    <url>/programming-language/csharp/csharp-abstract-class/</url>
     <content><![CDATA[<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><ul>
 <li>抽象类使用关键字<code>abstract</code>修饰</li>
 <li>不能被实例化</li>
@@ -1643,6 +1657,7 @@
 <p>抽象类主要在系统整体框架设计时使用</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1651,7 +1666,7 @@
   </entry>
   <entry>
     <title>C#中的结构体和类的区别</title>
-    <url>/csharp/csharp-class-and-struct/</url>
+    <url>/programming-language/csharp/csharp-class-and-struct/</url>
     <content><![CDATA[<h2 id="区别之处"><a href="#区别之处" class="headerlink" title="区别之处"></a>区别之处</h2><ul>
 <li>结构体是值类型, 类是引用类型</li>
 <li>结构体存在栈上, 类存在堆中</li>
@@ -1678,6 +1693,7 @@
 </ul>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1686,7 +1702,7 @@
   </entry>
   <entry>
     <title>C#中的接口</title>
-    <url>/csharp/csharp-interface/</url>
+    <url>/programming-language/csharp/csharp-interface/</url>
     <content><![CDATA[<h2 id="接口申明"><a href="#接口申明" class="headerlink" title="接口申明"></a>接口申明</h2><p><strong>接口是抽象行为的”基类”</strong>, 接口命名规范是大写I开头并且使用大驼峰(帕斯卡命名)</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">IFly</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Fly</span>(<span class="params"></span>)</span>; <span class="comment">// 方法</span></span><br><span class="line">    <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">// 未实现的属性(不是自动属性)</span></span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">this</span>[<span class="keyword">int</span> index] &#123; <span class="keyword">get</span>; &#125; <span class="comment">// 索引器</span></span><br><span class="line">    <span class="keyword">event</span> Action DoSomething; <span class="comment">// 事件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1718,6 +1734,7 @@
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Player</span> : <span class="title">IAtk</span>, <span class="title">ISuperAtk</span> &#123;</span><br><span class="line">    <span class="comment">// 显式实现接口不能写访问修饰符</span></span><br><span class="line">    <span class="keyword">void</span> IAtk.Atk() &#123;&#125;</span><br><span class="line">    <span class="keyword">void</span> ISuperAtk.Atk() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Player p = <span class="keyword">new</span> Player();</span><br><span class="line"><span class="comment">// 无法直接用父类调用Atk方法</span></span><br><span class="line">(p <span class="keyword">as</span> IAtk).Atk();</span><br><span class="line">(p <span class="keyword">as</span> ISuperAtk).Atk();</span><br><span class="line"><span class="comment">// 但是也可以在Player类中实现一个自己的Atk方法, 自己实现的Atk方法与显式实现接口中的方法无关</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1726,7 +1743,7 @@
   </entry>
   <entry>
     <title>C#中的万物之父object</title>
-    <url>/csharp/csharp-object/</url>
+    <url>/programming-language/csharp/csharp-object/</url>
     <content><![CDATA[<h2 id="object中的静态方法"><a href="#object中的静态方法" class="headerlink" title="object中的静态方法"></a>object中的静态方法</h2><h3 id="static-Equals"><a href="#static-Equals" class="headerlink" title="static Equals"></a>static Equals</h3><ul>
 <li>判断两个对象是否相等</li>
 <li>最终判断权交给左边的对象的Equals方法</li>
@@ -1752,6 +1769,7 @@
 <p>默认的ToString返回类的完整类型名</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1760,7 +1778,7 @@
   </entry>
   <entry>
     <title>C#中的装箱拆箱</title>
-    <url>/csharp/csharp-packing-and-unpacking/</url>
+    <url>/programming-language/csharp/csharp-packing-and-unpacking/</url>
     <content><![CDATA[<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">object</span> obj = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">value</span> = (<span class="keyword">int</span>)obj;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestFun</span>(<span class="params"><span class="keyword">params</span> <span class="keyword">object</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TestFun(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3.45</span>, <span class="string">&quot;string&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <h2 id="发生条件"><a href="#发生条件" class="headerlink" title="发生条件"></a>发生条件</h2><ul>
@@ -1776,6 +1794,7 @@
 <p>装箱拆箱不是说不能用, 而是尽量少用, 避免频繁装箱拆箱造成大量的性能消耗</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1830,10 +1849,10 @@
 <p>很多时候, 你都还没开始去做就想着做的怎么怎么完美了, 后面啥也没干成, 就放一边去了, 不管做的怎么样, 先把事情干起来, 先完成再说</p>
 ]]></content>
       <categories>
-        <category>DesignPatterns</category>
+        <category>设计模式</category>
       </categories>
       <tags>
-        <tag>DesignPatterns</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -1878,7 +1897,7 @@
   </entry>
   <entry>
     <title>C#中的匿名函数和lambda表达式</title>
-    <url>/csharp/csharp-anonymous-func/</url>
+    <url>/programming-language/csharp/csharp-anonymous-func/</url>
     <content><![CDATA[<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>匿名函数就是没有名字的函数</p>
 <p><strong>匿名函数必须配合委托/事件使用</strong></p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Action a = <span class="keyword">delegate</span>()</span><br><span class="line">&#123;</span><br><span class="line">    Console.Write(<span class="string">&quot;匿名函数&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Func&lt;<span class="keyword">int</span>, <span class="keyword">string</span>&gt; f = <span class="keyword">delegate</span>(<span class="keyword">int</span> a)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">$&quot;值为<span class="subst">&#123;a&#125;</span>&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">f(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
@@ -1896,6 +1915,7 @@
 <p>如果想让闭包中使用的外部变量值是运行时的值, 可以使用临时变量存储或者当作参数传递给lamdba表达式中</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1904,7 +1924,7 @@
   </entry>
   <entry>
     <title>C#中的委托和事件</title>
-    <url>/csharp/csharp-delegate-and-event/</url>
+    <url>/programming-language/csharp/csharp-delegate-and-event/</url>
     <content><![CDATA[<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><p>委托是函数的容器, 可以用来存储传递函数</p>
 <p>委托的本质是一个类, 用来定义函数的类型</p>
 <h3 id="委托的使用"><a href="#委托的使用" class="headerlink" title="委托的使用"></a>委托的使用</h3><p>可以申明在namespace或者class语句块中, 一般写在namespace中</p>
@@ -1955,6 +1975,7 @@
 </ul>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -1963,7 +1984,7 @@
   </entry>
   <entry>
     <title>C#中的泛型和泛型约束</title>
-    <url>/csharp/csharp-generic/</url>
+    <url>/programming-language/csharp/csharp-generic/</url>
     <content><![CDATA[<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型实现了类型参数化, 达到代码复用目的</p>
 <p>泛型相当于类型占位符</p>
 <h3 id="泛型类和泛型接口"><a href="#泛型类和泛型接口" class="headerlink" title="泛型类和泛型接口"></a>泛型类和泛型接口</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">TestClass</span>&lt;<span class="title">T</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Test1</span>&lt;<span class="title">T</span>,<span class="title">K</span>,<span class="title">M</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> T v1;</span><br><span class="line">    <span class="keyword">public</span> K v2;</span><br><span class="line">    <span class="keyword">public</span> M v3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1999,6 +2020,7 @@
 <h3 id="泛型约束组合使用"><a href="#泛型约束组合使用" class="headerlink" title="泛型约束组合使用"></a>泛型约束组合使用</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">class Test&lt;T, K&gt; where T : class , new() where K : struct</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2007,7 +2029,7 @@
   </entry>
   <entry>
     <title>C#中的协变和逆变</title>
-    <url>/csharp/csharp-covariance-and-inverter/</url>
+    <url>/programming-language/csharp/csharp-covariance-and-inverter/</url>
     <content><![CDATA[<h2 id="什么是协变逆变"><a href="#什么是协变逆变" class="headerlink" title="什么是协变逆变"></a>什么是协变逆变</h2><p><strong>主要用于泛型重载之间相互装载时使用</strong></p>
 <p>基本原理就是<strong>子类对象可以作为父类使用</strong></p>
 <p>只有<strong>泛型接口</strong>和<strong>泛型委托</strong>能使用</p>
@@ -2028,6 +2050,7 @@
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Base</span> &#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">A</span> : <span class="title">Base</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">Test</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; ta = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line"><span class="comment">// Test&lt;Base&gt; tb = ta; // 这里会报错, 虽然返回的A对象其实可以作为Base使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 协变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> T <span class="title">TestOut</span>&lt;<span class="keyword">out</span> <span class="title">T</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line">Test&lt;A&gt; toa = () =&gt; &#123; <span class="keyword">return</span> <span class="keyword">new</span> A(); &#125;</span><br><span class="line">Test&lt;Base&gt; tob = toa; <span class="comment">// 这里不会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">Test</span>&lt;<span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">Test&lt;Base&gt; tb = (<span class="keyword">value</span>) =&gt; &#123;&#125;; <span class="comment">// value是Base类型</span></span><br><span class="line"><span class="comment">// Test&lt;A&gt; ta = tb; // 报错, 虽然传入的A参数可以作为Base传给value</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 逆变</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">TestIn</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T v</span>)</span>;</span><br><span class="line">TestIn&lt;Base&gt; tib = (<span class="keyword">value</span>) =&gt; &#123;&#125;;</span><br><span class="line">TestIn&lt;A&gt; tia = tib; <span class="comment">// 不会报错</span></span><br><span class="line"></span><br><span class="line">tia(<span class="keyword">new</span> A());</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2036,7 +2059,7 @@
   </entry>
   <entry>
     <title>C#中的多线程</title>
-    <url>/csharp/csharp-multi-threads/</url>
+    <url>/programming-language/csharp/csharp-multi-threads/</url>
     <content><![CDATA[<h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程是操作系统进行资源分配和调度的基本单位</p>
 <p>进程之间独立运行, 具有独立的内存空间, 进程间也可以相互访问</p>
 <h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程是操作系统调度的最小单位</p>
@@ -2073,6 +2096,7 @@
 <h2 id="多线程作用"><a href="#多线程作用" class="headerlink" title="多线程作用"></a>多线程作用</h2><p>用于处理一些复杂耗时的逻辑, 比如寻路, 网络通信等等, 避免主线程卡顿</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2081,7 +2105,7 @@
   </entry>
   <entry>
     <title>C#中的预编译指令</title>
-    <url>/csharp/csharp-precompile/</url>
+    <url>/programming-language/csharp/csharp-precompile/</url>
     <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>预处理器指令可以在代码编译之前进行一些逻辑处理, 一般用于平台或者版本的判断</p>
 <h3 id="代码折叠-region"><a href="#代码折叠-region" class="headerlink" title="代码折叠 region"></a>代码折叠 region</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">region</span> 知识点一</span></span><br><span class="line"><span class="comment">// 这是C#专有的预编译指令, 可以让一段代码可以折叠起来</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;这里是知识点一&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endregion</span></span></span><br></pre></td></tr></table></figure>
 
@@ -2089,6 +2113,7 @@
 
 <h3 id="警告与错误"><a href="#警告与错误" class="headerlink" title="警告与错误"></a>警告与错误</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> Unity2019</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> Unity2017</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">warning</span> 版本较低</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="comment">// #error 如果生效, 则直接产生错误, 不允许编译</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">error</span> 这个版本不支持</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2097,7 +2122,7 @@
   </entry>
   <entry>
     <title>C#反射</title>
-    <url>/csharp/csharp-reflect/</url>
+    <url>/programming-language/csharp/csharp-reflect/</url>
     <content><![CDATA[<h2 id="基础认识"><a href="#基础认识" class="headerlink" title="基础认识"></a>基础认识</h2><h3 id="程序集"><a href="#程序集" class="headerlink" title="程序集"></a>程序集</h3><p>程序集是编译器编译得到的一个产物</p>
 <p>我们写的一个代码集合编译成一个程序集可以方便的提供给他人使用</p>
 <p>在Windows系统中, 一般是后缀为<code>.dll</code>或者<code>.exe</code>的格式</p>
@@ -2186,6 +2211,7 @@
 <p>如果填的参数和类的所有构造的参数列表不对应, 则直接报错</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2194,7 +2220,7 @@
   </entry>
   <entry>
     <title>C#中的迭代器</title>
-    <url>/csharp/csharp-iterator/</url>
+    <url>/programming-language/csharp/csharp-iterator/</url>
     <content><![CDATA[<h2 id="迭代器概念"><a href="#迭代器概念" class="headerlink" title="迭代器概念"></a>迭代器概念</h2><h3 id="迭代器是什么"><a href="#迭代器是什么" class="headerlink" title="迭代器是什么"></a>迭代器是什么</h3><p>迭代器 (Iterator) 有时又称为光标(cursor)</p>
 <p>是程序设计的一种软件设计模式</p>
 <p>迭代器模式: 提供一个方法顺序访问一个集合对象中的各个元素, 而又不暴露其内部的标识</p>
@@ -2221,6 +2247,7 @@
 <h2 id="泛型迭代器"><a href="#泛型迭代器" class="headerlink" title="泛型迭代器"></a>泛型迭代器</h2><p>可以将上述的类改为泛型实现, <code>IEnumerable</code>也有泛型的接口, <code>IEnumerator</code>也有泛型类型</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2229,7 +2256,7 @@
   </entry>
   <entry>
     <title>C#中的特殊语法</title>
-    <url>/csharp/csharp-special/</url>
+    <url>/programming-language/csharp/csharp-special/</url>
     <content><![CDATA[<h3 id="var隐式类型"><a href="#var隐式类型" class="headerlink" title="var隐式类型"></a>var隐式类型</h3><p>var可以表示任意类型的临时变量 (自动推导类型), 可以用于简化复杂类型, 但是尽量不要影响代码的理解</p>
 <ul>
 <li>var不能作为类的成员, 只能用于临时变量中, 也就是语句块中</li>
@@ -2271,6 +2298,7 @@
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123;</span><br><span class="line">        <span class="keyword">get</span> =&gt; <span class="string">&quot;Alice&quot;</span>;</span><br><span class="line">        <span class="keyword">set</span> =&gt; name = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Add</span>(<span class="params"><span class="keyword">int</span> x, <span class="keyword">int</span> y</span>)</span> =&gt; x + y;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Speek</span>(<span class="params"><span class="keyword">string</span> str</span>)</span> =&gt; Console.WriteLine(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2279,7 +2307,7 @@
   </entry>
   <entry>
     <title>C#中值类型与引用类型深入理解</title>
-    <url>/csharp/csharp-value-and-class/</url>
+    <url>/programming-language/csharp/csharp-value-and-class/</url>
     <content><![CDATA[<p>值类型和引用类型的本质区别是, 值的具体内容存储在栈内存上, 而引用类型变量只在栈上存储一个地址, 具体内容存储在堆上</p>
 <h3 id="如何判断值类型与引用类型"><a href="#如何判断值类型与引用类型" class="headerlink" title="如何判断值类型与引用类型"></a>如何判断值类型与引用类型</h3><p>F12跟进去看, <code>class</code>为引用, <code>struct</code>为值</p>
 <h3 id="语句块"><a href="#语句块" class="headerlink" title="语句块"></a>语句块</h3><ul>
@@ -2328,6 +2356,7 @@
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title">ITest</span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Value &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> TestStruct : ITest</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span> =&gt; <span class="keyword">value</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TestStruct t = <span class="keyword">new</span> TestStruct();</span><br><span class="line">TestStruct t2 = t; <span class="comment">// 复制, 浅拷贝</span></span><br><span class="line">ITest it = t; <span class="comment">// 装箱</span></span><br><span class="line">TestStruct t3 = (TestStruct)t; <span class="comment">// 拆箱</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -2366,7 +2395,7 @@
   </entry>
   <entry>
     <title>C#中特性的使用</title>
-    <url>/csharp/csharp-features/</url>
+    <url>/programming-language/csharp/csharp-features/</url>
     <content><![CDATA[<h3 id="特性是什么"><a href="#特性是什么" class="headerlink" title="特性是什么"></a>特性是什么</h3><p>特性可以在运行时使用反射查询特性信息</p>
 <p>特性本质是个类, 可以利用特性为元数据添加额外信息, 比如堆一个类/成员变量/成员方法等添加更多的额外信息</p>
 <p>之后再通过反射来获取这些额外信息</p>
@@ -2416,6 +2445,7 @@
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 外部dll实现的函数</span></span><br><span class="line">    [<span class="meta">DllImport(<span class="meta-string">&quot;Test.dll&quot;</span>)</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">Add</span>(<span class="params"><span class="keyword">int</span> a, <span class="keyword">int</span> b</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
       </categories>
       <tags>
@@ -3706,10 +3736,10 @@
   </entry>
   <entry>
     <title>MVC框架--PureMVC</title>
-    <url>/csharp/design-patterns/pure-mvc/</url>
+    <url>/programming-language/csharp/pure-mvc/</url>
     <content><![CDATA[<p>MVC是一种很好的设计框架, 可以解耦数据(Model)/视图(View)和业务逻辑(Controller)之间的耦合</p>
 <p>PureMVC是一个通用的MVC框架, 运用多种设计模式, 将数据/视图和业务解耦, 这里先看看官方给的图</p>
-<img data-src="/csharp/design-patterns/pure-mvc/puremvc.png" class="">
+<img data-src="/programming-language/csharp/pure-mvc/puremvc.png" class="">
 
 <p>不要被图吓到, 其实这个框架结构还是很清晰的</p>
 <p>官方提供了<a href="http://puremvc.org/docs/PureMVC_IIBP_Chinese.pdf">PureMVC的中文PDF文档</a></p>
@@ -3732,7 +3762,7 @@
 </li>
 </ul>
 <p>PureMVC中的Facade是一个单例类, 它统一管理上述的Model/View/Controller的单实例, 对外提供管理Proxy/Mediator/Command和发送通知的接口, 避免用户直接操作Model/View/Controller, 减少耦合 (设计模式: 面板模式)</p>
-<h2 id="MVC交互"><a href="#MVC交互" class="headerlink" title="MVC交互"></a>MVC交互</h2><img data-src="/csharp/design-patterns/pure-mvc/mvc.gif" class="">
+<h2 id="MVC交互"><a href="#MVC交互" class="headerlink" title="MVC交互"></a>MVC交互</h2><img data-src="/programming-language/csharp/pure-mvc/mvc.gif" class="">
 
 <p>Facade使用Controller实例保存了Command与Notification之间的映射, 当Notification(通知)被发出时, 对应的Command(命令)就会自动由Controller执行</p>
 <h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><p>Notification可以触发Command的执行, Command也可以发送Notification</p>
@@ -3796,12 +3826,12 @@
 <p>看的再多不如拿来用一用, 写一写, 再结合文档和源码看看就会理解了</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>C#</category>
-        <category>DesignPatterns</category>
       </categories>
       <tags>
         <tag>C#</tag>
-        <tag>DesignPatterns</tag>
+        <tag>设计模式</tag>
         <tag>Framework</tag>
         <tag>MVC</tag>
       </tags>
@@ -3966,7 +3996,7 @@
   </entry>
   <entry>
     <title>Lua简明教程</title>
-    <url>/lua/lua-tutorial/</url>
+    <url>/programming-language/lua/lua-tutorial/</url>
     <content><![CDATA[<h1 id="Lua"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</h1><h2 id="编译Lua-5-3-5"><a href="#编译Lua-5-3-5" class="headerlink" title="编译Lua 5.3.5"></a>编译Lua 5.3.5</h2><ol>
 <li><p>下载lua5.3.5源码并解压 <a href="http://www.lua.org/ftp/">www.lua.org/ftp/</a></p>
 </li>
@@ -4283,6 +4313,7 @@
 <p>// todo</p>
 ]]></content>
       <categories>
+        <category>编程语言</category>
         <category>Lua</category>
       </categories>
       <tags>

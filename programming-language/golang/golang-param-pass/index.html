@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="结论Go里边函数传参只有值传递一种方式(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数) 刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice&#x2F;map&#x2F;chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递 实际上, slice, map, channel都是结构体类型的值传递, 但是结构体中包含指向实际数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言中的值类型&#x2F;引用类型和参数传递">
+<meta property="og:url" content="http://fetasty.github.io/programming-language/golang/golang-param-pass/index.html">
+<meta property="og:site_name" content="fetasty">
+<meta property="og:description" content="结论Go里边函数传参只有值传递一种方式(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数) 刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice&#x2F;map&#x2F;chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递 实际上, slice, map, channel都是结构体类型的值传递, 但是结构体中包含指向实际数据">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-07T07:02:26.000Z">
+<meta property="article:modified_time" content="2021-05-07T13:11:29.510Z">
+<meta property="article:author" content="EricYe">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://fetasty.github.io/programming-language/golang/golang-param-pass/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Go语言中的值类型/引用类型和参数传递 | fetasty</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fetasty</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">念念不忘, 必有回响</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/programming-language/golang/golang-param-pass/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Go语言中的值类型/引用类型和参数传递
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-07 15:02:26" itemprop="dateCreated datePublished" datetime="2020-02-07T15:02:26+08:00">2020-02-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-07 21:11:29" itemprop="dateModified" datetime="2021-05-07T21:11:29+08:00">2021-05-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming-language/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming-language/golang/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/programming-language/golang/golang-param-pass/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/programming-language/golang/golang-param-pass/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p><strong>Go里边函数传参只有值传递一种方式</strong>(调用函数时将实际参数复制一份传递到函数中, 函数中对参数进行修改将不会影响实际参数)</p>
+<p>刚开始听到这个结论, 觉得不可思议, 因为实际给函数传递一个slice/map/chan类型的参数, 在函数内改变该参数的值会影响到函数外的变量值, 这看起来像是引用传递</p>
+<p>实际上, slice, map, channel都是<strong>结构体类型的值传递</strong>, 但是<strong>结构体中包含指向实际数据的指针</strong>, 所以它们是值传递, 而并非引用传递</p>
+<a id="more"></a>
+
+<h2 id="引用的类型"><a href="#引用的类型" class="headerlink" title="引用的类型"></a>引用的类型</h2><p>Go语言中的slice, map, channel都是引用类型, 这个引用和Python相似, 和C++不同</p>
+<h3 id="C-中的引用"><a href="#C-中的引用" class="headerlink" title="C++中的引用"></a>C++中的引用</h3><p>C语言中没有引用类型, 但C++中实现了引用类型, 这个引用是编译器通过指针实现的, 让引用用起来像”别名”</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span>&amp; b)</span> </span>&#123; <span class="comment">// b为引用, 编译后其实是用指针实现</span></span><br><span class="line">    b = <span class="number">999</span>;</span><br><span class="line">&#125;</span><br><span class="line">change(a);</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a; <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中, 如果编译后进行反编译查看汇编代码, 会发现底层是将int变量地址(int*)作为参数传递, C++中的引用是编译器通过指针实现, 是编译器实现的一个语法糖</p>
+<h3 id="Go和Python中的引用"><a href="#Go和Python中的引用" class="headerlink" title="Go和Python中的引用"></a>Go和Python中的引用</h3><p>Go和Python中的引用其实是struct中包含指针, 当赋值/传递参数时, 会发生struct的复制, struct中的指针被一起复制, 主要数据没有发生复制, 两个struct中的指针指向同一块内存, 用起来和”引用”一样</p>
+<p>底层实现我也没有深入研究, 这里看看Go语言的slice结构(<a target="_blank" rel="noopener" href="https://github.com/golang/go/blob/master/src/runtime/slice.go">slice源码</a>), 就能理解了</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// slice</span></span><br><span class="line"><span class="keyword">type</span> slice <span class="keyword">struct</span> &#123;</span><br><span class="line">    array unsafe.Pointer</span><br><span class="line">    <span class="built_in">len</span> <span class="keyword">int</span></span><br><span class="line">    <span class="built_in">cap</span> <span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>slice其实是一个包含指针的结构体, 现在说Go语言中只有值传递就很好理解了, 当传递一个slice参数, 其实是结构体的值传递, 结构体中的指针指向同一内存区域, 所以函数中的数据操作也会影响函数外的slice值</p>
+<h2 id="Go语言中的常见引用类型和值类型"><a href="#Go语言中的常见引用类型和值类型" class="headerlink" title="Go语言中的常见引用类型和值类型"></a>Go语言中的常见引用类型和值类型</h2><h3 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h3><p>值类型进行赋值/参数传递时, 实际时将内存中的值进行了拷贝, <strong>数据/结构体是值类型也进行了拷贝</strong></p>
+<ul>
+<li><p>int, float, bool, string 等基本类型</p>
+</li>
+<li><p>数组, 结构体</p>
+</li>
+<li><p>指针</p>
+</li>
+</ul>
+<p>再次提醒, Go中的string/数组是值类型, 赋值时进行了拷贝, 拷贝后的变量修改不会影响原变量的值, 这和C++中的完全不同, 如果你和我一样之前是使用C++语言, 这里要特别注意</p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>记住Go语言中的引用类型其实是包含指针的struct, 该struct还是值类型</p>
+<ul>
+<li>slice, map, chan等</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//数组</span></span><br><span class="line">b := a</span><br><span class="line">b[<span class="number">0</span>] = <span class="number">99</span>;</span><br><span class="line">fmt.Println(a) <span class="comment">//[1 2 3 4 5]</span></span><br><span class="line">fmt.Println(b) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">c := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">//slice, 这里想一下slice的struct结构</span></span><br><span class="line">d := c</span><br><span class="line">d[<span class="number">0</span>] = <span class="number">99</span></span><br><span class="line">fmt.Println(c) <span class="comment">//[99 2 3 4 5]</span></span><br><span class="line">fmt.Println(d) <span class="comment">//[99 2 3 4 5]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="指针接收者"><a href="#指针接收者" class="headerlink" title="指针接收者"></a>指针接收者</h2><p>Go语言如果需要在函数中修改传入的实际参数的变量值, 应该使用指针接收者</p>
+<p>也就是说对于<code>func (a *T) test() &#123;&#125;</code>, 函数接收者可以是T类型, 并且函数中对a的修改会影响函数外的变量值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test1</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">100</span></span><br><span class="line">    a.y = <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">99</span></span><br><span class="line">    a.y = <span class="number">99</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    v := T&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;</span></span><br><span class="line">    v.test1()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;1 2&#125;, 接收者传入是以值传递, struct复制</span></span><br><span class="line">    v.test2()</span><br><span class="line">    fmt.Println(v) <span class="comment">//&#123;99 99&#125;, 接收者传入是指针值传递, 指针复制</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于需要指针函数的函数, 则只能接受指针类型参数;<br>而接收者类型为指针时, 接收者可以是指针也可以是值, 传入值参数自动解释为指针(&amp;v);<br>接收者类型为值类型时, 接收者可以是值也可以是指针, 传入指针类型自动解释为值类型(*p).</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// T struct</span></span><br><span class="line"><span class="keyword">type</span> T <span class="keyword">struct</span> &#123;</span><br><span class="line">    x, y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test1</span><span class="params">(a *T)</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">1</span></span><br><span class="line">    a.y = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *T)</span> <span class="title">test2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">2</span></span><br><span class="line">    a.y = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a T)</span> <span class="title">test3</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a.x = <span class="number">3</span></span><br><span class="line">    a.y = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	v := T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">	p := &amp;v</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">	test1(p)</span><br><span class="line">	<span class="comment">// test1(v) //编译出错</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;1 1&#125;</span></span><br><span class="line">	p.test2()</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">	v = T&#123;<span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;0 0&#125;</span></span><br><span class="line">	v.test2()      <span class="comment">//自动解释为(&amp;v).test2()</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">	v.test3()</span><br><span class="line">	p.test3()      <span class="comment">//自动解释为(*p).test3()</span></span><br><span class="line">	fmt.Println(v) <span class="comment">//&#123;2 2&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考资料:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84580859">一文理清 Go 引用的常见疑惑</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hoodlum1980/archive/2012/06/19/2554270.html">C++中引用的底层实现</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/golang/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/algorithm/merge-sort/" rel="prev" title="归并排序(非递归&不回写)">
+      <i class="fa fa-chevron-left"></i> 归并排序(非递归&不回写)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/algorithm/hash-table/" rel="next" title="哈希表">
+      哈希表 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">引用的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E4%B8%AD%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">C++中的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go%E5%92%8CPython%E4%B8%AD%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-number">2.2.</span> <span class="nav-text">Go和Python中的引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%80%BC%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">Go语言中的常见引用类型和值类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E6%8E%A5%E6%94%B6%E8%80%85"><span class="nav-number">4.</span> <span class="nav-text">指针接收者</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EricYe</p>
+  <div class="site-description" itemprop="description">The compiler in my hand will be a part of my soul.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fetasty" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fetasty" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fetasty@outlook.com" title="E-Mail → mailto:fetasty@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.unrealengine.com/" title="https:&#x2F;&#x2F;www.unrealengine.com" rel="noopener" target="_blank">Unreal Engine</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://kexingfu.github.io/" title="http:&#x2F;&#x2F;kexingfu.github.io" rel="noopener" target="_blank">Kexingfu</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EricYe</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'IyyIsLTeEAleQasCvYmTAx6Q-gzGzoHsz',
+      appKey     : '3laWJNFvNHzGHaRXfffC3K9H',
+      placeholder: "文明用语暖人心, 遵纪守法好公民",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

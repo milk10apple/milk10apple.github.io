@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fetasty.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基础认识程序集程序集是编译器编译得到的一个产物 我们写的一个代码集合编译成一个程序集可以方便的提供给他人使用 在Windows系统中, 一般是后缀为.dll或者.exe的格式 元数据元数据就是用来描述数据的数据 程序中的类, 类中的函数, 变量等信息就是程序的元数据 有关程序以及类型的数据被称为元数据, 保存在程序集中 反射概念程序在运行时可以查看其它程序集或者自身的元数据, 这种行为叫做反射 反">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#反射">
+<meta property="og:url" content="http://fetasty.github.io/programming-language/csharp/csharp-reflect/index.html">
+<meta property="og:site_name" content="fetasty">
+<meta property="og:description" content="基础认识程序集程序集是编译器编译得到的一个产物 我们写的一个代码集合编译成一个程序集可以方便的提供给他人使用 在Windows系统中, 一般是后缀为.dll或者.exe的格式 元数据元数据就是用来描述数据的数据 程序中的类, 类中的函数, 变量等信息就是程序的元数据 有关程序以及类型的数据被称为元数据, 保存在程序集中 反射概念程序在运行时可以查看其它程序集或者自身的元数据, 这种行为叫做反射 反">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-04T14:09:32.000Z">
+<meta property="article:modified_time" content="2021-05-07T13:11:29.498Z">
+<meta property="article:author" content="EricYe">
+<meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://fetasty.github.io/programming-language/csharp/csharp-reflect/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>C#反射 | fetasty</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fetasty</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">念念不忘, 必有回响</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fetasty.github.io/programming-language/csharp/csharp-reflect/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EricYe">
+      <meta itemprop="description" content="The compiler in my hand will be a part of my soul.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fetasty">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C#反射
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-04 22:09:32" itemprop="dateCreated datePublished" datetime="2021-03-04T22:09:32+08:00">2021-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-07 21:11:29" itemprop="dateModified" datetime="2021-05-07T21:11:29+08:00">2021-05-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming-language/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming-language/csharp/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/programming-language/csharp/csharp-reflect/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/programming-language/csharp/csharp-reflect/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="基础认识"><a href="#基础认识" class="headerlink" title="基础认识"></a>基础认识</h2><h3 id="程序集"><a href="#程序集" class="headerlink" title="程序集"></a>程序集</h3><p>程序集是编译器编译得到的一个产物</p>
+<p>我们写的一个代码集合编译成一个程序集可以方便的提供给他人使用</p>
+<p>在Windows系统中, 一般是后缀为<code>.dll</code>或者<code>.exe</code>的格式</p>
+<h3 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h3><p>元数据就是用来描述数据的数据</p>
+<p>程序中的类, 类中的函数, 变量等信息就是程序的元数据</p>
+<p>有关程序以及类型的数据被称为元数据, 保存在程序集中</p>
+<h3 id="反射概念"><a href="#反射概念" class="headerlink" title="反射概念"></a>反射概念</h3><p>程序在运行时可以查看其它程序集或者自身的元数据, 这种行为叫做反射</p>
+<p>反射可以在程序编译后获得信息, 提高了程序的扩展性和灵活性</p>
+<ul>
+<li>运行时得到元数据, 以及元数据特性</li>
+<li>运行时实例化对象, 操作对象</li>
+<li>运行时创建对象, 执行对象的操作</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="反射使用"><a href="#反射使用" class="headerlink" title="反射使用"></a>反射使用</h2><h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>Type是反射功能的基础, 是访问元数据的主要方式</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span>(<span class="params"><span class="keyword">int</span> i</span>): <span class="title">this</span>(<span class="params"></span>)</span> &#123; <span class="keyword">this</span>.i = i; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取Type"><a href="#获取Type" class="headerlink" title="获取Type"></a>获取Type</h4><ol>
+<li>使用object中的<code>GetType()</code>方法</li>
+<li>使用<code>typeof(类型)</code></li>
+<li>使用<code>Type.GetType(&quot;完整的类型名&quot;)</code></li>
+</ol>
+<p>一般来说, 同一个程序集中可以使用1和2获取Type, 但不同程序集之间可以通过3来获取Type</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 使用object中的GetType()可以获取对象的Type</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">42</span>;</span><br><span class="line">Type type1 = a.GetType(); <span class="comment">// 不管值类型还是引用类型都可以获得Type</span></span><br><span class="line"><span class="comment">// 2. typeof(类型)</span></span><br><span class="line">Type type2 = <span class="keyword">typeof</span>(<span class="keyword">int</span>);</span><br><span class="line"><span class="comment">// 3. 通过类名 (必须包含命名空间)</span></span><br><span class="line">Type type3 = Type.GetType(<span class="string">&quot;Sytem.Int32&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>上面的type1, type2, type3其实指向同一个地址, 每一个类型的类型信息只有一份</p>
+<h4 id="获取程序集"><a href="#获取程序集" class="headerlink" title="获取程序集"></a>获取程序集</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Console.WriteLine(type1.Assembly);</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取类中的所有公共成员"><a href="#获取类中的所有公共成员" class="headerlink" title="获取类中的所有公共成员"></a>获取类中的所有公共成员</h4><p>需要引用命名空间 <code>System.Reflection</code></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Type t = <span class="keyword">typeof</span>(Test);</span><br><span class="line">MemberInfo[] infos = t.GetMembers(); <span class="comment">// 获取所有公共成员</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; infos.Length; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(infos[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取公共构造函数并调用"><a href="#获取公共构造函数并调用" class="headerlink" title="获取公共构造函数并调用"></a>获取公共构造函数并调用</h4><ul>
+<li>获取所有公共构造 <code>GetConstructors()</code><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ConstructorInfo[] ctors = t.GetConstructors(); <span class="comment">// 公共构造</span></span><br></pre></td></tr></table></figure></li>
+<li>获取其中一个公共构造<ul>
+<li>得到构造函数传入Type数组, 顺序是参数顺序</li>
+<li>执行构造函数传入object数组, 按顺序传入参数<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ConstructorInfo info = t.GetConstructor(<span class="keyword">new</span> Type[<span class="number">0</span>]); <span class="comment">// 取得无参构造</span></span><br><span class="line">Test obj = info.Invoke(<span class="literal">null</span>) <span class="keyword">as</span> Test; <span class="comment">// 没有参数传入null就行</span></span><br><span class="line">Console.WriteLine(obj.i);</span><br><span class="line"></span><br><span class="line">ConstructorInfo info2 = t.GetConstructor(<span class="keyword">new</span> Type[] &#123; <span class="keyword">typeof</span>(<span class="keyword">int</span>)&#125;);</span><br><span class="line">obj = info2.Invoke(<span class="keyword">new</span> <span class="keyword">object</span>[] &#123; <span class="number">2</span> &#125;) <span class="keyword">as</span> Test;</span><br><span class="line">Console.WriteLine(obj.i);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="获取类的公共成员变量"><a href="#获取类的公共成员变量" class="headerlink" title="获取类的公共成员变量"></a>获取类的公共成员变量</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所有公共成员变量</span></span><br><span class="line">FieldInfo[] fields = t.GetFields();</span><br><span class="line"><span class="comment">// 指定名称的公共成员变量</span></span><br><span class="line">FieldInfo infoJ = t.GetField(<span class="string">&quot;j&quot;</span>);</span><br><span class="line"><span class="comment">// 通过反射获取和设置对象的值</span></span><br><span class="line">Test test = <span class="keyword">new</span> Test();</span><br><span class="line">test.j = <span class="number">99</span>;</span><br><span class="line">Console.WriteLine(infoJ.GetValue(test)); <span class="comment">// 通过FieldInfo获取对象中的成员变量值</span></span><br><span class="line"><span class="comment">// 通过反射设置指定对象的某个变量</span></span><br><span class="line">infoJ.SetValue(test, <span class="number">100</span>);</span><br><span class="line">Console.WriteLine(infoJ.GetValue(test));</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取类的公共成员方法"><a href="#获取类的公共成员方法" class="headerlink" title="获取类的公共成员方法"></a>获取类的公共成员方法</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Type strType = <span class="keyword">typeof</span>(<span class="keyword">string</span>);</span><br><span class="line"><span class="comment">// 获取所有公共方法</span></span><br><span class="line">MethodInfo[] methods = strType.GetMethods();</span><br><span class="line"><span class="comment">// 获取指定公共方法</span></span><br><span class="line">MethodInfo subStr = strType.GetMethod(<span class="string">&quot;Substring&quot;</span>,</span><br><span class="line">    <span class="keyword">new</span> Type[] &#123; <span class="keyword">typeof</span>(<span class="keyword">int</span>), <span class="keyword">typeof</span>(<span class="keyword">int</span>) &#125;);</span><br><span class="line"><span class="comment">// 调用方法, 注意: 如果是静态方法, Invoke第一个参数传入null</span></span><br><span class="line"><span class="keyword">string</span> str = <span class="string">&quot;Hello, world!&quot;</span>;</span><br><span class="line"><span class="keyword">object</span> result = subStr.Invoke(str, <span class="keyword">new</span> <span class="keyword">object</span>[] &#123; <span class="number">7</span>, <span class="number">5</span>&#125;);</span><br><span class="line">Console.WriteLine(result);</span><br></pre></td></tr></table></figure>
+
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>使用Type对象可以取得类的所有元信息</p>
+<ul>
+<li>取枚举<ul>
+<li><code>GetEnumName</code></li>
+<li><code>GetEnumNames</code></li>
+</ul>
+</li>
+<li>得事件<ul>
+<li><code>GetEvent</code></li>
+<li><code>GetEvents</code></li>
+</ul>
+</li>
+<li>得接口<ul>
+<li><code>GetInterface</code></li>
+<li><code>GetInterfaces</code></li>
+</ul>
+</li>
+<li>得属性<ul>
+<li><code>GetProperty</code></li>
+<li><code>GetProperties</code></li>
+</ul>
+</li>
+</ul>
+<p>等等</p>
+<h3 id="Assembly"><a href="#Assembly" class="headerlink" title="Assembly"></a>Assembly</h3><p>程序集类, 主要用来加载其他程序集, 加载后可以使用其他程序集中的信息</p>
+<p>如果使用的不是自己程序集中的内容, 需要先加载程序集 (比如<code>dll</code>库文件)</p>
+<h4 id="三种加载程序集的函数"><a href="#三种加载程序集的函数" class="headerlink" title="三种加载程序集的函数"></a>三种加载程序集的函数</h4><ul>
+<li>一般用于加载在同一文件夹的其它程序集<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assembly assembly1 = Assembly.Load(<span class="string">&quot;程序集名称&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>一般用于加载不在同一个文件夹下的程序集<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Assembly assembly2 = Assembly.LoadFrom(<span class="string">&quot;包含程序集清单的文件的名称或者路径&quot;</span>);</span><br><span class="line">Assembly assembly3 = Assembly.LoadFile(<span class="string">&quot;要加载的文件的完全限定路径&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tank.dll</span></span><br><span class="line">Assembly assembly = Assembly.LoadFrom(<span class="string">@&quot;D:\Lesson1\bin\Tank&quot;</span>);</span><br><span class="line"><span class="comment">// 得到程序集中所有Type</span></span><br><span class="line">Type[] types = assembly.GetTypes();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; types.Length; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(types[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 得到Type对象之后再使用反射使用其它程序集中的类</span></span><br><span class="line">Type icon = assembly.GetType(<span class="string">&quot;Lesson1.Icon&quot;</span>); <span class="comment">// 完全限定的类名</span></span><br><span class="line">MemberInfo[] members = icon.GetMembers();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; members.Length; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    Console.WriteLine(members[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过反射实例化一个icon对象</span></span><br><span class="line"><span class="comment">// 首先得到枚举Type, 得到可以传入的参数</span></span><br><span class="line">Type moveDir = assembly.GetType(<span class="string">&quot;Lesson1.E_MoveDir&quot;</span>);</span><br><span class="line">FieldInfo right = moveDir.GetField(<span class="string">&quot;Right&quot;</span>);</span><br><span class="line"><span class="comment">// 实例化Icon对象</span></span><br><span class="line"><span class="keyword">object</span> iconObj = Activator.CreateInstance(icon, <span class="number">10</span>, <span class="number">5</span>, right.GetValue(<span class="literal">null</span>));</span><br><span class="line"><span class="comment">// 得到对象中的方法</span></span><br><span class="line">MethodInfo move = icon.GetMethod(<span class="string">&quot;Move&quot;</span>);</span><br><span class="line">MethodInfo draw = icon.GetMethod(<span class="string">&quot;Draw&quot;</span>);</span><br><span class="line">MethodInfo clear = icon.GetMethod(<span class="string">&quot;Clear&quot;</span>);</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">Console.Clear();</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    Thread.Sleep(<span class="number">1000</span>);</span><br><span class="line">    clear.Invoke(iconObj, <span class="literal">null</span>);</span><br><span class="line">    move.Invoke(iconObj, <span class="literal">null</span>);</span><br><span class="line">    draw.Invoke(iconObj, <span class="literal">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建类库文件"><a href="#创建类库文件" class="headerlink" title="创建类库文件"></a>创建类库文件</h4><p>vs新建工程时选择类库项目, 生成dll文件</p>
+<h3 id="Activator"><a href="#Activator" class="headerlink" title="Activator"></a>Activator</h3><p>用于快速实例化对象的类, 通过Type实例化对象比较麻烦, 需要先取得Type对象, 通过Type对象传入各种信息获取对应的构造函数, 再用Invoke调用构造函数取得对象</p>
+<p>通过Activator可以快速将Type实例化为对象</p>
+<p>Activator是System命名空间中的类</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Type testType = <span class="keyword">typeof</span>(Test);</span><br><span class="line"><span class="comment">// 无参构造</span></span><br><span class="line">Test testObj = Activator.CreateInstance(testType) <span class="keyword">as</span> Test;</span><br><span class="line"><span class="comment">// 有参构造</span></span><br><span class="line">testObj = Activator.CreateInstance(testType, <span class="number">99</span>) <span class="keyword">as</span> Test;</span><br><span class="line">Console.WriteLine(testObj.j);</span><br></pre></td></tr></table></figure>
+
+<p>如果填的参数和类的所有构造的参数列表不对应, 则直接报错</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/csharp/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/programming-language/csharp/csharp-precompile/" rel="prev" title="C#中的预编译指令">
+      <i class="fa fa-chevron-left"></i> C#中的预编译指令
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/programming-language/csharp/csharp-iterator/" rel="next" title="C#中的迭代器">
+      C#中的迭代器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%A4%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基础认识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E9%9B%86"><span class="nav-number">1.1.</span> <span class="nav-text">程序集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.</span> <span class="nav-text">元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.3.</span> <span class="nav-text">反射概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">反射使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Type"><span class="nav-number">2.1.</span> <span class="nav-text">Type</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96Type"><span class="nav-number">2.1.1.</span> <span class="nav-text">获取Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%A8%8B%E5%BA%8F%E9%9B%86"><span class="nav-number">2.1.2.</span> <span class="nav-text">获取程序集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%AC%E5%85%B1%E6%88%90%E5%91%98"><span class="nav-number">2.1.3.</span> <span class="nav-text">获取类中的所有公共成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%85%AC%E5%85%B1%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%B9%B6%E8%B0%83%E7%94%A8"><span class="nav-number">2.1.4.</span> <span class="nav-text">获取公共构造函数并调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E7%9A%84%E5%85%AC%E5%85%B1%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.5.</span> <span class="nav-text">获取类的公共成员变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E7%9A%84%E5%85%AC%E5%85%B1%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.6.</span> <span class="nav-text">获取类的公共成员方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">2.1.7.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Assembly"><span class="nav-number">2.2.</span> <span class="nav-text">Assembly</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E5%8A%A0%E8%BD%BD%E7%A8%8B%E5%BA%8F%E9%9B%86%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.1.</span> <span class="nav-text">三种加载程序集的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%B1%BB%E5%BA%93%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.2.</span> <span class="nav-text">创建类库文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activator"><span class="nav-number">2.3.</span> <span class="nav-text">Activator</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EricYe</p>
+  <div class="site-description" itemprop="description">The compiler in my hand will be a part of my soul.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fetasty" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fetasty" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fetasty@outlook.com" title="E-Mail → mailto:fetasty@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.unrealengine.com/" title="https:&#x2F;&#x2F;www.unrealengine.com" rel="noopener" target="_blank">Unreal Engine</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://kexingfu.github.io/" title="http:&#x2F;&#x2F;kexingfu.github.io" rel="noopener" target="_blank">Kexingfu</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EricYe</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'IyyIsLTeEAleQasCvYmTAx6Q-gzGzoHsz',
+      appKey     : '3laWJNFvNHzGHaRXfffC3K9H',
+      placeholder: "文明用语暖人心, 遵纪守法好公民",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
